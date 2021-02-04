@@ -1,0 +1,19 @@
+﻿<!--
+Author: Ranjithprabhu K
+Page Description: About Me page
+Date: 05 Jan 2016
+-->
+
+<section class="content-header">
+   
+   
+</section>
+<!-- Main content -->
+<section class="content">
+    <h1 style="color: #c3c3c3; text-align: center">
+            <a href="http://192.168.0.69:8050/#/compras">compras</a>
+    </h1>
+</section><!-- /.content -->
+<section class="content">
+  
+</section><!-- /.content -->

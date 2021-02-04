@@ -1,0 +1,18 @@
+﻿
+var login = angular.module('restaurante', ['ui.router', 'ngResource', 'ngAnimate']);
+
+login.config(["$stateProvider", function ($stateProvider) {
+
+    //login page state
+    $stateProvider.state('restaurante', {
+        url: '/restaurante',
+        templateUrl: 'app/modules/restaurante/index.html',
+        controller: 'restauranteCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Restaurante'
+        }
+    });
+
+}]);
+

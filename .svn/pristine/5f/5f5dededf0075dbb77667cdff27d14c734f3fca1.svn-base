@@ -1,0 +1,17 @@
+var step = angular.module('step', ['ui.router', 'ngResource', 'ngAnimate']);
+
+
+step.config(["$stateProvider", function ($stateProvider) {
+
+     //skills page state
+     $stateProvider.state('step', {
+        url: '/step',
+        templateUrl: 'app/modules/step/step.html',
+        controller: 'stepCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'STEP'
+        }
+    });
+
+}]);

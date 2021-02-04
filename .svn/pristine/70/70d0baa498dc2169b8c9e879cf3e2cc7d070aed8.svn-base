@@ -1,0 +1,121 @@
+﻿var dashboard = angular.module('dashboard', ['ui.router', 'ngAnimate','ngMaterial']);
+
+
+dashboard.config(["$stateProvider", function ($stateProvider) {
+
+    //dashboard home page state
+    $stateProvider.state('app.dashboard', {
+        url: '/dashboard',
+        templateUrl: 'app/modules/dashboard/views/home.html',
+        controller: 'HomeController',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Home'
+        }
+    });
+
+    //skills page state
+    $stateProvider.state('app.agendar', {
+        url: '/agendar',
+        templateUrl: 'app/modules/dashboard/views/agendar.html',
+        controller: 'agendarCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Agendar'
+        }
+    });
+
+    //Listar minhas Entregas
+    $stateProvider.state('app.minhasEntregas', {
+        url: '/minhas-entregas',
+        templateUrl: 'app/modules/dashboard/views/minhas-entregas.html',
+        controller: 'minhasEntregasCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Minhas Entregas'
+        }
+    });
+
+    
+
+    //Atualizar dados cadastrais
+    $stateProvider.state('app.meus-dados', {
+        url: '/meus-dados',
+        templateUrl: 'app/modules/dashboard/views/meus-dados.html',
+        controller: 'meusDadosCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Meus Dados'
+        }
+    });
+
+    // historico entregas
+    $stateProvider.state('app.historico', {
+        url: '/historico',
+        templateUrl: 'app/modules/dashboard/views/historico.html',
+        controller: 'historicoCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Histórico'
+        }
+    });    
+
+    //Cadastro produtos
+    $stateProvider.state('app.cadastro-produtos', {
+         url: '/cadastro-produtos',
+        templateUrl: 'app/modules/dashboard/views/cadastroProdutos.html',
+         controller: 'cadastroProdutosCtrl',
+         controllerAs: 'vm',
+         data: {
+           pageTitle: 'Cadastro de Produtos'
+         }
+     });
+
+    //Atualizar produtos
+    $stateProvider.state('app.atualizar-produtos', {
+         url: '/atualizar-produtos',
+        templateUrl: 'app/modules/dashboard/views/editarProdutos.html',
+         controller: 'atualizarProdutosCtrl',
+         controllerAs: 'vm',
+         data: {
+           pageTitle: 'Atualizar de Produtos'
+         }
+     });
+
+    //Lista de produtos
+    $stateProvider.state('app.lista-produtos', {
+         url: '/lista-produtos',
+        templateUrl: 'app/modules/dashboard/views/listaProdutos.html',
+         controller: 'listaProdutosCtrl',
+         controllerAs: 'vm',
+         data: {
+           pageTitle: 'Lista de Produtos'
+         }
+     });
+
+    // Bordero
+     $stateProvider.state('app.bordero', {
+         url: '/bordero',
+        templateUrl: 'app/modules/dashboard/views/bordero.html',
+         controller: 'borderoCtrl',
+         controllerAs: 'vm',
+         data: {
+           pageTitle: 'Bordero'
+         }
+     });
+
+    // Mapas
+    $stateProvider.state('app.maps', {
+        url: '/maps',
+        templateUrl: 'app/modules/dashboard/views/maps.html',
+        controller: 'mapsCtrl',
+        controllerAs: 'vm',
+        data: {
+                pageTitle: 'Maps'
+        }
+    });
+
+    
+
+}]);
+

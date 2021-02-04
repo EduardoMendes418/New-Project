@@ -1,0 +1,310 @@
+
+
+<!-- Content Header (Page header) -->
+<section class="content-header titulo">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-10">
+        <h1>
+         Dados Pessoais
+         <hr>
+       </h1>
+       <form name="Form1">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" ng-model="dados.pessoa.nome" required="">
+          </div>          
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="cpf">CPF</label>
+            <input type="text" class="form-control" id="cpf" ng-model="dados.pessoa.cpf" required="">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="rg">RG</label>
+            <input type="text" class="form-control" id="rg" ng-model="dados.pessoa.rg" required="">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="dataEmissao">Data Emissao RG</label>
+            <input type="text" class="form-control data-locacao" id="dataEmissao" ng-model="dados.pessoa.emissaoRg" required="">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="dataNascimento">Data Nascimento</label>
+            <input type="text" class="form-control data-locacao" id="dataNascimento" ng-model="dados.pessoa.dataNascimento" required="">
+          </div>
+        </div> 
+
+        <div class="row">
+
+         <div class="col-md-8 mb-3">
+          <label for="nomePai">Nome do Pai</label>
+          <input type="text" class="form-control" id="nomePai" ng-model="dados.pessoa.nomePai" required="">
+        </div>
+
+        <div class="col-md-8 mb-3">
+          <label for="nomeMae">Nome da Mãe</label>
+          <input type="text" class="form-control" id="nomeMae" ng-model="dados.pessoa.nomeMae" required="">
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-4 mb-3">
+          <label for="telefone">Telefone Celular</label>
+          <input type="text" class="form-control" id="telefone" ng-model="dados.pessoa.telefone" required="">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label for="telefoneAdd">Telefone Adicional</label>
+          <input type="text" class="form-control" id="telefone2"  ng-model="dados.pessoa.telefone2" required="">
+        </div>
+
+        <div class="col-md-8 mb-3">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" id="email" ng-model="dados.pessoa.email" required="">
+        </div>
+
+        <div class="col-md-12 mb-3 dados">
+         <button ng-click="atualizarDadosUsuario()">Alterar Dados Pessoais</button>
+       </div>
+     </form>
+   </div>
+
+   <div class="row">
+    <div class="col-sm-12 col-md-10">
+      <h1>
+        Dados de Localização
+        <hr>
+      </h1> 
+      <form id="form2" name="form2">
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <label for="cep">CEP</label>
+            <input type="text" class="form-control" id="cep" ng-model="dados.localizacao.cep" required="" ng-change="buscarEndereco(dados.localizacao.cep)" autofocus>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="endereco">Endereço</label>
+            <input type="text" class="form-control" id="endereco" ng-model="dados.localizacao.logradouro" required="">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <label for="numero">Número</label>
+            <input type="text" class="form-control" id="numero" ng-model="dados.localizacao.numero" required="">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="complemento">Complemento</label>
+            <input type="text" class="form-control" id="complemento" ng-model="dados.localizacao.complemento" required="">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <label for="uf">UF</label>
+             <select class="form-control" name="uf" id="uf" ng-model="dados.localizacao.uf" 
+             ng-options="modelo.sigla as modelo.descricao for modelo in cnpUf" >
+                  <option value="">-- Selecione --</option>                                                    
+                </select>
+           <!-- <input type="text" class="form-control" id="uf" ng-model="dados.localizacao.uf" required="">-->
+
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="bairro">Bairro</label>
+            <input type="text" class="form-control" id="bairro" ng-model="dados.localizacao.bairro" required="">
+          </div>
+          <div class="col-md-12 mb-3 locacao">
+            <button ng-click="atualizarDadosLocalizacao()" >Alterar Dados Localização</button>
+          </div>
+        </div>
+      </form> 
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-10">
+      <h1>
+        Habilitação
+        <hr>
+      </h1> 
+      <form id="form3" name="form3" enctype='multipart/form-data'>  
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <label for="cnh">Número da CNH</label>
+            <input type="text" class="form-control" id="cnh" name="ncnh" ng-model="dados.habilitacao.ncnh"  required="">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="validade">Validade</label>
+            <input type="text" class="form-control data-locacao" id="validade" name="validade" ng-model="dados.habilitacao.validade"  required="">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <label for="habilitacao">1º Habilitação</label>
+            <input type="text" class="form-control data-locacao" id="habilitacao" name="habilitacao" ng-model="dados.habilitacao.habilitacao" required="">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="categoria">Categoria</label>
+            <select class="form-control" id="categoria" name="categoriaCnh" ng-model="dados.habilitacao.categoriaCnh" required="">
+              <option ng-value="A">A</option>
+              <option ng-value="B">B</option>    
+            </select>             
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-9 mb-3">
+            <label for="ear">EAR</label>
+            <select class="form-control" id="ear" name="ear" ng-model="dados.habilitacao.ear" required="">
+              <option ng-value="1">Sim</option>    
+              <option ng-value="0">Não</option>
+            </select>  
+          </div>
+          <div class="col-md-12">
+            <label for="img-cnh">FOTO CNH</label>
+            <input type="file" id="imgCnh" name="imgCnh" style="width: 295px !important;">
+          </div>
+          <img src="https://www.goeyja.com.br/storage/imagens/{{dados.habilitacao.imgCnh}}" style="max-width: 300px;padding-left: 15px;
+    padding-top: 10px;">
+        </div>
+
+        <div class="left habilitacao" style="margin-bottom: 10vh">
+          <button ng-click="atualizarDadosHabilitacao()" >Alterar Dados Habilitação</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+</section>
+
+
+<style type="text/css">
+.habilitacao button{
+  width: 250px !important;
+}
+.locacao button{
+ width: 250px !important;
+}
+.dados button{
+  width: 250px !important;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 30px;
+  padding: 0px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #666666;
+  background-color: #ffffff;
+  background-image: none;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #cccccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.0);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.0);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+label{
+  margin-top: 15px !important;
+  margin-bottom: 0px !important;
+  color: #707070;
+}
+
+#boleto input{
+  border-bottom: 1px solid #ccc !important
+}
+
+#date{
+  width: 150px;
+}
+.data input{
+  border:1px  solid #ccc !important;
+}
+
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  width: 300px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+button{
+  background: #24549E !important;
+  color: #fff;
+  border:1px solid #24549E !important;
+  padding: 5px !important;
+  width: 150px;
+  margin-top: 5vh;
+  font-size: 16px;
+}
+
+.status, .Periodo{
+  color: #707070;
+}
+.status input{
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #000;
+}
+
+.Periodo label{
+  margin-top: 10px;
+}
+
+.content-header{
+  height: 88vh;
+}
+.titulo h1{
+  font-weight: bold;
+}
+hr {
+  width: 630px;
+  margin-left: 0px;
+  border-top: 1px solid #000 !important;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+.content-header {
+  height: auto !important;
+}
+
+@media screen and (max-width: 600px) {
+  hr {
+    width: 100%;
+    margin-left: 0px;
+    border-top: 1px solid #000 !important;
+    margin-top: 10px;
+    margin-bottom: 10px
+  }
+
+  .content-header {
+    height: auto !important;
+  }
+
+}
+
+</style>
+
+

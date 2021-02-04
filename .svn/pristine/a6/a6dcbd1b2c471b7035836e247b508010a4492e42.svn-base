@@ -1,0 +1,114 @@
+﻿
+</script>
+
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Acompanhar Entregas
+          </h1>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <!-- row -->
+            <div class="row">
+
+                <div class="col-md-12">
+
+                <h4 id="msn-retorno" style="display: none;">Nenhuma entrega...</h4>                      
+
+                            <div class="callout"  ng-repeat="x in lista" id="minhas-entregas" >
+
+                                <div class="well  col-md-9 col-sm-9 col-xs-12" style="color:#000">
+
+                                    <p class="text-bold">                                      
+                                        <span class="text-bold">Entrega nº</span> {{x.id}} - {{x.descricaoStatus}} 
+
+                                         <span class="pull-right">
+                                        <a class="btn btn-primary btn-xs"  ng-show="x.codSascar" ng-click="verMapa(x.origem,x.codSascar,x.destino1,x.tipoVeiculo)">Ver Mapa</a>
+                                        </span>
+
+                                        <span class="pull-right">
+                                        <a class="btn btn-primary btn-xs"  ng-if="x.status == 1" ng-click="cancelarEntregas(x.id)">Cancelar Entrega</a>
+                                        </span>  
+                                    </p>
+                            <p style="margin: 0;"><span class="text-bold">Data Agendada:</span> {{x.dataAgendamento}}</p>
+                            <p style="margin: 0;"><span class="text-bold">Descrição: </span> {{x.descricao}}</p>                      
+                            <p style="margin: 0;"><span class="text-bold">Valor Produto: </span> R$ {{x.valorProduto}}</p>
+                            <p style="margin: 0;"><span class="text-bold">Valor Entrega: </span> R$ {{x.valor}}</p>
+                            <p style="margin: 0;"><span class="text-bold">Total: </span> R$ {{x.valorTotal}}</p>
+                            <p style="margin: 0;"><span class="text-bold">Forma de Pagamento: </span>{{x.descricaoForma}}</p>
+                            <p ng-show='x.formaPagamento == 3' style="margin: 0;"><span class="text-bold">Receber: </span> R$ {{x.dinheiro}}</p>
+                            <p ng-show='x.troco != 0' style="margin: 0;"><span class="text-bold">Troco:</span> R$ {{x.troco}}</p>
+                            <p style="margin: 0;"><span class="text-bold">Retirada:</span> {{x.origem}}</p>
+                            <p style="margin: 0;"><span class="text-bold">Destino:</span> {{x.destino1}}</p>
+                            <p style="margin: 0;"><span class="text-bold">Distância: </span>{{x.distancia}}</p>
+                            <p style="margin: 0;"><span class="text-bold">Tipo de Veículo:</span> {{x.descricaoVeiculo}}</p>
+                            
+
+                          </div>
+
+                        <div class="col-md-3 col-sm-3 col-xs-12 text-center" ng-show="x.condutor">
+                                  
+                          <img src="https://www.ddtotal.com.br/imgPublicidade/ec/{{x.foto}}" class="img-thumbnail img-responsive" style="max-width: 100px; max-height: 100px">
+
+                          <h6 style="color:#000"><strong>Condutor:</strong><br>{{x.condutor}}</h6>
+                          <h6 style="color:#000"><strong>Veículo:</strong>{{x.descricaoVeiculo}}</h6>
+                          <h6 style="color:#000" ng-show="x.tipoVeiculo != 4"><strong>Placa:</strong></h6>
+
+                        </div>                               
+                                
+                    </div>
+                                
+                </div>                  
+
+            </div><!-- /.col -->
+
+        </div>
+
+        </section><!-- /.content -->
+        <section class="content text-center" id="no-delivery" style="display: none;">
+        <h2><span>Nenhuma entrega no momento.</span></h2>
+        </section>
+        <section class="content">
+        
+        </section>
+        
+        <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Acompanhar {{codSascar}}</h4>
+      </div>
+
+      <div class="modal-body">
+
+      <ng-map zoom-to-include-markers="auto"  zoom="8">
+
+        <marker ng-repeat="p in rotas" position="{{p.pos}}" title="{{p.title}}" icon="{{p.icon}}"></marker>
+            
+            <directions 
+              draggable="true"
+              panel="directions-panel" 
+              travel-mode="DRIVING"
+              origin="{{rotas[0].pos}}"
+              destination="{{end}}"              
+              suppress-markers="true">
+            </directions>
+
+      </ng-map>
+        
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div id="sound"></div>

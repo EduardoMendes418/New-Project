@@ -1,0 +1,124 @@
+﻿var dashboard = angular.module('dashboard', ['ui.router', 'ngAnimate','ngMaterial']);
+
+
+dashboard.config(["$stateProvider", function ($stateProvider) {
+
+
+// ################ Meus Boletos #######################
+   $stateProvider.state('app.consulta-boleto', {
+        url: '/consulta-boleto',
+        templateUrl: 'app/modules/dashboard/views/consulta-boleto.html',
+        controller: 'meusBoletosCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Meus Boletos'
+        }
+    });
+
+// ################ Minhas Locações ####################
+    $stateProvider.state('app.minhas-locacoes', {
+        url: '/minhas-locacoes',
+        templateUrl: 'app/modules/dashboard/views/minhas-locacoes.html',
+        controller: 'minhasLocacoesCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Minhas Locações'
+        }
+    });
+
+// ################ Novas Propostas ####################
+    $stateProvider.state('app.new-proposta', {
+        url: '/new-proposta',
+        templateUrl: 'app/modules/dashboard/views/new-proposta.html',
+        controller: 'newPropostaCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Nova Proposta'
+        }
+    });
+
+    $stateProvider.state('app.consulta-proposta', {
+        url: '/consulta-proposta',
+        templateUrl: 'app/modules/dashboard/views/consulta-proposta.html',
+        controller: 'newPropostaCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Consultar Propostas'
+        }
+    });
+// ################ Meus Dados ####################
+    $stateProvider.state('app.editar-dados', {
+        url: '/editar-dados',
+        templateUrl: 'app/modules/dashboard/views/editar-dados.html',
+        controller: 'meuPerfilCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Editar Dados'
+        }
+    });
+
+    $stateProvider.state('app.alterar-senha', {
+        url: '/alterar-senha',
+        templateUrl: 'app/modules/dashboard/views/alterar-senha.html',
+        controller: 'meuPerfilCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Altera Senha'
+        }
+    });
+
+    // ############## Contratos ####################
+    $stateProvider.state('app.contratos-ativos', {
+        url: '/contratos-ativos',
+        templateUrl: 'app/modules/dashboard/views/contratos-ativos.html',
+        controller: 'contratoAtivosCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Contratos Ativos'
+        }
+    });
+
+     $stateProvider.state('app.contratos-agendados', {
+        url: '/contratos-agendados',
+        templateUrl: 'app/modules/dashboard/views/contratos-agendados.html',
+        controller: 'contratosAgendadosCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Contratos Agendados'
+        }
+    });
+
+     $stateProvider.state('app.locacao-historico', {
+        url: '/locacao-historico',
+        templateUrl: 'app/modules/dashboard/views/locacao-historico.html',
+        controller: 'locacaoHistoricoCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Histório Locação'
+        }
+    });
+
+      $stateProvider.state('app.debito-veiculos', {
+        url: '/debito-veiculos',
+        templateUrl: 'app/modules/dashboard/views/debito-veiculos.html',
+        controller: 'debitoVeiculoCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Débitos'
+        }
+    });
+
+      $stateProvider.state('app.home-dashboard', {
+        url: '/home-dashboard',
+        templateUrl: 'app/modules/dashboard/views/home.html',
+        controller: 'dashboardHomeCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Home'
+        }
+    });
+
+
+
+}]);
+

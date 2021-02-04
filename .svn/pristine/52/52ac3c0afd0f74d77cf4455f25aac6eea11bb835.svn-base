@@ -1,0 +1,1552 @@
+
+<!--/**************
+    * blocoyellow * 
+    ***************-->
+<script src='https://www.google.com/recaptcha/api.js'></script>    
+<section class="blocoyellow blocoyellowmobile">
+  <div class="container">
+    <!--/***************
+        * MENU DESKTOP *
+        ****************-->
+       <nav class="site-header sticky-top py-1 ">
+            <div class="container d-flex flex-column flex-md-row justify-content-between">
+              <a class="py-2" href="#">
+                <div class="col-md-2 col-sm-4 logo-goey">   
+                  <a href="https://www.goeyja.com.br/#/step">
+                    <img src="images/home/logo-goey.png">
+                  </a>                 
+                </div>
+              </a>
+              <div class="menu">
+                  <div class="menu-link">
+                      <a class="py-2 d-none d-md-inline-block"  href="#/home#goo">O QUE É GOEY</a>
+                      <a class="py-2 d-none d-md-inline-block"  href="#/home#van">VANTAGENS</a>
+                      <a class="py-2 d-none d-md-inline-block"  href="#" data-toggle="modal" data-target="#contato">CONTATO</a>
+                      <a class="py-2 d-none d-md-inline-block"  href="#/restaurante">
+                          <span >RESTAURANTE</span>
+                       </a>
+                  </div>
+                  <div class="menu-btn" style="display: block">
+                        <!--
+                          <a class="btn btn-fraquia-secondary" href='https://www.goeyja.com.br/#franquia' >FRANQUIAS</a>
+                          -->
+                          <div class="dropdown" style="display: inline-block ">
+                              <button class="btn  btn-cadastre-secondary dropdown-toggle btn-cadastre-se" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  CADASTRAR
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                  <!--BTN-PESSOAL-->
+                                  <a onclick="" data-toggle="modal">
+                                    <button class="dropdown-item btn-fisi" type="button" id="showModal" ng-click="cadUsuario = {};clearForm();form.$setUntouched();" data-toggle="modal">PESSOAL</button>
+                                  </a>
+                                  <!--BTN-EMPRESARIAL
+                                  <a href="#/empresa">
+                                    <button class="dropdown-item btn-juri" type="button">EMPRESARIAL</button>
+                                  </a>-->
+                                  <!--BTN-RESTAURANTE-->
+                                  <!-- <a onclick="window.location.replace('https://www.goeyja.com.br/#formRestaurante');"> -->
+                                  <a href="#/formRestaurante">
+                                    <button class="dropdown-item btn-rest" type="button">RESTAURANTE</button>
+                                  </a>
+                              </div>
+                          </div>
+                      <a class="btn btn-acesse-secondary" style="display: inline-block" href="https://www.goeyja.com.br/#login" >ACESSE SUA CONTA</a>   
+                  </div>    
+               </div>
+            </div>
+          </nav>
+
+      <!--/***************
+        * MENU MOBILE *
+        ****************-->
+        <nav class=" menu-mobile navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class=".col-6 .col-sm-4 logo-goey-mobile">                    
+                <a href="https://www.goeyja.com.br/#/step">
+                    <img src="images/home/logo-goey.png">
+                </a>  
+            </div>
+            <button class="btn-mobile navbar-right  collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <h1><i class="fa fa-bars"></i></h1>
+            </button>
+
+            <div class="navbar-collapse collapse tab-mobile" id="navbarCollapse" style="margin-top: 14vh;">
+                <div class="navbar-nav  modal-mobile " style=" margin-top: 40px;">
+
+                <div class="menu-mobile-btn" >
+                    <a class="btn" href="#/home#goo"> O QUE É GOEY</a>
+                </div>
+
+                <div class="menu-mobile-btn">
+                    <a class="btn" href="#/home#van">VANTAGENS</a>
+                </div> 
+
+                <div class="menu-mobile-btn">
+                    <a class="btn"  href="#/restaurante">
+                        <span >RESTAURANTE</span>
+                    </a>
+                </div>
+
+                <!--
+                <div class="menu-mobile-btn">
+                    <a class="btn" href='https://www.goeyja.com.br/#franquia'>FRANQUIAS</a>
+                </div>-->
+
+                <div class="menu-mobile-btn">
+                    <a class="btn" href="#" data-toggle="modal" data-target="#contato">CONTATO</a>
+                </div>
+
+                <div class="menu-mobile-btn">
+                    <a class="btn" href="https://www.goeyja.com.br/#login"  >ACESSE SUA CONTA</a>  
+                </div>
+
+                <div class="menu-mobile-btn" style="margin-top:15px">
+                    <div class="dropdown" style="display: inline-block">
+                            <button class="btn  btn-cadastre-secondary dropdown-toggle btn-cadastre-se" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                CADASTRAR
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <!--BTN-PESSOAL-->
+                                <a onclick="$('#cadUsuario').modal('show');">
+                                    <button class="dropdown-item btn-fisi" type="button" id="showModal" ng-click="cadUsuario = {};clearForm();form.$setUntouched();">PESSOAL</button>
+                                </a>
+                                <!--BTN-EMPRESARIAL
+                                <a onclick="window.location.replace('http://www.goeyja.com.br/#empresa');">
+                                    <button class="dropdown-item btn-juri" type="button">EMPRESARIAL</button>
+                                </a> -->
+                                <!--BTN-RESTAURANTE-->
+                                <a onclick="window.location.replace('https://www.goeyja.com.br/#formRestaurante');">
+                                    <button class="dropdown-item  btn-rest" type="button">RESTAURANTE</button>
+                                </a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </nav>
+        </div>
+
+    <!--/**********************
+        * campo de busca desktop*
+        *************************-->
+        <div class="col-md-12 formulario-mulher">
+            <div class="col-6 col-md-4  logo-mulher">
+                <img src="../images/compras/mulher.png">
+            </div>
+            <div class="col-6 col-md-4  pesquisa">
+                <div class="row">
+                    <div class="col-6 col-sm-12 col-md-12" style="display: block">
+                        <h2>Seus lugares favoritos, entregas rápidas.</h2>
+                        <form class="formulario-input">
+                            <div class="col-md-12 input-group">
+                                <div class="col-md-10 custom-file">
+                                    <input  type="text" id="tags" ng-keyup="complete()" ng-model="c.name" class="form-control input-lg t"  
+                                    placeholder="Digite sua cidade " autofocus autocomplete="off" style="display: inline-block" >
+                                </div>
+                                <div class="col-md-2 input-group-append btn-pesquisa">
+                                    <button class="btn btn-outline-secondary" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <ol>
+                                <li ng-repeat="l in listaCidades | filter:c ">
+                                    {{ l.cidade }}                                
+                                </li>
+                            </ol>
+                        </form>  
+                    </div>
+
+                </div> 
+            </div>
+            <div class="col-6 col-md-4 "></div>
+        </div>
+    </section>
+
+<!--/**************
+    * blococontato * 
+    ***************-->
+<section class="blococontato">
+    <div class="blococelular">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-6 col-sm-3" ></div>
+                        <div class="col-6 col-sm-6 bandeiras-cartao" >
+                            <h2>VOCÊ ESCOLHE COMO PAGAR</h2>
+                            <p>Aceita as principais bandeiras.</p>
+                            <div style="background: #fff"> 
+                                <ul>
+                                    <li style="display: inline-block">
+                                        <img src="../images/compras/bandeira.jpg">
+                                    </li>
+                                    <li style="display: inline-block">
+                                            <img src="../images/compras/visa.jpg">
+                                        </li>
+                                    <li style="display: inline-block">
+                                        <img src="../images/compras/elo.jpg">
+                                    </li>
+                                    <li style="display: inline-block">
+                                        <img src="../images/compras/ex.jpg">
+                                    </li>
+                                    <li style="display: inline-block">
+                                        <img src="../images/compras/hi.jpg">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3" ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-md-12" style="background: #fff;">
+            <div class="row">
+                <div class="col-6 col-md-3 celular-preto">
+                    <img src="../images/compras/chegou.png">
+                </div>
+                <div class="col-6 col-md-6 texto-celular" >
+                   <!-- <p><span>Cidade:</span> Campinas, Jundiaí, Barão Geraldo, Grande São Paulo.</p> -->
+                    <h1>Mais do que uma simples experiência, garantia de qualidade na entrega.</h1>
+                    <h2>Você não precisa sair de casa para comer bem ou fazer suas compras, você só precisa da <span>Goey</span>.</h2>
+                    <div class="col-md-12 themed-grid-col">
+                      <!--  <div class="row mb-3 app-google">
+                            <div class="col-3 col-xs-6 col-md-4 themed-grid-col">
+                                <a href="">
+                                    <img src="../images/compras/google.png">
+                                </a>
+                            </div>
+                            <div class="col-3 col-xs-6  col-md-4 themed-grid-col">
+                                <a href="">
+                                    <img src="../images/compras/app.png">
+                                </a>
+                            </div>
+                            <div class="col-6   col-md-4 themed-grid-col"></div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-6 col-md-3"></div>
+            </div>
+        </div> 
+        
+    <!--/*********
+        * Footer * 
+        **********-->
+        <div class="col-md-12 footer">
+            <div class="row">
+                <div class="col-6 col-md-1"></div>
+                <div class="col-6 col-md-10">
+                    <span>TERMOS & REGULAMENTOS, <a href="regulamento.pdf" style="text-decoration: none !important;font-weight: 800 !important;color:#000">AQUI</a> | contato@goey.com.br | 0800 7878 9090 | GOEY É UM PRODUTO DA <a href="https://www.ddtotal.com.br" style="text-decoration: none !important;font-weight: 800 !important;color:#000">DDTOTAL</a></span>
+                </div>
+                <div class="col-6 col-md-1"></div>
+            </div>
+        </div>
+
+       
+    <!-- MODAL OU CADASTRO PESSOA -->
+    <div class="modal" tabindex="-1" role="dialog" id="cadUsuario">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+  
+              <h5 class="modal-title text-center" style="font-size: 18px"><span class="pull-center"><img src="images/home/logo-goey.png" style="height: 25px !important;"></span></h5>
+            <!--   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button> -->
+            </div>
+            <div class="modal-body">
+              <p>
+                <div class="container-fluid">
+                  <div class="row">
+                    <form name="form">
+                      <div class="col-md-12">
+                        <div class="col-md-7 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                              <label for="nome" class="uLabel">Nome</label>
+                                <input type="text" id="nome" ng-model="cadUsuario.nome" name="nome" class="form-control"  
+                                ng-class="{'is-invalid': form.nome.$invalid && form.nome.$touched,'is-valid': form.nome.$valid}" required>
+                                <p ng-show="form.nome.$invalid && !form.nome.$pristine" class="help-block">Digite um nome válido.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="cpf" class="uLabel">CPF</label>
+                                <input type="text" id="cpf" ng-model="cadUsuario.cpf" name="cpf" class="form-control" ui-br-cpf-mask 
+                                ng-class="{'is-invalid': form.cpf.$invalid && form.cpf.$touched,'is-valid': form.cpf.$valid}" required>
+                                <p ng-show="form.cpf.$invalid && !form.cpf.$pristine" class="help-block">Digite um cpf válido.</p>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="col-md-7 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                              <label for="email" class="uLabel">E-mail</label>
+                                <input type="text" id="email" ng-model="cadUsuario.email" name="email" class="form-control"  
+                                ng-class="{'is-invalid': form.email.$invalid && form.email.$touched,'is-valid': form.email.$valid}" required>
+                                <p ng-show="form.email.$invalid && !form.email.$pristine" class="help-block">Digite um e-mail válido.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="senha" class="uLabel">Senha</label>
+                                <input type="password" id="senha" ng-model="cadUsuario.senha" name="senha" class="form-control"  
+                                ng-class="{'is-invalid': form.senha.$invalid && form.senha.$touched,'is-valid': form.senha.$valid}" required>
+                                <p ng-show="form.senha.$invalid && !form.senha.$pristine" class="help-block">Senha é obrigatório.</p>
+                            </div>
+                        </div>
+                      </div>
+                    </form>
+                    
+                  </div>
+                </div>
+              </p>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-12">
+                        <div class="col-md-5 offset-md-3 recapmobile">
+                         <div class="g-recaptcha" data-sitekey="6LeaQHQUAAAAAC7KVG-vv0zbA4ZG8I5rf597HX31"></div>
+                        </div>
+                      </div>
+              <br/>
+              <br/>
+              <br/>
+              <button type="button" class="btn btn-primary" ng-click="cadastrarUsuario();">Cadastrar</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+</section>
+
+<!--/*********
+     * STYLE * 
+     *********-->
+<style>
+
+ .custom-file input{
+    border: #000 !important; 
+}
+
+.btn {
+    padding: 8px 12px !important;
+}
+.btn-fisi {
+    padding-top: 2px;
+    padding-right: 35px;
+    padding-bottom: 9px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border: transparent;
+    border-bottom: 1px solid #fff;
+    border-radius: 2px;
+    font-weight: 600;
+}
+
+.btn-rest{
+    padding-left: 5px;
+    border: #f37a24;
+    padding-right: 0px;
+    padding-bottom: 5px;
+    margin-top: 2px;
+    margin-bottom: 3px;
+    border: transparent;
+    border-bottom: 1px solid #fb8c00;
+    border-radius: 2px;
+    font-weight: 600;        
+}
+
+.dropdown-item {
+    width: 100%;
+    background: transparent;
+    color: #fff;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 147px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    text-align: left;
+    background-color: #fb8c00;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+t{
+    top: 333.484px !important;
+    left: 499.672px !important;
+    width: 336px !important;
+}
+
+.app-google img{
+    margin-top: 15px;
+}
+ .texto-celular{
+     font-family: sans-serif;
+ }   
+.texto-celular p span{
+    text-decoration: none !important;
+    font-weight: 800 !important;
+    color:#000;
+}
+.texto-celular h1{
+    color: #f37a24;
+    line-height: 1em;
+    font-weight: 800;
+    font-size: 34px;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: -1.5px;
+    margin-top: 3vh
+}
+.texto-celular h2{
+    color: #000;
+    line-height: 1em;
+    font-weight: 300;
+    font-size: 28px;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: -1.5px;
+    margin-top: 3vh
+}
+.texto-celular h2 span{
+    font-weight: bold !important
+}
+.texto-celular p{
+    margin-top: 5vh;
+}
+.footer{
+    text-align: center;
+    font-size: 13px;
+    color: #000 !important;
+    margin-bottom: 1vh;
+}
+footer span a{
+    font-weight: bold ;
+}
+ .bandeiras-cartao ul{
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0px !important;
+ }
+ .bandeiras-cartao h2{
+     color: #fff;
+     font-size: 16px;
+     margin-top: 10vh;
+ }
+ .bandeiras-cartao p{
+     color: #fff;
+     font-size: 35px;
+     font-weight: bold;
+     line-height: 0.7em;
+     margin-bottom: 5vh;
+ }
+ .bandeiras-cartao ul li img{
+     width: 60px;
+     margin-top: 5px;
+     margin-left: 15px;
+     margin-right: 15px;
+     margin-bottom: 5px;
+ }
+
+.celular-preto img{
+    width: 100%;
+    position: relative;
+    margin-top: 5vh;
+    bottom: 30vh;
+}
+.ui-widget.ui-widget-content {
+    border: 1px solid #c5dbec;
+    width: 295px;
+}
+.btn-pesquisa button{
+    background: #fff !important;
+    border:0px ;
+}
+.btn-pesquisa button:hover{
+    color: #4c4b4a;
+}
+.custom-file{
+    padding-top: 1px !important;
+}
+.btn{
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 8px 12px !important;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.fa{
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    margin-top: 1px;
+    font-size: 20px;
+    color: #4c4b4a;
+    margin: top;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.formulario-input{
+    background: #fff;
+    display: inline-block;
+    height: 40px;
+    border-radius: 3px ;
+    margin-left: 40px;
+}
+
+.input-lg {
+    height: 39px !important;
+    padding: 14px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+}
+
+.form-control {
+    border-radius: 0;
+    box-shadow: none;
+    border-color: #d2d6de !important;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+    float: right !important;
+    font-size: 25px;
+}
+.logo-mulher{
+    position: relative;
+    min-height: 1px;
+    padding-left: 0px;
+    padding-right: 15px;
+}
+.formulario-mulher{
+    position: relative;
+    min-height: 1px;
+    padding-left: 0px;
+    padding-right: 15px;
+}
+.logo-mulher img{
+    max-width: 100%;
+}
+.pesquisa{
+    margin-top: 35vh;
+}
+.pesquisa h2{
+    color: #4c4b4a;
+    font-weight: 700;
+    font-size: 43px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    letter-spacing: -3px !important;
+    line-height: 40px;
+    margin-bottom: 3vh; 
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+} 
+
+.blocoyellow{
+    background: #fede67;
+    min-height: 100vh;
+    position: relative;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+.blococelular{
+    background-image: url(images/compras/celular.jpg);
+    min-height: auto;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+.blococontato{
+    background: #fff;
+    min-height: 100vh;
+    position: relative;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    
+}
+
+.btn-fraquia-secondary{
+    background:#4266ae; 
+}
+
+.btn-cadastre-se {
+    color: #4c4b4a;
+    font-weight: 800;
+}
+
+.menu-mobile {
+    display: none;
+}
+
+.logo-goey{
+    margin-top:20px;
+}
+
+.logo-goey img{
+    max-width:300px;
+    display: inline;
+    width: 60%;
+    margin-right: 20px;
+    float: right;
+}
+
+.btn-primary{
+    background:#4266ae; 
+    color:#fff;
+}
+
+.btn-primary:hover{
+    background:#4266ae; 
+}
+
+.btn-simular{
+    background:#f37b22;
+    color: #fff;
+}
+.menu{
+    display: block;
+    margin-top: 18px;
+}
+
+.menu a{
+    color: #fff;
+    font-weight: 700;
+}
+
+.menu span{
+    color: #f37b22;
+    font-weight: bold;
+    margin-left: 5px; 
+}
+
+.menu-btn{
+    display: inline;
+    width: 40%;
+    float: right;
+}
+
+.btn-cadastre-secondary{
+    background: #f37b22;
+    color: #fff;
+    margin-right: 4px;
+}
+
+.btn-acesse-secondary {
+    background: #4c4b4a ;
+}
+.menu .menu-link a{
+   color: #000
+}
+
+.menu-link a {
+    padding-right: 3px !important;
+    padding-left: 3px !important;
+    border-right: 2px solid #000;
+} 
+.menu-link,.menu-btn{
+    display: inline-block;
+}
+.menu-link{
+     margin-top: 8px;
+ }
+
+.menu-btn a{
+    margin-right: 5px ;
+}
+
+.titulo-texto{
+    margin-top: 15vh;
+    text-align: center;
+}
+.titulo-texto p{
+    color: #fff;
+     font-size: 5vh;
+      line-height: 0.8;
+ }
+.titulo-texto p span{
+    font-weight: bold;
+ }
+
+ .form-group{
+    margin-bottom: 10px;
+ }
+
+.jumbotron{
+    margin-top: 15px;
+    background: transparent;
+   /*border: 2px solid #f37b22; */
+    margin-bottom: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.btn-querocontratar-secondary{
+    background: #f37b22;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #fff;
+    width: 35%;
+    float: right;
+    border-radius: 0px;
+}
+
+h3, .h3{
+    margin-top: 5px;
+    font-size: 12px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+.contratar span{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.contratar p{
+    color: #fff;
+    font-size: 12px;
+}
+
+
+/*********
+* MOBILE * 
+**********/
+
+@media screen and (max-width: 1250px){
+    .btn-outline-secondary i{
+        display: none;
+    }
+
+    .pesquisa h2{
+        font-size: 35px;
+        letter-spacing: -2px;
+        line-height: 35px;
+    }
+
+   .logo-mulher img {
+    max-width: 140%;
+}
+
+   .formulario-input {
+    background: #fff;
+    display: inline-block;
+    height: 40px;
+    border-radius: 3px;
+    margin-left: 20px;
+   }
+
+   .pesquisa {
+    margin-top: 25vh;
+}
+
+}
+
+@media screen and (max-width: 996px){
+
+    .btn-pesquisa button{
+        display: none;
+    }
+
+    .logo-mulher{
+        display: none;
+    }
+
+    .site-header{
+        display: none
+    }
+    .menu-mobile{
+        display: block
+    }  
+
+.celular-preto img {
+    width: 100%;
+    position: relative;
+    margin-top: 5vh;
+    bottom: 0vh;
+}   
+.pesquisa{
+    text-align: center !important;
+    margin-top: 3vh !important;
+    margin-bottom: 5vh;
+}
+    
+.menu-mobile{
+    display: block
+}  
+
+.menu-mobile {
+background: #fede67 !important;
+}
+
+ .blocoyellowmobile{
+    display: block;
+    background-image: url(images/compras/mobile.png);
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    background-size: 83%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+.pesquisa h2 {
+    color: #4c4b4a;
+    font-weight: 700;
+    font-size: 31px !important;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    letter-spacing: -2px !important;
+    line-height: 30px !important;
+    margin-bottom: 3vh;
+}
+
+
+.navbar-collapse{
+    margin-top: 10vh !important;
+    background: #ffdf68 !important;
+}
+.menu-btn {
+    display: inline;
+    width: 40%;
+    float: right;
+}
+
+    .logo-moto{
+  height: 50vh;
+}
+  .banner-laranja {
+    height: auto;
+}
+
+ .logo-goey{
+    display: none ;
+ }
+
+.menu-mobile{
+    background: transparent;
+    border: 1px solid transparent;
+    text-align: center;
+}
+
+.menu-mobile ul{
+    text-decoration: none !important;
+}
+
+.btn-mobile{
+    float: right;
+    background: transparent;
+    border: 1px solid transparent;
+    margin-left: 10px;
+    margin-right: 10px;
+  
+}
+.btn-mobile h1{
+    font-size: 30px;
+}
+.btn-mobile h1 i{
+    color: #f37b22;
+
+}
+.modal-mobile{
+    padding-top: 0px;
+}
+.logo-goey-mobile{
+     max-width:40px;
+    display: inline;
+    width: 60%;
+    float: left;
+    margin-top: 5px;
+    margin-left: 0px !important;
+}
+.pesquisa {
+    margin-top: 15vh !important;
+}
+
+.celular-preto img {
+    width: 70%;
+    position: relative;
+    margin-top: 5vh;
+    bottom: 0vh;
+}
+
+.celular-preto{
+    text-align: center;
+}
+
+.app-google{
+    margin: 10px;
+    text-align: center;
+}
+
+
+}
+
+@media screen and (max-width: 768px){
+
+.site-header{
+    display: none;
+}
+.btn-outline-secondary{
+    display: none;
+}
+
+.logo-mulher{
+    display: none;
+}
+.celular-preto img {
+    width: 100%;
+    position: relative;
+    margin-top: 5vh;
+    bottom: 0vh;
+}   
+.pesquisa{
+    text-align: center !important;
+    margin-top: 3vh !important;
+    margin-bottom: 5vh;
+}
+    
+.menu-mobile{
+    display: block
+}  
+
+.menu-mobile {
+background: #fede67 !important;
+}
+
+ .blocoyellowmobile{
+    display: block;
+    background-image: url(images/compras/mobile.png);
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    background-size: 70%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+.pesquisa h2 {
+    color: #4c4b4a;
+    font-weight: 700;
+    font-size: 28px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    letter-spacing: -1px !important;
+    line-height: 40px;
+    margin-bottom: 3vh;
+}
+
+
+.navbar-collapse{
+    margin-top: 10vh !important;
+    background: #ffdf68 !important;
+}
+.menu-btn {
+    display: inline;
+    width: 40%;
+    float: right;
+}
+
+    .logo-moto{
+  height: 50vh;
+}
+  .banner-laranja {
+    height: auto;
+}
+
+ .logo-goey{
+    display: none ;
+ }
+
+.menu-mobile{
+    background: transparent;
+    border: 1px solid transparent;
+    text-align: center;
+}
+
+.menu-mobile ul{
+    text-decoration: none !important;
+}
+
+.btn-mobile{
+    float: right;
+    background: transparent;
+    border: 1px solid transparent;
+    margin-left: 10px;
+    margin-right: 10px;
+  
+}
+.btn-mobile h1{
+    font-size: 30px;
+}
+.btn-mobile h1 i{
+    color: #f37b22;
+
+}
+.modal-mobile{
+    padding-top: 0px;
+}
+.logo-goey-mobile{
+     max-width:40px;
+    display: inline;
+    width: 60%;
+    float: left;
+    margin-top: 5px;
+    margin-left: 0px !important;
+}
+.pesquisa {
+    margin-top: 15vh !important;
+}
+
+.celular-preto img {
+    width: 70%;
+    position: relative;
+    margin-top: 5vh;
+    bottom: 0vh;
+}
+
+.celular-preto{
+    text-align: center;
+}
+
+.app-google{
+    margin: 10px;
+    text-align: center;
+}
+
+}
+
+@media screen and (max-width: 700px){
+    .pesquisa h2 {
+    color: #4c4b4a;
+    font-weight: 700;
+    font-size: 28px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    letter-spacing: -1px !important;
+    line-height: 40px;
+    margin-bottom: 3vh;
+}
+
+    
+.logo-mulher{
+    display:  none;
+}
+.site-header{
+    display: none;
+}
+.btn-outline-secondary{
+    display: none;
+}
+
+.celular-preto img {
+width: 100%;
+position: relative;
+margin-top: 5vh;
+bottom: 0vh;
+}   
+
+.menu-mobile{
+    display: block
+} 
+
+.menu-mobile {
+background: #fede67 !important;
+}
+.navbar-collapse{
+    margin-top: 10vh !important;
+    background: #ffdf68 !important;
+}
+.menu-btn {
+    display: inline;
+    width: 40%;
+    float: right;
+}
+
+    .logo-moto{
+  height: 50vh;
+}
+  .banner-laranja {
+    height: auto;
+}
+
+ .logo-goey{
+    display: none ;
+ }
+
+.menu-mobile{
+    background: transparent;
+    border: 1px solid transparent;
+    text-align: center;
+}
+
+.menu-mobile ul{
+    text-decoration: none !important;
+}
+
+.btn-mobile{
+    float: right;
+    background: transparent;
+    border: 1px solid transparent;
+    margin-left: 10px;
+    margin-right: 10px;
+  
+}
+.btn-mobile h1{
+    font-size: 30px;
+}
+.btn-mobile h1 i{
+    color: #f37b22;
+
+}
+.modal-mobile{
+    padding-top: 0px;
+}
+.logo-goey-mobile{
+    max-width:40px;
+    display: inline;
+    width: 60%;
+    float: left;
+    margin-top: 5px !important;
+    margin-left: 0px !important;
+}
+.pesquisa {
+    margin-top: 15vh !important;
+}
+
+
+}
+
+@media screen and (max-width: 640px){
+.celular-preto img {
+    width: 60% !important;
+}
+.menu-mobile-btn a{
+    color:#4c4b4a !important;
+}
+.pesquisa h2 {
+    color: #4c4b4a;
+    font-weight: 700;
+    font-size: 28px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    letter-spacing: -1px !important;
+    line-height: 40px;
+    margin-bottom: 3vh;
+}
+
+}    
+
+
+@media screen and (max-width: 667px){
+.celular-preto img {
+    width: 60% !important;
+}
+.menu-mobile-btn a{
+    color:#4c4b4a !important;
+}
+.pesquisa h2 {
+    color: #4c4b4a;
+    font-weight: 700;
+    font-size: 28px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    letter-spacing: -1px !important;
+    line-height: 40px;
+    margin-bottom: 3vh;
+}
+
+} 
+
+@media screen and (max-width: 500px){
+    .recapmobile{
+        padding-left: 0px !important;
+        padding-right: 0px;
+    }
+
+
+    .navbar-nav .open .dropdown-menu {
+    position: static;
+    float: none;
+    margin: auto;
+    background: #fb8c00 ;
+    margin-top: 2px;
+    width: 50%;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+  
+.btn-rest{
+    padding-left: 5px;
+    border: #f37a24;
+    padding-right: 0px;
+    padding-bottom: 5px;
+    margin-top: 2px;
+    margin-bottom: 3px;
+    border: transparent;
+    border-bottom: 1px solid #fb8c00;
+    border-radius: 2px;
+    font-weight: 600;        
+}
+
+
+.dropdown-item {
+    width: 100%;
+    background: #fb8c00 !important;
+    border-radius: 2px;
+    color: #fff;
+}
+
+    .blocoyellow{
+        min-height: 100vh;
+    }
+
+    .pesquisa {
+    margin-top: 5vh !important;
+    }
+
+    .menu-mobile {
+    background: #fede67 !important;
+    text-align: center;
+    }
+
+    .navbar-collapse{
+    margin-top: 10vh !important;
+    background: #ffdf68 !important;
+    }
+    .app-google img{
+        width: 100% !important;
+    }
+    .app-google{
+        margin: 25px !important;
+    }
+    .formulario-mulher {
+        position: relative;
+        min-height: 1px;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+}
+    .formulario-input {
+        width: 100% !important;
+        margin-left: 0px !important;
+    }
+
+   .btn-outline-secondary{
+        display: none
+    }
+    .texto-celular h1 {
+        font-size: 30px !important;
+    }
+    .texto-celular h2 {
+    font-size: 22px;
+}
+    .bandeiras-cartao p {
+    font-size: 22px !important;
+}
+
+    .celular-preto{
+        margin: 50px !important;
+    }
+
+    .celular-preto img {
+    width: 100%;
+    position: relative;
+    bottom: 0vh !important;
+}
+    .blocoyellow{
+    display: none;
+}
+    .blocoyellowmobile{
+    display: block;
+    background-image: url(images/compras/mobile.png);
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    background-size: 150%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.bandeiras-cartao ul li img {
+    width: 35px !important;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.bandeiras-cartao{
+    margin-bottom: -3px !important;
+}
+
+
+.pesquisa h2 {
+    color: #4c4b4a;
+    font-weight: 700;
+    font-size: 28px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    letter-spacing: -1px !important;
+    line-height: 25px;
+    margin-bottom: 3vh;
+}
+
+    .site-header{
+        display: none
+    }
+    .menu-mobile{
+        display: block
+    }  
+  .menu-btn {
+    display: inline;
+    width: 40%;
+    float: right;
+}
+
+  .bloco1{
+  margin-left: 0vh;
+}
+
+  .logo-pc{
+  display: none;
+}
+
+.logo-mobile{
+  display: block;
+  background-image: url(images/home/pc-mobile.png);
+  background-size: 50%;
+  height: 510px;
+}
+
+.logo-moto{
+  height: 50vh;
+}
+  .banner-laranja {
+    height: auto;
+}
+
+ .logo-goey{
+    display: none ;
+ }
+
+.menu-mobile{
+    background: transparent;
+    border: 1px solid transparent;
+    text-align: center;
+}
+
+.menu-mobile ul{
+    text-decoration: none !important;
+}
+
+.btn-mobile {
+    float: right;
+    background: transparent;
+    border: 1px solid transparent;
+    margin-left: 10px;
+    margin-right: -5px;
+    margin-top: -10px;
+}
+
+.btn-mobile h1{
+    font-size: 30px;
+}
+
+.btn-mobile h1 i {
+    color: #f37b22;
+    font-size: 31px;
+}
+
+.modal-mobile{
+    padding-top: 0px;
+}
+.logo-goey-mobile{
+     max-width:40px;
+    display: inline;
+    width: 60%;
+    float: left;
+    margin-top: 5px !important;
+    margin-left: 0px !important;
+}
+
+.entenda .pg1 {
+    margin-top: 10vh;
+    line-height: 1em;
+    margin-bottom: 5vh;
+    font-size: 20px;
+    padding-left: 5px;
+    font-weight: 800;
+    color: #f37b22;
+}
+
+.entenda .pg2 {
+    margin-top: 2vh;
+    line-height: 0.9em;
+    font-size: 20px;
+    font-weight: 300;
+    color: #000;
+}
+
+.pag2{
+    background-image: url(images/home/banner-seguranca.png);
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    background-size: 170%;
+    background-position: center top;
+    background-repeat: no-repeat; 
+}
+
+.levar .pg1 {
+    margin-top: 5vh;
+    padding-top: 35vh;
+    font-size: 25px;
+    color: #4266ae;
+    font-weight: 800;
+    line-height: 0.9em;
+}
+
+
+.levar .pg4 {
+    margin-top: 15px;
+    color: #000;
+    font-size: 23px;
+    line-height: 0.8em;
+    font-weight: 300;
+}
+
+.tranquilidade .pg5 span {
+    color: #4266ae;
+    font-weight: 800;
+}
+
+.tranquilidade .pg5 {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    color: #000;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 0.9em;
+}
+
+.entregas p {
+    color: #fff;
+    font-weight: 300;
+    font-size: 5vh;
+    line-height: 0.8;
+    letter-spacing: -1.1px !important;
+}
+.entregas span {
+    font-size: 5vh;
+    font-weight: 700;
+    color: #f37a24;
+}
+
+.frota,.rastre,.cadastro,
+.pagamento,.solicitacao,.agendamento{
+    margin: 0 auto;
+}
+
+.Propria,.Rastreabilidade,.pagamentos,
+.Online,.entrega,.agenda{
+
+    text-align: center;
+}
+
+.solicitacao {
+    min-height: 42px;
+}
+
+.cadastro{
+    min-height: 60px;
+}
+
+.menu-mobile-btn a {
+    color: #4c4b4a !important;
+    font-weight: 700;
+    cursor: pointer;
+}
+.menu-mobile-btn a:hover{
+    color: #f37b22;
+}
+
+.menu-mobile-btn:hover{
+    border-radius: 5px;
+    color: #fb8c00 ;
+    /*background: -moz-linear-gradient(top, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.7) 100%);*/
+}
+.footer {
+    color: #000;
+    text-align: center;
+    font-size: 9px;
+    margin-top: 10vh;
+    letter-spacing: 1px;
+}
+
+  .container-home {
+    min-height: 100vh;
+}
+
+@media screen and (max-width: 375px){
+    .blocoyellow{
+        min-height: 100vh;
+    }
+
+    .pesquisa {
+    margin-top: 12vh !important;
+}
+
+}
+
+}
+</style>
+
+

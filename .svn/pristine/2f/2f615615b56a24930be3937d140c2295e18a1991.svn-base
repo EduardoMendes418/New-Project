@@ -1,0 +1,182 @@
+
+.zeromargin{
+  padding: 0px !important;
+  margin-bottom: 10px !important;
+}
+.retirada{
+  padding: 0px !important;
+}
+
+.modal-footer button{
+ margin-right: 10px !important;
+ 
+}
+
+.retirada input{
+  padding: 0px !important;
+  margin-bottom: 10px !important;
+  width: 100% !important;
+}
+
+.PeriodoModal label {
+  margin-top: 0px !important;
+}
+
+.analise p{
+  font-size: 10px;
+  color: #24549E;
+}
+
+.analise label{
+  color: #000;
+  font-weight: bold;
+}
+
+.modal-dialog {
+  width: 600px;
+  margin: 150px auto;
+}
+
+
+.facil p{
+  color:#000 !important;
+}
+
+.facil label{
+  font-weight: bold;
+}
+
+.left{
+  text-align: left;
+}
+.left label{
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 18px;
+  color: #000 !important;
+}
+
+.left p{
+  color: #24549E;
+}
+
+
+
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  width: 300px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+button{
+  background: #24549E !important;
+  color: #fff;
+  border:1px solid #24549E !important;
+  padding: 5px !important;
+  width: 150px;
+  margin-top: 5vh;
+  font-size: 16px;
+}
+
+.status, .Periodo{
+  color: #707070;
+}
+.status input{
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #000;
+}
+
+.Periodo label{
+  margin-top: 10px;
+}
+
+.container{
+  width: auto !important;
+}
+
+.content-header{
+  height: 100% !important;
+}
+.titulo h1{
+  font-weight: bold;
+}
+hr {
+  width: 400px;
+  margin-left: 0px;
+  border-top: 1px solid #000 !important;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+h2{
+  font-size: 25px !important;
+  font-weight: bold !important;
+}
+
+.content-header {
+  max-height: 100% !important;
+}
+
+.border{
+  border:1px solid #ccc;
+  padding: 30px;
+  margin-bottom: 10vh !important;
+}
+.center{
+  text-align: center;
+}
+
+.encontre h1{
+  font-size: 35px;
+}
+
+#date{
+  width: 150px;
+}
+.data input{
+  border:1px  solid #ccc !important;
+}
+
+.border img{
+  width: 100% !important;
+}
+
+
+@media screen and (max-width: 600px) {
+ .content-header {
+  height: auto !important;
+}
+
+.left{
+  text-align: center;
+}
+
+.analise{
+  text-align: center;
+}
+
+.border{
+  margin-top: 20px;
+}
+
+.modal-dialog {
+  width: 100% !important;
+  margin: 129px auto;
+}
+
+hr {
+  width: 100%;
+  margin-left: 0px;
+  border-top: 1px solid #000 !important;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+}

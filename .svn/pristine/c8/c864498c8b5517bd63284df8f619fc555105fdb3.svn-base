@@ -1,0 +1,357 @@
+<section>
+    <div class="container">
+        <div class="well">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 text-center">
+                    <div class="form-group col-md-12">
+                        <a href="https://www.goeyja.com.br"><img src="../images/home/logo-goey.png"></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group col-md-12">
+                        <h2 class="text-center"><span style="font-weight: 100 !important;">Dados do Restaurante</span></h2>
+                        <small style="font-weight: 100 !important;" class="text-center">Preencha o formulário abaixo</small>
+                    </div>
+                </div>
+            </div>
+
+            <form name="formEmpresa" novalidate>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group col-md-6" ng-class="{ 'is-invalid' : formEmpresa.razaoSocial.$invalid && !formEmpresa.razaoSocial.$pristine }">
+                            <label for="razaoSocial">Razão Social *</label>
+                            <input type="text" capitalize class="form-control" name="razaoSocial" id="razaoSocial" ng-model="form.razaoSocial" ng-class="{'is-invalid': formEmpresa.razaoSocial.$invalid && formEmpresa.razaoSocial.$touched,'is-valid': formEmpresa.razaoSocial.$valid}" required capitalize>
+                            <p ng-show="formEmpresa.razaoSocial.$invalid && !formEmpresa.razaoSocial.$pristine" class="help-block" >Razão Social é obrigatório.</p>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="nomeFantasia">Nome Fantasia</label>
+                            <input type="text" capitalize class="form-control" name="nomeFantasia" ng-model="form.nomeFantasia"  ng-class="{'is-valid': formEmpresa.nomeFantasia.$valid && formEmpresa.nomeFantasia.$touched}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row"> <!-- Início Campos Restaurantes -->
+
+                    <div class="col-md-12">
+
+                         <div class="form-group col-md-6" ng-class="{ 'is-invalid' : formEmpresa.tipoCozinha.$invalid && !formEmpresa.tipoCozinha.$pristine }">
+                            <label for="tipoCozinha">Tipo de Cozinha *</label>
+                           <select class="form-control" name="tipoCozinha" id="tipoCozinha" ng-model="form.tipoCozinha" ng-class="{'is-invalid': formEmpresa.tipoCozinha.$invalid && formEmpresa.tipoCozinha.$touched,'is-valid': formEmpresa.tipoCozinha.$valid}" required>
+
+                            <option value="Alema">Alemã</option>
+                            <option value="Arabe">Árabe</option>
+                            <option value="Asiatica">Asiática</option>
+                            <option value="Bebidas">Bebidas</option>
+                            <option value="Brasileira">Brasileira</option>
+                            <option value="Carnes">Carnes</option>
+                            <option value="Chinesa">Chinesa</option>
+                            <option value="Contemporanea">Contemporânea</option>
+                            <option value="Cozinha rapida">Cozinha rápida</option>
+                            <option value="Doces e Salgados">Doces e Salgados</option>
+                            <option value="Francesa">Francesa</option>
+                            <option value="Frutos do Mar">Frutos do Mar</option>
+                            <option value="Indiana">Indiana</option>
+                            <option value="Italiana">Italiana</option>
+                            <option value="Japonesa">Japonesa</option>
+                            <option value="Kebaberia">Kebaberia</option>
+                            <option value="Lanches e Sanduiches">Lanches e Sanduíches</option>
+                            <option value="Marroquina">Marroquina</option>
+                            <option value="Mediterranea">Mediterrânea</option>
+                            <option value="Mexicana">Mexicana</option>
+                            <option value="Pizzaria">Pizzaria</option>
+                            <option value="Portuguesa">Portuguesa</option>
+                            <option value="Saudavel">Saudável</option>
+                            <option value="Sorvetes">Sorvetes</option>
+                            <option value="Tailandesa">Tailandesa</option>
+                            <option value="Variada">Variada</option>
+                            <option value="Vinhos">Vinhos</option>
+                            
+                           </select>
+                            <p ng-show="formEmpresa.tipoCozinha.$invalid && !formEmpresa.tipoCozinha.$pristine" class="help-block">Campo obrigatório.</p>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <p for="pMotoboy">Possui Motoboy ? *</p>
+                            <label class="radio-inline"><input type="radio" name="pMotoboy[]" value="0" checked>Não</label>
+                            <label class="radio-inline"><input type="radio" name="pMotoboy[]" value="1">Próprio</label>
+                            <label class="radio-inline"><input type="radio" name="pMotoboy[]" value="2">Terceirizado</label>
+                            <!--p ng-show="formEmpresa.pMotoboy.$invalid && !formEmpresa.pMotoboy.$pristine" class="help-block" >Campo obrigatório.</p-->
+
+                        </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-12">
+
+                        <div class="form-group col-md-6">
+                            <label for="qtdEntrega">Quantas entregas por almoço ou jantar ? </label>
+                            <input type="text" capitalize class="form-control" name="qtdEntrega" id="qtdEntrega" ng-model="form.qtdEntrega">
+                                <!--p ng-show="formEmpresa.qtdEntrega.$invalid && !formEmpresa.qtdEntrega.$pristine" class="help-block">Telefone é obrigatório.</p-->
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <p>Formas de pagamento utilizado *</p>
+                           <label class="checkbox-inline"><input type="checkbox"  name="formaPagamento[]"  id="credito"     value="5">Crédito</label>
+                           <label class="checkbox-inline"><input type="checkbox"  name="formaPagamento[]"   id="debito"      value="6">Débito</label>
+                           <label class="checkbox-inline"><input type="checkbox"  name="formaPagamento[]" id="dinheiro"    value="3">Dinheiro</label>
+                                <!--p ng-show="formEmpresa.qtdEntrega.$invalid && !formEmpresa.qtdEntrega.$pristine" class="help-block">Telefone é obrigatório.</p-->
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="form-group col-md-4" ng-class="{ 'is-invalid' : formEmpresa.cnpj.$invalid && !formEmpresa.cnpj.$pristine }">
+                            <label for="cnpj">CNPJ *</label>
+                            <input type="text" capitalize class="form-control" name="cnpj" id="cnpj" ng-model="form.cnpj" ui-br-cnpj-mask ng-class="{'is-invalid': formEmpresa.cnpj.$invalid && formEmpresa.cnpj.$touched,'is-valid': formEmpresa.cnpj.$valid}" required>
+                            <p ng-show="formEmpresa.cnpj.$invalid && !formEmpresa.cnpj.$pristine" class="help-block">Campo obrigatório, digite um CNPJ válido.</p>
+                        </div>
+
+                        <div class="form-group col-md-5" ng-class="{ 'is-invalid' : formEmpresa.nomeContato.$invalid && !formEmpresa.nomeContato.$pristine }">
+                            <label for="nomeContato">Nome do Contato *</label>
+                            <input type="text" capitalize class="form-control" name="nomeContato" id="nomeContato" ng-model="form.nomeContato" ng-class="{'is-invalid': formEmpresa.nomeContato.$invalid && formEmpresa.nomeContato.$touched,'is-valid': formEmpresa.nomeContato.$valid}" onkeypress='return SomenteLetra(event)' required >
+                            <p ng-show="formEmpresa.nomeContato.$invalid && !formEmpresa.nomeContato.$pristine" class="help-block" >Nome do Contato é obrigatório.</p>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="qtdFuncionarios">Quantidade de Funcionários</label>
+                            <input type="tel" min="0" class="form-control" id="qtdFuncionarios" onkeypress='return SomenteNumero(event)' name="qtdFuncionarios" ng-model="form.qtdFuncionarios" ng-class="{'is-valid': formEmpresa.qtdFuncionarios.$valid && formEmpresa.qtdFuncionarios.$touched}">
+                        </div>
+                    </div>
+                </div>
+                    
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group col-md-6" ng-class="{ 'is-invalid' : formEmpresa.email.$invalid && !formEmpresa.email.$pristine }">
+                            <label for="email">E-mail *</label>
+                            <input type="email" class="form-control" name="email" id="email" ng-model="form.email"  ng-class="{'is-invalid': formEmpresa.email.$invalid && formEmpresa.email.$touched,'is-valid': formEmpresa.email.$valid}" required>
+                            <p ng-show="formEmpresa.email.$invalid && !formEmpresa.email.$pristine" class="help-block">E-mail é obrigatório.</p>
+                        </div>
+                        <div class="form-group col-md-6" ng-class="{ 'is-invalid' : formEmpresa.telefone.$invalid && !formEmpresa.telefone.$pristine }">
+                            <label for="telefone">Telefone *</label>
+                            <input type="text" capitalize class="form-control" name="telefone" id="telefone" ng-model="form.telefone" ui-br-phone-number ng-class="{'is-invalid': formEmpresa.telefone.$invalid && formEmpresa.telefone.$touched,'is-valid': formEmpresa.telefone.$valid}" required>
+                            <p ng-show="formEmpresa.telefone.$invalid && !formEmpresa.telefone.$pristine" class="help-block">Telefone é obrigatório.</p>
+                        </div>
+                    </div>
+                </div>    
+                <div class="row"> 
+                    <div class="col-md-12">
+                        <div class="form-group col-md-4" ng-class="{ 'is-invalid' : formEmpresa.cep.$invalid && !formEmpresa.cep.$pristine }">
+                            <label for="cep">CEP *</label>
+                            <input type="text" capitalize class="form-control" name="cep" id="cep" ng-model="form.cep" ui-br-cep-mask ng-class="{'is-invalid': formEmpresa.cep.$invalid && formEmpresa.cep.$touched,'is-valid': formEmpresa.cep.$valid}" required ng-change="getAddressByCep();">
+                            <p ng-show="formEmpresa.cep.$invalid && !formEmpresa.cep.$pristine" class="help-block">CEP é obrigatório.</p>
+                        </div>
+                        <div class="form-group col-md-6" ng-class="{ 'is-invalid' : formEmpresa.logradouro.$invalid && !formEmpresa.logradouro.$pristine }">
+                            <label for="logradouro">Endereço *</label>
+                            <input type="text" capitalize class="form-control" name="logradouro" id="logradouro" ng-model="form.logradouro" ng-class="{'is-invalid': formEmpresa.logradouro.$invalid && formEmpresa.logradouro.$touched,'is-valid': formEmpresa.logradouro.$valid}" required onkeypress='return SomenteLetra(event)'>
+                            <p ng-show="formEmpresa.logradouro.$invalid && !formEmpresa.logradouro.$pristine" class="help-block" >Endereço é obrigatório.</p>
+                        </div>
+                        <div class="form-group col-md-2" ng-class="{ 'is-invalid' : formEmpresa.numero.$invalid && !formEmpresa.numero.$pristine }">
+                            <label for="numero">Número *</label>
+                            <input type="tel" class="form-control" name="numero" id="numero" ng-model="form.numero" ng-class="{'is-invalid': formEmpresa.numero.$invalid && formEmpresa.numero.$touched,'is-valid': formEmpresa.numero.$valid}" required onkeypress='return SomenteNumero(event)'>
+                            <p ng-show="formEmpresa.numero.$invalid && !formEmpresa.numero.$pristine" class="help-block">Número é obrigatório.</p>
+                        </div>
+                    </div>
+                </div>     
+                <div class="row"> 
+                   <div class="col-md-12">
+                    <div class="form-group col-md-6" ng-class="{ 'is-invalid' : formEmpresa.bairro.$invalid && !formEmpresa.bairro.$pristine }">
+                        <label for="bairro">Bairro *</label>
+                        <input type="text" capitalize class="form-control" name="bairro" id="bairro" ng-model="form.bairro" ng-class="{'is-invalid': formEmpresa.bairro.$invalid && formEmpresa.bairro.$touched,'is-valid': formEmpresa.bairro.$valid}" required onkeypress='return SomenteLetra(event)'>
+                        <p ng-show="formEmpresa.bairro.$invalid && !formEmpresa.bairro.$pristine" class="help-block" >Bairro é obrigatório.</p>
+                    </div>
+                    <div class="form-group col-md-4" ng-class="{ 'is-invalid' : formEmpresa.cidade.$invalid && !formEmpresa.cidade.$pristine }">
+                        <label for="cidade">Cidade *</label>
+                        <input type="text" capitalize class="form-control" name="cidade" id="cidade" ng-model="form.cidade" ng-class="{'is-invalid': formEmpresa.cidade.$invalid && formEmpresa.cidade.$touched,'is-valid': formEmpresa.cidade.$valid}" required onkeypress='return SomenteLetra(event)'>
+                        <p ng-show="formEmpresa.cidade.$invalid && !formEmpresa.cidade.$pristine" class="help-block" >Cidade é obrigatório.</p>
+                    </div>
+                    <div class="form-group col-md-2" ng-class="{ 'is-invalid' : formEmpresa.uf.$invalid && !formEmpresa.uf.$pristine }">
+                        <label for="uf">UF *</label>
+                        <select class="form-control" name="uf" id="uf" ng-model="form.uf" ng-class="{'is-invalid': formEmpresa.uf.$invalid && formEmpresa.uf.$touched,'is-valid': formEmpresa.uf.$valid}" required>
+                            <option value="">SELECIONE</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                        <p ng-show="formEmpresa.uf.$invalid && !formEmpresa.uf.$pristine" class="help-block">UF é obrigatório.</p>
+                    </div>
+                </div>
+            </div>     
+            <div class="row">   
+                <div class="col-md-12">
+                    <div class="form-group col-md-6">
+                        <label for="complemento">Complemento</label>
+                        <input type="text" capitalize class="form-control" id="complemento" name="complemento" ng-model="form.complemento" ng-class="{'is-valid': formEmpresa.complemento.$valid && formEmpresa.complemento.$touched}">
+                    </div>
+                    <div class="form-group col-md-6" ng-class="{ 'is-invalid' : formEmpresa.senha.$invalid && !formEmpresa.senha.$pristine }">
+                        <label for="senha">Senha *</label>
+                        <input type="password" class="form-control" name="senha" id="senha" ng-model="form.senha" ng-class="{'is-invalid': formEmpresa.senha.$invalid && formEmpresa.senha.$touched,'is-valid': formEmpresa.senha.$valid}" required maxlength="8">
+                        <p ng-show="formEmpresa.senha.$invalid && !formEmpresa.senha.$pristine" class="help-block">Senha é obrigatório.</p>
+                    </div>
+                </div>     
+            </div>     
+            <hr>
+            <duv class="row">
+                <div class="col-md-12" id="">
+                    <div class="form-group col-md-12 col-sm-12" id="centralizado">
+                        <small >TERMO E CONDIÇÕES DE USO DA PLATAFORMA GOEY registrado no 2º Cartório de Registro de Títulos e Documentos Civil de Pessoas Jurídicas de Campinas/SP sob número 138932</small><a href="regulamento.pdf" target="_blank" style="text-decoration: none !important;color:#000"><small> <br/>Abrir termo </small></a><br/><br/>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="checkbox" ng-model="form.confirma" name="confirma" id="confirma" required>&nbsp;Li e concordo
+                    </div>
+                </div>
+            </duv>
+
+            <div class="row">   
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="form-group col-md-5 col-sm-12 col-xs-12">
+                            <div class="g-recaptcha" data-sitekey="6LeaQHQUAAAAAC7KVG-vv0zbA4ZG8I5rf597HX31"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-md-offset-4 text-center" ng-show="!cadastroOk">
+                        <button class="btn btn-primary" ng-click="cadastrarRestaurante()">Enviar dados para análise</button>
+                        <button class="btn btn-primary" ng-show="carregando"><span class="fa fa-refresh glyphicon-refresh-animate"></span> Enviando...</button>
+                    </div>
+                </div>
+                <div class="row" ng-show="cadastroOk">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="alert alert-success text-center" role="alert" style="position:relative !important;padding: 0.75rem 1.25rem !important;  margin-bottom: 1rem;  border: 1px solid transparent !important;  border-radius: 0.25rem !important;   color: #155724 !important; background-color: #d4edda !important;border-color: #c3e6cb !important;min-width: 585px !important;">
+                              Solicitação de cadastro enviado com sucesso, aguarde que em breve entraremos em contato.
+                          </div>
+                      </div>
+                  </div>
+              </div><br/><br/><br/>
+          </div>
+           <!--  <div class="row">
+             <div class="col-md-12">
+              <div class="col-md-5 offset-md-4">
+                <div class="g-recaptcha" data-sitekey="6LeaQHQUAAAAAC7KVG-vv0zbA4ZG8I5rf597HX31"></div>
+            </div>
+        </div>
+    </div> -->
+</form>
+</div><!-- /card-container -->
+</div>
+</section>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<script>
+
+
+    function SomenteNumero(e) {
+        var tecla = (window.event) ? event.keyCode : e.which;
+        if ((tecla > 47 && tecla < 58)) return true;
+        else {
+            if (tecla == 8 || tecla == 0) return true;
+            else return false;
+        }
+    }
+
+    function SomenteLetra(e) {
+        var tecla = (window.event) ? event.keyCode : e.which;
+        if ((tecla > 47 && tecla < 58)) return false;
+        else {
+            if (tecla == 8 || tecla == 0) return true;
+            else return true;
+        }
+    }
+</script>
+<style>
+.container{
+    margin-top:10px !important;
+}
+*{
+    font-weight: normal !important;
+
+}
+/*::selection {
+  background: lightgreen;
+}
+::-moz-selection {
+  background: #4266ae; 
+  }*/@media only screen and (max-width: 720px) {
+    #centralizado{
+     text-align: justify;
+     -moz-text-align-last: center;
+     text-align-last: center;
+ }
+
+}
+.btn-primary {
+   /* font-family: 'robotoregular' !important;*/
+   background-color: #101F44 !important;
+}
+
+.btn-primary:hover {
+    background-color: #283F76 !important;
+}
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+input,select,textarea{
+    border-radius: 0px !important;
+    border:none !important;
+    border-bottom: 1px solid #C4C4C4 !important;
+    background-color:transparent !important;
+}
+textarea:focus,
+input:focus,
+select:focus {
+    border-color: none !important;
+    outline: 0;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+.is-invalid{
+    border-color:red !important;
+}
+.is-valid{
+    border-color:green !important;
+}
+.help-block{
+    color:red !important;   
+}
+</style>

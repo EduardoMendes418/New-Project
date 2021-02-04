@@ -1,0 +1,628 @@
+﻿
+<style type="text/css">
+
+.form-radio-inline label {
+    margin-left: 5px;
+}
+
+.form-radio-input{
+    margin-left: 5px !important
+
+}
+.disabled {
+    pointer-events:none; 
+    opacity:0.6;         
+}
+</style>
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <h4> Solicitação de Entregas</h4> 
+</div>
+<!-- Development content -->
+<div class="row">
+    <ul class="nav  nav-tabs nav-justified" >
+        <li role="presentation"  class="active disabled">
+            <a id="aPasso1" data-toggle="tab" data-target="#passo1"><span class="badge">1</span>&nbsp;Informações de Endereço</a>
+        </li>
+        <li role="presentation" ng-disabled="1" class="disabled">
+            <!-- <a id="aPasso2" data-toggle="tab" data-target="#passo2"><span class="badge">2</span>&nbsp;Informações de Entrega </a> -->
+            <a class="nav-item nav-link" id="aPasso2" data-toggle="tab" data-target="#passo2" role="tab" aria-controls="passo2" aria-selected="false"><span class="badge">2</span>&nbsp;Informações de Entrega </a>
+        </li>
+        <li role="presentation" class="disabled">
+            <a id="aPasso3" data-toggle="tab" data-target="#passo3"><span class="badge">3</span>&nbsp;Pagamento</a>
+        </li>
+    </ul>
+</div>
+
+<div class="tab-content" id="nav-tabContent">
+    <div class="container-fluid tab-pane fade in active tab-pane-slide" style="margin-top: 2%;" id="passo1">
+        <div class="tab-content">
+            <div class="row" >
+
+                <div class="col-lg-12 col-xs-12">
+
+                    <p><strong> Tipo de Veículo * </strong></p>             
+                    <div class="col-md-3">
+                        <div class="card well" style="border:1px solid #CCC !important;">
+                            <div class="card-body text-center">
+                                    <img src="images/courier_colorida.png" style="width: 60px;" >
+                            </div>
+                            <div class="form-inline">
+                                <h5 class="card-title"><input type="radio" class="form-radio-input"   ng-value="2"  name="tipoVeiculo" ng-model="vm.tipoVeiculo" ng-checked="true" style="margin-right:10px !important;"/>MOTO</h5>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-md-offset-1">
+                        <div class="card well" style="border:1px solid #CCC !important;">
+                            <div class="card-body text-center">
+                                    <img src="images/goey_pickup_colorida.png" style="width: 100px; padding-top: 15px; " >
+                            </div>
+                            <div class="form-inline">
+                                <h5 class="card-title"><input type="radio" class="form-radio-input" ng-value="1"  name="tipoVeiculo"  ng-model="vm.tipoVeiculo" style="margin-right:10px !important;"/>PICKUP</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-12 col-xs-12">
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-2 col-md-2 num">
+                                <label class="numero" for="cep">CEP :</label>
+                                <input type="text" class="form-control" id="cep" name="cep" autofocus placeholder="CEP" ng-model="vm.cep" ui-br-cep-mask ng-change="buscaCep(1,vm.cep)"/>
+                                
+                            </div>
+
+                            <div class="col-xs-6 col-sm-8 col-md-8 endereco">
+                                <label class="origem" for="origem">Endereço de Origem *:</label>
+                                <input type='text' class="form-control" ng-model='vm.origem' ng-keyup="autoOrigem(vm.origem)"  placeholder='Endereço de origem' ng-click="inputClique()">
+
+                                 <div class="searchResult">
+                                            
+                                      <p ng-repeat="o in resO" ng-click='setValue(1,o)' >
+                                          {{ o.endereco }}
+                                      </p>
+
+                                 </div>                                                                   
+                                 
+                            </div>
+
+                            <div class="col-xs-3 col-sm-2 col-md-2 num">
+                                <label class="numero" for="origem">Numero*:</label>
+                                <input type="text" class="form-control" id="numero" name="numero" placeholder="Nº" ng-model="vm.numero" ui-number-mask="0"/>
+                                <input type="text" id="total" style="display:none;" name="total" ng-model="total">
+                            </div>
+
+                        </div>
+                    </div>         
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-2 col-md-2 num">
+                                <label class="numero" for="cep1">CEP :</label>
+                                <input type="text" class="form-control" id="cep1" name="cep1" autofocus placeholder="CEP" ng-model="vm.cep1" ui-br-cep-mask ng-change="buscaCep(2,vm.cep1)" ng-click="inputClique()"/>
+                                
+                            </div>
+
+                            <div class="col-xs-6 col-sm-8 col-md-8 endereco">
+                                <label class="origem"  for="destino1">Endereço de Destino *:</label>      
+                                <input type="text" id="destino1" class="form-control" name="destino1" ng-model="vm.destino1" placeholder="Informe um Destino" autofocus autocomplete="off" ng-keyup="autoDestino1(vm.destino1)" ng-click="inputClique()"/>
+                                <div class="searchResult">
+                                            
+                                      <p ng-repeat="d1 in resD1" ng-click='setValue(2,d1)' >
+                                          {{ d1.endereco }}
+                                      </p>
+
+                                 </div>                              
+
+                            </div>
+
+                            <div class="col-xs-3 col-sm-2 col-md-2 num">   
+                                <label class="numero" for="destino1">Numero *:</label>   
+                                <input type="text" class="form-control" id="numero1" name="numero1" placeholder="Nº" ng-model="vm.numero1" ui-number-mask="0" /> 
+                            </div>    
+                            
+                            <input type="text" id="total" style="display:none;" name="total" ng-model="total">            
+                        </div>
+                    </div>       
+
+                     <div class="form-group geral" id="grupo2" style="display:none;margin-top:2%">
+                            <div class="row">
+
+                                <div class="col-xs-3 col-sm-2 col-md-2 num">                                
+                                <input type="text" class="form-control" id="cep2" name="cep2" autofocus placeholder="CEP" ng-model="vm.cep2" ui-br-cep-mask ng-change="buscaCep(3,vm.cep2)" />
+                                
+                                </div>
+
+                                <div class="col-xs-6  col-sm-8 col-md-8 endereco">
+                                    <input type="text" id="destino2"  class="form-control cmp-destino" placeholder="Informe o Destino 2" name="destino2" ng-model="vm.destino2" autofocus autocomplete="off" ng-keyup="autoDestino2(vm.destino2)" ng-click="inputClique()"/>
+
+                                    <div class="searchResult">
+                                            
+                                      <p ng-repeat="d2 in resD2" ng-click='setValue(3,d2)' >
+                                          {{ d2.endereco }}
+                                      </p>
+
+                                    </div>
+                                    
+                                </div>    
+
+                                <div class="col-xs-3  col-sm-2 col-md-2 num">
+                                    <input type="text" class="form-control" id="numero2" name="numero2" placeholder="Nº" ng-model="vm.numero2" ui-number-mask="0"/> 
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="form-group geral" id="grupo3" style="display:none;margin-top:2%">
+                        <div class="row">
+
+                            <div class="col-xs-3 col-sm-2 col-md-2 num">                                
+                                <input type="text" class="form-control" id="cep3" name="cep3" autofocus placeholder="CEP" ng-model="vm.cep3" ui-br-cep-mask ng-change="buscaCep(4,vm.cep3)"/>
+                                
+                            </div>
+
+                            <div class="col-xs-6  col-sm-8 col-md-8 endereco">
+                                <input type="text" id="destino3"  class="form-control cmp-destino" name="destino3" ng-model="vm.destino3" placeholder="Informe o Destino 3" autofocus autocomplete="off" ng-keyup="autoDestino3(vm.destino3)" ng-click="inputClique()"/>
+
+                                <div class="searchResult">
+                                            
+                                      <p ng-repeat="d3 in resD3" ng-click='setValue(4,d3)' >
+                                          {{ d3.endereco }}
+                                      </p>
+
+                                </div>                                
+                            </div>
+
+                            <div class="col-xs-3  col-sm-2 col-md-2 num">
+                                <input type="text" class="form-control" id="numero3" name="numero3" placeholder="Nº" ng-model="vm.numero3" ui-number-mask="0"/> 
+                            </div>
+                        </div>   
+                    </div>
+
+                    <div class="form-group geral" id="grupo4" style="display:none;margin-top:2%">
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-2 col-md-2 num">                                
+                                <input type="text" class="form-control" id="cep4" name="cep4" autofocus placeholder="CEP" ng-model="vm.cep4" ui-br-cep-mask ng-change="buscaCep(5,vm.cep4)"/>
+                                
+                            </div>
+                            <div class="col-xs-6  col-sm-8 col-md-8 endereco">
+                                <input type="text" id="destino4" class="form-control cmp-destino"  name="destino4" ng-model="vm.destino4" placeholder="Informe o Destino 4" autofocus autocomplete="off" ng-keyup="autoDestino4(vm.destino4)" ng-click="inputClique()"/>
+                                <div class="searchResult">
+                                            
+                                      <p ng-repeat="d4 in resD4" ng-click='setValue(5,d4)' >
+                                          {{ d4.endereco }}
+                                      </p>
+
+                                 </div> 
+                               
+                            </div>
+                            <div class="col-xs-3  col-sm-2 col-md-2 num">
+                                <input type="text" class="form-control" id="numero4" name="numero4" placeholder="Nº" ng-model="vm.numero4" ui-number-mask="0" /> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group geral" id="grupo5" style="display:none;margin-top:2%">
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-2 col-md-2 num">                                
+                                <input type="text" class="form-control" id="cep5" name="cep5" autofocus placeholder="CEP" ng-model="vm.cep5" ui-br-cep-mask ng-change="buscaCep(6,vm.cep5)"/>
+                                
+                            </div>
+                            <div class="col-xs-6  col-sm-8 col-md-8 endereco">
+                                <input type="text" id="destino5" class="form-control autocomplete cmp-destino" name="destino5"  ng-model="vm.destino5" placeholder="Informe o Destino 5" autofocus autocomplete="off" ng-keyup="autoDestino5(vm.destino5)" ng-click="inputClique()"/>
+                                <div class="searchResult">
+                                            
+                                      <p ng-repeat="d5 in resD5" ng-click='setValue(6,d5)' >
+                                          {{ d5.endereco }}
+                                      </p>
+
+                                 </div> 
+                                
+                            </div>
+                            <div class="col-xs-3 col-sm-2 col-md-2 num" >
+                                <input type="text" class="form-control" id="numero5" name="numero5" placeholder="Nº" ng-model="vm.numero5" ui-number-mask="0"/> 
+                            </div>
+                        </div>
+                    </div>        
+
+    </div>                
+
+
+
+<div class="col-lg-3 col-xs-12" >
+    <h6><a href="#" ng-click="addDestino()">Adicionar Destino</a> | <a href="#" id="remover-destino" ng-click="removerDestino()" style="display:none">Remover Destino</a></h6>
+    <img src="../images/loader.png" id="aguarde" class='fa fa-refresh glyphicon-refresh-animate' style="display:none">                           
+    <button id="btnDistancia" type="button" class="btn btn-info btn-block" ng-click="consultarValores()">Calcular</button>
+</div><br/>
+<div class="row" >
+    <div class="col-lg-12 col-xs-12" style="margin-top:10px !important;">
+        <div class="col-lg-3 col-xs-12" >              
+            <div class="form-group">
+                <label for="distancia">Distância Total</label>
+                <input type="text" class="form-control" id="distancia" name="distancia" readonly="" ng-model="cadastrar.distancia" />            
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-xs-12">              
+            <div class="form-group">              
+                <label for="valor">Valor</label>
+                <input type="text" class="form-control" id="valor" name="valor" readonly="" ng-model="cadastrar.valor" ui-money-mask='2'>
+            </div>                       
+        </div>
+        <div class="col-lg-3 col-xs-12" >              
+            <div class="form-check">
+                <p><label for="tipo">Informe o tipo de objeto *</label></p>        
+                <span><input type="radio" class="form-check-input"  id="tipo" name="objeto" value="documento" ng-model="cadastrar.tipo"/> Documento </span>
+                <span style="margin-left: 10%;"><input type="radio" class="form-check-input"  id="tipo" name="objeto" value="outros" ng-model="cadastrar.tipo"/> Outros </span>          
+            </div>                       
+        </div> 
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 col-xs-12" style="margin-bottom:20px !important;">
+        <div class="col-lg-2 pull-right">
+            <button type="button" onclick="$('#aPasso2').click(); window.scrollTo(0,0)" class="btn btn-info btn-block pull-right" ng-disabled="!cadastrar.valor">
+                Próximo&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-arrow-right pull-right" onclick="$('#aPasso2').click(); window.scrollTo(0,0)" ng-disabled="!cadastrar.valor" style="font-size: 20px !important;cursor:pointer;padding-left: 10px;"></span>
+            </button> 
+            <!-- <span class="glyphicon glyphicon-arrow-right pull-right" onclick="$('#aPasso2').click(); window.scrollTo(0,0)" ng-disabled="!cadastrar.valor" style="font-size: 50px !important;cursor:pointer"></span> -->
+        </div>
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+<!--- distancia e preço -->
+<!-- Design content -->
+<div class="container-fluid tab-pane fade " id="passo2" role="tabpanel">
+    <div class="row">
+
+        <div class="col-lg-12 col-xs-12" >              
+            <div class="form-group">
+                <label for="distancia">Responsável *</label>
+                <input type="text" class="form-control" id="responsavel" name="responsavel" ng-model="cadastrar.responsavel">               
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-xs-12">
+            <div class="form-group">
+                <label for="descricao">Descrição do Produto*:</label>
+                <input type="text" class="form-control" id="descricao" name="descricao" ng-model="cadastrar.descricao">
+            </div>
+        </div>     
+    </div>
+
+
+    <div class="row" >
+        <div class="col-lg-12 col-xs-12">
+            <div class="form-group">
+                <label for="descricao">Observação *:</label>
+                <textarea class="form-control" rows="5" id="observacao" name="observacao" ng-model="cadastrar.observacao"></textarea>
+            </div>
+        </div>     
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+
+
+            <label for="dataAgenda">Data da Entrega: <input type="radio" name="dataAgendamento" style="margin-left:10px !important;margin-right:10px !important;" ng-value="1" ng-model="agendamento" onclick="datepicker(this.value)">Hoje</label>
+
+            <input type="radio" id="futura" name="dataAgendamento" style="margin-left:10px !important;margin-right:10px !important;" ng-value="2" ng-model="agendamento" onclick="datepicker(this.value)">
+            <label>Outra Data</label>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-3 col-xs-12">
+            <div class="form-group">
+                <input type="text" class="form-control datepicker"  id="dataAgenda" name="dataAgendamento" style="display:none;" ng-model="cadastrar.dataAgenda">
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-lg-3 col-xs-12">
+
+            <div class="form-group">
+                <label>Hora de retirada:</label>
+                <div class='input-group date'>
+                    <input type='text' class="form-control" id="horaRetirada" name="horaRetirada" ng-model="cadastrar.horaRetirada" ui-time-mask="short"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-xs-12" style="margin-bottom:20px !important;">
+                <div class="col-lg-2 pull-left">
+                    <button type="button" onclick="$('#aPasso1').click(); window.scrollTo(0,0)" class="btn btn-info btn-block pull-right">
+                       <span class="glyphicon glyphicon-arrow-left pull-left" onclick="$('#aPasso2').click(); window.scrollTo(0,0)" ng-disabled="!cadastrar.valor" style="font-size: 20px !important;cursor:pointer;padding-right: 10px;"></span> Anterior
+                    </button> 
+                </div>
+                <div class="col-lg-2 pull-right">
+                    <button type="button" onclick="$('#aPasso3').click(); window.scrollTo(0,0)" ng-disabled="!cadastrar.observacao || !cadastrar.descricao || !cadastrar.responsavel" class="btn btn-info btn-block pull-right">
+                        Próximo<span class="glyphicon glyphicon-arrow-right pull-right" onclick="$('#aPasso2').click(); window.scrollTo(0,0)" ng-disabled="!cadastrar.valor" style="font-size: 20px !important;cursor:pointer;padding-left: 10px;"></span>
+                    </button> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+<!-- R. Inês de Castro, 515 - Taquaral, Campinas - SP, 13075-370 -->
+<!-- FORM CARTAO -->
+<div id="passo3" class="container-fluid tab-pane fade " role="tabpanel" ng-form="form">
+    <div class="row " >
+        <div class="col-md-12" style="margin-top:40px !important;">
+            <div class="col-md-12">
+                <h4 class="text-center">Efetuar Pagamento</h4>
+                <br/>
+                <div class="row">
+                                <div class="col-md-12 text-center wow fadeIn bandeiras-desktop col-md-offset-3" style="visibility: visible; animation-name: fadeIn;">
+                                    <div class="row">
+                                            <div class="col-md-1 col-sm-2 col-xs-2 bandeira visa">
+                                        <div class="form-group">
+                                                <img src="images/visa.png" style="width: 60px;" class="visa">
+                                            </div>
+                                        </div>
+                                            <div class="col-md-1 col-sm-2 col-xs-2 bandeira maste">
+                                        <div class="form-group">
+                                                <img src="images/maste.png" style="width: 55px;" class="maste"> 
+                                            </div>
+                                        </div>
+                                      <!--   <div class="col-md-2 col-sm-3 col-xs-2 bandeira maestro">
+                                            <img src="images/maestro.png" > 
+                                        </div> -->
+                                            <div class="col-md-1 col-sm-2 col-xs-2 bandeira elo">
+                                        <div class="form-group">
+                                            <img src="images/elo.png" style="width: 60px;padding-top: 15px;" class="elo">
+                                            </div>
+                                        </div>
+                                            <div class="col-md-1 col-sm-2 col-xs-2 bandeira express">
+                                        <div class="form-group">
+                                                <img src="images/express.png" style="width: 50px;" class="express">
+                                            </div>  
+                                        </div>  
+                                            <div class="col-md-1 col-sm-2 col-xs-2 bandeira laranja">
+                                        <div class="form-group">
+                                                <img src="images/hiper.png" style="width: 60px;padding-top: 15px;" class="laranja"> 
+                                            </div>        
+                                        </div>        
+                                        <div class="col-md-1 col-sm-2 col-xs-2 bandeira hiper">
+                                            <img src="images/laranja-bandeira.png" style="width: 50px;" class="hiper"> 
+                                        </div> 
+                                    </div>         
+                                </div>
+                            </div>
+                            <br/>
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 col-xs-12 col-md-offset-3">
+                        <div class="form-group">
+                            <h5 ng-show="cadastrar.valor">Crédito á vista {{cadastrar.valor | currency}}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 col-xs-12 col-md-offset-3">
+                        <div class="form-group">
+                            <label>Número do Cartão</label>
+                            <input type="text" id="numeroCartao" placeholder="Digite Apenas Número" class="form-control bordaInput" maxlength="16" ng-maxlength="16" ng-minlength="16" required onkeypress='return SomenteNumero(event)'
+                            ng-model="cartaoCredito.numCartao" name="numCartao" ng-class="{'is-invalid': form.numCartao.$invalid && form.numCartao.$touched,'is-valid': form.numCartao.$valid}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-3">
+                        <label class="text-center">Validade:</label><br/>  
+                    </div> 
+                    <div class="col-md-3 col-md-offset-1">
+                        <label class="text-center">Código de Segurança:</label><br/>  
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-sm-6 col-xs-6 col-md-offset-3">
+                        <div class="form-group">
+                            <input type="text" name="mes" class="form-control" placeholder="Mês" maxlength="2" ng-model="cartaoCredito.mes"
+                            required onkeypress='return SomenteNumero(event)' 
+                            ng-class="{'is-invalid': form.mes.$invalid && form.mes.$touched,'is-valid': form.mes.$valid}"
+                            ng-change="(cartaoCredito.mes > 12) ? (form.mes.$invalid = true) : '';(cartaoCredito.mes > 12) ? (form.$invalid = true) : ''">
+                            <p ng-show="form.mes.$invalid && form.mes.$touched" class="" style="color:red;font-size:10px !important;">Digite um valor entre 1-12</p>
+                        </div>
+                    </div> 
+                    <div class="col-md-2 col-sm-6 col-xs-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="inlineFormInputGroupUsername3" placeholder="Ano" maxlength="2" ng-model="cartaoCredito.ano"
+                            required onkeypress='return SomenteNumero(event)' name="ano" ng-class="{'is-invalid': form.ano.$invalid && form.ano.$touched,'is-valid': form.ano.$valid}" ng-change="(cartaoCredito.ano < 18) ? form.ano.$invalid = true : '';(cartaoCredito.ano < 18) ?  (form.$invalid = true) : ''">
+                            <p ng-show="form.ano.$invalid && form.ano.$touched" class="" style="color:red;font-size:10px !important;">Ano deverá ser maior ou igual ao atual</p>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="col-md-2 col-xs-6">
+                        <div class="form-group">
+
+                            <input type="text" class="form-control" placeholder="CCV" maxlength="5" ng-model="cartaoCredito.seguranca" required onkeypress='return SomenteNumero(event)' name="seguranca" ng-class="{'is-invalid': form.seguranca.$invalid && form.seguranca.$touched,'is-valid': form.seguranca.$valid}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                   
+                </div>
+                <div class="row" style="margin-top: 5%;">
+                    <div class="col-lg-3 col-xs-12 col-md-offset-4 text-center">               
+                        <div class="form-group">
+
+                            <input type="button" class="btn btn-info btn-block marginL50" id="btnAgendar"  value="Pagar" ng-click="agendarEntrega()" />
+                            <img src="../images/loader.png" id="aguarde2" class='fa fa-refresh glyphicon-refresh-animate marginL50' style="display:none;">
+                        </div>
+                    </div>
+                </div> 
+        </div>
+        <div class="col-md-3 col-md-offset-3">
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row" style="margin-top: 5%; margin-bottom: 20px !important;">
+                      
+                        <div class="form-group">
+                           <div class="col-lg-2 pull-left">
+                            <button type="button" onclick="$('#aPasso2').click(); window.scrollTo(0,0)" class="btn btn-info btn-block pull-right">
+                               <span class="glyphicon glyphicon-arrow-left pull-left" onclick="$('#aPasso2').click(); window.scrollTo(0,0)" ng-disabled="!cadastrar.valor" style="font-size: 20px !important;cursor:pointer;padding-right: 10px;"></span> Anterior
+                           </button> 
+                       </div>
+                   </div>
+            </div> 
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<script>
+    function SomenteNumero(e) {
+        var tecla = (window.event) ? event.keyCode : e.which;
+        if ((tecla > 47 && tecla < 58)) return true;
+        else {
+            if (tecla == 8 || tecla == 0) return true;
+            else return false;
+        }
+    }
+
+    function SomenteLetra(e) {
+        var tecla = (window.event) ? event.keyCode : e.which;
+        if ((tecla > 47 && tecla < 58)) return false;
+        else {
+            if (tecla == 8 || tecla == 0) return true;
+            else return true;
+        }
+    }
+
+    function datepicker(e){
+        if(e == 2){
+            $('#dataAgenda').css('display','');
+        }else{
+            $('#dataAgenda').css('display','none');
+        }
+    }
+
+    $(function () {
+
+        $(".datepicker").datepicker();
+        var today = new Date();
+        var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+
+var yyyy = today.getFullYear();
+if(dd<10){
+    dd='0'+dd;
+} 
+if(mm<10){
+    mm='0'+mm;
+} 
+
+var today = dd+'/'+mm+'/'+yyyy;
+$(".datepicker").on('change', function () {
+    var date = $(this).val();
+    if (date < today) {
+        alert('Por favor selecione uma data válida!');
+        $(this).val('');
+    }
+});
+});
+
+</script>
+
+<!-- -->
+
+
+<style>
+
+.searchResult{
+position:absolute;
+width: 100%;
+height:auto; 
+max-height:100px;
+overflow-y:auto !important;
+z-index:9999;
+background-color: #fff;
+ 
+}
+
+.searchResult p:hover{
+    cursor: pointer;
+   background: #e4e4e4;
+  color: #000;
+}
+
+
+.marginL50{
+    margin-left:50px !important;
+}
+@media only screen and (max-width: 600px) {
+.marginL50 {
+    margin-left: 0px !important;
+}
+.bandeiras-desktop img {
+height:70px;   
+width: 40px;
+}
+
+.visa img{
+    width: 100% !important;
+    height: 100% !important;
+    padding-top: 22px !important;
+}
+.maste img{
+    width: 100% !important;
+    height: 100% !important;
+    padding-top: 20px !important;
+}
+.elo img{
+    width: 100% !important;
+    padding-top: 22px !important;
+    height: 100% !important;
+}
+
+.express img{
+    width: 100% !important;
+    height: 100% !important;
+    padding-top: 15px !important;
+}
+
+.laranja img{
+        width: 100% !important;
+    padding-top: 25px !important;
+    height: 100% !important;
+}
+
+.hiper img{
+    width: 100% !important;
+    height: 100% !important;
+    padding-top: 20px !important;
+}
+
+}
+.visa img {
+width: 60px;
+padding-top: 15px; 
+}
+.pg2 .elo img {
+width: 60px;
+padding-top: 15px; }
+.pg2 .hiper img {
+width: 60px;
+padding-top: 15px; }
+/*.bandeiras-desktop .row{
+    margin-left:15px !important;
+}*/
+</style>

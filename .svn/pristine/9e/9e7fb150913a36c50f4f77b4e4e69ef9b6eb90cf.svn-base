@@ -1,0 +1,104 @@
+﻿
+
+dashboard.controller("listaProdutosCtrl", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http',
+function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http) {
+    var vm = this;
+    $scope.lista = [];
+   	var usuario = JSON.parse(localStorage.getItem('user'));
+   	//$("#tipoUsuario").val(usuario.tipoUsuario);
+   //	$("#codUsuario").val(usuario.codUsuario);
+
+// var url = 'https://www.iptufacil.com.br';
+   var url = 'http://192.168.0.69:8025';
+// Lista dos Produtos
+$scope.listaProdutos = function(){
+
+$("#msn").html(''); 
+   	$http({
+	        method: 'POST',
+	        url: url +'/ws/goey/rest/public/listarProdutos',
+	        data: $.param({
+	        				auth:"3f018bfb43591ccb2ef46f10de832160",
+	        				codUsuario: usuario.codUsuario,
+	        				tipoUsuario: usuario.tipoUsuario
+	        			}),
+
+		        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			    }).success(function (response) {
+			    
+                    if(response[0].retorno == 1){
+                        
+                        $("#msn").html(''); 
+                       $scope.listaProdutos = response; 
+                       $("#listaProdutos").show();                     
+                        
+                    }else{
+                     
+                     $("#msn").html(response[0].mensagem);   
+                    // Flash.create('info', 'Nenhuma entrega nesse período.', 'large-text');
+                       
+                    }
+                    
+			    }).error(function (response) {
+
+                    $("#msn").html(response[0].mensagem); 
+			       // Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');
+                    
+			    });
+}
+
+$scope.listaProdutos(); 
+
+// Atualizar Produtos
+$scope.atualizarProduto = function(id){
+
+	 //console.log(id);
+ localStorage.setItem('produto', JSON.stringify(id));
+ console.log(id);
+//$state.go('app.atualizar-produtos');
+	
+} 
+
+$scope.deletarProduto = function(id){
+
+
+var confirma = confirm("Deseja realmente excluir esse produto?");
+
+	if(confirma){
+
+		$http({
+			        method: 'POST',
+			        url: url +'/ws/goey/rest/public/deletarProdutos',
+			        data: $.param({
+			        				auth:"3f018bfb43591ccb2ef46f10de832160",
+			        				codUsuario: usuario.codUsuario,
+			        				tipoUsuario: usuario.tipoUsuario,
+			        				codProduto: id
+			        			}),
+
+				        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+					    }).success(function (response) {
+					    
+		                    if(response.retorno == 1){
+		                        $("#"+id).remove();
+		                        Flash.create('success', response.mensagem, 'large-text');                    
+		                        
+		                    }else{
+
+		                    	Flash.create('info', response.mensagem, 'large-text');
+		                    }
+		                    
+					    }).error(function (response) {
+
+		                    
+					       Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');
+		                    
+					    });
+
+	}
+		
+
+}
+
+
+}]);

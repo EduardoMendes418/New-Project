@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/locacaoNova.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+  <section class="pgOne">
+    <nav class="navbar navbar-expand navbar-dark"  id="dektopmenu">
+      <div class="container">
+        <div class=".col-6 .col-sm-4 col-md-6">
+          <a class="navbar-brand linkdaImglogo" href="#">
+           Logo Testte
+          </a> 
+        </div> 
+        <div class=".col-6 .col-sm-4 col-md-6 navlogin" ></div>
+      </div>
+    </nav>
+
+    <nav class="navbar navbar-expand navbar-dark" id="Mobilemenu" >
+     <div class="container">
+      <nav role="navigation" class="col-md-12 navMenuMobile" style="padding: 0px">
+        <div class="row">
+          <div id="menuToggle"  class="Menu" class="col-md-6" >
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+             <li>
+              teste
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6"  style="text-align: center;">
+           <a href="" >
+          Logo teste
+         </a>
+       </div>
+     </div>
+   </nav>
+ </nav>
+</section>
+<section class="pgcard"> teste </section>
+<section class="pgperguntas"> teste </section>
+<section class="pgfooter"> teste </section>
+</body>
+</html>
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function(){
+    var current_fs, next_fs, previous_fs; 
+    var opacity;
+
+    $(".next").click(function(){
+      current_fs = $(this).parent();
+      next_fs = $(this).parent().next();
+
+      //Add Class Active
+      $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+      //show the next fieldset
+      next_fs.show();
+
+      //hide the current fieldset with style
+      current_fs.animate({opacity: 0}, {
+        step: function(now) {
+
+      // for making fielset appear animation
+      opacity = 1 - now;
+
+      current_fs.css({
+        'display': 'none',
+        'position': 'relative'
+      });
+      next_fs.css({'opacity': opacity});
+    },
+    duration: 600
+  });
+    });
+
+    $(".previous").click(function(){
+      current_fs = $(this).parent();
+      previous_fs = $(this).parent().prev();
+
+    //Remove class active
+    $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+    //show the previous fieldset
+    previous_fs.show();
+
+    //hide the current fieldset with style
+    current_fs.animate({opacity: 0}, {
+      step: function(now) {
+    // for making fielset appear animation
+    opacity = 1 - now;
+
+    current_fs.css({
+      'display': 'none',
+      'position': 'relative'
+    });
+    previous_fs.css({'opacity': opacity});
+  },
+  duration: 600
+});
+
+  });
+
+    $('.radio-group .radio').click(function(){
+      $(this).parent().find('.radio').removeClass('selected');
+      $(this).addClass('selected');
+    });
+
+    $(".submit").click(function(){
+      return false;
+    })
+  });
+  //****************  FUNÇOES ANCORA ******************* 
+  function ancora(id_ancora){
+    var top = $("#"+id_ancora).offset().top-50
+    $('html, body').stop().animate({
+      'scrollTop': top
+    }, 1000, 'swing', function () {   
+    }); 
+  } 
+  $(function(){
+    $("[data-toggle='bottom']").click(function(){
+      $("html, body").animate({ scrollTop: $(document).height() }, );
+    });
+  });
+    //****************  FIM DA ANCORA ******************* 
+  </script>
+
+
+
+
+
+
+
+

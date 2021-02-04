@@ -1,0 +1,16 @@
+var compras = angular.module('compras', ['ui.router', 'ngResource', 'ngAnimate']);
+
+compras.config(["$stateProvider", function ($stateProvider) {
+
+//Formulário de cadastro de empresas
+    $stateProvider.state('compras', {
+        url: '/compras',
+        templateUrl: 'app/modules/compras/compras.html',
+        controller: 'comprasCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Encontre um Estabelecimento próximo.'
+        }
+    });
+
+}]);

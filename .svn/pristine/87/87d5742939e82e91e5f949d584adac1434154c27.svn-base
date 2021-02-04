@@ -1,0 +1,82 @@
+restaurante.controller("restauranteCtrl",  ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http',
+function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http) {
+
+  var vm = this;
+        localStorage.removeItem('user');
+        vm.getUser = {};
+        vm.setUser = {};
+        vm.signIn = true;
+
+
+///FUNCAO DO FORMULARIO CONTATO-franquia
+$scope.enviarEmail = function(){
+  var destinatario = 'atendimento.empresa@ddtotal.com.br';
+  //var destinatario = 'eduardomendes418@gmail.com'
+  var copia = 'marcus.cominatto@ddtotal.com.br';
+  var assunto = 'Contato-Restaurante - Site goey';
+  var nome = $scope.demail.nome || '';
+  var email = $scope.demail.email || '';
+  var empresa = $scope.demail.empresa || '';
+  var cnpj = $scope.demail.cnpj || '';
+  var telefone = $scope.demail.telefone || '';
+  var desc = $scope.demail.desc || '';
+
+  var descricao = "nome: "+nome+"<br/>"+
+                  "email: "+email+"<br/>"+   
+                  "empresa: "+empresa+"<br/>"+                    
+                  "cnpj: "+cnpj+"<br/>"+
+                  "telefone: "+telefone+"<br/>"+
+                  '<br/>'+desc;
+
+  var url = 'https://www.iptufacil.com.br/ws/geral/public/enviarEmail';
+  $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";    
+  $http.post(url,$.param({
+                assunto: assunto,  
+                destinatario: destinatario,
+                copia: copia,
+                descricao: descricao
+          })
+      ).then(function(response){
+   Flash.create('info', response.data.mensagem, 'large-text');
+  });
+}
+
+
+
+
+$scope.cadastrarUsuario = function(){
+  if (grecaptcha.getResponse() == "") {
+
+    Flash.create('danger', 'Robôs não podem enviar esse formulário!', 'large-text');
+    return false;
+  }
+
+ if ($scope.form.$invalid) {
+   angular.forEach($scope.form.$error, function (field) {
+     angular.forEach(field, function(errorField){
+       errorField.$setTouched();
+     })
+   });
+
+   Flash.create('danger', 'Por favor, preencha os campos em vermelho!', 'large-text');
+   return false;
+ }
+
+ $http.post('https://www.iptufacil.com.br/ws/goey/rest/public/cadastroUsuario',({'dados':$scope.cadUsuario, auth: "3f018bfb43591ccb2ef46f10de832160"})).then(function(response){
+    Flash.create('warning',response.data.mensagem, 'large-text');
+ });
+
+}
+
+$scope.clearForm = function(){
+  $scope.form.$setPristine();
+  $('#cpf').val('');
+
+}
+
+$("#showModal").click(function() {
+  $("#cadUsuario").modal("show");
+  $scope.clearForm();
+});
+
+}]);

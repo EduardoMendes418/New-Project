@@ -1,0 +1,247 @@
+
+locacao.controller("locacaoCtrl", ['$rootScope', '$scope', '$state', '$location',  'Flash','$http',
+function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http) {
+$scope.carregando = false;
+
+ var url = 'https://www.iptufacil.com.br';
+ //var url = 'http://192.168.0.69:8040';
+ //var url = 'http://192.168.1.215:8025';
+ //  $scope.$watch('form.cep.length', function(count, oldCount){
+ //    if(count == 8){
+ //     $scope.getAddressByCep();
+ //   }
+ // })
+
+//Capt 
+var arrayContainer = [];
+  var onloadCallback = function(){
+    arrayContainer['msgAtendimentoCaptcha'] = grecaptcha.render('msgAtendimentoCaptcha', {'sitekey' : '6LeIricTAAAAACqJbFWyJ4Y9GTH0CEHlnzSFIHSx'});
+    arrayContainer['msgLojistaCaptcha'] = grecaptcha.render('msgLojistaCaptcha', {'sitekey' : '6LeIricTAAAAACqJbFWyJ4Y9GTH0CEHlnzSFIHSx'});
+    arrayContainer['msgEmpresaCaptcha'] = grecaptcha.render('msgEmpresaCaptcha', {'sitekey' : '6LeIricTAAAAACqJbFWyJ4Y9GTH0CEHlnzSFIHSx'});
+    arrayContainer['credenciamentoVTCaptcha'] = grecaptcha.render('credenciamentoVTCaptcha', {'sitekey' : '6LeIricTAAAAACqJbFWyJ4Y9GTH0CEHlnzSFIHSx'});
+    arrayContainer['ddpagPessoaFisicaCaptcha'] = grecaptcha.render('ddpagPessoaFisicaCaptcha', {'sitekey' : '6LeIricTAAAAACqJbFWyJ4Y9GTH0CEHlnzSFIHSx'});
+    arrayContainer['ddpagPessoaJuridicaCaptcha'] = grecaptcha.render('ddpagPessoaJuridicaCaptcha', {'sitekey' : '6LeIricTAAAAACqJbFWyJ4Y9GTH0CEHlnzSFIHSx'});  
+    arrayContainer['g-recaptcha'] = grecaptcha.render('g-recaptcha', {'sitekey' : '6LeaQHQUAAAAAC7KVG-vv0zbA4ZG8I5rf597HX31'});  
+  };
+
+//******************** EnviarCadastro *********************//
+$scope.enviarCadastro = function(tipoVeiculo){
+	
+var deli = '';
+	if($scope.nome == undefined || $scope.nome == ''){
+	 alertify.error("O campo Nome é obrigatório.");
+	 return false;
+	}
+	if($scope.cpf == undefined || $scope.cpf == ''){
+	 alertify.error("O campo CPF é obrigatório.");
+	 return false;
+	}
+	if($scope.rg == undefined || $scope.rg == ''){
+	 alertify.error("O  campo RG é obrigatório");
+	return false;	
+	}
+	if($scope.sexo == undefined || $scope.sexo == ''){
+	 alertify.error("O campo Sexo é obrigatório.");
+	 return false;
+	}
+	if($scope.datanascimento == undefined || $scope.datanascimento == ''){
+	 alertify.error("O campo Data Nascimento é obrigatório.");
+	 return false;
+	}
+	if($scope.estadocivil == undefined || $scope.estadocivil == ''){
+	 alertify.error("O  campo Estado Civil é obrigatório");
+	return false;	
+	}
+	if($scope.filhos == undefined || $scope.filhos == ''){
+	 alertify.error("O campo filhos é obrigatório.");
+	 return false;
+	}
+	if($scope.telefone == undefined || $scope.telefone == ''){
+	 alertify.error("O campo Telefone é obrigatório.");
+	 return false;
+	}
+	if($scope.email == undefined || $scope.email == ''){
+	 alertify.error("O campo Email é obrigatório.");
+	 return false;
+	}
+	if($scope.uf == undefined || $scope.uf == ''){
+	 alertify.error("O  campo UF é obrigatório");
+	return false;	
+	}
+	if($scope.cidade == undefined || $scope.cidade == ''){
+	 alertify.error("O campo Cidade é obrigatório.");
+	 return false;
+	}
+	if($scope.bairro == undefined || $scope.bairro == ''){
+	 alertify.error("O campo Bairro é obrigatório.");
+	 return false;
+	}
+	if($scope.logradouro == undefined || $scope.logradouro == ''){
+	 alertify.error("O  campo Logradouro é obrigatório");
+	return false;	
+	}
+	if($scope.numero == undefined || $scope.numero == ''){
+	 alertify.error("O  campo Numero é obrigatório");
+	return false;	
+	}
+	if(tipoVeiculo == 2 && $scope.ncnh == undefined || $scope.ncnh == ''){
+	 alertify.error("O  campo CNH é obrigatório");
+	return false;	
+	}
+	if(tipoVeiculo == 2 && $scope.validade == undefined || $scope.validade == ''){
+	 alertify.error("O  campo Validade do CNH é obrigatório");
+	return false;	
+	}
+	if(tipoVeiculo == 2 &&  $scope.habilitacao == undefined || $scope.habilitacao == ''){
+	 alertify.error("O  campo Numero da Habilitacao é obrigatório");
+	return false;	
+	}
+	if(tipoVeiculo == 2 && $("#cnh").val() == ''){
+		 alertify.error("O  campo Imagem é obrigatório");
+		return false;
+	}
+	
+	$(".btn-cadastro").hide();
+	$(".msn-txt").html('Enviando dados, aguarde...');
+
+/*Recaptcha
+if(grecaptcha.getResponse() == ""){
+	alert('Robôs não podem enviar esse formulários!');
+	return false;
+}
+
+if($scope.formlocacao-moto.$invalid){
+	angular.forEach($scope.formlocacao-moto.$error, function(field){
+		angular.forEach(field, function(errorField){
+			errorField.$setTouched();
+		})
+	});
+
+	alert('danger', 'Por favor, preencha os campos em vermelho!', 'large-text');
+	return false;
+}*/
+
+
+//Formulario Carregando 
+$scope.carregando = true;
+	
+	var app = new Array();
+	
+	//array para checkbox..
+	$(".check1:checked").each(function(){
+            app.push($(this).val());
+    });
+
+    if(app.length < 1){
+        app = '';
+    }
+
+	 deli = app.toString();
+
+	var formulario = '';
+
+	if(tipoVeiculo == 2){
+
+		formulario = new FormData($("form[name='formlocacao-moto']")[0]);
+
+	}else{
+
+		formulario = new FormData($("form[name='formlocacao-bike']")[0]);
+	}
+
+	formulario.append('auth','3f018bfb43591ccb2ef46f10de832160');
+	formulario.append('app',deli);
+	formulario.append('tipoVeiculo',tipoVeiculo);
+
+
+$.ajax({
+                type: 'POST',
+                url: url+'/ws/goey/rest/public/CadastrarMotocicletas',
+                data: formulario ,
+                processData: false,
+                contentType: false,
+                dataType: 'json'
+
+        }).success(function (response) {
+            
+        	if(response.retorno == 1){
+
+        		
+        		$(".btn-cadastro").show();
+				$(".msn-txt").html('');
+				$('.form-cadastro').trigger('reset');
+				alertify.success(response.mensagem);
+				$("#formlocacao-moto").trigger('reset');
+				$("#formlocacao-bike").trigger('reset');
+
+        	}else{
+
+        		$(".btn-cadastro").show();
+				$(".msn-txt").html('');				
+				alertify.error(response.mensagem);
+
+        	}
+            
+
+         });              
+
+        
+ }
+
+
+
+// Busca endereço por cep banco novo
+$scope.buscaCep = function(cep){
+
+  if(cep){
+
+		$.ajax({
+                type: 'POST',
+                url: 'https://www.iptufacil.com.br/ws/goey/rest/public/buscarEndereco',
+                data: {cep:cep,auth:'3f018bfb43591ccb2ef46f10de832160'} ,
+               
+                dataType: 'json'
+
+        }).success(function (response) {
+            
+        	if(response.retorno == 1){
+					//console.log(response);
+					
+						$scope.uf = response.uf;
+						$scope.cidade = response.cidade;
+						$scope.bairro = response.bairro;
+						$scope.logradouro = response.logradouro;
+		
+        		}
+            
+         });              
+ 
+  }
+
+}
+
+$scope.filtroCidades = function(){
+	$scope.comboCidades = null;
+	var uf = 'SP';
+
+	$.ajax({
+                type: 'POST',
+                  url: "https://www.iptufacil.com.br/ws/goey/rest/public/comboCidades",
+                data: {uf:uf,auth:'3f018bfb43591ccb2ef46f10de832160'} ,
+               
+                dataType: 'json'
+
+        }).success(function (response) {
+           
+                 $scope.comboCidades = response;       
+
+    })
+
+
+}
+
+$scope.filtroCidades();
+
+
+
+}]);

@@ -1,0 +1,83 @@
+﻿
+
+dashboard.controller("borderoCtrl", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http',
+function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http) {
+    var vm = this;
+    $scope.usuario = [];
+   	$scope.usuario = JSON.parse(localStorage.getItem('user'));
+   	//var url = 'https://www.iptufacil.com.br';
+   	var url = 'http://192.168.0.69:8025';
+//$scope.filtro.auth = "3f018bfb43591ccb2ef46f10de832160"; 
+$scope.comboData = function(){
+
+$http({
+        method: 'POST',
+        url: url + '/ws/goey/rest/public/comboMesAno',
+        data: $.param({auth:'3f018bfb43591ccb2ef46f10de832160'}),
+
+	        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+		    }).success(function (response) {
+		    		    	
+		    	  $scope.listaData = response;
+                
+		    })
+
+}
+
+$scope.comboData();
+
+$scope.consultarBordero = function(){
+
+$scope.filtro.auth = "3f018bfb43591ccb2ef46f10de832160";
+$scope.filtro.codUsuario  = $scope.usuario.codUsuario;
+$scope.filtro.tipoUsuario = $scope.usuario.tipoUsuario;
+$('#msn').html(''); 
+
+if($scope.filtro.de < 10){
+	$scope.filtro.de = '0'+ $scope.filtro.de ;
+}
+
+if($scope.filtro.ate < 10){
+	$scope.filtro.ate = '0'+ $scope.filtro.ate;
+}
+
+$scope.filtro.dataInicio = $scope.filtro.de + '/' +$scope.filtro.mesAno;
+$scope.filtro.dataFim = $scope.filtro.ate + '/' +$scope.filtro.mesAno;
+
+	$http({
+		        method: 'POST',
+		        url: url + '/ws/goey/rest/public/consultarBorderoGoey',
+		        data: $.param(
+					            $scope.filtro
+       						  ),
+
+	        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+		    }).success(function (response) {
+		    	
+		    	 if(response[0].retorno == 1){
+
+		    	 	$scope.filtro = '';
+		    	 	$scope.lista = response;
+
+		    	 }else{
+
+		    	 	$('#msn').html(response[0].mensagem);
+
+		    	 }		    	
+		    	  
+                
+		    }).error(function (response) {
+
+		    	//$("#img-loader").hide();
+		    	//$("#btnAtualizarDados").show();
+		        Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');
+               
+		    }); 
+            
+}  
+
+$( ".datepicker" ).datepicker({
+                locale: 'pt-br'
+            });
+
+}]);

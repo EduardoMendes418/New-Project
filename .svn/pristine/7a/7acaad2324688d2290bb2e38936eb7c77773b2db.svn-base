@@ -1,0 +1,216 @@
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<link href="css/bootstrap.css">
+
+<?php
+
+$pedido 		= base64_decode($_GET['pedido']);
+$id 			= base64_decode($_GET['rest']);
+$retorno = '';
+
+
+// CARREGA OS DADOS DO LOJISTA
+
+$var = array('codResturante'=>$id,'pedido'=>$pedido,'auth'=>'3f018bfb43591ccb2ef46f10de832160');
+
+$ch = curl_init();
+
+// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_URL,"http://192.168.0.25/ws/goey/rest/public/carregaDadosRestaurante"); 
+curl_setopt($ch, CURLOPT_POSTFIELDS,$var);  
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+$server_output = curl_exec ($ch);
+
+
+$jsonDecode 	= json_decode($server_output);
+$precoEntrega 	= $jsonDecode->precoEntrega;
+$observacao 	= $jsonDecode->observacao;
+$formaPagamento = $jsonDecode->formaPagamento;
+$troco 			= $jsonDecode->troco;
+
+$retorno .= "<div class=\"container-fluid\">";
+$retorno .= "<table class=\"table\" style=\"margin-left:10px !important;margin-top:10px !important;\">";
+$retorno .= "<thead>";
+$retorno .= "<tr>";
+$retorno .= "<td>".$jsonDecode->nomeFantasia."</td>";
+$retorno .= "</tr>";
+$retorno .= "<tr>";
+$retorno .= "<td> Entrega: ".$pedido."</td>";
+$retorno .= "</tr>";
+$retorno .= "<tr>";
+$retorno .= "<td> Cliente: ".$jsonDecode->cliente."</td>";
+$retorno .= "</tr>";
+$retorno .= "<tr>";
+$retorno .= "<td> Telefone: ".$jsonDecode->telefone."</td>";
+$retorno .= "</tr>";
+$retorno .= "<tr>";
+$retorno .= "<td> Endereço: ".$jsonDecode->destino."</td>";
+$retorno .= "</tr>";
+$retorno .= "<tr>";
+$retorno .= "<td> Endereço: ".$observacao."</td>";
+$retorno .= "</tr>";
+$retorno .= "<tr>";
+$retorno .= "<td> Data Pedido: ".$jsonDecode->dataPedido."</td>";
+$retorno .= "</tr>";
+$retorno .= "</thead>";
+$retorno .= "</table>";
+
+// $retorno .= str_pad('=', 41, "=", STR_PAD_LEFT)."<br/>";
+// CARREGA O PEDIDO
+
+$var = array('codResturante'=>$id,'pedido'=>$pedido,'auth'=>'3f018bfb43591ccb2ef46f10de832160');
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_URL,"http://192.168.0.25/ws/goey/rest/public/printPedido"); 
+curl_setopt($ch, CURLOPT_POSTFIELDS,$var);  
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+$server_output = curl_exec ($ch);
+curl_close ($ch);
+$jsonDecode = json_decode($server_output);
+
+$prod = '';
+
+$codProduto = '';
+$retorno .= "<span style=\"margin-left:10px !important;\"></span>".str_pad('=', 36, "=", STR_PAD_LEFT)."<br/>";
+$retorno .= "<table class=\"table\" style=\"margin-left:10px !important;margin-right:10px !important;\">";
+$retorno .= "<thead>";
+$retorno .= "<tr>";
+$retorno .= "<td>Produto</td>";
+$retorno .= "<td>Preço</td>";
+$retorno .= "</tr>";
+$total = 0;
+foreach ($jsonDecode as $key ) {
+
+	if( ($prod != $key->nome) || ($codProduto != $key->codigo) ){
+		$retorno .= "<tr><td colspan='2'></td></tr>";
+		$retorno .= "<tr><td colspan='2'></td></tr>";
+		$retorno .= "<tr><td colspan='2'></td></tr>";
+		$retorno .= "<tr><td colspan='2'></td></tr>";
+		$retorno .= "<tr>";
+		$retorno .= "<td>".$key->qtd.' '.$key->nome."</td>";
+		$retorno .= "<td>R$ ".number_format($key->precoProduto*$key->qtd,2,',','.')."</td>";
+		$retorno .= "</tr>";		
+		if($key->obs){
+			$retorno .= "<tr><td colspan='2' style=\"padding-left:8px !important;\"><small style=\"margin-right:0px !important;\">obs: ".$key->obs."</small></td></tr>";
+		}
+
+		$total += $key->precoProduto*$key->qtd;
+
+	if($key->adicional){
+		$retorno .= "<tr>";
+		$retorno .= "<td style=\"padding-left:8px !important;\">+ ".$key->adicional."</td>";
+		$retorno .= "<td>R$ ".number_format($key->preco*$key->qtd,2,',','.')."</td>";
+		$retorno .= "</tr>";
+		$total += $key->preco*$key->qtd;
+	}
+		// $retorno .= $key->nome.str_pad('.', 40, ".", STR_PAD_LEFT).' R$ '.number_format($key->precoProduto,2,',','.')."<br/>";
+		// $retorno .= $key->adicional.str_pad('.', 40, ".", STR_PAD_LEFT).' R$ '.number_format($key->preco,2,',','.')."<br/>";		
+	}else{
+		$retorno .= "<tr>";
+		$retorno .= "<td style=\"padding-left:8px !important;\">+ ".$key->adicional."</td>";
+		$retorno .= "<td>R$ ".number_format($key->preco*$key->qtd,2,',','.')."</td>";
+		$retorno .= "</tr>";
+		$total += $key->preco*$key->qtd;
+
+		// $retorno .= $key->adicional.str_pad('.', 40, ".", STR_PAD_LEFT).' R$ '.number_format($key->preco,2,',','.')."<br/>";		
+	}
+
+
+	$prod = $key->nome;
+	$codProduto = $key->codigo;
+
+}
+$retorno .= "
+<tr><td colspan='2'></td></tr>
+<tr><td colspan='2'></td></tr>
+<tr><td colspan='2'></td></tr>
+<tr><td colspan='2'></td></tr>
+<tr>
+<td>Taxa de Entrega</td>
+<td>R$ ".number_format($precoEntrega,2,',','.')."</td>
+</tr>
+<tr>
+<tr><td colspan='2'></td></tr>
+<td>Total: </td>
+<td>R$ ".number_format($total+$precoEntrega,2,',','.')."</td>
+</tr>
+<tr>
+	<td colspan='2'><span style=\"margin-left:0px !important;\"></span>".str_pad('=', 36, "=", STR_PAD_LEFT)."</td>
+</tr>
+<tr>
+	<td>Forma Pagamento: ".$formaPagamento."</td>
+	<tr>
+					<td>Valor a Receber: R$ ".number_format($total+$precoEntrega+$troco,2,',','.')."</td>
+				</tr>
+</tr>";
+if($troco > 0){
+	$retorno .= "
+				<tr>
+					<td>Troco: R$ ".number_format($troco,2,',','.')."</td>
+				</tr>";
+};
+$retorno .= "</table>";
+$retorno .="</div>";
+echo $retorno;
+
+
+
+?>
+
+
+
+<style>
+
+body{
+	background-color:#fdfdb5 !important;
+	font-family: 'Roboto' !important;
+}
+
+table tr td {
+	padding: 0px !important;
+	margin:0px !important;
+	text-decoration: none !important;
+	border:none !important;
+}
+
+table {
+	margin:0px;
+	min-height: 100vh !important;
+	height:100vh !important;
+	max-height: 100vh !important;
+}
+
+@media print{
+	.container{
+		margin:0px !important;
+		padding:0px !important;
+	}
+	body{
+		background-color:transparent !important;
+		margin-top:10px !important;
+		margin-left:5px !important;
+		font-family: 'Roboto' !important;
+		max-height: 600px !important;
+	}
+	table tr td {
+		padding: 0px !important;
+		margin:0px !important;
+		text-decoration: none !important;
+		border:none !important;
+		/*font-size: 45px !important;*/
+
+	}
+	.container{
+		margin-top:0px !important;
+	}
+	table {
+		margin: 0px !important;
+		padding:0px !important;
+	}
+
+}
+
+</style>

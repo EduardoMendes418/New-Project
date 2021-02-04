@@ -1,0 +1,8 @@
+﻿
+home.controller("homeCtrl", ['$rootScope', '$scope', '$state', '$location', 'loginService', 'Flash','apiService',
+function ($rootScope, $scope, $state, $location, loginService, Flash, apiService) {
+        var vm = this;
+
+          $scope.pg1 = "pg1.html";
+
+    }]);

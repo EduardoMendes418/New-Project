@@ -1,0 +1,21 @@
+function alert(titulo,body = ''){
+    if(!body){
+      body = titulo;  
+      titulo = 'GoeyJá - Delivery para todos';
+    } 
+   return alertify.alert(titulo,body).set('modal', true); 
+}
+function alertCompra(){
+   return alertify.message('Produto adicionado ao carrinho!').dismissOthers();    
+}
+/* da Motinha Controller */
+if(window.location.hostname == "w.iptufacil.com.br"){
+   var ws = "https://www.iptufacil.com.br/ws";  
+}
+else if(window.location.hostname == "www.ddtotal.com.br" || window.location.hostname == "www.cartaoddtotal.com.br" || window.location.hostname == "w.iptufacil.com.br" || window.location.hostname == "www.iptufacil.com.br" ){
+   var ws = "https://www.iptufacil.com.br/ws";
+}else if(window.location.hostname == "localhost"){
+   var ws = "http://localhost:8025/ws";                 
+}else{
+   var ws = "http://"+window.location.hostname+":8025/ws";
+}

@@ -1,0 +1,58 @@
+﻿
+
+dashboard.controller("historicoCtrl", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http',
+function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http) {
+    var vm = this;
+    var usuario = JSON.parse(localStorage.getItem('user'));
+    $scope.tipoUsuario = usuario.tipoUsuario;
+    $scope.codUsuario = usuario.codUsuario;
+    $scope.auth = '3f018bfb43591ccb2ef46f10de832160';
+    
+$scope.historicoEntregas = function(){
+
+
+   	$http({
+			        method: 'POST',
+			        url: 'http://ws.goeyja.com.br/ws/goey/rest/public/historicoEntregasUsuario',
+			        data: $.param({
+						            tipoUsuario: $scope.tipoUsuario ,
+						            codUsuario: $scope.codUsuario,
+                                    dataInicio: $scope.filtro.dataInicio,
+                                    dataFim :  $scope.filtro.dataFim,
+						            auth:  $scope.auth
+	       						  }),
+
+		        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			    }).success(function (response) {
+			      console.log(response);
+                    if(response[0].retorno == 1){
+                        
+                       $scope.lista = response;
+                      
+                        
+                    }else{
+                        
+                     Flash.create('info', 'Nenhuma entrega nesse período.', 'large-text');
+                       
+                    }
+                    
+			    }).error(function (response) {
+			        Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');
+                    
+			    });
+    	
+    }
+
+ $scope.detalhar = function(data){
+
+$scope.detalhe = data;
+ } 
+
+
+$( ".datepicker" ).datepicker({
+                locale: 'pt-br'
+            });
+
+
+}]);
+

@@ -1,0 +1,428 @@
+.btn-successs {
+    width: 100%;
+    text-align: center;
+    background: #FF7F00 !important;
+    color: #fff !important;
+    margin: auto;
+    border-radius: 0px !important;
+    width: 130px !important;
+    border-color: #fff !important;
+    padding-top: 9px !important;
+    padding-bottom: 10px !important;
+    padding-bottom: 10px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    font-size: 15px !important;
+    font-weight: bold !important;
+}
+
+.ajs-header{
+  background: #FF7F00 !important;
+  border: 1px solid #FF7F00 !important;
+  color: #fff !important;
+}
+
+.ajs-dialog .ajs-content{
+  color: #000;
+  font-size: 18px;
+  text-align: center;
+}
+
+.alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button {
+    margin: 4px;
+    background: #FF7F00 !important;
+    color: #fff !important;
+    border: 1px solid #FF7F00 !important;
+}
+
+#footer{
+  padding-top: 20px;
+  background: #EBEBEB; 
+  min-height: 25vh;
+}
+#padding0{
+  padding-right: 0px;
+}
+
+#padding1{
+  padding-left: 0px;
+}
+
+#padding1 img{
+  padding-left: 0px;
+  width:65%;
+  height:60%; 
+}
+
+#footer h2 {
+  font-weight: bold;
+  font-size: 31px;
+  margin-bottom: 0px;
+  margin-top: 11vh;
+}
+
+#footer button {
+  color: #fff;
+  border-radius: 0px;
+  background: #4965A9;
+  border: 0px;
+  margin-top: 15px;
+  font-size: 13px;
+  padding-top: 10px;
+  width: 230px !important;
+  padding-bottom: 10px;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+
+#trailerSp{
+  margin-top: 5vh !important;
+  margin-bottom: 1vh !important;
+  margin-bottom: : 5vh !important;
+  min-height: 40vh;
+  text-align: left !important;
+}
+
+#trailerSp h2{
+ font-weight: bold;
+ text-align: left !important;
+ font-weight: 700;
+ letter-spacing: -1px;
+ margin-top: 8vh;
+}
+
+#trailerSpp{
+  font-size: 16px;
+}
+
+#trailerSp p label{
+ font-weight: bold;
+ text-align: left;
+ font-weight: bold;
+ font-size: 16px;
+}
+
+#texto .dia{
+  font-size: 23px !important;
+  letter-spacing: -2px;
+  font-weight: bold;
+  margin-bottom: 0px !important;
+}
+
+#texto .valores label{
+  color: #4965A9 !important;
+  font-weight: bold;
+  font-size: 23px !important;
+  letter-spacing: -2px;
+  margin-bottom: 0px !important;
+}
+
+
+.card-body{
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+.card3{
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.card3 h3{
+  font-weight: bold !important;
+  text-align: left !important;
+}
+
+.card3 button {
+  border-radius: 0px !important;
+  background: #F26A0E !important;
+  border: 1px solid #F26A0E !important;
+  font-size: 13px !important;
+  margin: 0  !important;
+  color: #fff!important;
+  height: 37px !important;
+  width: 100% !important;
+  font-weight: bold;
+}
+
+.card3 button:hover {
+ border-radius: 0px !important;
+  background: #F26A0E !important;
+  border: 1px solid #F26A0E !important;
+  font-size: 13px !important;
+  margin: 0  !important;
+  height: 37px !important;
+  font-weight: bold;
+}
+
+.card3 h3{
+  text-align: left !important;
+}
+
+.card3 {
+  border: 1px solid #f4f4f4 !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+#tituloPrincipal h2{
+  text-align: left ;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.jumbotron-heading label{
+  color: #F26A0E !important;
+}
+
+.jumbotron-heading p{
+  color: #000;
+  font-size: 13px;
+  text-align: left ;
+}
+
+
+#tituloPrincipal{
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+#tituloPrincipal h2{
+  margin-bottom: 15px;
+  margin-top: 25px;
+
+}
+
+#tituloPrincipal p{
+  text-align: left ;
+  margin-bottom: 10px !important;
+}
+
+.bloco01{
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+} 
+
+.card-deck .card {
+  -ms-flex: 1 0 0%;
+  flex: 1 0 0%;
+  margin-right: 5px;
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+
+/*********************** ***************************/
+#logUser{
+    background: #F26A0E !important;
+    border-radius: 0px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 6px;
+  }
+
+  :root {
+    --input-padding-x: 1.5rem;
+    --input-padding-y: 0.75rem;
+  }
+
+  .login,
+  .image {
+    min-height: 60vh;
+  }
+
+  .bg-image {
+    background-image:url(../images/home/banner1.png); ;
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .login-heading {
+    font-weight: 300;
+  }
+
+  .btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+    border-radius: 2rem;
+  }
+
+  .form-label-group {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .form-label-group>input,
+  .form-label-group>label {
+    padding: var(--input-padding-y) var(--input-padding-x);
+    height: auto;
+    border-radius: 2rem;
+  }
+
+  .form-label-group>label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+    /* Override default `<label>` margin */
+    line-height: 1.5;
+    color: #495057;
+    cursor: text;
+    /* Match the input under the label */
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    transition: all .1s ease-in-out;
+  }
+
+  .form-label-group input::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  .form-label-group input:-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .form-label-group input::-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .form-label-group input::-moz-placeholder {
+    color: transparent;
+  }
+
+  .form-label-group input::placeholder {
+    color: transparent;
+  }
+
+  .form-label-group input:not(:placeholder-shown) {
+    padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+    padding-bottom: calc(var(--input-padding-y) / 3);
+  }
+
+  .form-label-group input:not(:placeholder-shown)~label {
+    padding-top: calc(var(--input-padding-y) / 3);
+    padding-bottom: calc(var(--input-padding-y) / 3);
+    font-size: 12px;
+    color: #777;
+  }
+
+/* Fallback for Edge
+-------------------------------------------------- */
+
+@supports (-ms-ime-align: auto) {
+  .form-label-group>label {
+    display: none;
+  }
+  .form-label-group input::-ms-input-placeholder {
+    color: #777;
+  }
+}
+
+/* Fallback for IE
+-------------------------------------------------- */
+
+@media all and (-ms-high-contrast: none),
+(-ms-high-contrast: active) {
+  .form-label-group>label {
+    display: none;
+  }
+  .form-label-group input:-ms-input-placeholder {
+    color: #777;
+  }
+}
+
+
+/************************* fim ***************************/
+
+
+@media screen and (max-width: 600px) {
+
+  .card3 {
+    margin-bottom: 5px;
+    margin-top: 15px;
+  }
+
+  #tituloPrincipal h2{
+    text-align: left ;
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 22px !important;
+  }
+
+  .jumbotron-heading p{
+    color: #000;
+    font-size: 13px;
+    text-align: left ;
+  }
+
+  #footer h2 {
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 0px;
+    margin-top: 5vh;
+  }
+
+  #footer button{
+    margin-left: 0px !important;
+  }
+
+  #footer p {
+    text-align: left !important;
+    font-size: 16px;
+    margin-right: 0px;
+  }
+
+  #padding1 img{
+    padding-left: 0px;
+    width:100%;
+    height:100%; 
+  }
+
+  #perguntas h3 {
+    margin-top: 5px;
+    font-size: 22px !important;
+  }
+
+  #trailerSp h2 {
+    font-weight: bold;
+    text-align: left !important;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -1px;
+    margin-top: 1vh;
+    margin-bottom:  3vh;
+  }
+
+
+  .card-body {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+
+  #bordaMobile{
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+
+  #padding0{
+    padding: 0px;
+  }
+
+  #padding1{
+    padding: 0px;
+  }
+
+
+}
+
+
+
+

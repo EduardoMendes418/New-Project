@@ -1,0 +1,36 @@
+var listaProdutos = angular.module('listaProdutos', ['ui.router', 'ngResource', 'ngAnimate','angular.filter']);
+
+listaProdutos.config(["$stateProvider", function ($stateProvider) {
+
+// Lista de produtos Estabelecimentos
+    $stateProvider.state('listaProdutos', {
+         url: '/lista-produtos/:codLoja/:tipo',
+        templateUrl: 'app/modules/compras/lista-produtos.html',
+        controller: 'listaCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Compre com a Goey.'
+        }
+    });
+
+}]);
+
+listaProdutos.filter('trim', function () {
+    return function(value) {
+    	
+        if(!angular.isString(value)) {
+
+            return value;
+        }  
+        return value.replace(/ /g,''); // you could use .trim, but it's not going to work in IE<9
+    };
+});
+
+listaProdutos.filter('lower', function () {
+    return function(value) {
+        value = value.toLowerCase();
+        return value.charAt(0).toUpperCase() + value.slice(1);
+    };
+});
+
+

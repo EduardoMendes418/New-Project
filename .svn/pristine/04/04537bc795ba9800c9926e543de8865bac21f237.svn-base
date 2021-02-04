@@ -1,0 +1,480 @@
+﻿
+<style type="text/css">
+
+.form-radio-inline label {
+    margin-left: 5px;
+}
+
+.form-radio-input{
+    margin-left: 5px !important
+
+}
+.disabled {
+    pointer-events:none; 
+    opacity:0.6;         
+}
+.agendamentoEstabelecimento{
+    display: none;
+}
+</style>
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <h4> Solicitar de Entregas</h4> 
+
+</div>
+<!-- Development content -->
+<div class="row">
+    <ul class="nav  nav-tabs nav-justified" >
+        <li role="presentation"  class="active disabled"">
+            <a id="aPasso1" data-toggle="tab" data-target="#passo1"><span class="badge">1</span>&nbsp;Informações de Endereço</a>
+        </li>
+        <li role="presentation" ng-disabled="1" class="disabled">
+            <!-- <a id="aPasso2" data-toggle="tab" data-target="#passo2"><span class="badge">2</span>&nbsp;Informações de Entrega </a> -->
+            <a class="nav-item nav-link" id="aPasso2" data-toggle="tab" data-target="#passo2" role="tab" aria-controls="passo2" aria-selected="false"><span class="badge">2</span>&nbsp;Informações de Entrega </a>
+        </li>
+        
+    </ul>
+</div>
+
+<div class="tab-content" id="nav-tabContent">
+    <div class="container-fluid tab-pane fade in active tab-pane-slide" style="margin-top: 2%;" id="passo1">
+
+        <div class="tab-content">
+            <div class="row">
+
+                <div class="col-lg-12 col-xs-12"> 
+                    <p><strong> Tipo de Veículo * </strong></p>              
+
+
+                    <div class="col-md-3">
+                        <div class="card well" style="border:1px solid #CCC !important;">
+                            <div class="card-body text-center">
+                                <img src="images/courier_colorida.png" style="width: 60px;" >
+                            </div>
+                            <div class="form-inline">   
+                                <h5 class="card-title"><input type="radio" class="form-radio-input" id="tipoVeiculo2" name="tipoVeiculo" value="2"  ng-model="cadastrar.tipoVeiculo" ng-checked="true" style="margin-right:10px !important;"/>MOTO</h5>
+                            </div>
+                        </div>
+                    </div>
+
+ <!-- Tipo de veículo Bike Elétrica -->
+
+                    <div class="col-md-3 col-md-offset-1">
+                        <div class="card well" style="border:1px solid #CCC !important;">
+
+                            <div class="card-body text-center">
+                                
+                                <img src="images/goey_bike_colorida.png" style="max-width: 60px">
+
+                            </div>
+
+                            <div class="form-inline">
+
+                                <h5 class="card-title "><input type="radio" class="form-radio-input" id="tipoVeiculo4" name="tipoVeiculo" value="4"  ng-model="cadastrar.tipoVeiculo" style="margin-right:10px !important;"/>BIKE ELÉTRICA</h5>
+                                
+                            </div>
+
+                        </div>
+                    </div> 
+
+
+                    <div class="col-md-3 col-md-offset-1">
+
+                        <div class="card well" style="border:1px solid #CCC !important;">
+                            <div class="card-body text-center">
+                                <img src="images/goey_pickup_colorida.png" style="width: 100px; padding-top: 15px;" >
+                            </div>
+                            <div class="form-inline">
+                                <h5 class="card-title"><input type="radio" class="form-radio-input" id="tipoVeiculo1" name="tipoVeiculo" value="1"  ng-model="cadastrar.tipoVeiculo" style="margin-right:10px !important;"/>PICKUP</h5>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-12 col-xs-12">
+
+                    <div class="form-group" id="div-destino">
+                        <label for="destino1">Endereço de Destino *:</label>                   
+                        <input type="text" class="form-control" id="destino1" name="destino1"  gm-places-autocomplete ng-model="cadastrar.destino1"  placeholder="Informe um Destino" onfocusout="validarNumber(this.value)"/>                       
+
+                    </div>                
+
+                </div>
+
+<div class="col-lg-3 col-xs-12" >
+    <!--h6><a href="#" ng-click="addDestino()">Adicionar Destino</a> | <a href="#" id="remover-destino" ng-click="removerDestino()" style="display:none">Remover Destino</a></h6-->
+    <img src="../images/loader.png" id="aguarde" class='fa fa-refresh glyphicon-refresh-animate' style="display:none">                           
+    <button id="btnDistancia" type="button" class="btn btn-info btn-block" ng-click="consultarValores()">Calcular</button>
+</div><br/>
+
+        <div class="row" >
+            <div class="col-lg-12 col-xs-12" style="margin-top:10px !important;">
+                <div class="col-lg-3 col-xs-6" >              
+                    <div class="form-group">
+                        <label for="distancia">Distância Total</label>
+                        <input type="text" class="form-control" id="distancia" name="distancia" disabled  ng-model="cadastrar.distancia"   style="width: 100px !important" />
+                                  
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-xs-6">              
+                    <div class="form-group">              
+                        <label for="valor">Valor</label>
+                        <input type="text" class="form-control" id="valor" name="valor" disabled  ng-model="cadastrar.valor"   ui-money-mask='2'>
+                    </div>                       
+                </div>
+
+                <div class="col-lg-3 col-xs-12" > 
+
+                    <div class="form-check">
+
+                        <p><label for="tipo">Informe o tipo de entrega *</label></p>
+
+                        <span>
+                            <input type="radio" class="form-check-input"  id="tipo" name="objeto" checked="checked" value="alimento" ng-model="cadastrar.tipo"/> Alimento
+                        </span>
+
+                        <span style="margin-left: 10%;">
+                            <input type="radio" class="form-check-input"  id="tipo" name="objeto" value="outros" ng-model="cadastrar.tipo"/> Outros 
+                        </span> 
+
+                    </div>
+
+                </div> 
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-xs-12" style="margin-bottom:20px !important;">
+                <div class="col-lg-2 pull-right">
+                    <button type="button" onclick="$('#aPasso2').click(); window.scrollTo(0,0)" class="btn btn-info btn-block pull-right" ng-disabled="!cadastrar.valor">
+                        Próximo&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-arrow-right pull-right" onclick="$('#aPasso2').click(); window.scrollTo(0,0)" ng-disabled="!cadastrar.valor" style="font-size: 20px !important;cursor:pointer;padding-left: 10px;"></span>
+                    </button> 
+                    <!-- <span class="glyphicon glyphicon-arrow-right pull-right" onclick="$('#aPasso2').click(); window.scrollTo(0,0)" ng-disabled="!cadastrar.valor" style="font-size: 50px !important;cursor:pointer"></span> -->
+                </div>
+            </div>
+        </div>
+</div>
+
+</div>
+</div>
+<!--- distancia e preço -->
+<!-- Design content -->
+<div class="container-fluid tab-pane fade " id="passo2" role="tabpanel">
+    <div class="row">
+
+        <div class="col-lg-12 col-xs-12" >              
+            <div class="form-group">
+                <label for="distancia">Responsável *</label>
+                <input type="text" class="form-control" id="responsavel" name="responsavel" ng-model="cadastrar.responsavel">               
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-xs-12">
+            <div class="form-group">
+                <label for="descricao">Descrição do Produto*:</label>
+                <input type="text" class="form-control" id="descricao" name="descricao" ng-model="cadastrar.descricao">
+            </div>
+        </div>     
+    </div>
+
+
+    <div class="row" >
+        <div class="col-lg-12 col-xs-12">
+            <div class="form-group">
+                <label for="descricao">Observação *:</label>
+                <textarea class="form-control" rows="5" id="observacao" name="observacao" ng-model="cadastrar.observacao"></textarea>
+            </div>
+        </div>     
+    </div>
+
+<!-- Data Agendamento Estabelecimento = 4 -->
+    <div class="row agendamentoEstabelecimento">
+
+        <div class="col-lg-6">                
+                    
+                <label for="dataAgenda">Data da Entrega: 
+                    <input type="radio" name="dataAgendamento" style="margin-left:10px !important;margin-right:10px !important;" ng-value="1" ng-model="agendamento" onclick="datepicker(this.value)">Hoje
+                </label>
+                
+                <input type="radio" id="futura" name="dataAgendamento" style="margin-left:10px !important;margin-right:10px !important;" ng-value="2" ng-model="agendamento" onclick="datepicker(this.value)">
+                <label>Outra Data</label>
+        </div>
+
+    </div>
+
+    <div class="row agendamentoEstabelecimento">
+
+            <div class="col-lg-3 col-xs-12">
+                <div class="form-group">
+                    <input type="text" class="form-control datepicker"  id="dataAgenda" name="dataAgendamento" style="display:none;" ng-model="cadastrar.dataAgenda">
+                </div>
+            </div>
+
+    </div>
+         
+    <div class="row agendamentoEstabelecimento">
+            
+         <div class="col-lg-3 col-xs-12">
+
+            <div class="form-group">
+                <label>Hora de retirada:</label>
+                <div class='input-group date'>
+                    <input type='text' class="form-control" id="horaRetirada" name="horaRetirada" ng-model="cadastrar.horaRetirada" ui-time-mask="short"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div> 
+
+<!-- Fim Data Agendamento -->
+
+<div class="row" style="margin-top: 2%">
+
+        <div class="col-lg-6 col-xs-12">
+
+                <div class="form-check">
+                   
+                    <p><label>Tipo de Pagamento : </label></p>
+
+                    <span>
+                    <input type="radio" value="3" class="form-check-input" name="formaPagamento" id="formaPagamento" ng-click="divTroco = true;divVenda = true"
+                    style="margin:5px 5px 5px 0 !important;" ng-model="cadastrar.formaPagamento" >Dinheiro
+                    </span>             
+                
+                    <span style="margin-left: 10%;">
+                        <input type="radio" class="form-check-input" value="5" name="formaPagamento" id="formaPagamento" ng-click="divTroco = false;inputTroco = false;divVenda = true"
+                        style="margin:5px !important;" ng-model="formaPagamento" >Cartão Crédito
+                    </span>
+
+                    <span style="margin-left: 10%;">
+                        <input type="radio" class="form-check-input" value="7" name="formaPagamento" id="formaPagamento" ng-click="divTroco = false;inputTroco = false;divVenda = true"
+                        style="margin:5px !important;" ng-model="formaPagamento" >Cartão Débito
+                    </span>
+
+                    <span style="margin-left: 10%;">
+                        <input type="radio" class="form-check-input" value="6" name="formaPagamento" id="formaPagamento" ng-click="divTroco = false;inputTroco = false;divVenda = false"
+                        style="margin:5px !important;" ng-model="formaPagamento" >Online
+                    </span>
+
+                </div>
+            
+        </div>
+        
+</div>
+
+<div class="row" style="margin-top: 2%" ng-show="divVenda">
+
+    <div class="col-lg-4 col-xs-12">
+            <div>
+                <label>Valor da Venda *</label>
+                <input type="text" class="form-control" name="valorProduto" id="valorProduto" ng-model="cadastrar.valorProduto" title="Digite apenas números" ui-money-mask="2">   
+            </div>
+    </div>
+
+</div>    
+
+<div class="row" style="margin-top: 2%">
+        <div class="col-lg-2 col-xs-12">
+
+             <div class="divTroco" ng-show="divTroco">
+                        
+                <p><label>Deseja Troco?</label><p> 
+
+                    <span>
+                        <input type="radio" value="1" name="precisaTroco" id="precisaTroco" ng-click="inputTroco = true;" style="margin-right:5px !important;">Sim
+                    </span>              
+               
+                <span style="margin-left: 10%;">
+                    <input type="radio" value="2" name="precisaTroco" id="precisaTroco" ng-click="inputTroco = false;" style="margin-right:5px !important;"
+                    checked>Não
+                </span>
+                          
+            </div>
+
+        </div>
+
+        <div class="col-lg-2 col-xs-12">
+
+            <div class="form-group" ng-show="inputTroco">
+
+                    <label>Troco para?</label>                  
+                    <input type="text" class="form-control" name="trocoPara" id="trocoPara" ng-model="cadastrar.trocoPara" ng-keyup="calcularTroco()" ui-money-mask="2">
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-2 col-xs-12">
+
+            <div class="form-group" ng-show="inputTroco">
+
+                    <label>Troco</label>
+                    <input type="text" class="form-control" name="valorTroco" ng-model="cadastrar.valorTroco" ui-money-mask="2">    
+                      
+            </div>
+
+        </div>
+
+</div>   
+  
+                    <div class="row" style="margin-top:3%">
+
+                        <div class="col-lg-2 col-xs-6 pull-left" style="margin-bottom:20px !important;">            
+
+                            <button type="button" onclick="$('#aPasso1').click(); window.scrollTo(0,0)" class="btn btn-info btn-block pull-right">
+                               <span class="glyphicon glyphicon-arrow-left pull-left" onclick="$('#aPasso2').click(); window.scrollTo(0,0)" ng-disabled="!cadastrar.valor" style="font-size: 20px !important;cursor:pointer;padding-right: 10px;"></span> Anterior
+                            </button>
+
+                        </div>
+
+                        <div class="col-lg-2 col-xs-6 pull-center">                       
+
+                            <input type="button" class="btn btn-success btn-block" id="btnAgendar"  value="Solicitar" ng-click="agendarEntrega()" ng-disabled="form.$invalid"/>
+                            <img src="../images/loader.png" id="aguarde2" class='fa fa-refresh glyphicon-refresh-animate marginL50' style="display:none;">                       
+                            
+                        </div>
+
+                    </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div> 
+
+</div>
+
+<script>
+    function SomenteNumero(e) {
+        var tecla = (window.event) ? event.keyCode : e.which;
+        if ((tecla > 47 && tecla < 58)) return true;
+        else {
+            if (tecla == 8 || tecla == 0) return true;
+            else return false;
+        }
+    }
+
+    function SomenteLetra(e) {
+        var tecla = (window.event) ? event.keyCode : e.which;
+        if ((tecla > 47 && tecla < 58)) return false;
+        else {
+            if (tecla == 8 || tecla == 0) return true;
+            else return true;
+        }
+    }
+
+    function datepicker(e){
+        if(e == 2){
+            $('#dataAgenda').css('display','');
+        }else{
+            $('#dataAgenda').css('display','none');
+        }
+    }
+
+    $(function () {
+
+        $(".datepicker").datepicker();
+        var today = new Date();
+        var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+
+var yyyy = today.getFullYear();
+if(dd<10){
+    dd='0'+dd;
+} 
+if(mm<10){
+    mm='0'+mm;
+} 
+
+var today = dd+'/'+mm+'/'+yyyy;
+$(".datepicker").on('change', function () {
+    var date = $(this).val();
+    if (date < today) {
+        alert('Por favor selecione uma data válida!');
+        $(this).val('');
+    }
+});
+});
+
+
+
+
+</script>
+
+<!-- -->
+
+
+<style>
+.marginL50{
+    margin-left:50px !important;
+}
+@media only screen and (max-width: 600px) {
+.marginL50 {
+    margin-left: 0px !important;
+}
+.bandeiras-desktop img {
+height:70px;   
+width: 40px;
+}
+
+.visa img{
+    width: 100% !important;
+    height: 100% !important;
+    padding-top: 22px !important;
+}
+.maste img{
+    width: 100% !important;
+    height: 100% !important;
+    padding-top: 20px !important;
+}
+.elo img{
+    width: 100% !important;
+    padding-top: 22px !important;
+    height: 100% !important;
+}
+
+.express img{
+    width: 100% !important;
+    height: 100% !important;
+    padding-top: 15px !important;
+}
+
+.laranja img{
+        width: 100% !important;
+    padding-top: 25px !important;
+    height: 100% !important;
+}
+
+.hiper img{
+    width: 100% !important;
+    height: 100% !important;
+    padding-top: 20px !important;
+}
+
+}
+.visa img {
+width: 60px;
+padding-top: 15px; 
+}
+.pg2 .elo img {
+width: 60px;
+padding-top: 15px; }
+.pg2 .hiper img {
+width: 60px;
+padding-top: 15px; }
+/*.bandeiras-desktop .row{
+    margin-left:15px !important;
+}*/
+</style>

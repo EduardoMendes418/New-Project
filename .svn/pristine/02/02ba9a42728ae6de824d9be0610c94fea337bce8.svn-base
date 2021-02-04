@@ -1,0 +1,33 @@
+<!-- Content Header (Page header) -->
+<section class="content-header titulo">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12  locacao">
+        <h1>
+          Contratos Agendados 
+          <hr>
+        </h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10" ng-if="listaContrato.length > 0"></div>
+    </div>
+  </div>
+</section>
+<style type="text/css">
+  .content-header{
+  min-height: 100vh !important;
+  width: auto !important;
+}
+@media screen and (max-width: 600px) {
+
+ .titulo h1{
+  font-weight: bold;
+  font-size: 30px !important;
+}
+
+   .content-header{
+  min-height: 100vh !important;
+  width: auto !important;
+}
+</style>

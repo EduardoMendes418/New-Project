@@ -1,0 +1,37 @@
+restaurante.controller("restauranteCtrl",  ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http',
+function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http) {
+$scope.carregando = false;
+
+var url = 'https://www.iptufacil.com.br';
+ //FUNCAO DO FORMULARIO CONTATO-RESTAURANTE
+$scope.enviarEmail = function(){
+  var destinatario = 'atendimento.empresa@ddtotal.com.br';
+  var copia = '';
+  var assunto = 'Contato-Restaurante - Site goey';
+  var nome = $scope.demail.nome || '';
+  var email = $scope.demail.email || '';
+  var empresa = $scope.demail.empresa || '';
+  var cnpj = $scope.demail.cnpj || '';
+  var telefone = $scope.demail.telefone || '';
+  var desc = $scope.demail.desc || '';
+
+  var descricao = "nome: "+nome+"<br/>"+
+                  "email: "+email+"<br/>"+   
+                  "empresa: "+empresa+"<br/>"+                    
+                  "cnpj: "+cnpj+"<br/>"+
+                  "telefone: "+telefone+"<br/>"+
+                  '<br/>'+desc;
+
+  var url = "https://www.iptufacil.com.br/ws/geral/public/enviarEmail";
+          $http.post(url,$.param({
+                destinatario: destinatario,
+                copia: copia,
+                assunto: assunto,  
+                descricao: descricao
+          })
+          ).then(function(response){
+        
+            Flash.create('info', response.data.mensagem, 'large-text');
+          });
+}
+}]);

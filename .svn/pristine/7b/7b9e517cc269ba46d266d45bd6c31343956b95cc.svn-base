@@ -1,0 +1,54 @@
+<style>
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+} 
+
+</style>
+
+<section>
+    <div class="container">
+        <div class="well">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 text-center">
+                    <div class="form-group col-md-12">
+                        <a href="https://www.goeyja.com.br"><img src="../images/home/logo-goey.png"></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+
+                     <input type="text" id="tags" ng-keyup="complete()"" ng-model="c.name" class="form-control input-lg" placeholder="Digite uma cidade!" autofocus autocomplete="off">
+
+                         
+                        <ol>
+                          <li ng-repeat="l in listaCidades | filter:c ">
+                            {{ l.cidade }}
+                          </li>
+                        </ol>
+
+                     <!--div class="form-group has-search">
+                        <span class="fa fa-search form-control-feedback"></span>
+                        <input type="text" class="form-control" placeholder="Digite a cidade">
+                    </div-->
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

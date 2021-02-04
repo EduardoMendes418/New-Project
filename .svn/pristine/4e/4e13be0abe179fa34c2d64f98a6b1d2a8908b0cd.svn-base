@@ -1,0 +1,1698 @@
+﻿<!--    
+**************** RESTAURANTE *************** -->
+<!--pg1-->
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<a id="cima"></a>
+<section id="restaurante">
+    <div class="container-home">
+        <!--MENU-DESKTOP-->
+        <nav class="site-header sticky-top">
+            <div class="container d-flex flex-column flex-md-row justify-content-between">
+              <a class="py-2">
+                <div class="col-md-2 col-sm-4 logo-goey">  
+                    <a href="https://www.goeyja.com.br/#/step">
+                        <img src="images/home/logo-goey.png">
+                    </a>
+                </div>
+              </a>
+              <div class="menu" >
+                  <div class="menu-link">
+                      <a class="py-2 d-none d-md-inline-block"  href="" onclick="ancora('como')">COMO FUNCIONA</a>
+                      <a class="py-2 d-none d-md-inline-block"  href="" onclick="ancora('vanta')">VANTAGENS</a>
+                      <a class="py-2 d-none d-md-inline-block"  href="" onclick="ancora('contato')">CONTATO</a>
+                      <a class="py-2 d-none d-md-inline-block"  href="https://www.goeyja.com.br/#restaurante" >
+                        <span >RESTAURANTE</span>
+                     </a>
+                  </div>
+                  <div class="menu-btn" style="display: block">
+                        <!--
+                            <a class="btn btn-fraquia-secondary" href='https://www.goeyja.com.br/#franquia' >FRANQUIAS</a>
+                        -->
+                        <div class="dropdown" style="display: inline-block ">
+                            <button class="btn  btn-cadastre-secondary dropdown-toggle btn-cadastre-se" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                CADASTRAR
+                            </button>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <!--BTN-PESSOAL-->
+                                <a onclick="">
+                                    <button class="dropdown-item btn-fisi" type="button" id="showModal" ng-click="cadUsuario = {};clearForm();form.$setUntouched();">PESSOAL</button>
+                                </a>
+                                <!--BTN-EMPRESARIAL
+                                <a href="/#/empresa">
+                                    <button class="dropdown-item btn-juri" type="button">EMPRESARIAL</button>
+                                </a>-->
+
+                                <!--BTN-RESTAURANTE-->
+                                <a href="https://www.goeyja.com.br/#/formRestaurante">
+                                    <button class="dropdown-item btn-rest" type="button">RESTAURANTE</button>
+                                </a>
+                            </div>
+    
+                        </div>
+                    <a class="btn btn-acesse-secondary" style="display: inline-block" href="https://www.goeyja.com.br/#login" >ACESSE SUA CONTA</a>   
+                </div> 
+               </div>
+            </div>
+          </nav>
+
+        <!--MENU-MOBILE-->
+        <nav class=" menu-mobile navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class=".col-6 .col-sm-4 logo-goey-mobile">                    
+                <a href="https://www.goeyja.com.br/#/step">
+                    <img src="images/home/logo-goey.png">
+                </a>
+            </div>
+            <button class="btn-mobile navbar-right  collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <h1><i class="fa fa-bars"></i></h1>
+            </button>
+            <div class="navbar-collapse collapse tab-mobile" id="navbarCollapse" style="margin-top: 12vh;">
+                <div class="navbar-nav  modal-mobile "  style=" margin-top: 20px;" >
+                    <div class="menu-mobile-btn" >
+                        <a class="btn" href="" onclick="ancora('como')">COMO FUNCIONA</a>
+                    </div>
+                    <div class="menu-mobile-btn">
+                         <a class="btn"  href="" onclick="ancora('vanta')">VANTAGENS</a>
+                    </div>
+                    <!--
+                    <div class="menu-mobile-btn">
+                        <a class="btn" href='https://www.goeyja.com.br/#franquia'>FRANQUIAS</a>
+                    </div>
+                    --> 
+                    <div class="menu-mobile-btn">
+                        <a class="btn" href="" onclick="ancora('contato')">CONTATO</a>
+                    </div>
+                    <div class="menu-mobile-btn">
+                        <a class="btn" href="https://www.goeyja.com.br/#login">ACESSE SUA CONTA</a>  
+                    </div>
+
+                    <div class="menu-mobile-btn" style="margin-top:10px;">
+                        <div class="dropdown" style="display: inline-block ">
+                                <button class="btn  btn-cadastre-secondary dropdown-toggle btn-cadastre-se" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    CADASTRAR
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    
+                                    <a onclick="$('#cadUsuario').modal('show');">
+                                        <button class="dropdown-item btn-fisi" type="button" id="showModal" ng-click="cadUsuario = {};clearForm();form.$setUntouched();">PESSOAL </button>
+                                    </a>
+                                 <!--
+                                <a href="/#/empresa">
+                                    <button class="dropdown-item btn-juri" type="button">EMPRESARIAL</button>
+                                </a>-->
+                                
+                                <a href="https://www.goeyja.com.br/#/formRestaurante">
+                                    <button class="dropdown-item btn-rest" type="button">RESTAURANTE</button>
+                                </a> 
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container">
+                <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+                    <div class="col-md-8 px-0 " >
+                        <p class="lead my-3" style="color: #4266ae; letter-spacing: -2.5px;">Não importa o tipo de fome do seu cliente, 
+                        <span style="color: #4266ae; font-weight: 800">tudo quentinho e rapidinho é Goey.</span>
+                        </p>
+                        <a href="" onclick="ancora('laranja')">
+                        <button style="color: #4266ae; border: 1px solid #4266ae">
+                            ENTENDA NOSSA SOLUÇÃO
+                        </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--pg2-->
+<section>
+    <div class="container-laranja" >
+        <div class="pessoa">
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-12" style="top: 9vh">
+                        <div class="row">
+                            <a id="laranja"></a>
+                            <div class="col-sm-2" ></div>
+                            <div class="col-sm-3" ></div>
+                            <div class="col-sm-7 texto-prestamos">
+                                <span class="somos">NÃO PRESTAMOS SERVIÇOS, SOMOS PARTE DA SUA EMPRESA</span>
+                                <p>
+                                O jeito de fazer não é novo, mas a 
+                                <span>qualidade</span> e o <span>profissionalismo</span>
+                                você nunca viu.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3" ></div>
+                            <div class="col-sm-4" ></div>
+                            <div class="col-sm-5" >
+                                <a  href="" onclick="ancora('como')" >
+                                    <div class="seta"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--pg3-->
+<section>
+    <div class="container-cartao" >
+        <div class="container">
+            <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+                <div class="row">
+                    <div class="col-sm-12 bloco" >
+                        <div class="col-sm-4">
+                            <a id="como"></a>
+                            <div class="cel"></div>
+                            <h2>O pedido</h2>
+                            <p>Cliente faz o pedido no 
+                                seu estabelecimento.
+                            </p>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="panela"></div>
+                            <h2>O preparo</h2>
+                            <p>Você prepara o pedido
+                                com todo cuidado e 
+                                carinho.
+                            </p>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="moto"></div>
+                            <h2>A entrega</h2>
+                            <p>
+                                Nós entregamos,
+                                simples e rápido.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <!--credito-->
+                <div class="row">
+                    <div style="text-align:center">
+                    <div class="col-sm-3" ></div>
+                    <div class="col-sm-6 cartao">
+                        <div class="credito">
+                            <h2>Você ainda recebe sua máquina
+                                de Cartão de Crédito/Débito GOEY.
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container-orange">
+        <div class="container">
+            <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" >
+                <div class="row">
+                    <div class="restaurante">
+                        <div class="col-sm-0"></div>
+                        <div class="col-md-12">
+                            <p>" A entrega perfeita para o seu restaurante "</p>
+                        </div>
+                        <div class="col-md-0"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--pg4-->
+<section>
+    <div class="container-legumes" >
+        <div class="container">
+            <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto" >
+               
+                <div class="row">
+                    <div class="cozinha">
+                        <div class="col-md-2"></div>
+                        <div class="col-sm-4">
+                            <div class="moto-cozinha"></div>
+                        </div>
+                        <div class="col-md-5" >
+                            <h2>Frota Própria</h2>
+                            <p>Profissionais capacitados e
+                                registrados (CLT), veículos novos
+                                com seguro e monitoramento.
+                            </p>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div> 
+                    <a id="vanta"></a>
+                </div>
+
+                <div class="row">
+                    <div class="seguranca">
+                        <div class="col-sm-4" >
+                            <h2>Agilidade & Segurança</h2>
+                            <p>A garantia que seu produto será
+                                entregue com o mesmo cuidado
+                                que você prepara.
+                            </p>
+                        </div>
+                        <div class="col-md-4" ></div>
+                        <div class="col-md-4">
+                            <h2>Gestão & Economia</h2>
+                            <p>Tenha controle sobre a suas entregas e 
+                                economize com a redução da sua
+                                folha de pagamentos.
+                            </p>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--legumes-mobile-->
+<section>
+<a id="teste1"></a>
+    <div class="container-legumes-mobile">
+    <div class="container">
+            <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto" >
+                <div class="row">
+                    <div class="cozinha">
+                        <div class="col-md-2"></div>
+                        <div class="col-sm-4">
+                            <div class="moto-cozinha"></div>
+                        </div>
+                        <div class="col-md-5">
+                            <h2>Frota Própria</h2>
+                            <p>Profissionais capacitados e
+                                registrados(CLT), veículos novos
+                                com seguro e monitoramento.
+                            </p>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div> 
+                </div>
+
+                <div class="row">
+                    <div class="seguranca">
+                        <div class="col-sm-4" >
+                            <h2>Agilidade & Segurança</h2>
+                            <p>A garantia que seu produto será
+                                entregue com o mesmo cuidado
+                                que você prepara.
+                            </p>
+                        </div>
+                        <div class="col-md-4" ></div>
+                        <div class="col-md-4">
+                            <h2>Gestão & Economia</h2>
+                            <p>Tenha controle sobre a suas entregas e 
+                                economize com a redução da sua
+                                folha de pagamentos.
+                            </p>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>   
+</section>
+
+<!--Contato-->
+<section >
+    <div class="container-contato">
+            <div class="container">
+                <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto" >
+                    <div class="row">
+                        <div class="formulario">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-5">
+                                <h1>PREEENCHA OS DADOS &
+                                    RECEBA O CONTATO DA
+                                    NOSSA EQUIPE
+                                </h1>
+                                <a id="contato"></a>
+                                <form name="form" class="form" novalidate id="demail">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <input class='form-control ' placeholder="Nome:" required ng-model="demail.nome" type='text' name="nome" 
+                                            ng-class="{'is-invalid': form.nome.$invalid && form.nome.$touched,'is-valid': form.nome.$valid}" >
+                                            <p ng-show="form.nome.$invalid && form.nome.$touched" style="color:red;font-size:10px !important;">Nome obrigatório</p>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <input class='form-control ' placeholder="Email:" required ng-model="demail.email" type='email' name="email" ui-br-email-mask 
+                                            ng-class="{'is-invalid': form.email.$invalid && form.email.$touched,'is-valid': form.email.$valid}">
+                                            <p ng-show="form.email.$invalid && form.email.$touched" style="color:red;font-size:10px !important;">E-mail obrigatório</p>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <input type="text" capitalize class="form-control" name="empresa" placeholder="Empresa"
+                                                ng-model="demail.empresa"  ng-class="{'is-valid': form.empresa.$valid && form.empresa.$touched}" required >
+                                            <p ng-show="form.empresa.$invalid && !form.empresa.$pristine" 
+                                             class="help-block" style="color:red;font-size:10px !important;">Empresa é obrigatório.
+                                            </p>
+                                        </div>
+                                        <div class="form-group col-md-12" ng-class="{ 'is-invalid' : form.cnpj.$invalid && !form.cnpj.$pristine }">
+                                            <input type="text" capitalize class="form-control" placeholder="CNPJ" name="cnpj" id="cnpj" ng-model="demail.cnpj" ui-br-cnpj-mask ng-class="{'is-invalid': form.cnpj.$invalid && form.cnpj.$touched,'is-valid': form.cnpj.$valid}" required>
+                                            <p ng-show="form.cnpj.$invalid && !form.cnpj.$pristine" 
+                                            class="help-block" style="color:red;font-size:10px !important;">Campo obrigatório, digite um CNPJ válido.
+                                            </p>
+                                        </div>
+                                        <div class="form-group col-md-9" ng-class="{ 'is-invalid' : form.telefone.$invalid && !form.telefone.$pristine }">
+                                            <input type="text" capitalize class="form-control" name="telefone" id="telefone" placeholder="DDD + Telefone"
+                                            ng-model="demail.telefone" ui-br-phone-number ng-class="{'is-invalid': form.telefone.$invalid && form.telefone.$touched,'is-valid': form.telefone.$valid}" required>
+                                            <p ng-show="form.telefone.$invalid && !form.telefone.$pristine" 
+                                            class="help-block" style="color:red;font-size:10px !important;">Telefone é obrigatório.
+                                            </p>
+                                        </div>
+                                        <div class="col-md-3 col-md-offset-6 " ng-show="!cadastroOk">
+                                            <button type="submit"  class="btn btn-primary" ng-click="enviarEmail()" ng-disabled="form.$invalid" ng-show="!cadTrue">Enviar</button>
+                                        </div>
+                                    </div>
+                                </form>   
+                            </div>
+                        </div> 
+                    </div>
+
+                    <!--Telefone-->
+                    <div class="telefone">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-lg-3"></div>
+                            <div class="col-12 col-sm-6 col-lg-4"></div>
+                            <div class="col-12 col-sm-6 col-lg-5">
+                                <span href="#">Telefone: (19) 98187-0077</span>
+                            </div>    
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-lg-3"></div>
+                            <div class="col-12 col-sm-6 col-lg-4"></div>
+                            <div class="col-12 col-sm-6 col-lg-5">
+                                <span href="#">Contato: 0800 941 3950</span>
+                            </div>    
+                        </div>
+                    </div>    
+                    <div class="row">
+                        <div class="footer">
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-9">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-9 ddtotal-test"  >
+                                                    <p> GOEY É UM PRODUTO EXCLUSIVO DA DDTOTAL |<a href="https://www.ddtotal.com.br"> WWW.DDTOTAL.COM.BR</a></p>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <a href="https://www.ddtotal.com.br">
+                                                        <div class="ddtotal"></div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="col-sm-0"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                   <a href="" onclick="ancora('cima')" style="float:right">
+                        <img src="images/restaurante/setacima.png">
+                   </a>
+                </div>
+            </div>
+        </div> 
+</section>
+
+    <!--/***************
+        * MODAL USUARIO*
+        ****************-->
+        <div class="modal" tabindex="-1" role="dialog" id="cadUsuario">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title text-center" style="font-size: 18px"><span class="pull-center"><img src="images/home/logo-goey.png" style="height: 25px !important;"></span></h5>
+                    </div>
+                    <div class="modal-body">
+                      <p>
+                        <div class="container-fluid">
+                          <div class="row">
+                            <form name="form">
+                              <div class="col-md-12">
+                                <div class="col-md-7 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                      <label for="nome" class="uLabel">Nome</label>
+                                        <input type="text" id="nome" ng-model="cadUsuario.nome" name="nome" class="form-control "  
+                                        ng-class="{'is-invalid': form.nome.$invalid && form.nome.$touched,'is-valid': form.nome.$valid}" required>
+                                        <p ng-show="form.nome.$invalid && !form.nome.$pristine" class="help-block">Digite um nome válido.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="cpf" class="uLabel">CPF</label>
+                                        <input type="text" id="cpf" ng-model="cadUsuario.cpf" name="cpf" class="form-control " ui-br-cpf-mask 
+                                        ng-class="{'is-invalid': form.cpf.$invalid && form.cpf.$touched,'is-valid': form.cpf.$valid}" required>
+                                        <p ng-show="form.cpf.$invalid && !form.cpf.$pristine" class="help-block">Digite um cpf válido.</p>
+                                    </div>
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <div class="col-md-7 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                      <label for="email" class="uLabel">E-mail</label>
+                                        <input type="text" id="email" ng-model="cadUsuario.email" name="email" class="form-control "  
+                                        ng-class="{'is-invalid': form.email.$invalid && form.email.$touched,'is-valid': form.email.$valid}" required>
+                                        <p ng-show="form.email.$invalid && !form.email.$pristine" class="help-block">Digite um e-mail válido.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="senha" class="uLabel">Senha</label>
+                                        <input type="password" id="senha" ng-model="cadUsuario.senha" name="senha" class="form-control "  
+                                        ng-class="{'is-invalid': form.senha.$invalid && form.senha.$touched,'is-valid': form.senha.$valid}" required>
+                                        <p ng-show="form.senha.$invalid && !form.senha.$pristine" class="help-block">Senha é obrigatório.</p>
+                                    </div>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </p>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-md-12">
+                            <div class="col-md-5 offset-md-3 recapmobile">
+                                <div class="g-recaptcha" data-sitekey="6LeaQHQUAAAAAC7KVG-vv0zbA4ZG8I5rf597HX31"></div>
+                            </div>
+                        </div>
+                      <br/>
+                      <br/>
+                      <br/>
+                      <button type="button" class="btn btn-primary" ng-click="cadastrarUsuario();">Cadastrar</button>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+<!--VALIDAÇÃO SOMENTE NUMERO SOMENTE LETRAS-->
+<script language='JavaScript'>
+
+$('#form').trigger("reset");
+
+//FUNCAO SCROOLL
+        $(document).ready(function(){
+        $('a[href^="#"],.scroll').on('click',function (e) {        
+            e.preventDefault();
+            var target = $(this).attr("href");	
+            
+            if(target.indexOf('#') >= 0){
+                $target = $(target);
+                
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top
+                },5000, 'swing', function () {		
+                    window.location.hash = target;
+                }); 
+
+                $('#navbar').removeClass('in');    
+            }else{
+                window.location.href = target;
+            }
+        });
+    }); 
+
+    function ancora(id_ancora){
+    var top = $("#"+id_ancora).offset().top-50
+    $('html, body').stop().animate({
+        'scrollTop': top
+    }, 1000, 'swing', function () {		
+        window.location.hash = target;
+    }); 
+} 
+
+// SOMENTE NUMEROS
+        function SomenteNumero(e){
+           var tecla=(window.event)?event.keyCode:e.which;   
+           if((tecla>47 && tecla<58)) return true;
+           else{
+              if (tecla==8 || tecla==0) return true;
+              else  return false;
+           }
+        }
+
+// SOMENTE LETRAS        
+        function SomenteLetra(e){
+           var tecla=(window.event)?event.keyCode:e.which;   
+           if((tecla>47 && tecla<58)) return false;
+           else{
+              if (tecla==8 || tecla==0) return true;
+              else  return true;
+           }   
+        }
+
+
+
+
+</script>
+
+<!--STYLE-->
+<style>
+.btn-fisi{
+        padding-top: 3px;
+        padding-right: 35px;
+        padding-bottom: 9px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        border: transparent;
+        border-bottom: 1px solid #fff;
+        border-radius: 2px; 
+        font-weight: 600;
+    }
+    .btn-juri{
+        padding-top: 3px;
+        padding-bottom: 9px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        border: transparent;
+        border-bottom: 1px solid #fff;
+        border-radius: 2px; 
+        font-weight: 600;
+    }
+
+    .btn-rest{
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-left: 11px;
+        margin-top: 3px;
+        margin-bottom: 2px;
+        border: transparent;
+        border-radius: 2px; 
+        font-weight: 600;
+    }
+
+.dropdown-item {
+    width: 100%;
+    background: transparent;
+    color: #fff;
+}
+    
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 147px;
+    padding: 4px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    text-align: left;
+    background-color: #fb8c00;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+
+.btn-cadastre-secondary{
+    background: #f37b22;
+    margin-right: 4px;
+    color: #fff !important;
+    font-weight: 800;
+}    
+
+.btn-fraquia-secondary{
+    font-weight: 800;
+}   
+
+.btn-acesse-secondary{
+    font-weight: 800;
+}
+    
+/*<!-- PAGINA-->*/
+.ddtotal-test p a{
+    color: #000 !important
+}
+
+.ddtotal-test p a:hover{
+    color: #4266ae !important
+}
+
+.telefone span{
+    color: #000 !important;
+    font-weight: 700 !important;
+}
+.cartao{
+    border-bottom: 1px solid #000;
+    margin-bottom: 10px;
+}
+
+.restaurante{
+    padding-top: 20px;
+}
+.restaurante p{
+    color: #fff;
+    font-size: 35px;
+    font-weight: 300;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',Roboto, Oxygen, Ubuntu, Cantarell, 
+    'Open Sans', 'Helvetica Neue', sans-serif
+}
+.formulario{
+    margin-top: 10vh;
+}
+.formulario h1{
+    color: #4266ae;
+    font-size: 25px;
+}
+
+.formulario input{
+    background: #e5e5e5;
+    border: 1px solid #000;
+    margin-bottom: 10px;
+}
+
+.col-md-offset-6 {
+    margin-left: -6%;
+}
+
+/*
+.alert-info {
+    border-color: orange !important;
+}*/
+
+.pricing-header {
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+.cozinha{
+    margin-top: 20px;
+}
+.cozinha p{
+    color: #fff;
+    font-size: 18px;
+}
+.cozinha h2{
+    font-weight: 300;
+}
+
+.seguranca {
+    color: #fff
+}
+.seguranca p{
+    font-size: 18px;
+}
+.seguranca h2{
+    font-weight: 300;
+}
+.footer{
+    margin-top: 10vh;
+}
+.footer p{
+    font-size: 12px;
+    color: #000;
+    font-weight: 600;
+}
+
+h2{
+    color: #f37a24;
+    font-size: 35px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.credito{
+    margin-top: 10vh;
+    margin-bottom: 15px;
+}
+
+.bloco{
+ padding-top: 15vh;
+}
+
+.bloco p {
+    font-size: 20px;
+    color: #000;
+    line-height: 1em;
+}
+
+.lead {
+    line-height: 1 !important;
+}
+.site-header{
+    padding-bottom: 10px;
+}
+.navbar{
+    display: none;
+}
+.bloco1{
+  margin-left: 10vh;
+  padding-top: 5px;
+}
+.ddtotal{
+    background-image: url(images/restaurante/ddtotal.png);
+    height: 25px;
+    margin-top: -5px;
+    background-repeat: no-repeat; 
+}
+
+
+.moto{
+    background-image: url(images/restaurante/moto.png);
+    height: 100px;
+    background-position: center top;
+    background-repeat: no-repeat; 
+}
+
+.panela{
+    background-image: url(images/restaurante/panela.png);
+    height: 100px;
+    background-position: center top;
+    background-repeat: no-repeat; 
+}
+
+.cel{
+    background-image: url(images/restaurante/cel.png);
+    height: 100px;
+    background-position: center top;
+    background-repeat: no-repeat; 
+}
+
+.moto-cozinha{
+    background-image: url(images/restaurante/moto-cozinha.png);
+    height: 180px;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+
+.container-legumes{
+    background-image: url(images/restaurante/cozinheiro.jpg);
+    min-height: 120vh;
+    position: relative;
+    background-size: cover;
+    z-index: 0;
+    background-position-y: -90px;
+    background-repeat: no-repeat; 
+}
+
+.container-home{
+    background-image: url(images/restaurante/caixa1.jpg);
+    min-height: 120vh;
+    position: relative;
+    background-size: cover;
+    z-index: 0;
+    background-position: center top;
+    background-repeat: no-repeat; 
+}
+
+.seta{
+    background-image: url(images/restaurante/seta.png);
+    width: 100px;
+    height: 80px;
+    background-repeat: no-repeat; 
+    margin-top: 20vh;
+   
+}
+
+.container-contato{
+    background-image: url(images/restaurante/contato.jpg);
+    min-height: 100vh;
+    position: relative;
+    background-size: cover;
+    z-index: 0;
+    background-position: center top ;
+    background-repeat: no-repeat; 
+}
+
+.container-laranja{
+    background:#f58721;
+    min-height: 100vh;
+    position: relative;
+    background-size: cover;
+    z-index: 0;
+    background-position: center top;
+    background-repeat: no-repeat; 
+}
+
+.pessoa{
+    background-image: url(images/restaurante/pessoal.png);
+    min-height: 130vh;
+    position: relative;
+    background-size: cover ;
+    background-position: center top ;
+    background-position-y: 50px;
+    background-position-x: -100px;
+    background-repeat: no-repeat; 
+}
+
+.container-cartao{
+    background-color: #e5e5e5;
+    min-height: 90vh;
+    position: relative;
+    background-size: cover;
+    z-index: 0;
+    background-position: center top;
+    background-repeat: no-repeat; 
+}
+.container-orange{
+    background-color: #ef6327;
+    min-height: 15vh;
+}
+
+.logo-goey{
+    margin-top:20px;
+}
+
+.logo-goey img{
+    max-width:300px;
+    display: inline;
+    width: 60%;
+    float: left;
+}
+
+.btn-primary{
+    background:#4266ae; 
+    color:#fff;
+}
+
+.btn-primary:hover{
+    background:#4266ae; 
+}
+
+
+.btn-simular{
+    background:#f37b22;
+    color: #fff;
+}
+.menu{
+    display: block;
+    margin-top: 18px;
+}
+
+.menu a{
+    color: #fff;
+    font-weight: 600;
+}
+
+.menu span{
+    color: #f37b22;
+    font-weight: bold;
+    margin-left: 5px; 
+}
+
+.menu-btn{
+    display: inline;
+    width: 39%;
+    float: right;
+}
+
+.btn-fraquia-secondary{
+    background:#4266ae; 
+}
+.btn-cadastre-secondary{
+    background: #f37b22;
+}
+.btn-acesse-secondary{
+    background: #6d6e6d;
+}
+.menu-link,.menu-btn{
+    display: inline-block;
+}
+.menu-link{
+     margin-top: 8px;
+ }
+.menu-link a{
+    padding-right:3px !important;
+    padding-left: 3px !important;
+    color: #000;
+    border-right: 2px solid #000;
+}
+.menu-btn a{
+    margin-right: 5px ;
+}
+
+.titulo-texto{
+    margin-top: 15vh;
+    text-align: center;
+}
+.titulo-texto p{
+    color: #fff;
+     font-size: 5vh;
+      line-height: 0.8;
+ }
+.titulo-texto p span{
+    font-weight: bold;
+ }
+
+ .form-group{
+    margin-bottom: 10px;
+ }
+
+.jumbotron {
+    background-color: transparent;
+}
+
+.jumbotron p {
+    margin-bottom: 15px;
+    font-size: 43px !important;
+    font-weight: 200;
+}
+
+.jumbotron button{
+    background: transparent !important;
+    font-weight: 800;
+    padding: 8px; 
+}
+
+.btn-querocontratar-secondary{
+    background: #f37b22;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #fff;
+    width: 35%;
+    float: right;
+    border-radius: 0px;
+}
+
+h3, .h3{
+    margin-top: 5px;
+    font-size: 12px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+.contratar span{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 800;
+}
+.contratar p{
+    color: #fff;
+    font-size: 12px;
+}
+.texto-prestamos {
+    padding-top: 50px;
+}
+.texto-prestamos span{
+ color: #fff;
+ 
+}
+.texto-prestamos p{
+ color: #000;
+ font-size: 48px; 
+ line-height: 0.8em; 
+
+}
+.somos{
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 3.5px;
+    position: relative;
+    bottom: 5px;
+}
+
+.container-legumes-mobile{
+    display: none;
+}
+
+/* mobile */
+@media screen and ( max-width: 1200px){
+    .site-header{
+    padding-bottom: 0px !important;
+    background: #f7f7f7;
+}
+
+  .menu-btn {
+    display: inline;
+    width: 40%;
+    float: right;
+}
+
+  .bloco1{
+  margin-left: 0vh;
+}
+
+  .logo-pc{
+  display: none;
+}
+
+.logo-mobile{
+  display: block;
+  background-image: url(images/home/pc-mobile.png);
+  background-size: 50%;
+  height: 510px;
+}
+
+.logo-moto{
+  height: 50vh;
+}
+  .banner-laranja {
+    height: auto;
+}
+
+ .logo-goey{
+    display: none ;
+ }
+
+.menu-mobile{
+    background: transparent;
+    border: 1px solid transparent;
+    text-align: center;
+}
+
+.menu-mobile ul{
+    text-decoration: none !important;
+}
+
+
+.btn-mobile h1{
+    font-size: 30px;
+}
+.btn-mobile h1 i{
+    color: #f37b22;
+
+}
+.modal-mobile{
+    padding-top: 0px;
+}
+.logo-goey-mobile {
+    max-width: 40px;
+    display: inline;
+    width: 60%;
+    float: left;
+    margin-top: 5px !important;
+    margin-left: 10px !important;
+}
+
+.btn-mobile {
+    float: right;
+    background: transparent;
+    border: 1px solid transparent;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: -10px;
+}
+
+.entenda .pg1 {
+    margin-top: 10vh;
+    line-height: 1em;
+    margin-bottom: 5vh;
+    font-size: 20px;
+    padding-left: 5px;
+    font-weight: 800;
+    color: #f37b22;
+}
+
+.entenda .pg2 {
+    margin-top: 2vh;
+    line-height: 0.9em;
+    font-size: 20px;
+    font-weight: 300;
+    color: #000;
+}
+
+
+.levar .pg1 {
+    margin-top: 5vh;
+    padding-top: 35vh;
+    font-size: 25px;
+    color: #4266ae;
+    font-weight: 800;
+    line-height: 0.9em;
+}
+
+.levar .pg2 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 17px;
+    color: #000;
+    line-height: 1em;
+}
+
+.levar .pg4 {
+    margin-top: 15px;
+    color: #000;
+    font-size: 23px;
+    line-height: 0.8em;
+    font-weight: 300;
+}
+
+.tranquilidade .pg5 span {
+    color: #4266ae;
+    font-weight: 800;
+}
+
+.tranquilidade .pg5 {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    color: #000;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 0.9em;
+}
+
+.entregas p {
+    color: #fff;
+    font-weight: 300;
+    font-size: 5vh;
+    line-height: 0.8;
+    letter-spacing: -1.1px !important;
+}
+.entregas span {
+    font-size: 5vh;
+    font-weight: 700;
+    color: #f37a24;
+}
+
+.frota,.rastre,.cadastro,
+.pagamento,.solicitacao,.agendamento{
+    margin: 0 auto;
+}
+
+.Propria,.Rastreabilidade,.pagamentos,
+.Online,.entrega,.agenda{
+
+    text-align: center;
+}
+
+.solicitacao {
+    min-height: 42px;
+}
+
+.cadastro{
+    min-height: 60px;
+}
+
+.menu-mobile-btn a{
+    color: #000; 
+    font-weight:700;
+    cursor: pointer;
+}
+.menu-mobile-btn a:hover{
+    color: #f37b22 ;
+}
+
+.menu-mobile-btn:hover{
+    background: rgba(255,255,255,0.3) ;
+    border-radius: 5px;
+    color: #f37b22 !important;
+}
+.footer {
+    color: #000;
+    text-align: center;
+    font-size: 9px;
+    margin-top: 10vh;
+    letter-spacing: 1px;
+}
+  .container-home {
+    background-position-y: 30px;
+    min-height: 100vh;
+}
+
+}
+
+@media screen and ( max-width: 1024px){
+.titulo-texto p{
+    font-size: 30px !important;
+}
+.btn-querocontratar-secondary {
+    width: 40%;
+}
+.container-home {
+    min-height: 100vh;
+}
+
+}
+
+@media screen and (max-width: 500px){
+    .recapmobile{
+        padding-left: 0px !important;
+        padding-right: 0px;
+    }
+
+
+    .logo-goey-mobile {
+    max-width: 40px;
+    display: inline;
+    width: 60%;
+    float: left;
+    margin-top: 5px !important;
+    margin-left: 10px !important;
+}
+
+.btn-mobile {
+    float: right;
+    background: transparent;
+    border: 1px solid transparent;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: -10px;
+}
+
+
+.btn-cadastre-secondary:hover{
+    color: #f37b22 !important;
+    font-weight: 700;
+    cursor: pointer;
+    background: transparent;
+}
+
+.btn-cadastre-secondary{
+    margin-left: 5px;
+}
+
+.dropdown {
+    position: relative;
+    background: transparent !important;
+    border-radius: 5px;
+    width: 41%;
+}
+
+.navbar-nav .open .dropdown-menu {
+    position: static;
+    float: none;
+    width: auto;
+    border-radius: 5px;
+    margin-top: 3px;
+    background-color: transparent;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 146px;
+    padding: 2px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    text-align: left;
+    border: 1px solid #cccccc;
+    background: #fb8c00 !important;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+.dropup, .dropdown {
+    position: relative;
+    background: #f37b22;
+    border-radius: 5px;
+    width: 41%;
+}
+
+.btn-fisi {
+    padding-top: 4px;
+    padding-left: 15px;
+    padding-bottom: 8px;
+    width: 100%;
+}
+
+.btn-juri{
+    width: 100%;
+    padding-left: 15px;
+}
+
+.btn-rest {
+    padding-left: 12px;
+}
+
+.telefone{
+    margin-top: 5vh;
+    color: #90b3fa !important;
+    font-weight: 700 !important;
+}
+
+.container-legumes{
+    background-image: url(images/restaurante/cozinheiro.jpg);
+    min-height: 100vh;
+    position: relative;
+    background-size: cover;
+    z-index: 0;
+    background-position: center top !important;
+    background-repeat: no-repeat; 
+}
+    
+    .menu{
+    display: none;
+ }
+
+  .navbar{
+     display: block;
+}
+
+.menu-mobile-btn:hover{
+    background: transparent;
+    border-radius: 5px;
+    color: #f37b22 !important;
+}
+
+.col-md-offset-6 {
+    margin-left: 0% !important;
+}
+
+.jumbotron p {
+    margin-bottom: 10px;
+    font-size: 26px !important;
+    font-weight: 200;
+}
+
+.ddtotal{
+    text-align: center !important;
+}
+
+.footer p{
+    letter-spacing: 4.2px !important; 
+}
+
+.formulario input {
+    margin-bottom: 25px !important;
+}
+
+.somos {
+    font-size: 12px !important;
+}
+
+.texto-prestamos p {
+    color: #000;
+    font-size: 26px !important;
+    line-height: 1em;
+}
+
+.navbar {
+    margin-bottom: 0px !important;
+}
+
+.container-laranja{
+    background:#f58721;
+    min-height: 100vh !important;
+    position: relative;
+    background-size: cover !important;
+    z-index: 0;
+    background-position: center top !important;
+    background-repeat: no-repeat; 
+}
+
+.pessoa{
+    background-image: url(images/restaurante/pessoal.png);
+    min-height: 100vh !important;
+    position: relative;
+    background-size: cover !important;
+    background-position: center top !important;
+    background-repeat: no-repeat; 
+}
+
+.texto-prestamos {
+    padding-top: 0px !important;
+    padding-left: 100px !important;
+}
+
+.seta{
+    float: right !important;
+    margin-top: 10vh;
+}
+.restaurante p {
+    color: #fff;
+    font-size: 30px;
+    line-height: 1em;
+}
+
+h2{
+    font-size: 22px !important;
+}
+.panela, .moto{
+    margin-top: 5vh;
+}
+
+.cartao{
+    border-bottom: 1px solid #000;
+    margin-bottom: 10px !important;
+}
+
+.container-legumes{
+    display: none
+}
+.container-legumes-mobile{
+    display: block;
+   /* background: #5b5c5b; */
+    background-image: url(images/restaurante/mobile-cozinheiro.png);
+    min-height: 150vh !important;
+    position: relative;
+    background-size: cover !important;
+    background-position: center top !important;
+    background-repeat: no-repeat; 
+}
+.moto-cozinha{
+    display: none;
+}
+
+.container-legumes-mobile h2{
+    font-weight:600 !important;
+    font-size: 20px !important;
+}
+
+.container-home {
+    background-position-y: 0px !important;
+}
+
+.navbar-collapse.in {
+    overflow-y: auto;
+    background: #e9e9e9;
+}
+
+.navbar-collapse.in {
+    overflow-y: auto;
+    background: #e9e9e9;
+}
+
+.navbar-collapse {
+    overflow-x: visible;
+    padding-right: 15px;
+    padding-left: 15px;
+    background: #e9e9e9 !important;
+    border-top: 1px solid transparent;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: #e9e9e9 !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+}
+
+
+
+@media screen and ( max-width: 414px){
+
+ .banner-laranja {
+    height: auto;
+}
+
+.levar .pg4 {
+    margin-top: 10vh;
+}
+
+.titulo-texto p{
+    font-size: 20px;
+}
+
+.btn-querocontratar-secondary {
+    width: 40%;
+    }
+
+h3, .h3 {
+    font-size: 8px;
+}
+
+  .container-home {
+    min-height: 100vh;
+}
+
+}
+
+@media screen and ( max-width: 360px){
+
+    .btn-querocontratar-secondary {
+    width: 50%;
+    }
+
+    .entenda .pg2 {
+    margin-top: 0vh !important;
+    line-height: 0.9em;
+    font-size: 17px !important;
+    font-weight: 300;
+    color: #000;
+}
+    .entenda .pg1 {
+    margin-top: 10vh;
+
+}
+
+h3, .h3 {
+    font-size: 9px;
+
+}
+  .container-home {
+    min-height: 100vh;
+}
+
+}
+
+@media screen and ( max-width: 375px){
+
+    .entenda .pg1 {
+    margin-top: 10vh;
+
+}
+    .entenda .pg2 {
+    margin-top: -5vh;
+    line-height: 0.9em;
+    font-size: 20px;
+    font-weight: 300;
+    color: #000;
+}
+
+h3, .h3 {
+    font-size: 10px;
+}
+
+  .container-home {
+    min-height: 100vh;
+}
+
+}
+
+
+@media screen and ( max-width: 320px){
+    .btn-querocontratar-secondary {
+    width: 50%;
+ }
+    .entenda .pg2 {
+    margin-top: 2vh;
+    line-height: 0.9em;
+    font-size: 17px;
+    font-weight: 300;
+    color: #000;
+}
+  .entenda .pg1 {
+    margin-top: 10vh;
+}
+
+.levar .pg4 {
+    margin-top: 10vh;
+}
+
+.levar .pg1 {
+    margin-top: 5vh;
+    font-size: 25px;
+    color: #4266ae;
+    font-weight: 800;
+    line-height: 0.9em;
+}
+.levar .pg2 {
+    font-size: 15px;
+   
+}
+
+h3, .h3 {
+    margin-top: 5px;
+    font-size: 8px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+  .container-home {
+    min-height: 100vh;
+}
+
+}
+
+@media only screen and (max-width: 720px){
+        #bikeEletrica{
+          margin-left: 0px !important;
+        }
+        #moto{
+          /*margin-left: 0px !important;*/
+          margin-left: 20px !important;
+          /*margin-left: -10px !important;*/
+        }
+        #tuktuk{
+          margin-left: 0px !important;
+          /*margin-left: -10px !important;*/
+        }
+        #pickup{
+          margin-left: 10px !important;
+          margin-right: 10px !important;
+          width: 107px;
+        }
+
+        #bikeEletrica h5{
+          font-size: 10px !important;
+        }
+        #moto h5{
+          font-size: 10px !important;
+        }
+        #tuktuk h5{
+          font-size: 10px !important;
+        }
+        #pickup h5{
+          font-size: 10px !important;
+        }
+        #bikeEletrica h5 input{
+          height:8px !important;
+        }
+        #moto h5 input{
+          height:8px !important;
+        }
+        #tuktuk h5 input{
+          height:8px !important;
+        }
+        #pickup h5 input{
+          height:8px !important;
+        }
+
+        #bikeEletrica img{
+          height:40px !important;
+        }
+
+        #moto img{
+          height:40px !important;
+        }
+        #tuktuk img{
+          height:40px !important;
+        }
+        #pickup img{
+          height:40px !important;
+        }
+     
+
+}
+
+
+
+
+</style>

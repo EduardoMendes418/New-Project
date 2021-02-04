@@ -1,0 +1,54 @@
+login.controller("investimentoCtrl", ['$rootScope', '$scope', '$state', '$location', 'loginService', 'Flash','apiService','$http',
+function ($rootScope, $scope, $state, $location, loginService, Flash, apiService,$http) {
+  var vm = this;
+  $scope.proposta = {};
+
+  //var url = 'https://www.iptufacil.com.br';
+ var url = 'http://192.168.0.69:8025';
+ $scope.auth = "3f018bfb43591ccb2ef46f10de832160";
+ 
+$scope.proposta.nome    = 'Valdecir Silva Lima';
+$scope.proposta.email   = 'valdecir@teste.com';
+$scope.proposta.documento     = '24616836892';
+$scope.proposta.telefone 	  = '19987315043';
+$scope.proposta.tipoVeiculo   = '2';
+$scope.proposta.modeloVeiculo = '999';
+$scope.proposta.uf    		  = 'SP';
+$scope.proposta.cidade        = 'HORTOLÂNDIA';
+$scope.proposta.bairro 		  = 'JD Sta Clara';
+$scope.proposta.logradouro    = 'Rua Francisco Antônio da Silva';
+$scope.proposta.cep 		  = '13186390';
+$scope.proposta.complemento   = 'fundos';
+$scope.proposta.numero        = '325';
+$scope.proposta.valor         = '99.999';
+$scope.proposta.qtd           = '2';
+$scope.proposta.maisVeiculos  = '0';
+
+// CADASTRO PROPOSTA INVESTIDOR
+$scope.cadastroProposta = function(){
+
+  $scope.proposta.auth = $scope.auth;
+
+  $http({
+		    method: 'POST',
+		    url: url + "/ws/goey/rest/public/cadastroPropostaInvestidorSite",
+		    data: $.param($scope.proposta),
+		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+		}).success(function (response){      
+
+		    if(response.retorno == 1){
+
+		      
+		    }else{
+
+
+		    }        
+
+    	})
+
+}
+
+	//$(".data-locacao").datepicker({minDate:0}); // Calendário
+
+}]);

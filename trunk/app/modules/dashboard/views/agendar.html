@@ -1,0 +1,528 @@
+﻿
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+         <h4> Solicitação de Entregas</h4> 
+      
+    </section>
+    <!-- Development content -->
+  
+    <section class="content" style="margin-top: 2%;">
+     <div class="row">
+        <form id="formAgendar" name="formAgendar">
+            
+            <div class="col-lg-12 col-xs-12"> 
+                <p><strong> Tipo de Veículo * </strong></p>             
+                <div class="col-md-3">
+                    <div class="card well" style="border:1px solid #CCC !important;">
+                        <div class="card-body text-center">
+                            <img src="images/courier_colorida.png" style="width: 60px;" >
+                        </div>
+                        <div class="form-inline">   
+                            <h5 class="card-title"><input type="radio" class="form-radio-input" id="tipoVeiculo2" name="tipoVeiculo" value="2"  ng-model="cadastrar.tipoVeiculo" ng-checked="true" style="margin-right:10px !important;"/>MOTO</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-md-offset-1">
+                    <div class="card well" style="border:1px solid #CCC !important;">
+                        <div class="card-body text-center">
+                            <img src="images/goey_pickup_colorida.png" style="width: 100px; padding-top: 15px;" >
+                        </div>
+                        <div class="form-inline">
+                            <h5 class="card-title"><input type="radio" class="form-radio-input" id="tipoVeiculo1" name="tipoVeiculo" value="1"  ng-model="cadastrar.tipoVeiculo" style="margin-right:10px !important;"/>PICKUP</h5>
+                        </div>
+                    </div>
+                </div>  
+
+            </div>
+
+            <div class="col-lg-12 col-xs-12">
+
+                <div class="form-group">     
+                    <div class="row"> 
+                        <div class="col-xs-3 col-sm-2 col-md-2 num">
+                            <label class="numero" for="cep">CEP :</label>
+                            <input type="text" class="form-control" id="cep" name="cep" autofocus placeholder="CEP" ng-model="vm.cep" ui-br-cep-mask ng-change="buscaCep(1,vm.cep)"/>
+                                
+                        </div>
+
+                        <div class="col-xs-6 col-sm-8 col-md-8 endereco">
+                            <label class="origem" for="origem">Endereço de Origem *:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="origem" name="origem" ng-model="cadastrar.origem" class="cmpAutocomplete" placeholder="Informe a Origem" autofocus autocomplete="off" ng-keyup="autoOrigem(cadastrar.origem)" ng-click="inputClique()">
+                                <span class="input-group-addon" class="btn" data-toggle="modal" data-target="#myModal" ng-click="buscar.campo = 1; limpaCampo()" title="Não encontrou endereço?">
+                                <i class="fa fa-question-circle se-icon-m" aria-hidden="true"></i></span>
+                            </div>
+
+                            <div class="searchResult">
+                                            
+                                <p ng-repeat="o in resO" ng-click='setValue(1,o)' >
+                                  {{ o.endereco }}
+                                </p>
+
+                            </div> 
+
+                        </div> 
+
+                        <div class="col-xs-3 col-sm-2 col-md-2 num">
+                            <label class="numero" for="origem">Numero*:</label>
+                            <input type="text" class="form-control" id="numero" name="numero" placeholder="Nº" ng-model="cadastrar.numero" ui-number-mask="0" />                             
+                        </div>
+
+                        
+                        <input type="text" id="total" style="display:none;" name="total" ng-model="total">
+                    </div>    
+                </div>
+
+
+         
+                <div class="form-group">
+                    <div class="row">                    
+
+                        <div class="col-xs-3 col-sm-2 col-md-2 num">
+                            <label class="numero" for="cep1">CEP :</label>
+                            <input type="text" class="form-control" id="cep1" name="cep1" autofocus placeholder="CEP" ng-model="vm.cep1" ui-br-cep-mask ng-change="buscaCep(2,vm.cep1)" ng-click="inputClique()"/>                                
+                        </div>
+
+                        <div class="col-xs-6  col-sm-8 col-md-8 endereco">
+                            <label class="origem"  for="destino1">Endereço de Destino *:</label>
+                            <div class="input-group">      
+                                <input type="text" id="destino1" class="form-control" name="destino1" ng-model="cadastrar.destino1" placeholder="Informe um Destino" autofocus autocomplete="off" ng-keyup="autoDestino1(cadastrar.destino1)" ng-click="inputClique()"/>
+                                <span class="input-group-addon" class="btn" data-toggle="modal" data-target="#myModal" ng-click="buscar.campo = 2; limpaCampo()" title="Não encontrou endereço?">
+                                <i class="fa fa-question-circle se-icon-m" aria-hidden="true"></i></span>
+                            </div>
+
+                            <div class="searchResult">
+                                            
+                                      <p ng-repeat="d1 in resD1" ng-click='setValue(2,d1)' >
+                                          {{ d1.endereco }}
+                                      </p>
+
+                            </div>
+                        </div>
+
+                        <div class="col-xs-3  col-sm-2 col-md-2 num">   
+                            <label class="numero" for="destino1">Numero *:</label>   
+                            <input type="text" class="form-control" id="numero1" name="numero1" placeholder="Nº" ng-model="cadastrar.numero1" ui-number-mask="0"/> 
+                        </div>
+                         
+                    
+                    </div>    
+                </div>
+
+
+
+                <div class="form-group geral" id="grupo2" style="display:none;margin-top:2%">
+                    <div class="row">
+
+                        <div class="col-xs-3 col-sm-2 col-md-2 num">                                
+                                <input type="text" class="form-control" id="cep2" name="cep2" autofocus placeholder="CEP" ng-model="vm.cep2" ui-br-cep-mask ng-change="buscaCep(3,vm.cep2)" />   
+                        </div>
+
+                        <div class="col-xs-6  col-sm-8 col-md-8 endereco">
+                        <div class="input-group"> 
+                            <input type="text" id="destino2"  class="form-control cmp-destino" placeholder="Informe o Destino 2" name="destino2" ng-model="cadastrar.destino2" autofocus autocomplete="off" ng-keyup="autoDestino2(cadastrar.destino2)" ng-click="inputClique()"/>
+                             <span class="input-group-addon" class="btn" data-toggle="modal" data-target="#myModal" ng-click="buscar.campo = 3; limpaCampo()" title="Não encontrou endereço?">
+                                <i class="fa fa-question-circle se-icon-m" aria-hidden="true"></i></span>
+                        </div>
+                            <div class="searchResult">
+                                            
+                                      <p ng-repeat="d2 in resD2" ng-click='setValue(3,d2)' >
+                                          {{ d2.endereco }}
+                                      </p>
+
+                            </div> 
+                        </div>    
+
+                        <div class="col-xs-3 col-sm-2 col-md-2 num">
+                            <input type="text" class="form-control" id="numero2" name="numero2" placeholder="Nº" ng-model="cadastrar.numero2" ui-number-mask="0" /> 
+                        </div>
+                        
+
+                    </div>
+                </div>
+
+                <div class="form-group geral" id="grupo3" style="display:none;margin-top:2%">
+                    <div class="row">
+                         <div class="col-xs-3 col-sm-2 col-md-2 num">                                
+                                <input type="text" class="form-control" id="cep3" name="cep3" autofocus placeholder="CEP" ng-model="vm.cep3" ui-br-cep-mask ng-change="buscaCep(4,vm.cep3)" />
+                                
+                        </div>
+                        <div class="col-xs-6  col-sm-8 col-md-8 endereco">
+                            <div class="input-group">
+                            <input type="text" id="destino3"  class="form-control cmp-destino" name="destino3" ng-model="cadastrar.destino3" placeholder="Informe o Destino 3" autofocus autocomplete="off" ng-keyup="autoDestino3(cadastrar.destino3)" ng-click="inputClique()"/>
+                            <span class="input-group-addon" class="btn" data-toggle="modal" data-target="#myModal" ng-click="buscar.campo = 4; limpaCampo()" title="Não encontrou endereço?">
+                                <i class="fa fa-question-circle se-icon-m" aria-hidden="true"></i></span>
+                            </div>
+                            <div class="searchResult">
+                                            
+                                      <p ng-repeat="d3 in resD3" ng-click='setValue(4,d3)' >
+                                          {{ d3.endereco }}
+                                      </p>
+
+                            </div> 
+                        </div>
+
+                        <div class="col-xs-3  col-sm-2 col-md-2 num">
+                            <input type="text" class="form-control" id="numero3" name="numero3" placeholder="Nº" ng-model="cadastrar.numero3" ui-number-mask="0" /> 
+                        </div>
+
+                        
+
+                    </div>   
+                </div>
+
+                <div class="form-group geral" id="grupo4" style="display:none;margin-top:2%">
+                    <div class="row">
+
+                        <div class="col-xs-3 col-sm-2 col-md-2 num">                                
+                                <input type="text" class="form-control" id="cep4" name="cep4" autofocus placeholder="CEP" ng-model="vm.cep4" ui-br-cep-mask ng-change="buscaCep(5,vm.cep4)" />
+                                
+                        </div>
+
+                        <div class="col-xs-6  col-sm-8 col-md-8 endereco">
+                        <div class="input-group">
+                            <input type="text" id="destino4" class="form-control cmp-destino"  name="destino4" ng-model="cadastrar.destino4" placeholder="Informe o Destino 4" autofocus autocomplete="off" ng-keyup="autoDestino4(cadastrar.destino4)" ng-click="inputClique()"/>
+                            <span class="input-group-addon" class="btn" data-toggle="modal" data-target="#myModal" ng-click="buscar.campo = 5; limpaCampo()" title="Não encontrou endereço?">
+                                <i class="fa fa-question-circle se-icon-m" aria-hidden="true"></i></span>
+                        </div>
+                            <div class="searchResult">
+                                            
+                                      <p ng-repeat="d4 in resD4" ng-click='setValue(5,d4)' >
+                                          {{ d4.endereco }}
+                                      </p>
+
+                                 </div> 
+                        </div>
+
+                        <div class="col-xs-3 col-sm-2 col-md-2 num">
+                            <input type="text" class="form-control" id="numero4" name="numero4" placeholder="Nº" ng-model="cadastrar.numero4" ui-number-mask="0" /> 
+                        </div>                        
+
+                    </div>
+                </div>
+
+                <div class="form-group geral" id="grupo5" style="display:none;margin-top:2%">
+                    <div class="row">
+
+                        <div class="col-xs-3 col-sm-2 col-md-2 num">                                
+                                <input type="text" class="form-control" id="cep5" name="cep5" autofocus placeholder="CEP" ng-model="vm.cep5" ui-br-cep-mask ng-change="buscaCep(6,vm.cep5)" />
+                                
+                        </div>
+
+                        <div class="col-xs-6  col-sm-8 col-md-8 endereco">
+                            <div class="input-group">
+                            <input type="text" id="destino5" class="form-control  cmp-destino" name="destino5" ng-model="cadastrar.destino5" placeholder="Informe o Destino 5" autofocus autocomplete="off" ng-keyup="autoDestino5(cadastrar.destino5)" ng-click="inputClique()"/>
+                            <span class="input-group-addon" class="btn" data-toggle="modal" data-target="#myModal" ng-click="buscar.campo = 6; limpaCampo()" title="Não encontrou endereço?">
+                                <i class="fa fa-question-circle se-icon-m" aria-hidden="true"></i></span>
+                        </div>
+                            <div class="searchResult">
+                                            
+                                      <p ng-repeat="d5 in resD5" ng-click='setValue(6,d5)' >
+                                          {{ d5.endereco }}
+                                      </p>
+
+                                 </div> 
+                        </div>
+
+                        <div class="col-xs-3  col-sm-2 col-md-2 num" >
+                            <input type="text" class="form-control" id="numero5" name="numero5" placeholder="Nº" ng-model="cadastrar.numero5" ui-number-mask="0" /> 
+                        </div>
+
+                        
+                    </div>
+
+                </div>
+              
+                
+            </div>
+            
+            <div class="col-lg-3 col-xs-12" >
+            <h6><a href="#" ng-click="addDestino()">Adicionar Destino</a> | <a href="#" id="remover-destino" ng-click="removerDestino()" style="display:none">Remover Destino</a></h6>
+            <img src="../images/loader.png" id="aguarde" class='fa fa-refresh glyphicon-refresh-animate' style="display:none">                           
+                <button id="btnDistancia" type="button" class="btn btn-info btn-block" ng-click="consultarValores()">Calcular</button>
+            </div>
+        </div>
+        
+        
+    </section>
+<!--- distancia e preço -->
+
+    <section class="content-header">
+      <div class="row">
+        <div class="col-lg-3 col-xs-12" >              
+            <div class="form-group">
+                <label for="distancia">Distância Total</label>
+                <input type="text" class="form-control" id="distancia" name="distancia" readonly="" ng-model="cadastrar.distancia" />            
+            </div>
+        </div>
+            
+        <div class="col-lg-3 col-xs-12">              
+            <div class="form-group">              
+                <label for="valor">Valor</label>
+                <input type="text" class="form-control" id="valor" name="valor" readonly="" ng-model="cadastrar.valor" ui-money-mask='2'>
+            </div>                       
+        </div>
+        
+        <div class="col-lg-3 col-xs-12" >              
+            <div class="form-check">
+            <p><label for="tipo">Informe o tipo de objeto *</label></p>        
+                <span><input type="radio" class="form-check-input"  id="tipo" name="objeto" value="documento" ng-model="cadastrar.tipo" style="margin-right: 5px" /> Documento </span>
+                <span style="margin-left: 10%;">
+                    <input type="radio" class="form-check-input"  id="tipo" name="objeto" value="outros" ng-model="cadastrar.tipo" style="margin-right: 5px"/> Outros </span>          
+            </div>                       
+        </div>                
+      </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-xs-12" >              
+                <div class="form-group">
+                    <label for="distancia">Responsável *</label>
+                    <input type="text" class="form-control" id="responsavel" name="responsavel" ng-model="cadastrar.responsavel">               
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Design content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12 col-xs-12">
+                <div class="form-group">
+                    <label for="descricao">Descrição do Produto*:</label>
+                    <input type="text" class="form-control" id="descricao" name="descricao" ng-model="cadastrar.descricao">
+                </div>
+            </div>     
+        </div>
+        
+        
+        <div class="row" >
+            <div class="col-lg-12 col-xs-12">
+                <div class="form-group">
+                    <label for="descricao">Observação *:</label>
+                    <textarea class="form-control" rows="5" id="observacao" name="observacao" ng-model="cadastrar.observacao"></textarea>
+                </div>
+            </div>     
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                
+                    
+                    <label for="dataAgenda">Data da Entrega: <input type="radio" name="dataAgendamento" style="margin-left:10px !important;margin-right:10px !important;" ng-value="1" ng-model="agendamento" onclick="datepicker(this.value)">Hoje</label>
+                    
+                    <input type="radio" id="futura" name="dataAgendamento" style="margin-left:10px !important;margin-right:10px !important;" ng-value="2" ng-model="agendamento" onclick="datepicker(this.value)">
+                    <label>Outra Data</label>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-3 col-xs-12">
+                <div class="form-group">
+                    <input type="text" class="form-control datepicker"  id="dataAgenda" name="dataAgendamento" style="display:none;" ng-model="cadastrar.dataAgenda">
+                </div>
+            </div>
+
+         </div>
+        <div class="row">
+            
+             <div class="col-lg-3 col-xs-12">
+
+                <div class="form-group">
+                    <label>Hora de retirada:</label>
+                    <div class='input-group date'>
+                        <input type='text' class="form-control" id="horaRetirada" name="horaRetirada" ng-model="cadastrar.horaRetirada" ui-time-mask="short"/>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-time"></span>
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div> 
+
+         <div class="row" style="margin-top: 5%">
+            <div class="col-lg-3 col-xs-12">               
+                <div class="form-group">
+                    <input type="button" class="btn btn-info btn-block" id="btnAgendar"  value="Solicitar" ng-click="agendarEntrega()" />
+                    <img src="../images/loader.png" id="aguarde2" class='fa fa-refresh glyphicon-refresh-animate' style="display:none">
+                </div>
+            </div>
+        </div>       
+        
+       </form>
+<!-- Modal Busca Endereço -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Buscar Endereço</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+
+            <div class="col-xs-4 col-sm-4 col-md-4 num">
+                <label class="buscarEstado" for="cep">Estado:</label>
+                <select class="form-control" id="buscarEstado" name="buscarEstado"  ng-model="buscar.estado" >
+                    <option value="SP">São Paulo</option>
+                </select>
+
+            </div>
+
+            <div class="col-xs-8 col-sm-8 col-md-8 num">
+                <label for="buscarCidade">Cidade :</label>
+                <select  class="form-control" id="buscarCidade" name="buscarCidade" ng-model="buscar.cidade" >
+                    <option ng-repeat="c in comboCidades" ng-value="c.cidade">{{c.cidade}}</option>
+                </select>                                
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 num">
+                <label  for="buscarBairro">Bairro:</label>
+                <input type="text" class="form-control inputBuscar" id="buscarBairro" name="buscarBairro" autofocus placeholder="Bairro..." ng-model="buscar.bairro" />                                
+            </div>
+        </div>
+
+        <div class="row">
+             <div class="col-xs-8 col-sm-8 col-md-8 num">
+                <label  for="buscarLogradouro">Logradouro:</label>
+                <input type="text" class="form-control inputBuscar" id="buscarLogradouro" name="buscarLogradouro" autofocus placeholder="Logradouro..." ng-model="buscar.logradouro" />                                
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 num">
+                <label  for="buscarNumero">Número:</label>
+                <input type="text" class="form-control" id="buscarNumero" name="buscarNumero" autofocus placeholder="Número..." ng-model="buscar.numero" ui-number-mask="0"  />                                
+            </div>                
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" ng-click="addEndereco(buscar)">Adicionar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+        
+    </section>
+
+   
+
+<script>
+
+   $(function(){
+  var regex = new RegExp('[^ 0-9a-zA-ZàèìòùáéíóúâêîôûãõçÇ\b-]', 'g');
+  // repare a flag "g" de global, para substituir todas as ocorrências
+  $('.inputBuscar').bind('input', function(){
+    $(this).val($(this).val().replace(regex, ''));
+  });
+})
+
+    function datepicker(e){
+        if(e == 2){
+            $('#dataAgenda').css('display','');
+        }else{
+            $('#dataAgenda').css('display','none');
+        }
+    }
+
+$(function () {
+
+    $(".datepicker").datepicker();
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+
+var yyyy = today.getFullYear();
+if(dd<10){
+    dd='0'+dd;
+} 
+if(mm<10){
+    mm='0'+mm;
+} 
+
+var today = dd+'/'+mm+'/'+yyyy;
+    $(".datepicker").on('change', function () {
+        var date = $(this).val();
+        if (date < today) {
+            alert('Por favor selecione uma data válida!');
+            $(this).val('');
+        }
+    });
+});
+
+</script>
+
+<style>
+
+.endereco{
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.num{
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.origem{
+    margin-top: 10px;
+   
+}
+.numero{
+    margin-top: 10px;
+  
+}
+   
+.form-radio-inline label {
+    margin-left: 5px;
+}
+
+.form-radio-input{
+ margin-left: 5px !important
+    
+}
+
+.searchResult{
+position:absolute;
+width: 100%;
+height:auto; 
+max-height:100px;
+overflow-y:auto !important;
+z-index:9999;
+background-color: #fff;
+ 
+}
+.searchResult p{
+white-space: nowrap; 
+width: 100%; 
+overflow: hidden;
+text-overflow:ellipsis;
+ }
+
+.searchResult p:hover{
+cursor: pointer;
+background: #e4e4e4;
+color: #000;
+}
+
+.btn-txt{
+   color: gray;
+}
+
+@media screen and (max-width: 500px){
+    .well{
+        margin-bottom: 10px !important;
+    } 
+}
+</style>
+
+<!-- -->

@@ -1,0 +1,52 @@
+﻿
+
+dashboard.controller("cadastroProdutosCtrl", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http',
+function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http) {
+    var vm = this;
+    $scope.editar = [];
+   	var usuario = JSON.parse(localStorage.getItem('user'));
+
+   	$("#tipoUsuario").val(usuario.tipoUsuario);
+   	$("#codUsuario").val(usuario.codUsuario);
+	var url = 'https://www.iptufacil.com.br';
+   // var url = 'http://192.168.0.69:8025';
+$scope.atualizarDados = function(){
+$("#btnAtualizarDados").hide();
+$("#img-loader").show();
+
+$scope.editar.auth = "3f018bfb43591ccb2ef46f10de832160"; 
+
+	$http({
+		        method: 'POST',
+		        url: url + '/ws/goey/rest/public/alterarEmpresa',
+		        data: $.param(
+					            $scope.editar
+       						  ),
+
+	        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+		    }).success(function (response) {
+
+		    	 $("#img-loader").hide();
+                 $("#btnAtualizarDados").show();
+                 Flash.create('info', response.mensagem, 'large-text');     
+                
+		    }).error(function (response) {
+
+		    	$("#img-loader").hide();
+		    	$("#btnAtualizarDados").show();
+		        Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');
+               
+		    }); 
+            
+} 
+
+
+$scope.cadastrarProdutos = function(){
+
+console.log($scope.cadastrar);
+
+} 
+
+
+
+}]);

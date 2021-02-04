@@ -1,0 +1,25 @@
+function alert(titulo,body = ''){
+    if(!body){
+      body = titulo;  
+      titulo = 'Goey - Delivery para todos';
+    } 
+   return alertify.alert(titulo,body).set('modal', true); 
+}
+
+function alertCompra(){
+   return alertify.message('Produto adicionado ao carrinho!').dismissOthers();    
+}
+
+function confirma(msn){
+
+ return alertify.confirm('Goey - Delivery para todos',msn,'','');
+
+}
+
+ /* function(){
+    alertify.success('Ok');
+  },
+  function(){
+    alertify.error('Cancel');
+  });
+  */

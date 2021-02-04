@@ -1,0 +1,87 @@
+﻿
+
+dashboard.controller("mapsCtrl", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http',
+function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http) {
+    var vm = this;
+
+
+ var usuario = localStorage.getItem('user') || "";
+
+
+$scope.voltar = function(){
+
+	$state.go('app.minhasEntregas'); 
+}
+
+$scope.posicaoSascar = function(){
+	$http({
+			        method: 'POST',
+			        url: 'http://ws.goeyja.com.br/ws/goey/soap/rotas.php',
+			        data: $.param({
+						            servico: 'obterPosicaoVeiculo', 
+                    				codSascar: sascar, 
+                    				auth: '3f018bfb43591ccb2ef46f10de832160'
+	       						  }),
+
+		        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+			    }).success(function (response) {
+                    
+			    	if(response.retorno == 1){
+			    	     $scope.rotas.push({title: 'Goey', pos:[response.latitude,response.longitude], onRoute:false, id: 2});   
+ 						
+ 						$("#clickMap").click();
+
+			    	}else{            
+                      //$scope.sascar = response.latitude +','+response.longitude;
+                      	$("#clickMap").click();
+
+			    		 //Flash.create('info', 'Desculpe! Ocorreu um erro!', 'large-text') 
+			    	}   
+			        
+
+			    }).error(function (response) {
+
+			       
+			    });
+
+}
+
+$scope.verMapa = function(origem,sascar,destino1,destino2,destino3,destino4,destino5){
+// obterPosicaoVeiculo
+$scope.destinos = [];
+$scope.end = destino1;
+$scope.rotas = [
+                   {title: 'Local de Retirada:' + origem, pos:origem, onRoute:false, id:1},
+                   {title: 'Goey', pos:sascar, onRoute:false, id:2},
+                   { title: 'Destino 1: '+ destino1, pos:destino1, onRoute:false, id:3}                    
+                 ];            
+
+
+if(destino2 != undefined){
+ $scope.rotas.push({ title: 'Destino 2: '+ destino2, pos:destino2, onRoute:false, id:4 }); 
+ $scope.end = destino2; 
+}
+
+if(destino3  != undefined){    
+$scope.rotas.push({ title: 'Destino 3: '+ destino3, pos:destino3, onRoute:false, id:5 });
+$scope.end = destino3;       
+ }
+
+if(destino4 != undefined){    
+$scope.rotas.push({ title: 'Destino 4: '+ destino4, pos:destino4, onRoute:false, id:7 });
+$scope.end = destino4;       
+}
+
+if(destino5 != undefined){    
+ $scope.rotas.push({ title: 'Destino 5: '+ destino5, pos:destino5, onRoute:false, id:6 });
+ $scope.end = destino5;       
+}
+
+}
+
+var origem = "Rua francisco Antonio da silva, 325-jardim santa clara do lago 1, hortolandia-sp";
+var sascar = "Rua Saldanha Marinho, 1165 - Conceicao, Campinas - SP, 13013-055";
+var destino1 = "rua lotario novaes, 71-taquaral,campinas-sp";
+$scope.verMapa(origem, sascar,destino1);
+}]);

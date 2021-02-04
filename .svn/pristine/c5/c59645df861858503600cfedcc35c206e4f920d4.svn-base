@@ -1,0 +1,8 @@
+﻿var appConfig = {
+    title: "Corporate Directory",
+    lang: "pt-br",
+    dateFormat: "dd/mm/yy",
+    apiBase: 'http://localhost/',
+    theme: 'skin-purple',
+    layout:""
+};

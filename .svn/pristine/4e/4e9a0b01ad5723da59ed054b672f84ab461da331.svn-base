@@ -1,0 +1,9 @@
+login.controller("listafarmaciaCtrl", ['$rootScope', '$scope', '$state', '$location', 'loginService', 'Flash','apiService','$http',
+function ($rootScope, $scope, $state, $location, loginService, Flash, apiService,$http) {
+        var vm = this;
+        localStorage.removeItem('user');
+        vm.getUser = {};
+        vm.setUser = {};
+        vm.signIn = true;
+
+}]);

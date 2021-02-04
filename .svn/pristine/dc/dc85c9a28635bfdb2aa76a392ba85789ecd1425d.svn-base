@@ -1,0 +1,1767 @@
+
+
+<!--/**************************
+    * Lista estabelecimento  *
+    ************************-->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <section class="blococinza blocoyellowmobile" scroll-behavior: smooth; >
+        <div class="container">
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <button class="btn-mobile navbar-right  collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <h1><i class="fa fa-bars"></i></h1>
+                </button>
+                <div class="container d-flex flex-column flex-md-row justify-content-between">
+                    <a class="py-2" href="#">
+                        <div class="col-md-2 col-sm-4 logo-goey">   
+                            <a href="https://www.goeyja.com.br/#/step">
+                                <img src="images/home/logo.png">
+                            </a>                 
+                        </div>
+                    </a>
+                    
+                    <div class="menu-btn" style="display: block">
+                        <div class="col-sm-6 filtro">
+                            <div class="form-group has-search">
+                                <span class=" form-control-feedback"></span>
+                                <input type="text" class="form-control ng-pristine ng-valid ng-touched" name="search" type="search"  placeholder="Busque por restaurante ou tipo de cozinha" 
+                                style=" border: 1px solid #f37b22 !important; color: #f37b22;margin-top: 2vh " ng-model="estabelecimento" aria-invalid="false">
+                            </div> 
+                        </div>
+                        <div class="dropdown" style="display: inline-block ">
+                            <button class="btn  btn-cadastre-secondary dropdown-toggle btn-cadastre-se" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                CADASTRAR
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <a onclick="" data-toggle="modal">
+                                    <button class="dropdown-item btn-fisi" type="button" id="showModal" 
+                                    ng-click="cadUsuario = {};clearForm();form.$setUntouched();" data-toggle="modal">PESSOAL</button>
+                                </a>
+                                <a href="#/formRestaurante">
+                                    <button class="dropdown-item btn-rest" type="button">RESTAURANTE</button>
+                                </a>
+                            </div>
+                        </div>
+                        <a class="btn btn-acesse-secondary" style="display: inline-block" href="https://www.goeyja.com.br/#login" >ACESSE SUA CONTA</a>   
+                    </div> 
+                </div>
+                <!--/***MENU-MOBILE***-->
+                <div class="collapse navbar-collapse menu-mobile-btn" id="navbarCollapse">
+                    <div class="navbar-nav  modal-mobile " >
+                            <div class="navbar-nav  modal-mobile " style=" margin-top: 40px; text-align: center">
+
+                                    <div class="menu-mobile-btn" >
+                                     <!--   <a class="btn" href="#/home#goo"> O QUE É GOEY</a> -->
+                                    </div>
+                                    <!--
+                                    <div class="menu-mobile-btn">
+                                        <a class="btn" onclick="ancora('van')">VANTAGENS</a>
+                                    </div> 
+                    
+                                    <div class="menu-mobile-btn">
+                                        <a class="btn"  href="https://www.goeyja.com.br/#restaurante">
+                                            <span >RESTAURANTE</span>
+                                        </a>
+                                    </div>
+                    
+                                    <div class="menu-mobile-btn">
+                                        <a class="btn" data-toggle="modal" data-target="#contato">CONTATO</a>
+                                    </div>
+                    
+                                    <div class="menu-mobile-btn">
+                                        <a class="btn" href="https://www.goeyja.com.br/#login"  >ACESSE SUA CONTA</a>  
+                                    </div>-->
+                    
+                                    <div class="menu-mobile-btn" style="margin-top:15px">
+                                        <div class="dropdown" style="display: inline-block">
+                                                <button class="btn  btn-cadastre-secondary dropdown-toggle btn-cadastre-se" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    CADASTRAR
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                    <!--BTN-PESSOAL-->
+                                                    <a onclick="$('#cadUsuario').modal('show');">
+                                                        <button class="dropdown-item btn-fisi" type="button" id="showModal" ng-click="cadUsuario = {};clearForm();form.$setUntouched();">PESSOAL</button>
+                                                    </a>
+                                                    <!--BTN-EMPRESARIAL
+                                                    <a onclick="window.location.replace('http://www.goeyja.com.br/#empresa');">
+                                                        <button class="dropdown-item btn-juri" type="button">EMPRESARIAL</button>
+                                                    </a> -->
+                                                    <!--BTN-RESTAURANTE-->
+                                                    <a onclick="window.location.replace('https://www.goeyja.com.br/#formRestaurante');">
+                                                        <button class="dropdown-item  btn-rest" type="button">RESTAURANTE</button>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                <div class="menu-mobile-btn acessa-mobile">
+                                    <a class="btn" href="https://www.goeyja.com.br/#login" style=" color: #fff !important;">ACESSE SUA CONTA</a>  
+                                </div>
+                        </div>
+                    </div>
+                </nav>
+          
+        <!--/***************
+            * MODAL USUARIO*
+            ****************-->
+        <div class="modal" tabindex="-1" role="dialog" id="cadUsuario">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title text-center" style="font-size: 18px"><span class="pull-center"><img src="images/home/logo-goey.png" style="height: 25px !important;"></span></h5>
+                    </div>
+                    <div class="modal-body">
+                    <p>
+                        <div class="container-fluid">
+                        <div class="row">
+                            <form name="form">
+                            <div class="col-md-12">
+                                <div class="col-md-7 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                    <label for="nome" class="uLabel">Nome</label>
+                                        <input type="text" id="nome" ng-model="cadUsuario.nome" name="nome" class="form-control "  
+                                        ng-class="{'is-invalid': form.nome.$invalid && form.nome.$touched,'is-valid': form.nome.$valid}" required>
+                                        <p ng-show="form.nome.$invalid && !form.nome.$pristine" class="help-block">Digite um nome válido.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="cpf" class="uLabel">CPF</label>
+                                        <input type="text" id="cpf" ng-model="cadUsuario.cpf" name="cpf" class="form-control " ui-br-cpf-mask 
+                                        ng-class="{'is-invalid': form.cpf.$invalid && form.cpf.$touched,'is-valid': form.cpf.$valid}" required>
+                                        <p ng-show="form.cpf.$invalid && !form.cpf.$pristine" class="help-block">Digite um cpf válido.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-7 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                    <label for="email" class="uLabel">E-mail</label>
+                                        <input type="text" id="email" ng-model="cadUsuario.email" name="email" class="form-control "  
+                                        ng-class="{'is-invalid': form.email.$invalid && form.email.$touched,'is-valid': form.email.$valid}" required>
+                                        <p ng-show="form.email.$invalid && !form.email.$pristine" class="help-block">Digite um e-mail válido.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="senha" class="uLabel">Senha</label>
+                                        <input type="password" id="senha" ng-model="cadUsuario.senha" name="senha" class="form-control "  
+                                        ng-class="{'is-invalid': form.senha.$invalid && form.senha.$touched,'is-valid': form.senha.$valid}" required>
+                                        <p ng-show="form.senha.$invalid && !form.senha.$pristine" class="help-block">Senha é obrigatório.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                        </div>
+                    </p>
+                    </div>
+                        <div class="modal-footer">
+                            <div class="col-md-12">
+                                <div class="col-md-5 offset-md-3 recapmobile">
+                                    <div class="g-recaptcha" data-sitekey="6LeaQHQUAAAAAC7KVG-vv0zbA4ZG8I5rf597HX31"></div>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <button type="button" class="btn btn-primary" ng-click="cadastrarUsuario();">Cadastrar</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                        </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--/***********
+    * Pesquisa * 
+    ************-->
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading titulo-estabelecimento">Não adianta ser só <span>bom</span> e <span>barato</span>, <br> tem que <span> entregar rapidinho.</span></h1>
+            <div class="form-group has-search pesquisa-mobile">
+                <span class=" form-control-feedback"></span>
+                <input type="text" class="form-control ng-pristine ng-valid ng-touched" name="search" type="search"  placeholder="Busque por restaurante ou tipo de cozinha" 
+                style=" border: 1px solid #f37b22 !important; color: #f37b22;margin-top: 2vh " ng-model="estabelecimento" aria-invalid="false">
+            </div> 
+        </div>
+    </section>
+   
+
+<!--/*********************
+    * lista  de Produtos * 
+    **********************-->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 themed-grid-col"  style="background: #fff">
+                    <div class="pb-3"></div>
+                    <div class="row">
+                        <div class="col-xs-12  col-md-4 themed-grid-col " style="border: 1px solid #fff; padding: 3px; margin-top: 3px;" ng-repeat="x in lista | filter:{ramoAtividade:estabelecimento}" ng-click="redirecionaProduto(x.codUsuario,x.tipoUsuario)" ng-class="{ 'div-disabled': x.completo}">
+                            <div class="col-xs-12   col-md-12" style="border: 1px solid #ccc;  padding-left: 0px;" >
+                                <div class="col-xs-4  col-md-4" style="padding: 0;">
+                                    <div class="media-left lanche" >
+                                        <a href="https://www.goeyja.com.br/#/lista-produtos/{{x.codUsuario}}/{{x.tipoUsuario}}">
+                                            <img src="https://www.goeyja.com.br/storage/imagens/{{x.logo}}" class="img-responsive " style=" border-right: 1px solid #ccc;"> 
+                                        </a>
+                                    </div>
+                                </div>
+                
+                                <div class="col-xs-8  col-md-8" >
+                                    <div class="media-body">
+                                        <div class="row">
+                                            <div class=" col-4 col-sm-12 fantasia">
+                                                <p><span class="text-bold" style="font-size: 16px;">{{x.nomeFantasia}}</span></p>
+                                                <span class=" atividade">{{x.ramoAtividade}}</span>
+                                                <div class="form-group">
+                                                    <span class="cozinha">{{x.tipoCozinha}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+<script>
+    // scrollTo is the same
+window.scroll({
+  top: 2500, 
+  left: 0, 
+  behavior: 'smooth'
+});
+
+// Scroll certain amounts from current position 
+window.scrollBy({ 
+  top: 100, // could be negative value
+  left: 0, 
+  behavior: 'smooth' 
+});
+
+
+/*
+document.querySelector('.hello').scrollIntoView({ 
+  behavior: 'smooth' 
+});*/
+</script>
+
+<!--/********
+    * Style * 
+    *********-->
+<style>
+.pesquisa-mobile{
+    display: none;
+}
+
+.navbar-collapse{
+    display: none;
+}
+
+.btn-mobile{
+    display: none;
+}
+
+.has-search .form-control {
+    padding-left: 2rem !important;
+}
+.menu-btn a {
+    margin-right: 5px !important;
+    margin-top: 2vh;
+}
+
+
+.titulo-estabelecimento span{
+    color: #f37b22;
+}
+
+.titulo-estabelecimento{
+    color: #717171;
+}
+
+.titulo-estabelecimento{
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.jumbotron-heading{
+    font-family: 'roboto';
+}
+
+.jumbotron h1, .jumbotron .h1 {
+    font-size: 30px !important;
+    line-height: 1em;
+}
+
+.jumbotron{
+    background: #fff !important
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+.navbar-toggler{
+    display: none;
+}
+
+.navbar-expand-md{
+    background: #fff !important;
+    border: 1px solid #fff !important
+}
+.bg-dark {
+    background-color: #fff!important;
+    border-bottom: 1px solid #eeeeee !important;
+    padding: 3px;
+}
+
+.navbar-expand-md {
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+.card{
+    border: 1px solid #ccc;
+    border-radius: 1px;
+}
+
+.w-50{
+    width: 50%;
+    display: inline-block;
+    margin-left: 2px;
+}
+
+.media-left{
+    padding-right: 0px !important;
+}
+
+.branca{
+    background:#fff; 
+    height: 130px;
+}
+.atividade{
+    color:black !important;
+    font-weight: bold;
+    position: relative;
+    top: -3px;
+    font-size: 14px; 
+    font-family: 'Roboto' !important;
+}    
+.cozinha{
+    font-size: 12px;
+    position: relative;
+    top: -8px;
+    font-style: italic !important;
+    color:black !important;
+    font-family: 'Roboto' !important;
+}
+
+/*ng-class="{ 'div-disabled': true}"*/
+.div-disabled
+{
+  pointer-events: none;
+  opacity: 0.3;
+  background: #F4F4F4;
+  /*cursor: not-allowed !important;*/
+}
+.btn-rest{
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-left: 11px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        border: transparent;
+        border-radius: 2px; 
+        font-weight: 600;
+        width: 100%;
+        background: #fb8c00;
+        color: #fff !important;
+}
+
+    .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 147px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    text-align: left;
+    background-color: #fb8c00;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+.btn-fisi{
+        padding-top: 3px;
+        padding-right: 35px;
+        padding-bottom: 9px;
+        margin-top: 3px;
+        width: 100%;
+        margin-bottom: 3px;
+        background: #fb8c00;
+        border: transparent;
+        border-bottom: 1px solid #fff;
+        color: #fff !important;
+        border-radius: 2px; 
+        font-weight: 600;
+    }
+
+
+
+.fantasia p{
+    padding-top: 10px;
+    margin-bottom: 0;
+}
+
+.busca{
+    margin-bottom: 3vh;
+}
+
+ .lanche{
+  width: 100vw !important;
+  min-height: 100px;
+  background-size: cover !important;
+  background-position: center !important;
+  position: relative;
+  background-position-y: -5px;
+  min-width:100% !important;
+  max-height:350px;
+  height: auto;
+  /* object-fit: contain; */
+  object-fit: cover;
+  object-position: center;
+ }
+
+
+
+
+.text-bold{
+    color: #f37b22 !important;        
+}
+.loja{
+    color: #757574;
+    font-weight: bold;
+}
+.media-list{
+    border: 1px solid #eeee
+}
+
+.btn-limpar{
+    margin-top: 2vh;
+
+}
+.btn-outline-warning{
+    background: #4266ae !important;
+    color: #fff !important;
+}
+input::placeholder {
+  color: #f37b22 !important;
+}
+.media-list{
+    margin-top: 3vh;
+}
+.filtro-titulo{
+    margin-top: 3vh;
+    font-size: #000 !important;
+    font-weight: bold !important;
+}
+.filtro-titulo h2{
+    margin-top:0px;
+    margin-bottom: 0px; 
+    font-size: 18px !important;
+    font-weight: 800 !important;
+}
+
+
+filtro input{
+    margin-top: 5vh;
+    border: 1px solid #f37b22 !important; 
+}
+
+.listadeprodutos{
+    text-align: center
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+} 
+
+.blococinza{
+    background: #fff;
+    min-height: 10vh;
+    position: relative;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.blococontato{
+    background: #fff;
+    min-height: 100vh;
+    position: relative;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    
+}
+
+.btn-fraquia-secondary{
+    background:#4266ae; 
+}
+
+.btn-cadastre-se {
+    color: #4c4b4a;
+    font-weight: 800;
+}
+
+.logo-goey{
+    margin-top: 15px;
+}
+
+.logo-goey img{
+    max-width:300px;
+    display: inline;
+    width: 70%;
+    margin-right: 20px;
+    float: right;
+}
+
+.btn-primary{
+    background:#4266ae; 
+    color:#fff;
+}
+
+.btn-primary:hover{
+    background:#4266ae; 
+}
+
+.btn-simular{
+    background:#f37b22;
+    color: #fff;
+}
+.menu{
+    display: block;
+    margin-top: 18px;
+}
+
+.menu a{
+    color: #fff;
+    font-weight: 700;
+}
+
+.menu span{
+    color: #f37b22;
+    font-weight: bold;
+    margin-left: 5px; 
+}
+
+.menu-btn{
+    display: inline;
+    width: 55%;
+    float: right;
+}
+
+.btn-cadastre-secondary{
+    background: #f37b22;
+    color: #fff;
+    margin-right: 4px;
+    margin-top: 2vh;
+}
+
+.btn-acesse-secondary {
+    background: #4266AE;
+    color: #fff;
+    font-weight: 900;
+}
+.menu .menu-link a{
+   color: #000
+}
+
+.menu-link a {
+    padding-right: 3px !important;
+    padding-left: 3px !important;
+    border-right: 2px solid #000;
+} 
+.menu-link,.menu-btn{
+    display: inline-block;
+}
+.menu-link{
+     margin-top: 8px;
+ }
+
+.menu-btn a{
+    margin-right: 5px ;
+}
+
+.titulo-texto{
+    margin-top: 15vh;
+    text-align: center;
+}
+.titulo-texto p{
+    color: #fff;
+     font-size: 5vh;
+      line-height: 0.8;
+ }
+.btn-querocontratar-secondary{
+    background: #f37b22;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #fff;
+    width: 35%;
+    float: right;
+    border-radius: 0px;
+}
+@media screen and (max-width: 1200px){
+    .menu-btn {
+    display: inline;
+    width: 70%;
+    float: right;
+    }
+}
+
+@media screen and (max-width: 991px){
+    .navbar-nav {
+    margin: 7.5px 0px !important;
+}
+    .btn-cadastre-secondary{
+    margin-top: 0vh  !important;
+    margin-bottom: 1vh  !important;
+}
+.navbar-nav .open .dropdown-menu {
+    position: static;
+    float: none;
+    margin: auto;
+    width: 50%;
+    margin-bottom: 10px;
+    margin-top: -5px;
+    background: #fb8c00;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+    .acessa-mobile a{
+        background: #4266AE !important;
+    }
+
+    .pesquisa-mobile{
+    display: block !important;
+    margin-top: 3vh;
+}
+    .logo-goey img{
+    max-width:100px;
+    display: inline;
+    width: 60%;
+    margin-right: 20px;
+    float: left;
+} 
+
+    .btn-mobile {
+    float: right;
+    background: transparent;
+    border: 1px solid transparent;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+}
+
+    .btn-mobile{
+        display: block;
+    }
+    .menu-btn{
+        display: none !important
+    }
+  
+    .navbar-toggler {
+        display: block !important;
+        float: right;
+    }
+
+    .navbar-toggler-icon {
+    display: inline-block !important;
+    width: 1.5em  !important;
+    height: 1.5em  !important;
+    vertical-align: middle  !important;
+    content: "" ;
+    background: no-repeat center center;
+    background-size: 100% 100%;
+}
+    .fa {
+        color:#fff;
+        font-size: 20px;
+        background: #fff;
+    }
+
+    .btn-mobile h1{
+    font-size: 30px;
+}
+.btn-mobile h1 i{
+    color: #f37b22;
+    font-size: 31px;
+
+}
+.modal-mobile{
+    padding-top: 0px;
+}
+.logo-goey-mobile{
+     max-width:40px;
+    display: inline;
+    width: 60%;
+    float: left;
+    margin-top: 25px;
+    margin-left: 0px;
+}
+
+}
+
+@media screen and (max-width: 767px){
+    .branca{
+    background: transparent !important; 
+}
+    .busca{
+    margin-bottom: 0vh !important;
+}
+
+    .site-header{
+        display: none
+    }
+    .menu-mobile{
+        display: block
+    }  
+    .blocoyellowmobile{
+    display: block;
+    background: #fff;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    background-size: 220%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.bandeiras-cartao ul li img {
+    width: 35px !important;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.bandeiras-cartao{
+    margin-bottom: -3px !important;
+}
+
+.pesquisa h2 {
+    font-size: 35px !important;
+}
+.pesquisa {
+    margin-top: 35vh !important;
+}
+    .site-header{
+        display: none
+    }
+    .menu-mobile{
+        display: block
+    }  
+  .menu-btn {
+    display: inline;
+    width: 55%;
+    float: right;
+}
+
+  .bloco1{
+  margin-left: 0vh;
+}
+
+  .logo-pc{
+  display: none;
+}
+
+.logo-mobile{
+  display: block;
+  background-image: url(images/home/pc-mobile.png);
+  background-size: 50%;
+  height: 510px;
+}
+
+.logo-moto{
+  height: 50vh;
+}
+  .banner-laranja {
+    height: auto;
+}
+
+
+
+.menu-mobile{
+    background: transparent;
+    border: 1px solid transparent;
+    text-align: center;
+}
+
+.menu-mobile ul{
+    text-decoration: none !important;
+}
+
+.btn-mobile {
+    float: right;
+    background: transparent;
+    border: 1px solid transparent;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 8px;
+}
+
+.btn-mobile h1{
+    font-size: 30px;
+}
+.btn-mobile h1 i{
+    color: #f37b22;
+    font-size: 31px;
+
+}
+.modal-mobile{
+    padding-top: 0px;
+}
+.logo-goey-mobile{
+     max-width:40px;
+    display: inline;
+    width: 60%;
+    float: left;
+    margin-top: 25px;
+    margin-left: 0px;
+}
+
+.solicitacao {
+    min-height: 42px;
+}
+
+.cadastro{
+    min-height: 60px;
+}
+
+.menu-mobile-btn a {
+    color: #4c4b4a !important;
+    font-weight: 700;
+    cursor: pointer;
+}
+.menu-mobile-btn a:hover{
+    color: #f37b22;
+}
+
+.menu-mobile-btn:hover{
+    border-radius: 5px;
+    color: #fb8c00 ;
+    /*background: -moz-linear-gradient(top, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.7) 100%);*/
+}
+.footer {
+    color: #000;
+    text-align: center;
+    font-size: 9px;
+    margin-top: 10vh;
+    letter-spacing: 1px;
+}
+
+  .container-home {
+    min-height: 100vh;
+}
+
+}
+
+@media screen and (max-width: 736px){
+    .branca{
+    background: transparent !important; 
+}
+    .site-header{
+        display: none
+    }
+    .menu-mobile{
+        display: block
+    }  
+    .blocoyellowmobile{
+    display: block;
+    background: #fff;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    background-size: 220%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.bandeiras-cartao ul li img {
+    width: 35px !important;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.bandeiras-cartao{
+    margin-bottom: -3px !important;
+}
+
+.pesquisa h2 {
+    font-size: 35px !important;
+}
+.pesquisa {
+    margin-top: 35vh !important;
+}
+    .site-header{
+        display: none
+    }
+    .menu-mobile{
+        display: block
+    }  
+  .menu-btn {
+    display: inline;
+    width: 55%;
+    float: right;
+}
+
+
+.btn-acesse-secondary{
+    margin-top: 2vh;
+}
+
+
+  .bloco1{
+  margin-left: 0vh;
+}
+
+  .logo-pc{
+  display: none;
+}
+
+.logo-mobile{
+  display: block;
+  background-image: url(images/home/pc-mobile.png);
+  background-size: 50%;
+  height: 510px;
+}
+
+.logo-moto{
+  height: 50vh;
+}
+  .banner-laranja {
+    height: auto;
+}
+
+
+.menu-mobile{
+    background: transparent;
+    border: 1px solid transparent;
+    text-align: center;
+}
+
+.menu-mobile ul{
+    text-decoration: none !important;
+}
+
+.btn-mobile {
+    float: right;
+    background: transparent;
+    border: 1px solid transparent;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 8px;
+}
+
+.btn-mobile h1{
+    font-size: 30px;
+}
+.btn-mobile h1 i{
+    color: #f37b22;
+    font-size: 31px;
+
+}
+.modal-mobile{
+    padding-top: 0px;
+}
+.logo-goey-mobile{
+     max-width:40px;
+    display: inline;
+    width: 60%;
+    float: left;
+    margin-top: 25px;
+    margin-left: 0px;
+}
+
+.solicitacao {
+    min-height: 42px;
+}
+
+.cadastro{
+    min-height: 60px;
+}
+
+.menu-mobile-btn a {
+    color: #4c4b4a !important;
+    font-weight: 700;
+    cursor: pointer;
+}
+.menu-mobile-btn a:hover{
+    color: #f37b22;
+}
+
+.menu-mobile-btn:hover{
+    border-radius: 5px;
+    color: #fb8c00 ;
+    /*background: -moz-linear-gradient(top, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.7) 100%);*/
+}
+.footer {
+    color: #000;
+    text-align: center;
+    font-size: 9px;
+    margin-top: 10vh;
+    letter-spacing: 1px;
+}
+
+  .container-home {
+    min-height: 100vh;
+}
+
+}
+
+@media screen and (max-width: 667px){
+    .branca{
+    background: transparent !important; 
+}
+    .site-header{
+        display: none
+    }
+    .menu-mobile{
+        display: block
+    }  
+    .blocoyellowmobile{
+    display: block;
+    background: #fff;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    background-size: 220%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.bandeiras-cartao ul li img {
+    width: 35px !important;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.bandeiras-cartao{
+    margin-bottom: -3px !important;
+}
+
+.pesquisa h2 {
+    font-size: 35px !important;
+}
+.pesquisa {
+    margin-top: 35vh !important;
+}
+    .site-header{
+        display: none
+    }
+    .menu-mobile{
+        display: block
+    }  
+  .menu-btn {
+    display: inline;
+    width: 55%;
+    float: right;
+}
+
+  .bloco1{
+  margin-left: 0vh;
+}
+
+  .logo-pc{
+  display: none;
+}
+
+.logo-mobile{
+  display: block;
+  background-image: url(images/home/pc-mobile.png);
+  background-size: 50%;
+  height: 510px;
+}
+
+.logo-moto{
+  height: 50vh;
+}
+  .banner-laranja {
+    height: auto;
+}
+
+
+
+.menu-mobile{
+    background: transparent;
+    border: 1px solid transparent;
+    text-align: center;
+}
+
+.menu-mobile ul{
+    text-decoration: none !important;
+}
+
+.btn-mobile {
+    float: right;
+    background: transparent;
+    border: 1px solid transparent;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 8px;
+}
+.btn-mobile h1{
+    font-size: 30px;
+}
+.btn-mobile h1 i{
+    color: #f37b22;
+    font-size: 31px;
+
+}
+.modal-mobile{
+    padding-top: 0px;
+}
+.logo-goey-mobile{
+     max-width:40px;
+    display: inline;
+    width: 60%;
+    float: left;
+    margin-top: 25px;
+    margin-left: 0px;
+}
+
+.solicitacao {
+    min-height: 42px;
+}
+
+.cadastro{
+    min-height: 60px;
+}
+
+.menu-mobile-btn a {
+    color: #4c4b4a !important;
+    font-weight: 700;
+    cursor: pointer;
+}
+.menu-mobile-btn a:hover{
+    color: #f37b22;
+}
+
+.menu-mobile-btn:hover{
+    border-radius: 5px;
+    color: #fb8c00 ;
+    /*background: -moz-linear-gradient(top, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.7) 100%);*/
+}
+.footer {
+    color: #000;
+    text-align: center;
+    font-size: 9px;
+    margin-top: 10vh;
+    letter-spacing: 1px;
+}
+
+  .container-home {
+    min-height: 100vh;
+}
+}
+
+@media screen and (max-width: 640px){
+    .branca{
+    background: transparent !important; 
+}
+    .lanche img {
+    max-width: 100%;
+    min-height: 80px;
+}
+    .site-header{
+        display: none
+    }
+    .menu-mobile{
+        display: block
+    }  
+    .blocoyellowmobile{
+    display: block;
+    background: #fff;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    background-size: 220%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.bandeiras-cartao ul li img {
+    width: 35px !important;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.bandeiras-cartao{
+    margin-bottom: -3px !important;
+}
+
+.pesquisa h2 {
+    font-size: 35px !important;
+}
+.pesquisa {
+    margin-top: 35vh !important;
+}
+    .site-header{
+        display: none
+    }
+    .menu-mobile{
+        display: block
+    }  
+  .menu-btn {
+    display: inline;
+    width: 55%;
+    float: right;
+}
+
+  .bloco1{
+  margin-left: 0vh;
+}
+
+  .logo-pc{
+  display: none;
+}
+
+.logo-mobile{
+  display: block;
+  background-image: url(images/home/pc-mobile.png);
+  background-size: 50%;
+  height: 510px;
+}
+
+.logo-moto{
+  height: 50vh;
+}
+  .banner-laranja {
+    height: auto;
+}
+
+
+.menu-mobile{
+    background: transparent;
+    border: 1px solid transparent;
+    text-align: center;
+}
+
+.menu-mobile ul{
+    text-decoration: none !important;
+}
+
+.btn-mobile {
+    float: right;
+    background: transparent;
+    border: 1px solid transparent;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 8px;
+}
+
+.btn-mobile h1{
+    font-size: 30px;
+}
+.btn-mobile h1 i{
+    color: #f37b22;
+    font-size: 31px;
+
+}
+.modal-mobile{
+    padding-top: 0px;
+}
+.logo-goey-mobile{
+     max-width:40px;
+    display: inline;
+    width: 60%;
+    float: left;
+    margin-top: 25px;
+    margin-left: 0px;
+}
+
+.solicitacao {
+    min-height: 42px;
+}
+
+.cadastro{
+    min-height: 60px;
+}
+
+.menu-mobile-btn a {
+    color: #4c4b4a !important;
+    font-weight: 700;
+    cursor: pointer;
+}
+.menu-mobile-btn a:hover{
+    color: #f37b22;
+}
+
+.menu-mobile-btn:hover{
+    border-radius: 5px;
+    color: #fb8c00 ;
+    /*background: -moz-linear-gradient(top, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.7) 100%);*/
+}
+.footer {
+    color: #000;
+    text-align: center;
+    font-size: 9px;
+    margin-top: 10vh;
+    letter-spacing: 1px;
+}
+
+  .container-home {
+    min-height: 100vh;
+}
+}
+
+
+@media screen and (max-width: 568px){
+    .w-50{
+        width: 100% ;
+    }
+    .w-100{
+    width: 100% !important;
+}
+    .branca{
+    background: transparent !important; 
+}
+    .lanche img {
+    max-width: 100%;
+    min-height: 80px;
+}
+    .site-header{
+        display: none
+    }
+    .menu-mobile{
+        display: block
+    }  
+    .blocoyellowmobile{
+    display: block;
+    background: #fff;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    background-size: 220%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.bandeiras-cartao ul li img {
+    width: 35px !important;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.bandeiras-cartao{
+    margin-bottom: -3px !important;
+}
+
+.pesquisa h2 {
+    font-size: 35px !important;
+}
+.pesquisa {
+    margin-top: 35vh !important;
+}
+    .site-header{
+        display: none
+    }
+    .menu-mobile{
+        display: block
+    }  
+  .menu-btn {
+    display: inline;
+    width: 55%;
+    float: right;
+}
+
+  .bloco1{
+  margin-left: 0vh;
+}
+
+  .logo-pc{
+  display: none;
+}
+
+.logo-mobile{
+  display: block;
+  background-image: url(images/home/pc-mobile.png);
+  background-size: 50%;
+  height: 510px;
+}
+
+.logo-moto{
+  height: 50vh;
+}
+  .banner-laranja {
+    height: auto;
+}
+
+ 
+
+.menu-mobile{
+    background: transparent;
+    border: 1px solid transparent;
+    text-align: center;
+}
+
+.menu-mobile ul{
+    text-decoration: none !important;
+}
+
+.btn-mobile {
+    float: right;
+    background: transparent;
+    border: 1px solid transparent;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 8px;
+}
+
+.btn-mobile h1{
+    font-size: 30px;
+}
+.btn-mobile h1 i{
+    color: #f37b22;
+    font-size: 31px !important;
+
+}
+.modal-mobile{
+    padding-top: 0px;
+}
+.logo-goey-mobile{
+     max-width:40px;
+    display: inline;
+    width: 60%;
+    float: left;
+    margin-top: 25px;
+    margin-left: 0px;
+}
+
+.solicitacao {
+    min-height: 42px;
+}
+
+.cadastro{
+    min-height: 60px;
+}
+
+.menu-mobile-btn a {
+    color: #4c4b4a !important;
+    font-weight: 700;
+    cursor: pointer;
+}
+.menu-mobile-btn a:hover{
+    color: #f37b22;
+}
+
+.menu-mobile-btn:hover{
+    border-radius: 5px;
+    color: #fb8c00 ;
+    /*background: -moz-linear-gradient(top, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.7) 100%);*/
+}
+.footer {
+    color: #000;
+    text-align: center;
+    font-size: 9px;
+    margin-top: 10vh;
+    letter-spacing: 1px;
+}
+.container-home {
+    min-height: 100vh;
+}
+
+}
+
+@media screen and (max-width: 500px){
+ 
+
+    .jumbotron h1, .jumbotron .h1 {
+    font-size: 24px !important;
+    line-height: 1em;
+}
+    .navbar-toggler{
+    display: block
+}
+
+    .branca{
+    background: transparent !important; 
+    height: 130px;
+}
+    .recapmobile{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+
+
+.btn-fisi{
+    color: #fff !important;
+    font-weight: 800;
+}
+.btn-rest{
+    color: #fff !important;
+    font-weight: 800;
+}
+
+    .lanche img {
+    max-width: 100%;
+    min-height: 80px;
+}
+  
+    .logo-lanches{
+    margin-top: 1vh !important;
+    cursor: pointer
+}
+    
+    .navbar-collapse{
+    margin-top: 0vh !important;
+    background: #fff !important;
+}
+    .app-google img{
+        width: 100% !important;
+    }
+    .app-google{
+        margin: 25px !important;
+    }
+    .formulario-mulher {
+        position: relative;
+        min-height: 1px;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+}
+    .formulario-input {
+        width: 100% !important;
+        margin-left: 0px !important;
+    }
+
+   .btn-outline-secondary{
+        display: none
+    }
+    .texto-celular h1 {
+        font-size: 30px !important;
+    }
+    .texto-celular h2 {
+    font-size: 22px;
+}
+    .bandeiras-cartao p {
+    font-size: 22px !important;
+}
+
+    .celular-preto{
+        margin: 50px !important;
+    }
+
+    .celular-preto img {
+    width: 100%;
+    position: relative;
+    bottom: 0vh !important;
+}
+    .blocoyellow{
+    display: none;
+}
+    .blocoyellowmobile{
+    display: block;
+    background: #fff;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    background-size: 220%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.bandeiras-cartao ul li img {
+    width: 35px !important;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.bandeiras-cartao{
+    margin-bottom: -3px !important;
+}
+
+.pesquisa h2 {
+    font-size: 35px !important;
+}
+.pesquisa {
+    margin-top: 35vh !important;
+}
+    .site-header{
+        display: none
+    }
+    .menu-mobile{
+        display: block
+    }  
+  .menu-btn {
+    display: inline;
+    width: 40%;
+    float: right;
+}
+
+  .bloco1{
+  margin-left: 0vh;
+}
+
+  .logo-pc{
+  display: none;
+}
+
+.logo-mobile{
+  display: block;
+  background-image: url(images/home/pc-mobile.png);
+  background-size: 50%;
+  height: 510px;
+}
+
+.logo-moto{
+  height: 50vh;
+}
+  .banner-laranja {
+    height: auto;
+}
+
+
+.menu-mobile{
+    background: transparent;
+    border: 1px solid transparent;
+    text-align: center;
+}
+
+.menu-mobile ul{
+    text-decoration: none !important;
+}
+
+.btn-mobile {
+    float: right;
+    background: transparent;
+    border: 1px solid transparent;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 8px;
+}
+
+
+.btn-mobile h1{
+    font-size: 30px;
+}
+.btn-mobile h1 i{
+    color: #f37b22;
+    font-size: 31px;
+
+}
+.modal-mobile{
+    padding-top: 0px;
+}
+.logo-goey-mobile{
+     max-width:40px;
+    display: inline;
+    width: 60%;
+    float: left;
+    margin-top: 25px;
+    margin-left: 0px;
+}
+
+.solicitacao {
+    min-height: 42px;
+}
+
+.cadastro{
+    min-height: 60px;
+}
+
+.menu-mobile-btn a {
+    color: #4c4b4a !important;
+    font-weight: 700;
+    cursor: pointer;
+}
+.menu-mobile-btn a:hover{
+    color: #f37b22;
+}
+
+.menu-mobile-btn:hover{
+    border-radius: 5px;
+    color: #fb8c00 ;
+    /*background: -moz-linear-gradient(top, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.7) 100%);*/
+}
+.footer {
+    color: #000;
+    text-align: center;
+    font-size: 9px;
+    margin-top: 10vh;
+    letter-spacing: 1px;
+}
+
+  .container-home {
+    min-height: 100vh;
+}
+
+}
+
+@media screen and (max-width: 414px){
+    .lanche img {
+    max-width: 100%;
+    min-height: 70px;
+    }
+    .btn-mobile h1 i{
+    color: #f37b22;
+    font-size: 31px !important;
+
+}
+
+}
+
+@media screen and (max-width: 375px){
+    .lanche img {
+    max-width: 100%;
+    min-height: 60px;
+    }
+
+    .btn-mobile h1 i{
+    color: #f37b22;
+    font-size: 31px !important;
+
+}
+}
+</style>

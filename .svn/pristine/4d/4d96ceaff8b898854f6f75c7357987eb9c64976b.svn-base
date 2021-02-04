@@ -1,0 +1,92 @@
+dashboard.controller("locacaoHistoricoCtrl", ['$rootScope', '$scope', '$state', '$location', 'Flash','$http',
+function ($rootScope, $scope, $state, $location, Flash,$http) {
+    var vm = this;
+ 	$scope.filtro = {};
+
+ var url = 'https://www.iptufacil.com.br';
+  //var url = 'http://192.168.1.215:8025';
+
+/* =============================    loadSession  ======================================== */
+$scope.loadSession = function(nome) {
+
+var dados = localStorage.getItem(nome) || '';
+
+    if(dados != "" ){
+
+        var dadosDecodificado = window.atob(dados);
+        return JSON.parse(dadosDecodificado);
+       
+    }else{
+
+       return 0;
+
+    }
+
+}
+
+
+if($scope.loadSession('log') == 0) {
+
+  window.location.href = 'https://www.goeyja.com.br/locacao';
+
+}else{
+
+  $scope.tipoUsuario = $scope.loadSession('log').tipoUsuario;
+  $scope.codUsuario = $scope.loadSession('log').codUsuario;
+
+}
+
+   $scope.auth = '3f018bfb43591ccb2ef46f10de832160';
+
+/* ####### COMBOS DE FORMULÁRIO ######## */
+$scope.combosFormulario = function(){
+
+$scope.filtro.auth      = $scope.auth;
+
+    $http({
+           method: 'POST',
+           url: url+'/ws/goey/rest/public/combosFormularioLocacao',
+           data: $.param($scope.filtro),
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+          }).success(function (response) {          	
+
+             $scope.listaVeiculo = response.tipoVeiculos;          	
+
+          })
+
+}
+$scope.combosFormulario();
+/* ########################################## */
+
+$scope.listarContratos = function(){
+
+$("#msn-return").html('');	
+
+$scope.filtro.codUsuario = $scope.codUsuario;
+$scope.filtro.auth      = $scope.auth;
+$scope.filtro.dataIni   = $("#data-ini").val();
+$scope.filtro.dataFim   = $("#data-fim").val();
+
+    $http({
+           method: 'POST',
+           url: url+'/ws/goey/rest/public/historicoContratosLocacao',
+           data: $.param($scope.filtro),
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+          }).success(function (response) {
+
+             if(response.retorno == 1){
+
+              $scope.listaContrato = response.dados;
+
+             }else{
+
+          		$("#msn-return").html(response.mensagem);	
+          	}
+
+          })
+
+}
+
+$( ".data-locacao" ).datepicker({locale: 'pt-br'});
+
+}]);

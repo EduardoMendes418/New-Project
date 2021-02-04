@@ -1,0 +1,263 @@
+
+#footer{
+  background-image: linear-gradient( to top, #EBEBEB 50%, #fff 50%); 
+  min-height: 45vh;
+}
+#padding0{
+  padding-right: 0px;
+}
+
+#padding1{
+  padding-left: 0px;
+}
+
+#padding1 img{
+  padding-left: 0px;
+  width:65%;
+  height:60%; 
+}
+
+#footer h2 {
+  font-weight: bold;
+  font-size: 31px;
+  margin-bottom: 0px;
+  margin-top: 13vh;
+}
+
+#footer button {
+  color: #fff;
+  border-radius: 0px;
+  background: #4965A9;
+  border: 0px;
+  margin-top: 15px;
+  font-size: 13px;
+  padding-top: 10px;
+  width: 230px !important;
+  padding-bottom: 10px;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+
+#trailerSp{
+  margin-top: 5vh !important;
+  margin-bottom: 1vh !important;
+  margin-bottom: : 5vh !important;
+  min-height: 40vh;
+  text-align: left !important;
+}
+
+#trailerSp h2{
+ font-weight: bold;
+ text-align: left !important;
+ font-weight: 700;
+ letter-spacing: -1px;
+ margin-top: 8vh;
+}
+
+#trailerSpp{
+  font-size: 16px;
+}
+
+#trailerSp p label{
+ font-weight: bold;
+ text-align: left;
+ font-weight: bold;
+ font-size: 16px;
+}
+
+#texto .dia{
+  font-size: 23px !important;
+  letter-spacing: -2px;
+  font-weight: bold;
+  margin-bottom: 0px !important;
+}
+
+#texto .valores label{
+  color: #4965A9 !important;
+  font-weight: bold;
+  font-size: 23px !important;
+  letter-spacing: -2px;
+  margin-bottom: 0px !important;
+}
+
+
+.card-body{
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+.card3{
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.card3 h3{
+  font-weight: bold !important;
+  text-align: left !important;
+}
+
+.card3 button {
+  border-radius: 0px !important;
+  background: #F26A0E !important;
+  border: 1px solid #F26A0E !important;
+  font-size: 13px !important;
+  margin: 0  !important;
+  color: #fff!important;
+  height: 37px !important;
+  width: 100% !important;
+  font-weight: bold;
+}
+
+.card3 button:hover {
+ border-radius: 0px !important;
+  background: #F26A0E !important;
+  border: 1px solid #F26A0E !important;
+  font-size: 13px !important;
+  margin: 0  !important;
+  height: 37px !important;
+  font-weight: bold;
+}
+
+.card3 h3{
+  text-align: left !important;
+}
+
+.card3 {
+  border: 1px solid #f4f4f4 !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+#tituloPrincipal h2{
+  text-align: left ;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.jumbotron-heading label{
+  color: #F26A0E !important;
+}
+
+.jumbotron-heading p{
+  color: #000;
+  font-size: 13px;
+  text-align: left ;
+}
+
+
+#tituloPrincipal{
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+#tituloPrincipal h2{
+  margin-bottom: 15px;
+  margin-top: 25px;
+
+}
+
+#tituloPrincipal p{
+  text-align: left ;
+  margin-bottom: 10px !important;
+}
+
+.bloco01{
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+} 
+
+.card-deck .card {
+  -ms-flex: 1 0 0%;
+  flex: 1 0 0%;
+  margin-right: 5px;
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+
+@media screen and (max-width: 600px) {
+
+  .card3 {
+    margin-bottom: 5px;
+    margin-top: 15px;
+  }
+
+  #tituloPrincipal h2{
+    text-align: left ;
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 22px !important;
+  }
+
+  .jumbotron-heading p{
+    color: #000;
+    font-size: 13px;
+    text-align: left ;
+  }
+
+  #footer h2 {
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 0px;
+    margin-top: 5vh;
+  }
+
+  #footer button{
+    margin-left: 0px !important;
+  }
+
+  #footer p {
+    text-align: left !important;
+    font-size: 16px;
+    margin-right: 0px;
+  }
+
+  #padding1 img{
+    padding-left: 0px;
+    width:100%;
+    height:100%; 
+  }
+
+  #perguntas h3 {
+    margin-top: 5px;
+    font-size: 22px !important;
+  }
+
+  #trailerSp h2 {
+    font-weight: bold;
+    text-align: left !important;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -1px;
+    margin-top: 1vh;
+    margin-bottom:  3vh;
+  }
+
+
+  .card-body {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+
+  #bordaMobile{
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+
+  #padding0{
+    padding: 0px;
+  }
+
+  #padding1{
+    padding: 0px;
+  }
+
+
+}
+
+
+
+

@@ -1,0 +1,947 @@
+﻿
+
+dashboard.controller("agendarCtrl", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http','distanciaService',
+  function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http,distanciaService) {
+    var vm = this;
+    var buscar = this;
+$http.defaults.headers.post["Content-Type"] = "application/json";
+    $scope.agendamento = 1;
+    $scope.cadastrar = []; 
+    $scope.resO = [];
+    $scope.resD1 = [];
+    $scope.resD2 = [];
+    $scope.resD3 = [];
+    $scope.resD4 = [];
+    $scope.resD5 = []; 
+
+    var usuario = JSON.parse(localStorage.getItem('user'));
+    $scope.tipoUsuario = usuario.tipoUsuario;
+    $scope.codUsuario = usuario.codUsuario;
+    $scope.lat = undefined;
+    $scope.lng = undefined;
+
+    $('#horaRetirada').val();
+
+//Retorno endereço com número
+ $scope.retornoEndereco = function(endereco,numero){
+ 
+    var end = endereco.split(',');
+    return    end[0]+', '+numero + ' - '+end[1] + ', '+end[2];  
+    
+  }
+
+// Campo Auto Complete endereço
+  $scope.autoOrigem = function(tx){
+             
+      var searchText_len = tx.trim().length;
+      
+      // Check search text length
+      if(searchText_len >= 3){
+
+         $http({
+                method: 'post',
+                url: "https://www.iptufacil.com.br/ws/goey/rest/public/listarEndereco",
+                data: {endereco:tx,auth:'3f018bfb43591ccb2ef46f10de832160'}
+              }).then(function successCallback(response) {
+                  if(response.data[0].retorno == 1){
+                    $scope.resO = response.data;
+                  }        
+
+              });
+
+          }else{
+
+                $scope.resO = [];
+          }
+                
+   }
+// Campo Auto Complete endereço Destino 1
+  $scope.autoDestino1 = function(tx){
+             
+      var searchText_len = tx.trim().length;
+      
+      // Check search text length
+      if(searchText_len >= 3){
+
+         $http({
+                method: 'post',
+                url: "https://www.iptufacil.com.br/ws/goey/rest/public/listarEndereco",
+                data: {endereco:tx,auth:'3f018bfb43591ccb2ef46f10de832160'}
+              }).then(function successCallback(response) {
+                if(response.data[0].retorno == 1){
+                $scope.resD1 = response.data;
+                }
+
+              });
+
+          }else{
+
+                $scope.resD1 = [];
+          }
+                
+   }
+
+// Campo Auto Complete endereço Destino 2
+  $scope.autoDestino2 = function(tx){
+             
+      var searchText_len = tx.trim().length;
+      
+      // Check search text length
+      if(searchText_len >= 3){
+
+         $http({
+                method: 'post',
+                url: "https://www.iptufacil.com.br/ws/goey/rest/public/listarEndereco",
+                data: {endereco:tx,auth:'3f018bfb43591ccb2ef46f10de832160'}
+              }).then(function successCallback(response) {
+                if(response.data[0].retorno == 1){
+                $scope.resD2 = response.data;
+                }
+
+              });
+
+          }else{
+
+                $scope.resD2 = [];
+          }
+                
+   }
+
+// Campo Auto Complete endereço Destino 3
+  $scope.autoDestino3 = function(tx){
+             
+      var searchText_len = tx.trim().length;
+      
+      // Check search text length
+      if(searchText_len >= 3){
+
+         $http({
+                method: 'post',
+                url: "https://www.iptufacil.com.br/ws/goey/rest/public/listarEndereco",
+                data: {endereco:tx,auth:'3f018bfb43591ccb2ef46f10de832160'}
+              }).then(function successCallback(response) {
+              if(response.data[0].retorno == 1){
+                $scope.resD3 = response.data;
+              }
+              });
+
+          }else{
+
+                $scope.resD3 = [];
+          }
+                
+   }
+
+   // Campo Auto Complete endereço Destino 4
+  $scope.autoDestino4 = function(tx){
+             
+      var searchText_len = tx.trim().length;
+      
+      // Check search text length
+      if(searchText_len >= 3){
+
+         $http({
+                method: 'post',
+                url: "https://www.iptufacil.com.br/ws/goey/rest/public/listarEndereco",
+                data: {endereco:tx,auth:'3f018bfb43591ccb2ef46f10de832160'}
+              }).then(function successCallback(response) {
+                if(response.data[0].retorno == 1){
+                $scope.resD4 = response.data;
+                }
+
+              });
+
+          }else{
+
+                $scope.resD4 = [];
+          }
+                
+   }
+
+      // Campo Auto Complete endereço Destino 5
+  $scope.autoDestino5 = function(tx){
+             
+      var searchText_len = tx.trim().length;
+      
+      // Check search text length
+      if(searchText_len >= 3){
+
+         $http({
+                method: 'post',
+                url: "https://www.iptufacil.com.br/ws/goey/rest/public/listarEndereco",
+                data: {endereco:tx,auth:'3f018bfb43591ccb2ef46f10de832160'}
+              }).then(function successCallback(response) {
+                if(response.data[0].retorno == 1){
+                $scope.resD5 = response.data;
+                }
+
+              });
+
+          }else{
+
+                $scope.resD5 = [];
+          }
+                
+   }
+
+// Set value to search box
+$scope.setValue = function(n,x){
+if(n == 1){
+
+  $scope.vm.origem = x.endereco;
+  $scope.resO = [];          
+      
+}else if(n == 2){
+
+  $scope.vm.destino1 = x.endereco;
+  $scope.resD1 = [];
+
+}else if(n == 3){
+
+  $scope.vm.destino2 = x.endereco;
+  $scope.resD2= [];
+
+}else if(n == 4){
+
+  $scope.vm.destino3 = x.endereco;
+  $scope.resD3= [];
+
+}else if(n == 5){
+
+  $scope.vm.destino4 = x.endereco;
+  $scope.resD4= []; 
+
+}else if(n == 6){
+
+  $scope.vm.destino5 = x.endereco;
+  $scope.resD5 = []; 
+}
+  $scope.resO = [];
+  $scope.resD1= [];
+  $scope.resD2= [];
+  $scope.resD3= [];
+  $scope.resD4= [];
+  $scope.resD5= [];
+ 
+}
+
+$scope.inputClique = function(){
+  $scope.resO = [];
+  $scope.resD1= [];
+  $scope.resD2= [];
+  $scope.resD3= [];
+  $scope.resD4= [];
+  $scope.resD5= [];
+   }
+
+// Busca endereço por cep
+$scope.buscaCep = function(n,cep){
+
+  if(cep){
+
+      $http({
+          method: 'POST',
+          url: "https://www.iptufacil.com.br/ws/goey/rest/public/buscarEndereco",
+          data: $.param({                         
+                         cep:cep,                                                        
+                         auth:'3f018bfb43591ccb2ef46f10de832160'
+                        }),
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+      }).success(function (response) {
+           
+                 if(response.retorno == 1){                
+                            if(n == 1){
+                              vm.origem = response.endereco;
+                              $scope.inputClique();
+                            }else if(n == 2){
+                               vm.destino1 = response.endereco;
+                               $scope.inputClique();
+                            }else if(n == 3){
+                               vm.destino2 = response.endereco;
+                               $scope.inputClique();
+                            }else if(n == 4){
+                               vm.destino3 = response.endereco;
+                               $scope.inputClique();
+                            }else if(n == 5){
+                               vm.destino4 = response.endereco;
+                               $scope.inputClique();
+                            }else if(n == 6){
+                               vm.destino5 = response.endereco;
+                               $scope.inputClique();
+                            }
+                          
+
+                 }           
+
+      })
+
+  }
+
+}
+
+$scope.comboCidades = function(){
+uf = 'SP';
+   $http({
+          method: 'POST',
+          url: "https://www.iptufacil.com.br/ws/goey/rest/public/comboCidades",
+          data: $.param({                         
+                         uf:uf,                                                        
+                         auth:'3f018bfb43591ccb2ef46f10de832160'
+                        }),
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+      }).success(function (response) {
+           
+                 $scope.comboCidades = response;       
+
+      })
+
+}
+$scope.comboCidades();
+
+$scope.addEndereco = function(buscar){
+  
+  if(buscar.cidade == undefined){
+    alert("Selecione uma cidade.");
+    return false;
+  }
+  if(buscar.bairro == undefined){
+    alert("Digite um bairro.");
+    return false;
+  }
+  if(buscar.logradouro == undefined){
+    alert("Digite um logradouro.");
+    return false;
+  }
+  if(buscar.numero == undefined){
+    alert("Digite um número.");
+    return false;
+  }
+
+var endereco = buscar.logradouro +', '+buscar.bairro +', '+ buscar.cidade +' - ' + $("#buscarEstado").val();
+
+    if(buscar.campo == 1){
+
+      vm.origem = endereco;
+      vm.numero = buscar.numero;
+
+    }else if(buscar.campo == 2){
+
+      vm.destino1 = endereco;
+      vm.numero1 = buscar.numero;
+
+    }else if(buscar.campo == 3){
+
+      vm.destino2 = endereco;
+      vm.numero2 = buscar.numero;
+
+    }else if(buscar.campo == 4){
+
+      vm.destino3 = endereco;
+      vm.numero3 = buscar.numero;
+
+    }else if(buscar.campo == 5){
+
+      vm.destino4 = endereco;
+      vm.numero4 = buscar.numero;
+
+    }else if(buscar.campo == 6){
+
+      vm.destino5 = endereco;
+      vm.numero5 = buscar.numero;
+
+    }
+
+     $scope.buscar = [];
+     $('#myModal').modal('hide');
+
+}
+
+$scope.limpaCampo = function(){
+$("#buscarEstado").val("SP");
+buscar.bairro = '';
+buscar.logradouro = '';
+buscar.numero = '';
+}
+
+var cmp = [];
+cmp[0] = 'origem';
+cmp[1] = 'destino 1';
+cmp[2] = 'destino 2';
+cmp[3] = 'destino 3';
+cmp[4] = 'destino 4';
+cmp[5] = 'destino 5';
+
+
+
+// Função contar ocorrência de caracteres numa string
+ $scope.contador = function(string, char) {
+
+    var re = new RegExp(char, "gi");
+
+    return string.match(re).length;
+  }
+
+$scope.validaCampo = function(string,numero,char){
+var re = new RegExp(char, "gi");
+
+   if(string == '' || string == undefined ||  ( numero == undefined)){
+
+     return false;
+
+   }else if(!string.match(re) || string.match(re).length != 2){
+
+    return false;
+
+   }else{
+
+    return true;
+   }
+}
+// Consultar distancia no google
+$scope.consultarValores = function(){
+
+  if(vm.tipoVeiculo == undefined)vm.tipoVeiculo = 2;
+
+  var tipoVeiculo = $("input[name=tipoVeiculo]:checked").val();
+
+  if( !$scope.validaCampo(vm.origem,vm.numero,',')){
+
+    Flash.create('danger', 'Verifique o campo origem <br>Ex: logradouro, bairro, cidade - UF', 'large-text');
+    return false;
+
+  }
+
+
+  if($scope.total >= 1 ){
+
+        if(!$scope.validaCampo(vm.destino1,vm.numero1,',')){
+
+           Flash.create('danger', 'Verifique o campo destino<br>Ex: logradouro, bairro, cidade - UF', 'large-text');
+           return false;
+
+        }else{
+
+          $scope.enderecos = [{origem:$scope.retornoEndereco(vm.origem,vm.numero),destino:$scope.retornoEndereco(vm.destino1,vm.numero1)}];           
+
+        }   
+
+  }
+
+
+  if($scope.total >= 2){ 
+
+    if(!$scope.validaCampo(vm.destino2,vm.numero2,',')){
+
+    Flash.create('danger', 'Verifique o campo destino 2 <br>Ex: logradouro, bairro, cidade - UF', 'large-text');
+    return false;
+
+  }else{
+
+    $scope.enderecos = [{origem:$scope.retornoEndereco(vm.origem,vm.numero),destino:$scope.retornoEndereco(vm.destino1,vm.numero1)},
+                        {origem:$scope.retornoEndereco(vm.destino1,vm.numero1),destino:$scope.retornoEndereco(vm.destino2,vm.numero2)}]; 
+  }
+}
+
+  if($scope.total >= 3 ){
+
+    if(!$scope.validaCampo(vm.destino3,vm.numero3,',')){
+
+      Flash.create('danger', 'Verifique o campo destino 3 <br>Ex: logradouro, bairro, cidade - UF', 'large-text');
+      return false;
+
+    }else{
+
+      $scope.enderecos = [{origem:$scope.retornoEndereco(vm.origem,vm.numero),destino:$scope.retornoEndereco(vm.destino1,vm.numero1)},
+                        {origem:$scope.retornoEndereco(vm.destino1,vm.numero1),destino:$scope.retornoEndereco(vm.destino2,vm.numero2)},
+                        {origem:$scope.retornoEndereco(vm.destino2,vm.numero2),destino:$scope.retornoEndereco(vm.destino3,vm.numero3)}]; 
+    }
+}
+
+  if($scope.total >= 4 ){
+
+    if(!$scope.validaCampo(vm.destino4,vm.numero4,',')){
+
+      Flash.create('danger', 'Verifique o campo destino 4 <br>Ex: logradouro, bairro, cidade - UF', 'large-text');
+      return false;
+
+    }else{
+
+      $scope.enderecos = [{origem:$scope.retornoEndereco(vm.origem,vm.numero),destino:$scope.retornoEndereco(vm.destino1,vm.numero1)},
+                        {origem:$scope.retornoEndereco(vm.destino1,vm.numero1),destino:$scope.retornoEndereco(vm.destino2,vm.numero2)},
+                        {origem:$scope.retornoEndereco(vm.destino2,vm.numero2),destino:$scope.retornoEndereco(vm.destino3,vm.numero3)},
+                        {origem:$scope.retornoEndereco(vm.destino3,vm.numero3),destino:$scope.retornoEndereco(vm.destino4,vm.numero4)}]; 
+    }
+    
+  }
+
+  if($scope.total >= 5){
+
+    if(!$scope.validaCampo(vm.destino5,vm.numero5,',')){
+
+      Flash.create('danger', 'Verifique o campo destino 5 <br>Ex: logradouro, bairro, cidade - UF', 'large-text');
+      return false;
+
+    }else{
+
+      $scope.enderecos = [{origem:$scope.retornoEndereco(vm.origem,vm.numero),destino:$scope.retornoEndereco(vm.destino1,vm.numero1)},
+                        {origem:$scope.retornoEndereco(vm.destino1,vm.numero1),destino:$scope.retornoEndereco(vm.destino2,vm.numero2)},
+                        {origem:$scope.retornoEndereco(vm.destino2,vm.numero2),destino:$scope.retornoEndereco(vm.destino3,vm.numero3)},
+                        {origem:$scope.retornoEndereco(vm.destino3,vm.numero3),destino:$scope.retornoEndereco(vm.destino4,vm.numero4)},
+                        {origem:$scope.retornoEndereco(vm.destino4,vm.numero4),destino:$scope.retornoEndereco(vm.destino5,vm.numero5)}];
+    }
+  }
+
+  $("#btnDistancia").hide();
+  $("#aguarde").show();
+
+  var url = 'https://www.iptufacil.com.br/ws/goey/rest/public/matrixGoogle';              
+  $http.defaults.headers.post["Content-Type"] = "application/json";
+  $http.post(url, ({
+    auth: "3f018bfb43591ccb2ef46f10de832160",
+    tipo: tipoVeiculo,
+    enderecos: $scope.enderecos
+
+  })
+  ).then(function(response){
+       if(response.data.total  == 0 || response.data.km == 0){
+
+        alert("Clique em calcular novamente");
+        $("#aguarde").hide();
+      $("#btnDistancia").show(); 
+        return false;
+       }else{
+
+         localStorage.setItem('rotas',JSON.stringify($scope.enderecos));
+         localStorage.setItem('tp',tipoVeiculo);                       
+         $scope.cadastrar.distancia =  response.data.km;
+          //$scope.converterSegundos(response.data.duracao);
+        $scope.cadastrar.valor = response.data.total;
+       }
+         
+      $("#aguarde").hide();
+      $("#btnDistancia").show(); 
+
+      }); 
+}
+
+
+// FUNÇÃO AGENDAR ENTREGAS
+$scope.agendarEntrega = function(){
+
+$scope.dados = [];
+ var origem   = vm.origem || "";
+ var destino1 = vm.destino1 || "";
+ var destino2 = vm.destino2 || "";
+ var destino3 = vm.destino3|| "";
+ var destino4 = vm.destino4 || "";
+ var destino5 = vm.destino5 || "";
+ var numero   = vm.numero || "";
+ var numero1  = vm.numero1 || "";
+ var numero2  = vm.numero2 || "";
+ var numero3  = vm.numero3 || "";
+ var numero4  = vm.numero4 || "";
+ var numero5  = vm.numero5 || "";
+
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+
+var yyyy = today.getFullYear();
+
+if(dd<10){
+
+  dd='0'+dd;
+
+}
+
+if(mm<10){
+
+  mm='0'+mm;
+
+} 
+
+var today = dd+'/'+mm+'/'+yyyy;
+
+if($scope.agendamento == 1){
+
+  $scope.dados.dataAgenda = today;
+
+}else{
+
+  $scope.dados.dataAgenda = $('#dataAgenda').val();
+}
+//$scope.dados = $scope.cadastrar;
+$scope.dados.auth =  '3f018bfb43591ccb2ef46f10de832160'; 
+$scope.dados.tipoUsuario = usuario.tipoUsuario;
+$scope.dados.codUsuario = usuario.codUsuario;
+$scope.dados.distancia= $("#distancia").val();
+$scope.dados.valor    = $scope.cadastrar.valor;
+
+if(origem == ""){
+
+  Flash.create('danger', 'O campo origem é obrigatório.', 'large-text');
+  return false;
+
+}else{
+
+    $scope.dados.origem = $scope.retornoEndereco(origem,numero);
+}
+
+if(destino1 == ""){
+
+  Flash.create('danger', 'O campo destino é obrigatório.', 'large-text');
+  return false;
+
+}
+
+if($scope.total >= 2 &&  (destino2 == undefined || destino2 ==  "")){
+
+      Flash.create('danger', 'O campo segundo destino é obrigatório.', 'large-text');
+      return false;
+
+  }
+
+
+   if($scope.total >= 3 &&  (destino3 == undefined || destino3 ==  "" )){
+
+      Flash.create('danger', 'O campo terceiro destino é obrigatório.', 'large-text');
+      return false;
+
+  }
+
+   if($scope.total >= 4 &&  (destino4 == undefined || destino4 ==  "")){
+
+      Flash.create('danger', 'O campo quarto destino é obrigatório.', 'large-text');
+      return false;
+
+  }
+
+
+  if($scope.total >= 5 &&  (destino5 == undefined || destino5 ==  "")){
+
+      Flash.create('danger', 'O campo quinto destino é obrigatório.', 'large-text');
+      return false;
+
+  }
+
+
+if($("#distancia").val() == ''){
+
+  Flash.create('danger', 'Clique em calcular para gerar a distância.', 'large-text');
+  return false;
+
+}
+
+if($("#valor").val() == ''){
+
+  Flash.create('danger', 'Clique em calcular para gerar o valor.', 'large-text');
+  return false;
+
+}
+
+if($("input[name=objeto]:checked").val() == undefined){
+
+  Flash.create('danger', 'O campo tipo de objeto é obrigatório.', 'large-text');
+  return false;
+
+}else{
+
+  $scope.dados.objeto = $("input[name=objeto]:checked").val() ;
+}
+
+
+if($("#responsavel").val() == ""){
+
+  Flash.create('danger', 'O campo responsável é obrigatório.', 'large-text');
+  return false;
+
+}else{
+
+  $scope.dados.responsavel = $("#responsavel").val();
+}
+
+
+if($("#descricao").val() == ""){
+
+  Flash.create('danger', 'O campo descrição é obrigatório.', 'large-text');
+  return false;
+
+}else{
+
+  $scope.dados.descricao = $("#descricao").val();
+}
+
+if($("#observacao").val() == ""){
+
+  Flash.create('danger', 'O campo observação é obrigatório.', 'large-text');
+  return false;
+
+}else{
+
+  $scope.dados.observacao = $("#observacao").val();
+}
+
+if( $scope.agendamento == 2 && $("#dataAgenda").val() == ''){
+
+  Flash.create('danger', 'O campo outra data é obrigatório.', 'large-text');
+  return false;
+
+}
+
+if( $("#horaRetirada").val() == ''){
+
+  Flash.create('danger', 'O campo hora de retirada é obrigatório.', 'large-text');
+  return false;
+
+}else{
+
+  $scope.dados.horaRetirada = $("#horaRetirada").val() ;
+
+}
+
+var rotas = JSON.parse(localStorage.getItem('rotas'));
+
+
+if(rotas[0].origem != $scope.retornoEndereco(origem,numero)){
+
+  Flash.create('info', 'Por favor clique em calcular novamente. Origem', 'large-text');
+  return false;
+
+}else{
+
+      $scope.dados.origem  = rotas[0].origem;
+
+ }
+
+if(rotas[0].destino != $scope.retornoEndereco(destino1,numero1)){
+
+  Flash.create('info', 'Por favor clique em calcular novamente. Destino', 'large-text');
+  return false;
+
+}else{
+
+    $scope.dados.destino1 = rotas[0].destino;
+    
+ }
+
+if($scope.total >= 2){
+
+    if(rotas[1].destino != $scope.retornoEndereco(destino2,numero2)){
+      Flash.create('info', 'Por favor clique em calcular novamente. Destino 2', 'large-text');
+      return false;
+
+    }else{
+
+    $scope.dados.destino2 = rotas[1].destino;
+    
+  }
+}
+
+if($scope.total >= 3 ){
+
+      if(rotas[2].destino != $scope.retornoEndereco(destino3,numero3)){
+
+      Flash.create('info', 'Por favor clique em calcular novamente. Destino 3', 'large-text');
+      return false;
+
+    }else{
+
+        $scope.dados.destino3 = rotas[2].destino;
+       
+      }
+}
+
+if($scope.total >= 4){
+
+      if(rotas[3].destino != $scope.retornoEndereco(destino4,numero4)){
+      Flash.create('info', 'Por favor clique em calcular novamente. Destino 4', 'large-text');
+      return false;
+
+    }else{
+
+        $scope.dados.destino4 = rotas[3].destino;
+
+  }
+}
+
+if($scope.total >= 5){
+
+     if(rotas[4].destino != $scope.retornoEndereco(destino5,numero5)){
+      Flash.create('info', 'Por favor clique em calcular novamente. Destino 5', 'large-text');
+      return false;
+
+    }else{
+
+        $scope.dados.destino5 = rotas[4].destino;
+      }
+}
+
+
+if(vm.tipoVeiculo != localStorage.getItem('tp')){
+
+  Flash.create('danger', 'Por favor clique em calcular novamente.', 'large-text');
+  return false;
+
+}else{
+
+  $scope.dados.tipoVeiculo = vm.tipoVeiculo;
+}
+
+$("#btnAgendar").hide();  
+$("#aguarde2").show(); 
+
+// Pagamento Cartão
+if( (''+$scope.cartaoCredito.ano).length < 2) {
+  $scope.cartaoCredito.ano = 0+$scope.cartaoCredito.ano;
+}
+if( (''+$scope.cartaoCredito.mes).length < 2){
+  $scope.cartaoCredito.mes = 0+$scope.cartaoCredito.mes;
+} 
+
+$scope.tokenCartao = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)+ Math.random().toString(36).substring(2, 15);
+$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+
+var dadosToken = {
+                  auth:$scope.dados.auth,
+                  token:$scope.tokenCartao
+};
+
+// Dados cartão de crédito
+$http.post('https://www.iptufacil.com.br/ws/goey/rest/public/security',$.param(dadosToken)).then(function(result){
+  
+  var valorCartao = parseFloat($scope.cadastrar.valor);
+  valorCartao = valorCartao.toFixed(2);
+  var dadosCartao = {
+  funcao         :'pagamentoGenerico',
+  cartao         : $scope.cartaoCredito.numCartao,//'12345678978979',
+  validade       : $scope.cartaoCredito.ano+$scope.cartaoCredito.mes,//'0418',
+  codSeguranca   : $scope.cartaoCredito.seguranca,//'123',
+  produto        : '4',
+  valor          : valorCartao,
+  token          : $scope.tokenCartao,
+  loja : '',
+  nascimento: '',
+  cpfTitular : ''
+  };
+
+  
+  $http.post('https://www.iptufacil.com.br/ws/wsGetNet/client.php',$.param(dadosCartao)).then(function(result){    
+    
+    // grecaptcha.reset();
+    if(result.data.status != 'AP'){
+      Flash.create('danger', result.data.display, 'large-text');
+      $("#aguarde2").hide(); 
+      $("#btnAgendar").show(); 
+    }else{
+        // Flash.create('success', result.display, 'large-text');
+      var url = 'https://www.iptufacil.com.br';
+    
+      $scope.dados.autorizacao = result.data.auto;
+      $http({
+        method: 'POST',
+        url: url+'/ws/goey/rest/public/cadastrarEntregasUsuario',
+        data: $.param($scope.dados),
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+      }).success(function (response) {
+
+        $("#aguarde2").hide(); 
+        $("#btnAgendar").show(); 
+
+        if(response.retorno == 1){
+
+          Flash.create('success', response.mensagem, 'large-text');
+          $scope.cadastrar = "";
+          $scope.total = 1; 
+          localStorage.removeItem('rotas');
+
+        }else{                        
+          // Cancelar a transacao
+          //cancelaPagamento
+           $http.post('https://www.iptufacil.com.br/ws/wsGetNet/client.php',$.param({codigo:$scope.dados.autorizacao,funcao:'cancelaPagamento'})).then(function(result){
+              
+           });
+            Flash.create('info', response.mensagem, 'large-text'); 
+
+        }
+
+      }).error(function (response) {
+
+        Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');
+
+      }); 
+    }
+
+  });
+});
+
+
+//  Fim Pagamento Cartão
+
+}
+
+$scope.total = 1;
+$scope.addDestino = function(){
+
+  var total = $scope.total;
+
+  $("#remover-destino").show();
+  if(total == 1){   
+    $("#grupo2").css("display","block");
+    $scope.total = 2; 
+  }
+  if(total == 2){
+    $("#grupo3").css("display","block");
+    $scope.total = 3;  
+  }
+  if(total == 3){
+    $("#grupo4").css("display","block");
+    $scope.total = 4;  
+  }
+  if(total == 4){
+    $("#grupo5").css("display","block"); 
+    $scope.total = 5; 
+  }
+
+  if(total == 5){
+    Flash.create('info', 'Somente 5 destinos. ', 'large-text');
+  }
+
+}
+
+$scope.removerDestino = function(){
+
+  var rem = $scope.total;
+
+  if(rem >1){
+
+    $("#destino"+ rem).val("");
+    $("#numero"+ rem).val("");
+    $("#cep"+ rem).val("");
+    $("#grupo"+ rem).hide();
+
+    $scope.total = rem-1;
+
+  }
+
+  if($scope.total  == 1){
+
+    $("#remover-destino").hide();
+
+  }
+
+}
+
+$( ".datepicker" ).datepicker({
+  locale: 'pt-br'
+});
+
+
+$('#horaRetirada').datetimepicker({
+  format: 'HH:mm'
+
+});
+
+}]);

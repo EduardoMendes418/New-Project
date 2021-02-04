@@ -1,0 +1,157 @@
+
+<!-- Content Header (Page header) -->
+<section class="content-header titulo">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8">
+        <h1>
+         Alterar Senha 
+         <hr>
+       </h1>
+       <form name="Form">
+        <div class="row">
+         <div class="col-md-4 blocosenha" >
+          <div class="col-md-12">
+            <label for="nome">Nova Senha *</label>
+            <input type="text" class="form-control" id="pass1" ng-model="dados.pass1" required="">
+          </div>
+          <div class="col-md-12">
+            <label for="sobrenome">Confirmar Nova Senha *</label>
+            <input type="text" class="form-control" id="pass2" ng-model="dados.pass2" required="">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-5 col-md-4" >
+          <div class="cancelar">
+            <button>Cancelar Alterações</button>
+          </div>
+        </div>   
+        <div class="col-xs-5 col-md-4" >
+          <div class="salvar">
+            <button ng-click="alterPass()">Salvar Alterações</button>
+          </div>
+        </div> 
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+</section>
+
+
+<style type="text/css">
+
+.blocosenha, .blocobtnsenha{
+  padding: 0px !important
+}
+.cancelar button {
+  background: #707070 !important;
+  border: 1px solid #707070 !important;
+}
+.form-control {
+  display: block;
+  width: 50%;
+  height: 30px;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #666666;
+  background-color: #ffffff;
+  background-image: none;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #cccccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.0);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.0);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+label{
+  margin-top: 5px;
+  margin-bottom: 0px !important;
+  color: #707070;
+}
+
+#boleto input{
+  border-bottom: 1px solid #ccc !important
+}
+
+#date{
+  width: 150px;
+}
+.data input{
+  border:1px  solid #ccc !important;
+}
+
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  width: 250px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+button{
+  background: #24549E !important;
+  color: #fff;
+  border:1px solid #24549E !important;
+  padding: 5px !important;
+  width: 150px;
+  margin-top: 5vh;
+  font-size: 16px;
+}
+
+.status, .Periodo{
+  color: #707070;
+}
+.status input{
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #000;
+}
+
+.Periodo label{
+  margin-top: 10px;
+}
+
+.content-header{
+  height: 100vh !important;
+}
+.titulo h1{
+  font-weight: bold;
+}
+hr {
+  width: 630px;
+  margin-left: 0px;
+  border-top: 1px solid #000 !important;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+
+@media screen and (max-width: 600px) {
+  hr {
+    width: 100%;
+    margin-left: 0px;
+    border-top: 1px solid #000 !important;
+    margin-top: 10px;
+    margin-bottom: 10px
+  }
+
+  .content-header {
+    height: 88vh !important;
+  }
+
+}
+
+</style>
+
+

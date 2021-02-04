@@ -1,0 +1,183 @@
+﻿
+
+login.controller("franquiaCtrl", ['$rootScope', '$scope', '$state', '$location', 'loginService', 'Flash','apiService','$http',
+function ($rootScope, $scope, $state, $location, loginService, Flash, apiService,$http) {
+        var vm = this;
+        localStorage.removeItem('user');
+        vm.getUser = {};
+        vm.setUser = {};
+        vm.signIn = true;
+
+
+//FUNCAO DO FORMULARIO CONTATO-franquia
+$scope.enviarEmail = function(){
+    var destinatario = 'atendimento.empresa@ddtotal.com.br';
+    //var destinatario = 'eduardomendes418@gmail.com'; 
+    var copia = '';
+    var assunto = 'Contato-franquia - Site goey';
+    var nome = $scope.demail.nome || '';
+    var email = $scope.demail.email || '';
+    var empresa = $scope.demail.empresa || '';
+    var cnpj = $scope.demail.cnpj || '';
+    var telefone = $scope.demail.telefone || '';
+    var desc = $scope.demail.desc || '';
+
+    var descricao = "nome: "+nome+"<br/>"+
+                    "email: "+email+"<br/>"+   
+                    "empresa: "+empresa+"<br/>"+                    
+                    "cnpj: "+cnpj+"<br/>"+
+                    "telefone: "+telefone+"<br/>"+
+                    '<br/>'+desc;
+
+    var url = "http://192.168.1.215:8040/ws/geral/public/enviarEmail";
+            $http.post(url,$.param({
+                  assunto: assunto,  
+                  destinatario: destinatario,
+                  copia: copia,
+                  descricao: descricao
+            })
+            ).then(function(response){
+                console.log(response);
+              Flash.create('info', response.data.mensagem, 'large-text');
+            });
+}
+        /* endereço WebService ws.goeyja.com.br -
+        vm.franquia = function (data) {  
+            
+            if (data.Username != "" && data.Password != "") {
+                $.ajax({
+                        type: 'POST',
+                        crossDomain: true,
+                        url: 'https://www.iptufacil.com.br/ws/goey/rest/public/consultarUsuario',
+                        data:{
+                        'email': data.Username ,
+                        'senha': data.Password,
+                        'auth': '3f018bfb43591ccb2ef46f10de832160'
+                        },
+                        dataType: 'json',
+                        success: function (response){
+                            if(response.retorno == 1){
+                            
+                            if(response.tipoCadastro == 3){
+
+                                if(response.primeiroAcesso == 1){
+
+                                    localStorage.setItem('user',JSON.stringify(response));
+                                    
+                                    $state.go('app.minhasEntregas');
+
+                                }else{
+
+                                    localStorage.setItem('user',JSON.stringify(response));
+                                    $scope.codUsuario = response.codUsuario;
+                                    $('#myModal').modal();
+                                    
+                                }
+                                
+                            }else{
+                               // var users = {codUsuario:response.id,tipoUsuario:response.tipoUsuario,nome:response.razaoSocial,nomeFantasia:response.nomeFantasia,email:response.email,telefone:response.telefone,razaoSocial:response.nome};
+                                localStorage.setItem('user',JSON.stringify(response));
+                                
+                                $state.go('app.minhasEntregas');
+
+                            }
+
+                            }else{
+
+                               Flash.create('danger', 'Login ou Senha Inválido(s)', 'large-text') 
+                               
+                            }
+                        
+                        }
+                        });
+
+                }else{
+
+                    Flash.create('danger', 'Login ou Senha Inválido(s)', 'large-text')
+                }
+                
+               
+        };
+
+ $scope.recuperarSenha = function () {
+
+    if($scope.recuperarEmail == undefined){
+
+        Flash.create('danger', 'Digite um email válido!', 'large-text')
+        return false;
+
+    }else{        
+
+        $http({
+                method: 'POST',
+                url: 'https://www.iptufacil.com.br/ws/goey/rest/public/esqueceuSenhaUsuarios',
+                data: $.param({
+                                email: $scope.recuperarEmail ,                                   
+                                auth:  '3f018bfb43591ccb2ef46f10de832160'
+                             }),
+
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function (response) {                        
+               
+                       Flash.create('success', response.mensagem, 'large-text'); 
+               
+                    
+                }).error(function (response) {
+
+                    Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');
+                    
+                });
+
+          }
+        }
+
+        $scope.confirmaPrimeiroAcesso = function (codUsuario) {
+            var retorno = 0 ;
+            if(!$scope.confirmado) { 
+
+                Flash.create('danger', 'Marca a opção "Li e aceito os termos" ', 'large-text'); return false;
+
+            }else{
+                
+                $('#myModal').modal('hide');
+
+                $http({
+                    method: 'POST',
+                    url: 'https://www.iptufacil.com.br/ws/goey/rest/public/confirmaPrimeiroAcesso',
+                // url: 'https://www.iptufacil.com.br/ws/goey/rest/public/confirmaPrimeiroAcesso',
+                data: $.param({
+                    id:$scope.codUsuario,
+                    auth:  '3f018bfb43591ccb2ef46f10de832160'
+                }),
+
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function (response) {
+                retorno = response.retorno;
+                if(response.retorno == 1){
+                    $state.go('app.minhasEntregas');
+                    $('.modal-backdrop').css('display','none');
+                  //  vm.login(vm.getUser);
+
+                }           
+
+                }).error(function (response) {
+                    Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');
+                });         
+     }
+ }*/
+
+
+ 
+
+
+
+ $(document).ready(function(){
+    // Initialize Tooltip
+    $('[data-toggle="tooltip"]').tooltip(); 
+})
+
+
+
+
+}]);
+

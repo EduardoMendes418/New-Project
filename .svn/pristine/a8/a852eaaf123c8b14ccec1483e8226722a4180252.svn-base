@@ -1,0 +1,512 @@
+
+
+<section class="col-md-12  home">
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <div class="row">
+              <!--moto-->   
+                <a href="/#home">
+                    <div class="col-md-6 moto">
+                        <div>
+                            <div class=" col-md-6"></div>
+                            <div class=" col-md-5 logo" >
+                                <img src="images/step/goey.png" >
+                            </div>
+                            <div class=" col-md-1"></div>
+                        </div>    
+                        <div>
+                            <div class=" col-md-6"></div>
+                            <div class=" col-md-4 mototexto">
+                                <div class="linha1"></div>
+                                Quer fazer uma entrega?
+                                <p>GOEY DELIVERY</p>
+                            </div>
+                            <div class=" col-md-2"></div>
+                        </div>
+                    </div>
+                </a>
+
+
+            <!--alimentos-->
+                <a href="/#compras">
+                    <div class="col-md-6 alimento">
+                        <div class=" col-md-2"></div>
+                        <div class=" col-md-4 alimentotexto" >
+                            <div class="linha2"></div>
+                            Quer pedir uma comida ?
+                            <p>GOEY RESTAURANTE</p>
+                        </div>
+                        <div class=" col-md-6"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!--Mobile-->
+    <div class="row mobile" >
+        <div class="col-md-12"> 
+            <div class="row">
+                  <!--moto-->   
+                <a href="/#home">
+                <div class="col-6 moto-mobile">
+                    <div class="container">
+                        <div class="col-xs-5 "></div>
+                        <div class="col-xs-7 logo-mobile">
+                            <img src="images/step/goey.png" > 
+                        </div>
+                    </div>
+
+                    <div class="col-xs-5"></div>
+                    <div class="col-xs-6 motoentrega"  >
+                        <div class="linha1"></div>
+                        <h2>Quer fazer uma entrega?</h2>
+                        <p>GOEY DELIVERY</p>
+                    </div>
+                    <div class="col-xs-1"></div>
+                </div>
+                </a>
+
+
+                  <!--alimentos-->
+                <a href="/#compras">
+                <div class="col-6 alimento-mobile " >
+                    <div class="col-xs-5"></div>
+                    <div class="col-xs-6 comida"  >
+                        <div class="linha2"></div>
+                        <h2>Quer pedir uma comida?</h2>
+                        <p>GOEY RESTAURANTE</p>
+                    </div>
+                    <div class="col-xs-1"></div>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .mobile{
+        display: none;
+    }
+    .linha1{
+        border: 5px solid #fff;
+        width: 60px;
+    }
+    .linha2{
+        border: 5px solid #fff;
+        width: 60px;
+    }
+    .mototexto p{
+        font-size: 10px;
+        letter-spacing: 0.5rem;
+        color: #fff !important;
+    }
+    .alimentotexto p{
+        font-size: 10px;
+        letter-spacing: 0.5rem;
+        color: #fff !important;
+    }
+    .moto{
+        float: left !important;
+    }
+    .home{
+        height: 100vh;
+        position: relative;
+        background-size: cover;
+        background-position: center ;
+        background-repeat: no-repeat;
+    }
+    .moto{
+        background-image: url(images/step/moto.jpg);
+        height: 100vh;
+        position: relative;
+        color: #3653d0;
+        background-size: cover;
+        background-position: center ;
+        background-repeat: no-repeat;
+    }
+    .moto:hover{
+        background-image: url(images/step/motoazul.jpg);
+        height: 100vh;
+        position: relative;
+        color: #fff;
+        background-size: cover;
+        background-position: center ;
+        background-repeat: no-repeat;
+    }
+    .mototexto{
+        margin-top: 45vh;
+        font-size: 48px;
+        line-height: 0.9em;
+        font-weight: 800;
+        letter-spacing: -0.2rem;
+    }
+    .alimento{
+        background-image: url(images/step/alimentos.jpg);
+        height: 100vh;
+        position: relative;
+        color: #f58122;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;   
+    }
+    .alimento:hover{
+        background-image: url(images/step/alimentos-laranja.jpg);
+        height: 100vh;
+        position: relative;
+        color: #fff;
+        background-size: cover;
+        background-position: center ;
+        background-repeat: no-repeat;  
+    }
+    .alimentotexto{
+        margin-top: 25vh;
+        font-size: 48px;
+        line-height: 0.8em;
+        font-weight: 800;
+        letter-spacing: -0.2rem; 
+    }
+    .logo img{
+        width: 70%;
+        float: left;
+        margin-top: 10vh;
+    }
+    .col-sm-12, .col-md-12, .col-lg-12 {
+        position: relative;
+        min-height: 1px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+/*************
+*   Mobile   *
+**************/
+@media screen and (max-width: 1358px){
+    .buscarestaurante h2{
+        font-size: 40px !important;
+    }
+    .buscamotoca h2{
+        font-size: 40px !important;
+    }
+      .mototexto{
+        margin-top: 35vh ;
+        font-size: 46px;
+    }
+}
+
+@media screen and (max-width: 1217px){
+    .mototexto {
+    margin-top: 38vh;
+    font-size: 41px;
+}
+    .alimentotexto {
+    margin-top: 25vh;
+    font-size: 40px;    
+    }
+}
+
+@media screen and (max-width: 990px){
+    .moto-mobile{
+        height: 50vh;
+        background-image: url(images/step/moto-mobile.jpg);
+        /*background-image: url(images/step/alimentos.jpg);*/
+        position: relative;
+        background-size: cover;
+        background-position: center bottom;
+        background-repeat: no-repeat;
+    }
+    .alimento-mobile{
+        height: 50vh;
+        background-image: url(images/step/rest-mobile.jpg);
+        position: relative;
+        background-size: cover;
+        background-position: center bottom;
+        background-repeat: no-repeat;
+    }
+   
+    .mobile{
+        display: block;
+    }
+
+    .mototexto{
+        margin-top: 30vh;
+        font-size: 40px;
+    }
+    .alimento{
+        display: none;
+    }
+    .moto{
+        display: none;
+    }
+    .buscamotoca{
+        float: left !important;
+    }
+    .buscarestaurante{
+        float: right !important;
+    }
+    
+    .logogoey{
+        text-align: center !important;
+    }
+    .logo img {
+        max-width: 55%;
+        min-height: 50px;
+    }
+}
+
+@media screen and (max-width:812px){
+    .logo-mobile img{
+        width: 120px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    
+    .motoentrega h2{
+        color: #fff;
+        margin-top: 2vh;
+        font-size: 64px;
+        line-height: 0.9em !important;
+        font-weight: bold !important;
+    }
+    .motoentrega p{
+        color: #fff
+    }
+    .linha1{
+        margin-top: 5vh;
+    }
+     .linha2{
+        margin-top: 5vh;
+    }
+    .comida h2{
+        color: #fff;
+        margin-top: 2vh;
+        font-size: 64px;
+        line-height: 0.9em !important;
+        font-weight: bold !important;
+    }
+
+    .comida p{
+        color: #fff
+    }
+    .moto-mobile{
+        height: 80vh;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .alimento-mobile{
+        height: 80vh;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+       
+}
+}
+
+@media screen and (max-width: 768px){
+    .moto-mobile{
+        position: relative;
+        background-size: cover;
+        background-position: center ;
+        background-repeat: no-repeat;
+    }
+    .alimento-mobile{
+        position: relative;
+        background-size: cover;
+        background-position: center ;
+        background-repeat: no-repeat;
+    }
+    
+    .logo-mobile img{
+        width:120px; 
+        float: left; 
+        margin-top: 25px;
+    }
+
+    .motoentrega{
+        margin-top: 10vh;
+    }
+
+    .motoentrega h2{
+        font-size: 37px;
+        line-height: 0.9em !important;
+        color: #fff !important;
+        font-weight: bold !important;
+    }
+    .motoentrega p{
+        color: #fff;
+        letter-spacing: 0.5rem;
+    }
+
+    .comida{
+        margin-top: 10vh; 
+    }
+    .comida h2{
+        font-size: 33px;
+        line-height: 0.9em !important;
+        color: #fff !important;
+        font-weight: bold !important;
+    }
+    .comida p{
+        color: #fff;
+        font-size: 8px;
+        letter-spacing: 0.5rem;
+    }
+ 
+    .linha1{
+        margin-top: 0vh;
+        border: 3px solid #fff;
+        width: 40px;
+        margin-bottom:5px; 
+    }
+    .linha2{
+        margin-top: 0vh;
+        border: 3px solid #fff;
+        width: 40px;
+        margin-bottom:5px; 
+    }
+
+}
+
+
+@media screen and (max-width:736px){
+    .motoentrega {
+        margin-top: 5vh;
+    }
+
+}
+
+@media screen and (max-width:667px){
+    .moto-mobile{
+        height: 80vh;
+    }
+    .alimento-mobile{
+        height: 80vh;
+       
+    }
+    .motoentrega {
+    margin-top: 10vh;
+}
+}
+
+@media screen and (max-width:640px){
+    .moto-mobile{
+        height: 80vh;
+    }
+    .alimento-mobile{
+        height: 80vh;
+       
+    }
+    .motoentrega {
+    margin-top: 10vh;
+}
+}
+
+@media screen and (max-width:568px){
+    .moto-mobile{
+        height: 80vh;
+    }
+    .alimento-mobile{
+        height: 80vh;
+       
+    }
+    .motoentrega {
+    margin-top: 10vh;
+}
+}
+
+
+@media screen and (max-width:500px){
+    .motoentrega {
+    margin-top: 5vh;
+}
+    .motoentrega {
+        margin-top: 10vh;
+    }
+    .logo img {
+        max-width: 70% !important;
+        min-height: 50px;
+    }
+    .moto-mobile{
+        height: 50vh !important;
+    }
+    .alimento-mobile{
+        height: 50vh !important;
+       
+    }
+}
+
+@media screen and (max-width: 414px){
+    .comida h2 {
+        font-size: 45px !important;
+    }
+    .motoentrega h2 {
+        font-size: 46px !important;
+    }
+}
+
+@media screen and (max-width: 384px){
+  
+    .motoentrega h2 {
+    font-size: 43px !important;
+    }
+    .motoentrega p {
+        font-size: 8px !important;
+    }
+    .comida h2 {
+        font-size: 42px !important;
+    }
+
+}
+@media screen and (max-width: 375px){
+    .motoentrega h2{
+        font-size: 42px !important;
+    }
+        .comida h2 {
+        font-size: 41px !important;
+    }
+    .motoentrega p {
+        font-size: 8px !important;
+    }
+
+     .comida p {
+        font-size: 8px !important;
+    }
+}
+
+@media screen and (max-width: 360px){
+    .motoentrega h2 {
+     font-size: 40px !important;
+    }
+    .comida h2 {
+        font-size: 40px !important;
+    }
+
+
+}
+@media screen and (max-width: 320px){
+    .motoentrega {
+    margin-top: 6vh !important;
+}
+
+    .motoentrega h2 {
+    font-size: 36px !important;
+    }
+    .motoentrega p {
+        font-size: 8px !important;
+    }
+    .comida h2 {
+    font-size: 35px !important;
+    }
+    .comida p {
+        font-size: 8px !important;
+    }
+
+}
+
+
+
+</style>
+
+
+

@@ -1,0 +1,17 @@
+var empresa = angular.module('empresa', ['ui.router', 'ngResource', 'ngAnimate']);
+
+
+empresa.config(["$stateProvider", function ($stateProvider) {
+
+//Formulário de cadastro de empresas
+    $stateProvider.state('empresa', {
+        /*url: '/empresa',
+        templateUrl: 'app/modules/empresa/empresa.html',*/
+        controller: 'empresaCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Empresa'
+        }
+    });
+
+}]);

@@ -1,0 +1,10 @@
+function alert(titulo,body = ''){
+    if(!body){
+      body = titulo;  
+      titulo = 'GoeyJá - Delivery para todos';
+    } 
+   return alertify.alert(titulo,body).set('modal', true); 
+}
+function alertCompra(){
+   return alertify.message('Produto adicionado ao carrinho!').dismissOthers();    
+}

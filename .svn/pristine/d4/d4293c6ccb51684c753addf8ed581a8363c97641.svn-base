@@ -1,0 +1,109 @@
+﻿
+
+dashboard.controller("minhasEntregasCtrl", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http',
+function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http) {
+	
+    var vm = this;
+    $scope.dados = [];
+
+    var usuario = JSON.parse(localStorage.getItem('user'));
+    $scope.tipoUsuario = usuario.tipoUsuario;
+    $scope.codUsuario = usuario.codUsuario;
+    $scope.auth = '3f018bfb43591ccb2ef46f10de832160';     
+  var url = 'https://www.iptufacil.com.br';
+  // var url = 'http://192.168.0.67:8025';
+    $scope.listarEntregas = function(){
+
+	    	$http({
+
+			        method: 'POST',
+			        url: url+'/ws/goey/rest/public/consultarEntregasUsuario',
+			        data: $.param({
+    						             tipoUsuario: $scope.tipoUsuario ,
+    						             codUsuario: $scope.codUsuario,
+    						             auth:  $scope.auth
+    	       						   }),
+
+		        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			    }).success(function (response) {
+			    
+                    if(response[0].retorno == 1){
+                        
+                       $scope.lista = response;
+                       $("#minhas-entregas").show();
+                        
+                    }else{                        
+                        
+                       $("#no-delivery").show();
+                       
+                    }
+                    
+			    }).error(function (response) {
+
+			        Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');
+                    ("#minhas-entregas").hide(); 
+                    
+			    });
+    	
+    }
+
+$scope.listarEntregas();
+
+$scope.verMapa = function(origem,codSascar,destino1,destino2,destino3,destino4,destino5){
+
+    var dest = JSON.stringify({origem:origem,codSascar:codSascar,destino1:destino1,destino2:destino2,destino3:destino3,destino4:destino4,destino5,destino5});
+
+       localStorage.setItem('pos',dest);
+            
+            $state.go('app.maps');    
+    
+}
+
+$scope.cancelarEntregas = function(id){
+
+  var confirma = confirm('Deseja realmente cancelar entrega nº ' + id);
+
+  if(confirma){
+
+    $http({
+
+              method: 'POST',
+              url: url +'/ws/goey/rest/public/cancelarEntrega',
+              data: $.param({
+                              id: id,                        
+                              auth:  $scope.auth
+                            }),
+
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+          }).success(function (response) {
+            console.log(response);
+                    if(response.retorno == 1){
+                        
+                      Flash.create('info', response.mensagem, 'large-text');
+                      $scope.listarEntregas();
+                      if(response.dataPgto == 0){
+                        if(response.formaPagamento == 6){
+                          $http.post('https://www.iptufacil.com.br/ws/wsGetNet/client.php',$.param({codigo:response.autorizacao,funcao:'cancelaPagamento'})).then(function(result){
+                            
+                          });
+                        }
+                      }else{
+                        Flash.create('info', 'Pagamento por Cartão de Crédito, é possível cancelar apenas no mesmo dia, entre em contato conosco.', 'large-text');  
+                      }
+                    }else{                  
+                        
+                      Flash.create('info', response.mensagem, 'large-text');
+                       
+                    }
+                    
+          }).error(function (response) {
+
+              Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');                   
+                    
+          });
+
+  }
+
+}
+
+}]);

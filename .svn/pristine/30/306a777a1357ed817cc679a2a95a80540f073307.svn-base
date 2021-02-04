@@ -1,0 +1,305 @@
+﻿<div class="wrapper" >
+    <header class="main-header"  >
+        <!-- Logo -->
+        <a class="logo">
+         <span class="logo-mini">
+            <img src="images/home/banner1.png" style="width: 150px" >
+        </span>
+
+        <span class="logo-lg">
+            <img src="images/home/banner1.png" style="width: 150px" >
+        </span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top" role="navigation"  >
+        <!-- Sidebar toggle button-->
+        <a class="sidebar-toggle hidden-md hidden-lg" data-toggle="offcanvas" role="button" data-ng-click="vm.sideBar(1);">
+            <span class="sr-only">Goey</span>
+        </a>
+
+        <!-- Navbar Right Menu -->
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav" >
+                <li class="dropdown notifications-menu hidden-xs hidden-sm" ></li>
+
+                <li class="dropdown notifications-menu" ></li>
+
+                <!-- User Account: style can be found in dropdown.less -->
+                <li class="dropdown user user-menu" >
+                  <a class="dropdown-toggle" data-toggle="dropdown">
+                   <img src="./images/home/usuario-logado.png" class="user-image" alt="User Image" /> 
+                   <label>OLÁ,</label>
+                   <span class="hidden-xs">{{userNome}}
+                       <div class="pull-right">
+                        <a class="" ng-click="exitDash()">ENCERRAR SESSAO</a>
+                    </div>
+                </span>
+            </a>
+                      <!--
+                    <ul class="dropdown-menu">
+                        <li class="user-header" style="font-family: Roboto">
+                      
+
+                            <div class="text-left" style="font-family: Roboto;padding:20px !important;color:#000;padding-bottom: 20px !important;text-transform: uppercase;">
+
+                                <div class="pull-left info">
+                                    <p style="white-space: normal !important;font-size:12px !important;">
+                                        {{userNome}}
+                                    </p>
+                                    <p style="white-space: normal !important;font-size:12px !important;">
+                                        {{userEmail}}
+                                    </p>
+                                </div>
+                            </div>
+                        </li>-->
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <!--
+                            <div class="pull-right">
+                                <a href="https://www.goeyja.com.br/#login" class="btn btn-danger btn-flat">Sair</a>
+                            </div>-->
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+    <!-- sidebar -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="text-left side">
+            <div class="pull-left info">
+            </div>
+        </div>
+
+        <ul class="sidebar-menu" style="margin-left: 20px" data-ng-repeat="menu in vm.menuItems" >
+            <li class="user-footert"><strong> {{menu.menu}} </strong></li>
+            <li class="treeview" ng-click="vm.sideBar();" ng-repeat="sub in menu.subMenu">
+                <a ui-sref="app.{{sub.state}}">
+                    <span>{{sub.title}}</span>
+                </a>
+            </li>  
+            <li>
+                 <a id="exit" ng-click="exitDash()">ENCERRAR SESSAO</a>
+            </li>       
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <ui-view></ui-view>
+</div>
+
+</div>
+
+
+<style> 
+
+#exit{
+    display: none;
+}
+
+.sidebar-menu{
+    margin-left: 20px;
+    margin-bottom: 10px;  
+}
+.skin-purple .main-header .navbar .nav > li > a {
+    color: #000;
+    background: #fff !important;
+    padding-right: 28px !important;
+}
+.side{
+    height:60px;
+    font-family: Roboto;
+    padding:20px !important;
+    color:#000;
+    padding-bottom: 20px !important;
+    text-transform: uppercase;
+}
+
+label {
+    margin-top: 3px;
+    margin-bottom: 0px !important;
+    color: #000;
+}
+
+.navbar-nav > li > a,
+.navbar-nav > li > a:hover {
+  padding-top: 17px;
+  padding-bottom: 3px !important;
+  -webkit-transition: color ease-in-out 0.2s;
+  -o-transition: color ease-in-out 0.2s;
+  transition: color ease-in-out 0.2s;
+}
+
+.pull-right{
+    padding: 5px;
+}
+
+.pull-right a{
+    color: #24549E !important;
+    font-size: 12px !important;  
+    margin-right: 20px !important;
+}
+
+.logo-mini, .logo-lg{
+    margin-top: 15px !important;
+    text-align: right !important;
+}
+
+.logo{
+    height: 75px !important;
+}
+
+.main-footer{
+    display: none !important;
+}
+
+
+.main-header .sidebar-toggle:before {
+    content: "\f0c9";
+    color: #fff;
+}
+
+.sidebar-menu > li > a {
+    padding: 7px 15px 7px 0px;
+    display: block;
+}
+
+.sair{
+    display: none;
+}
+
+.user-footert a{
+    text-align: left;
+}
+
+strong{
+    padding-top: 50vh !important;
+}
+
+.user-footert strong{
+    color: #000 !important;
+    font-weight: bold !important;
+    font-size: 17px !important;
+}
+
+.skin-purple .main-header li.user-header {
+    background-color: #f4f4f4;
+    background: #222d32 !important;
+}
+
+.navbar-nav > .user-menu > .dropdown-menu > .user-footer {
+    background-color: #ccc;
+    padding: 10px;
+}
+
+.skin-purple .main-header .logo {
+    background-color: #fff !important;
+}
+.sidebar-toggle{
+    display: block;
+    background: #222d32 !important;
+}
+
+.sidebar-toggle:hover{
+    display: block;
+    background: #4266ae  !important;
+}
+
+.skin-purple .main-header .logo {
+    background-color: #ffffff !important;
+    color: #ffffff;
+    border-bottom: 0 solid transparent;
+}
+
+.navbar{
+    background: #fff !important;
+}
+.skin-purple .sidebar-menu > li:hover > a, 
+.skin-purple .sidebar-menu > li
+.active > a {
+    color: #ffffff;
+    background: #1e282c;
+    border-left-color: #24549E !important; 
+}
+
+@media screen and (max-width: 767px){
+
+#exit{
+    display: block ;
+}
+    .side{
+        height:120px !important;
+        font-family: Roboto;
+        padding:20px !important;
+        color:#000;
+        padding-bottom: 20px !important;
+        text-transform: uppercase;
+    }
+
+    .skin-purple .main-header .navbar .sidebar-toggle {
+        color: #fff;
+        font-size: 30px !important;
+        margin-left: 15px !important;
+    }
+
+    .sidebar-toggle:hover {
+        background: #fff !important; 
+    }
+
+    .main-header .sidebar-toggle:before {
+        content: "\f0c9";
+        color: #000 !important;
+    }
+
+    .sidebar-toggle {
+        background: #fff !important;    
+    }
+
+
+
+    .logo-mini, .logo-lg{
+        margin-top: 10px !important;
+        text-align: center !important;
+    }   
+    .sair{
+        display: block;
+    }
+    .sair i{
+        padding-left: 20px;
+        padding-right: 5px;
+    }
+    .btn-danger{
+        color:#fff !important;
+        background: #ee6626;
+        height: 40px;
+        border: 1px solid #ee6626
+    }
+    .btn-danger:hover{
+        background: #ef6c00 ;
+        border: 1px solid  #ef6c00 ;
+    }
+
+    .logo-mini, .logo-lg{
+        margin-top: 10px !important;
+        text-align: center !important;
+    }
+
+    .sair{
+        display: block;
+    }
+
+    .sair i{
+        padding-left: 20px;
+        padding-right: 5px;
+    }
+
+}
+
+</style>

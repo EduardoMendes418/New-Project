@@ -1,0 +1,210 @@
+﻿/*==========================================================
+    Author      : Ranjithprabhu K
+    Date Created: 13 Jan 2016
+    Description : Controller to handle Education page
+    Change Log
+    s.no      date    author     description     
+
+
+    ===========================================================*/
+
+    dashboard.controller("EntregaController", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http',
+    	function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http,ngMap) {
+    		var vm = this;
+    		var usuario = JSON.parse(localStorage.getItem('user'));
+
+    		$scope.codUsuario = usuario.codCondutor;
+    		$scope.tipoUsuario = usuario.tipoUsuario;
+    		$scope.userNome = usuario.nome;
+    		$scope.userEmail = usuario.email;
+    		$scope.codSascar = usuario.codSascar;
+    		$scope.listarEntregas = function(cod,tipo){
+
+        // $.ajax({
+        //                 type: 'POST',
+        //                 crossDomain: true,
+        //                 url: 'https://www.iptufacil.com.br/ws/goey/rest/public/consultarEntregasUsuario',
+        //                 data:{
+        //                 'tipoUsuario':'',
+        //                 'codUsuario':'' ,
+        //                 'status':1,
+        //                 'auth': '3f018bfb43591ccb2ef46f10de832160'
+        //                 },
+        //                 success: function (data){
+		// 					console.log(data);
+        //                     if(data.retorno == 1){
+		// 						$scope.entrega = data;
+        //                     }else{
+        //                        $("#msn-retorno").show();
+		// 					}
+        //                 // codigo aqui
+        //                 }
+		// 				});
+		var dados = {
+			auth:'3f018bfb43591ccb2ef46f10de832160',
+			codCondutor:$scope.codUsuario,
+			codSascar:$scope.codSascar
+
+		}
+// https://www.iptufacil.com.br
+		$http.post("http://ws.goeyja.com.br/ws/goey/rest/public/consultarEntregasGeral", dados).success(function(data) {
+			
+			$scope.entrega = data;
+			var selecionado = data.filter(function (isTrue) {
+				console.log(isTrue);
+			});
+
+			if(data[0].retorno == 0){
+				$scope.showTable = false;
+			}else{
+				$scope.showTable = true;
+			}
+			
+		});
+
+
+	}
+
+	$scope.listarEntregas($scope.codUsuario,$scope.tipoUsuario);
+	
+
+
+	$scope.aceitarCorrida = function(codEntrega){
+
+		var usuario = JSON.parse(localStorage.getItem('user'));
+
+		var dados = {
+			codEntrega:codEntrega,
+			codCondutor:usuario.codCondutor,
+			codSascar:usuario.codSascar,
+			auth:'3f018bfb43591ccb2ef46f10de832160'
+		}
+
+		$http.post("http://ws.goeyja.com.br/ws/goey/rest/public/aceitarEntrega", dados).success(function(data) {
+
+			if(data.retorno == 1){
+				$scope.listarEntregas();
+			}
+		});
+
+	}
+
+	$scope.alterarStatusEntrega = function(codEntrega,status){
+
+
+		var usuario = JSON.parse(localStorage.getItem('user'));
+
+		var dados = {
+			codEntrega:codEntrega,
+			codCondutor:usuario.codCondutor,
+			status:status,
+			auth:'3f018bfb43591ccb2ef46f10de832160'
+		}
+
+		$http.post("http://ws.goeyja.com.br/ws/goey/rest/public/alterarStatusEntrega", dados).success(function(data) {
+
+			if(data.retorno == 1){
+				$scope.listarEntregas();
+			}
+		});
+
+	}
+
+// 	$scope.verMapa = function(sascar,origem,destino1,destino2,destino3,destino4,destino5){
+// // obterPosicaoVeiculo
+
+// $scope.destinos = [];
+// $scope.end = destino1;
+// $scope.rotas = [
+// { title: 'Local de Retirada:' + origem, pos:origem, onRoute:false, id:1},
+// {title: 'Destino 1: ' + destino1, pos:destino1, onRoute:false, id:3},                    
+// ];
+
+// if( destino2 != "" && destino2 != undefined){
+	
+// 	$scope.rotas.push({ title: 'Destino 2: '+ destino2, pos:destino2, onRoute:false, id:4 }); 
+// 	$scope.end = destino2; 
+	
+// }
+
+// if( destino3 != "" && destino3 != undefined ){    
+	
+// 	$scope.rotas.push({ title: 'Destino 3: '+ destino3, pos:destino3, onRoute:false, id:5 });
+// 	$scope.end = destino3;       
+// 	alert(destino3);
+	
+// }
+// if( destino4 != "" && destino4 != undefined){    
+	
+// 	$scope.rotas.push({ title: 'Destino 4: '+ destino4, pos:destino4, onRoute:false, id:7 });
+// 	$scope.end = destino4;    
+	
+// }
+// if( destino5 != ""  && destino5 != undefined){    
+	
+// 	$scope.rotas.push({ title: 'Destino 5: '+ destino5, pos:destino5, onRoute:false, id:6 });
+// 	$scope.end = destino5;    
+
+// }
+
+
+
+// $scope.start = {};
+
+
+
+// $http({
+// 	method: 'POST',
+// 	url: 'http://ws.goeyja.com.br/ws/goey/soap/rotas.php',
+// 	data: $.param({
+// 		servico: 'obterPosicaoVeiculo', 
+// 		codSascar: sascar, 
+// 		auth: '3f018bfb43591ccb2ef46f10de832160'
+// 	}),
+
+// 	headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+// }).success(function (response) {
+
+// 	if(response.retorno == 1){
+// 		$scope.rotas.push({title: 'Goey', pos:[response.latitude,response.longitude], onRoute:false, id: 2});   
+
+// 		$("#clickMap").click();
+
+// 	}else{            
+//                       //$scope.sascar = response.latitude +','+response.longitude;
+//                       $("#clickMap").click();
+
+// 			    		 //Flash.create('info', 'Desculpe! Ocorreu um erro!', 'large-text') 
+// 			    		}   
+
+
+// 			    	}).error(function (response) {
+
+
+// 			    	});
+
+// 	//Flash.create('info', 'Nenhuma Entrega' + sascar, 'large-text') 
+// }
+
+// // ngMap.setZoom(12);
+
+
+
+
+// $scope.initMap = function(sascar,origem,destino1,destino2,destino3,destino4,destino5){
+
+// 	// map object
+
+
+
+// }
+
+$scope.abrirLink = function(link){
+
+
+	window.open('https://www.google.com.br/maps/place/'+link,'_blank');
+
+}
+}]);
+

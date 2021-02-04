@@ -1,0 +1,12 @@
+﻿login.controller("loginCtrl", ['$rootScope', '$scope', '$state', '$location', 'loginService', 'Flash','apiService','$http',
+function ($rootScope, $scope, $state, $location, loginService, Flash, apiService,$http) {
+       var vm = this;
+        //localStorage.removeItem('user');
+        vm.getUser = {};
+        vm.setUser = {};
+        vm.signIn = true;
+       // window.location.href="https://www.goeyja.com.br/#/login";
+        window.location.href="http://192.168.0.69:8050/#/login";
+        // endereço WebService ws.goeyja.com.br -
+       
+}]);

@@ -1,0 +1,16 @@
+var listafarmacia = angular.module('listafarmacia', ['ui.router', 'ngResource', 'ngAnimate']);
+
+listafarmacia.config(["$stateProvider", function ($stateProvider) {
+
+    //listafarmacia page state
+    $stateProvider.state('listafarmacia', {
+        url: '/lista-estabelecimentosfarma',
+        templateUrl: 'app/modules/farmacia/lista-estabelecimentosfarma.html',
+        controller: 'listafarmaciaCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Lista Farmacia'
+        }
+    });
+
+}]);

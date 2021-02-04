@@ -1,0 +1,90 @@
+﻿
+
+dashboard.controller("historicoCtrl", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http',
+function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http) {
+    var vm = this;
+    var usuario = JSON.parse(localStorage.getItem('user'));
+    $scope.tipoUsuario = usuario.tipoUsuario;
+    $scope.codUsuario = usuario.codUsuario;
+    $scope.auth = '3f018bfb43591ccb2ef46f10de832160';
+
+var ws = 'https://www.iptufacil.com.br';
+// var ws = 'http://192.168.0.67:8025'
+$scope.historicoEntregas = function(){
+ $("#msn").html(''); 
+ $scope.total = 0;
+ $scope.valorTotal = 0;
+ $scope.distTotal = 0;
+   	$http({
+	        method: 'POST',
+	        url: ws +'/ws/goey/rest/public/historicoEntregasUsuario',
+	        data: $.param({
+				            tipoUsuario: $scope.tipoUsuario ,
+				            codUsuario: $scope.codUsuario,
+                            dataInicio: $scope.filtro.dataInicio,
+                            dataFim :  $scope.filtro.dataFim,
+				            auth:  $scope.auth
+   						  }),
+
+		        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			    }).success(function (response) {
+			     
+                    if(response[0].retorno == 1){
+                        
+                        $("#msn").html(''); 
+                       $scope.lista = response;                      
+                        var tmp = response.filter(function(response){
+                            $scope.total++;
+                            $scope.valorTotal += parseFloat(response.valorReal);
+                            $scope.distTotal += parseFloat(response.distanciaReal);
+                        });
+                    }else{
+                     
+                     $("#msn").html(response[0].mensagem);   
+                    // Flash.create('info', 'Nenhuma entrega nesse período.', 'large-text');
+                       
+                    }
+                    
+			    }).error(function (response) {
+
+                    $("#msn").html(response[0].mensagem); 
+			       // Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');
+                    
+			    });
+    	
+    }
+
+ $scope.detalhar = function(cod,data){
+$scope.numeroEntrega= null;
+//www.iptufacil.com.br
+$http({
+        method: 'POST',
+        url: ws +'/ws/goey/rest/public/detalheHistoricoGoey',
+        data: $.param({
+                       
+                        codEntrega: cod,                                    
+                        auth: $scope.auth
+
+                      }),
+
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function (response){                 
+                  
+                    if(response[0].retorno == 1){
+                        
+                       $scope.modal = response;                      
+                        
+                    }
+                    $scope.numeroEntrega = cod;
+                    $scope.modalData = data;
+                })
+ } 
+
+
+$( ".datepicker" ).datepicker({
+                locale: 'pt-br'
+            });
+
+
+}]);
+

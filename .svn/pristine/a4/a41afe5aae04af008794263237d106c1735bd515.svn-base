@@ -1,0 +1,206 @@
+﻿dashboard.controller("meuPerfilCtrl", ['$rootScope', '$scope', '$state', '$location', 'Flash','$http',
+function ($rootScope, $scope, $state, $location, Flash,$http) {
+    var vm = this;
+    $scope.dados = {};
+    $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+
+var url = 'https://www.iptufacil.com.br';
+ //var url = 'http://192.168.1.215:8025';
+ $scope.auth  = "3f018bfb43591ccb2ef46f10de832160";
+
+$scope.loadSession = function(nome) {
+
+var dados = localStorage.getItem(nome) || '';
+
+    if(dados != "" ){
+
+        var dadosDecodificado = window.atob(dados);
+        return JSON.parse(dadosDecodificado);
+       
+    }else{
+
+       return 0;
+
+    }
+
+}
+
+if($scope.loadSession('log') == 0) {
+
+  window.location.href = 'https://www.goeyja.com.br/locacao';
+
+}else{
+
+  $scope.tipoUsuario = $scope.loadSession('log').tipoUsuario;
+  $scope.codUsuario = $scope.loadSession('log').codUsuario;
+  $scope.cpf = $scope.loadSession('log').cpf;
+
+}
+    
+/* ##################### CARREGA DADOS USUÁRIO #################### */
+$scope.carregaDados = function (codUser){      
+
+      $http({
+              method: 'POST',
+              url: url +'/ws/goey/rest/public/dadosUsuarioLocacao',
+              data: $.param({codUsuario:codUser,auth:$scope.auth}),
+              headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function (response) {
+            
+              $scope.dados.pessoa = response.dadosPessoais;
+              $scope.dados.localizacao = response.dadosLocalizacao;
+              $scope.dados.habilitacao = response.dadosHabilitacao;
+
+            });
+  }
+
+$scope.carregaDados($scope.codUsuario);
+/* ################################################################# */
+
+// ########## Atualizar Dados ####################
+
+// Atualiza dados Pessoais
+$scope.atualizarDadosUsuario = function(){
+
+$scope.dados.pessoa.auth = $scope.auth;
+
+
+	$http({
+	        method: 'POST',
+	        url: url + '/ws/goey/rest/public/alterarDadosDashboard1',
+	        data: $.param($scope.dados.pessoa),
+	        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+		    }).success(function (response) {
+              
+                alert(response.mensagem);
+		    })
+            
+}
+
+// Atualiza Dados Localização
+$scope.atualizarDadosLocalizacao = function(){
+
+$scope.dados.localizacao.auth = $scope.auth;
+$scope.dados.localizacao.codUsuario = $scope.codUsuario;  
+
+  $http({
+          method: 'POST',
+          url: url + '/ws/goey/rest/public/alterarDadosDashboard2',
+          data: $.param($scope.dados.localizacao),
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).success(function (response) {
+              
+                alert(response.mensagem);
+        })
+            
+}  
+
+// Atualiza Dados Habilitação
+$scope.atualizarDadosHabilitacao = function(){
+
+  var files = $('#imgCnh')[0].files;
+  var exts = ['jpg','jpeg','png'];
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+
+      if (file) {
+        var get_ext = file.name.split('.');
+        get_ext = get_ext.reverse();
+
+        if ($.inArray(get_ext[0].toLowerCase(), exts) > -1) {
+            continue; 
+
+        } else {
+
+          alert('Arquivo inválido');
+          e.preventDefault();
+          $("#cmp-anexos").focus();
+          return false;
+
+        }
+
+      } else return false;
+
+    }
+
+ var formulario = new FormData($("form[name='form3']")[0]);
+ formulario.append('auth', $scope.auth);
+ formulario.append('codUsuario',$scope.codUsuario);
+ formulario.append('img',$scope.dados.habilitacao.imgCnh);
+
+ $.ajax({
+        type: 'POST',
+        url: url + '/ws/goey/rest/public/alterarDadosDashboard3',
+        data: formulario ,
+        processData: false,
+        contentType: false,
+        dataType: "json"
+
+    }).done(function (response) {
+
+      alert(response.mensagem);
+       
+    });
+
+        
+} 
+
+/* ################################################### */
+
+// ########### Alterar Senha ############
+ $scope.alterPass = function () {     
+
+if($scope.dados.pass1 == '' || $scope.dados.pass1 == undefined  ){
+
+ alert("Digite uma senha válida.");
+return false;
+
+}else if($scope.dados.pass1 != $scope.dados.pass2){
+
+ alert("Senhas não conferem.");
+return false;
+
+}else{
+
+        $scope.dados.auth = $scope.auth;
+        $scope.dados.cpf  = $scope.cpf;        
+
+        $http({
+                method: 'POST',
+                url: url + '/ws/goey/rest/public/alterPass',
+                data: $.param($scope.dados),
+
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function (response) {                	  
+                   		                    
+                   		alert(response.mensagem);         
+                    
+                })
+          }
+ } 
+ /* ########### BUSCA ENDEREÇO ############ */ //var ws =        
+$scope.buscarEndereco = function(cep = null){
+
+    if( cep != null && cep.length >= 8){
+
+
+      $http({
+              method: 'POST',
+              url: 'https://www.iptufacil.com.br/ws/goey/rest/public/buscarEndereco',
+              data: $.param({auth:$scope.auth,cep:cep}),
+              headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function (response) {
+                  
+            $scope.dados.localizacao.uf = response.uf;
+            $scope.dados.localizacao.cidade = response.cidade;
+            $scope.dados.localizacao.bairro = response.bairro;
+            $scope.dados.localizacao.logradouro = response.logradouro;
+                    
+            })
+    }
+            
+}         
+/* ######################################### */
+$(".data-locacao").datepicker();
+}]);

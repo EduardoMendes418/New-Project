@@ -1,0 +1,299 @@
+﻿
+
+dashboard.controller("agendarCtrl", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http','distanciaService','GoogleDistanceAPI',
+  function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http,distanciaService,GoogleDistanceAPI) {
+    var vm = this;  
+    
+    $scope.cadastro = [];
+
+    var usuario = JSON.parse(localStorage.getItem('user'));
+    $scope.tipoUsuario = usuario.tipoUsuario;
+    $scope.codUsuario = usuario.codUsuario;
+    $scope.lat = undefined;
+    $scope.lng = undefined;
+
+// Taxa de Cobrança Goey
+$scope.taxaEntregaGoey = function(){
+
+  $http({
+    method: 'POST',
+    url: 'http://ws.goeyja.com.br/ws/goey/rest/public/taxaCobrancaEmpresas',
+    data: $.param({auth:"3f018bfb43591ccb2ef46f10de832160"}),
+
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+  }).success(function (response) {   
+
+   $scope.valorFixo = response.fixo;
+   $scope.valorKm   = response.km;
+
+ }).error(function (response) {
+  Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');
+
+}); 
+}
+
+$scope.taxaEntregaGoey();
+
+// Consultar distancia no google
+$scope.consultarValores = function(){
+
+  var origem   = $("#origem").val() || ""; 
+  var destino1 = $("#destino1").val() || "";
+  var destino2 = $("#destino2").val() || "";
+  var destino3 = $("#destino3").val() || "";
+  var destino4 = $("#destino4").val() || "";
+  var destino5 = $("#destino5").val() || "";
+
+  if(origem == "" || destino1 ==""){
+
+    Flash.create('danger', 'Verifique os campos Obrigatórios', 'large-text');
+    return false;
+
+  }else{
+
+
+$("#btnDistancia").hide();
+$("#aguarde").show();
+
+$scope.origins = [origem];
+$scope.destinations = [destino1,destino2,destino3,destino4,destino5];  
+
+var args = {
+            origins: $scope.origins,
+            destinations: $scope.destinations
+          };
+
+$scope.data = GoogleDistanceAPI
+.getDistanceMatrix(args)
+.then(function(response) {
+        $("#btnDistancia").show();
+        $("#aguarde").hide();
+         $scope.gg = response.rows;         
+         $scope.dist = [];
+         $scope.maiorDistancia  = 0;
+         $scope.distanciaKM = '';
+         var selecionado = $scope.gg.filter(function (isTrue) {            
+            $scope.dist = isTrue.elements;
+          });
+         
+         var sel = $scope.dist.filter(function (isTrue) {            
+            
+            if(isTrue.distance){
+              if(parseFloat($scope.maiorDistancia) < parseFloat(isTrue.distance.text) ) {
+                $scope.maiorDistancia = parseFloat(isTrue.distance.text);
+                $scope.distanciaKM = isTrue.distance.text;
+              } 
+              // AQUI 
+            }
+          });
+         $scope.distanciaKM = $scope.distanciaKM.replace('km','');
+         $scope.distanciaKM = $scope.distanciaKM.replace(',','.');        
+
+          if($scope.distanciaKM != ""){
+             var calcular = ($scope.valorKm * $scope.distanciaKM);
+             var multiplicador = ($scope.total * $scope.valorFixo);
+            $scope.cadastrar.valor =  (calcular + multiplicador) ;
+
+            $scope.cadastrar.distancia = $scope.distanciaKM;
+
+          }else{
+
+            Flash.create('info', 'Desculpe! Ocorreu um erro. Tente novamente.', 'large-text');
+            return false;
+          }
+          
+
+       })
+}
+}
+// FUNÇÃO AGENDAR ENTREGAS
+$scope.agendarEntrega = function(){
+ $scope.dados = {}; 
+ //$scope.dados = $scope.cadastrar;
+ $scope.dados.auth =  '3f018bfb43591ccb2ef46f10de832160'; 
+ $scope.dados.tipoUsuario = usuario.tipoUsuario;
+ $scope.dados.codUsuario = usuario.codUsuario;
+ $scope.dados.destino2 = $("#destino2").val();
+ $scope.dados.destino3 = $("#destino3").val();
+ $scope.dados.destino4 = $("#destino4").val();
+ $scope.dados.destino5 = $("#destino5").val();
+ $scope.dados.distancia= $("#distancia").val();
+ $scope.dados.valor    = $scope.cadastrar.valor;
+
+ if($("#origem").val() == ""){
+
+    Flash.create('danger', 'O campo origem é obrigatório.', 'large-text');
+    return false;
+
+ }else{
+
+    $scope.dados.origem = $("#origem").val();
+ }
+
+ if($("#destino1").val() == ""){
+
+    Flash.create('danger', 'O campo destino é obrigatório.', 'large-text');
+    return false;
+    
+ }else{
+
+    $scope.dados.destino1 = $("#destino1").val();
+ }
+
+ if($("#tipo").val() == ""){
+
+    Flash.create('danger', 'O campo tipo de objeto é obrigatório.', 'large-text');
+    return false;
+    
+ }else{
+
+    $scope.dados.objeto = $("#tipo").val();
+ }
+
+
+ if($("#responsavel").val() == ""){
+
+    Flash.create('danger', 'O campo responsável é obrigatório.', 'large-text');
+    return false;
+
+ }else{
+
+    $scope.dados.responsavel = $("#responsavel").val();
+ }
+
+
+ if($("#descricao").val() == ""){
+
+    Flash.create('danger', 'O campo descrição é obrigatório.', 'large-text');
+    return false;
+    
+ }else{
+
+    $scope.dados.descricao = $("#descricao").val();
+ }
+
+if($("#observacao").val() == ""){
+
+    Flash.create('danger', 'O campo observação é obrigatório.', 'large-text');
+    return false;
+    
+ }else{
+
+    $scope.dados.observacao = $("#observacao").val();
+ }
+
+if($("#dataAgenda").val() == ""){
+
+    Flash.create('danger', 'O campo agendar é obrigatório.', 'large-text');
+    return false;
+    
+ }else{
+
+    $scope.dados.dataAgenda = $("#dataAgenda").val();
+ }
+ 
+  if($scope.total == 2 &&  $scope.dados.destino2 ==  ""){
+
+      Flash.create('danger', 'O campo segundo destino é obrigatório.', 'large-text');
+      return false;
+
+  }
+   if($scope.total == 3 &&  $scope.dados.destino3 ==  ""){
+
+      Flash.create('danger', 'O campo terceiro destino é obrigatório.', 'large-text');
+      return false;
+
+  }
+   if($scope.total == 4 &&  $scope.dados.destino4 ==  ""){
+
+      Flash.create('danger', 'O campo quarto destino é obrigatório.', 'large-text');
+      return false;
+
+  }
+  if($scope.total == 5 &&  $scope.dados.destino5==  ""){
+
+      Flash.create('danger', 'O campo quinto destino é obrigatório.', 'large-text');
+      return false;
+
+  }
+
+$("#btnAgendar").hide();  
+$("#aguarde2").show();  
+   $http({
+    method: 'POST',
+    url: 'http://ws.goeyja.com.br/ws/goey/rest/public/cadastrarEntregas',
+    data: $.param($scope.dados),
+
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+  }).success(function (response) {
+
+
+$("#aguarde2").hide(); 
+$("#btnAgendar").show(); 
+
+    if(response.retorno == 1){
+     Flash.create('success', response.mensagem, 'large-text');
+     $scope.cadastrar = "";
+     $scope.total = 1; 
+
+   }else{                        
+
+     Flash.create('info', response.mensagem, 'large-text'); 
+
+   }
+
+ }).error(function (response) {
+  Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');
+
+}); 
+
+}
+
+
+$scope.total = 1;
+$scope.addDestino = function(){
+  var total = $scope.total;
+
+  if(total == 1){
+   $("#destino2").css("display","block");
+   $scope.total = 2; 
+ }
+ if(total == 2){
+   $("#destino3").css("display","block");
+   $scope.total = 3;  
+ }
+ if(total == 3){
+   $("#destino4").css("display","block");
+   $scope.total = 4;  
+ }
+ if(total == 4){
+   $("#destino5").css("display","block"); 
+   $scope.total = 5; 
+ }
+
+ if(total == 5){
+  Flash.create('info', 'Somente 5 destinos. ', 'large-text');
+}
+
+}
+
+
+$scope.removerDestino = function(){
+  var rem = $scope.total;
+
+  if(rem >1){
+
+    $("#destino"+ rem).val("");
+    $("#destino"+ rem).hide();
+    $scope.total = rem-1;
+
+  }
+
+}
+
+
+$( ".datepicker" ).datepicker({
+  locale: 'pt-br'
+});
+
+}]);

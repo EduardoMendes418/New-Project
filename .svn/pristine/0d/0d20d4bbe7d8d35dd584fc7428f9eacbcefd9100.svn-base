@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/locacaoNova.css">
+</head>
+<body>
+  <section>
+    <div class="container">
+      <!--***********##################### NAV DESKTOP ##################****************--> 
+      <nav class="navbar navbar-expand navbar-dark"  id="dektopmenu">
+        <div class="container">
+          <div class=".col-6 .col-sm-4 col-md-6">
+            <a class="navbar-brand linkdaImglogo" href="#">
+              <img src="images/locacao/logo.png"  class="navbarlogo">
+            </a> 
+          </div> 
+          <div class=".col-6 .col-sm-4 col-md-6 navlogin" >
+            <a data-toggle="modal" data-target="#elegantModalForm" class="navlinkModal"  id="btn" class="img-responsive">
+              <img src="images/home/usuario.png" class="user-image loginImg " alt="User Image" /> 
+              LOGIN
+            </a>    
+          </div>
+        </div>
+      </nav>
+      <!-- ***********##################### NAV MENU ##################****************--> 
+      <nav id="Mobilemenu">
+       <div class="container">
+        <nav role="navigation" class="col-md-12 navMenuMobile" >
+          <div class="row">
+            <div id="menuToggle"  class="Menu"   class="col-md-6" >
+              <input type="checkbox" />
+              <span></span>
+              <span></span>
+              <span></span>
+              <ul id="menu">
+               <li>
+                 <a  data-toggle="modal" data-target="#elegantModalForm"   >
+                  <img src="images/home/usuario.png"  class="loginUsuario"/> 
+                  LOGIN
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-6"  style="text-align: center;">
+            <a href="" >
+             <img src="images/locacao/logo.png"  class="logoLocacao">
+           </a>
+         </div>
+       </div>
+     </div>
+   </nav>
+   <!-- ***********##################### LOGIN DA GOEY ##################****************--> 
+   <div class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+   aria-hidden="true">
+   <div class="modal-dialog" role="document">
+    <div class="modal-content form-elegant"  id="modal-login">
+      <div class="container-fluid">
+        <div class="row no-gutter">
+          <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+          <div class="col-md-8 col-lg-6">
+            <div class="login d-flex align-items-center py-5">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12 col-lg-12 ">
+                    <h3 class="login-heading mb-4">Bem-vindo! GOEY</h3>
+                    <form>
+                      <div class="form-group">
+                        <input id="login-username1" type="text" class="form-control" name="username1" placeholder="CPF"  required ng-model="validation.cpf" autocomplete="off" ui-br-cpf-mask>
+                      </div>
+                      <div class="form-group">
+                       <input id="login-password" type="password" class="form-control" name="password" placeholder="SENHA" required ng-model="validation.pass" autocomplete="off">
+                     </div>
+                     <div class="form-group " id="recap">
+                      <div class="g-recaptcha" data-sitekey="6LeaQHQUAAAAAC7KVG-vv0zbA4ZG8I5rf597HX31"></div>
+                    </div>
+                    <div class="form-group">
+                      <input type="button" id="logUser" class="btnSubmit" value="Entrar" ng-click="logUser()"/>
+                      <div class="load" id="login" style="display: none;"> 
+                        <img src="./images/gif/loading-saritur.gif" style=" width: 60px;"></div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-md-12 esqueceusenha"  >
+                          <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">        
+                            Esqueceu sua Senha?
+                          </a>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ***********##################### RECUPERAR SENHA ##################****************-->     
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          <div class="col-md-9 "  style="margin: auto;">
+            <div class="panel panel-info">
+              <!-- recuperacao de senha-->
+              <div class="panel-body esquecer">
+                <h2 style="color: #000">Recupere sua Senha</h2>
+                <div class="form-group">
+                  <div class="col-sm-12   col-md-12">
+                    <label>Email *</label>
+                    <input type="email" class="form-control" name="recovery.email" placeholder="Seu Email"  ng-model="recovery.email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-12   col-md-12">
+                    <label>CPF *</label>
+                    <input type="text" class="form-control" name="recovery.cpf" placeholder="Seu CPF"  ng-model="recovery.cpf" ui-br-cpf-mask>
+                  </div>
+                </div>
+                <div class="form-group">
+                 <div class="col-sm-12   col-md-12">
+                  <label>Senha *</label>
+                  <input id="login-password31" type="password" class="form-control" name="password" placeholder="No mínimo 8 caracteres" ng-model="recovery.pass1" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-12   col-md-12">
+                  <label>Confirmar Senha *</label>
+                  <input id="login-password32" type="password" class="form-control" name="password" placeholder="Confirmar Senha" ng-model="recovery.pass2" required>
+                </div>
+              </div>
+              <div class="col-sm-12   col-md-12 margin-top-20">
+                <div class="col-sm-12 col-md-12 confirma"  >
+                  <button type="submit" id="recoveryPass" id="btnconfirma" class="btn btn-block btn-successs" ng-click="recoveryPass()">
+                    Confirmar
+                  </button>
+                  <div class="load" id="login" style="display: none;"> 
+                    <img src="./images/gif/loading-saritur.gif" style=" width: 60px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ***********##################### BLOCO CARRO ##################****************--> 
+<section>
+  <div class="container">
+    <div class="container blocoCarro" id="espaçoCarro" >
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 combutivel">
+          <img  src="images/locacaoVeiculosNovos/goeyCombustivel.png" class="img-responsive">
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 aluguel">
+          <h2 >Alugue seu veículo e receba um <b>limite de crédito</b> de até<b> R$500,00</b> para usar em *postos de combustível.</h2>
+          <p>A Goey Mobilidade Inteligente é uma startup focada no aluguel de veículos para pessoas que utilizam o veículo como ferramenta de trabalho. Fique tranquilo, não há necessidade de cartão de crédito para locação.<b class="limite" > **Limite de crédito utilizável apenas na rede conveniada**</b>
+          </p>
+          <button onclick="ancora('alugar')">Quero alugar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ***********##################### CARRO RENAULT ##################****************--> 
+<section>
+  <div class="container bloco01" id="espaço" ">
+   <div class="row">
+    <div class="  col-sm-12 col-md-6 col-lg-3  col-xl-3">
+     <div class="card3 ">
+      <div class="card-body" id="bordaMobile">
+       <div  >
+        <a id="alugar"></a> 
+        <h3>Renault KWID</h3>
+      </div>
+      <div id="borda-mobi">
+       <div class="card  col-sm-12 col-md-12" id="texto">
+         <p>Ideal para Motoristas de Aplicativo que buscam um carro compacto e econômico.</p>
+         <p id="ideal">T</p> 
+         <div class="card">
+           <img class="" src="images/locacaoVeiculosNovos/kwid.png" class="img-responsive" >
+         </div>
+         <div class="valores">
+           <p>A PARTIR DE</p>
+           <p class="dia"><label>R$ 65,99</label>/dia</p>
+         </div>
+       </div>
+     </div>
+     <div class="d-flex justify-content-between align-items-center"></div>
+   </div>
+   <button   data-toggle="modal" data-target="#modal-locacao" ng-click="modalDefault(); proposta.tipoVeiculo = 5; proposta.modeloVeiculo = 2468"> Enviar Proposta de Locação</button>
+ </div>
+</div>
+<!-- ***********##################### Carretinha ##################****************--> 
+<div class="col-sm-12 col-md-6 col-lg-3  col-xl-3">
+ <div class="card3 ">
+  <div class="card-body" id="bordaMobile">
+   <div>
+     <h3>Carretinha Cargo</h3>
+   </div>
+   <div id="borda-mobi">
+     <div class="card  col-sm-12 col-md-12" id="texto">
+       <p>Aerodinâmicos e leves. Perfeito para suas entregas e-comerce, mercados e outros. Carga de até 750kg.</p>
+       <div class="card">
+         <img class="" src="images/locacaoVeiculosNovos/goey_Trailer.png" class="img-responsive">
+       </div>
+       <div class="valores">
+         <p>A PARTIR DE</p>
+         <p class="dia"><label>R$ 69,99</label>/dia</p>
+       </div>
+     </div>
+   </div>
+   <div class="d-flex justify-content-between align-items-center"></div>
+ </div>
+ <button type="button" class="price"  data-toggle="modal" data-target="#modal-locacao" ng-click="modalDefault(); proposta.tipoVeiculo = 7; proposta.modeloVeiculo = 2470">
+  Enviar Proposta de Locação
+</button> 
+</div>
+</div>
+<!-- ***********##################### HONDA CARGO ##################****************--> 
+<div class=" col-sm-12 col-md-6 col-lg-3  col-xl-3">
+ <div class="card3 ">
+  <div class="card-body" id="bordaMobile">
+   <div  >
+     <h3>Honda Cargo 160</h3>
+   </div>
+   <div id="borda-mobi">
+     <div class="card  col-sm-12 col-md-12" id="texto">
+       <p>A moto ideal para Motofretistas. Com a Cargo 160 você tem conforto, robustez e economia. Uma máquina de trabalhar.</p>
+       <div class="card">
+         <img class="" src="images/locacaoVeiculosNovos/goey_motosb.png" class="img-responsive">
+       </div>
+       <div class="valores">
+         <p>A PARTIR DE</p>
+         <p class="dia"><label>R$ 36,99</label>/dia</p>
+       </div>
+     </div>
+   </div>
+   <div class="d-flex justify-content-between align-items-center"></div>
+ </div>
+ <button    data-toggle="modal" data-target="#modal-locacao" ng-click="modalDefault(); proposta.tipoVeiculo = 2; proposta.modeloVeiculo = 2463">Enviar Proposta de Locação</button>
+</div>
+</div>
+<div class=" col-sm-12 col-md-6 col-lg-3 col-xl-3"></div>
+<!-- ***********#####################  CLIENTE SAO PAULO ##################****************--> 
+<div  id="trailerSp">
+  <div class="container">
+    <div  class="row">
+      <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8" >
+        <h2>Estamos chegando em SP.<br>Mais um ponto de retirada/devolução.</h2>
+        <p><label class="porvoce" >Por você, é por isso que estamos aqui.</label> É uma satisfação para Goey percorrer uma milha extra para pessoas que servem a nossa comunidade. Nosso foco está no valor do trabalho, espírito de equipe e simplesmente fazer a coisa certa não importa o momento. Agora também em São Paulo,<a href="https://www.google.com/maps/place/R.+Bruno+Bauer,+66+-+Vila+Leopoldina,+S%C3%A3o+Paulo+-+SP,+05314-020/@-23.5309898,-46.7413715,17z/data=!3m1!4b1!4m5!3m4!1s0x94cef8b74136d4dd:0x9922b717948d0fce!8m2!3d-23.5309898!4d-46.7391828" style="color: #4865A9"> Rua Bruno Bauer, 66 / Vila Leopoldina </a>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4" >
+          <a href="https://www.google.com/maps/place/R.+Bruno+Bauer,+66+-+Vila+Leopoldina,+S%C3%A3o+Paulo+-+SP,+05314-020/@-23.5309898,-46.7413715,17z/data=!3m1!4b1!4m5!3m4!1s0x94cef8b74136d4dd:0x9922b717948d0fce!8m2!3d-23.5309898!4d-46.7391828" >
+            <img class="img-responsive" src="images/locacaoVeiculosNovos/traileroffice_SP.png"  >
+          </a>
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
+</div>
+<!-- ***********##################### FOMRULARIO  LOCACAO ##################**************** -->
+<div class="modal fade bd-example-modal-lg3" id="modal-locacao"  aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header modalLogo">  
+        <img src="images/locacao/logo.png"  > 
+        <a  class="close" data-dismiss="modal" aria-label="Close" ng-click="modalDefault">
+          <span aria-hidden="true">×</span>
+        </a>                            
+      </div>
+      <div class="modal-body" id="bloco1" >
+        <div class="container-fluid">
+          <div class="row ">
+            <div class="col-md-12 formulario" >
+              <form id="msform" name="msform">
+               <div class="form-group col-sm-12 col-md-8">
+                <label>Nome Completo: *</label>
+                <input type="text" capitalize class="form-control " name="nome" id="nome" ng-model="proposta.nome" required  autocomplete="off">
+                <input type="hidden"  name="img" id="img" ng-model="proposta.img">
+                <input type="hidden"  name="completo" id="completo" ng-model="proposta.completo">
+              </div>
+              <div class="form-group col-sm-12 col-md-4">
+                <label>CPF:*</label>
+                <input type="text"  ng-model="proposta.cpf" name="cpf" id="cpf1" class="form-control" ui-br-cpf-mask  ng-change="verificaCpf(proposta.cpf)">                              
+              </div>
+              <div class="form-group col-sm-12 col-md-6">
+                <label >E-mail *</label>
+                <input type="email"  name="email"  id="email"  ng-model="proposta.email" class="form-control" />
+              </div>  
+              <div class="form-group col-sm-12 col-md-6">
+                <label >Celular *</label>
+                <input type="text" capitalize class="form-control" name="celular" id="celular" ng-model="proposta.celular" ui-br-phone-number ng-minlength="15"/>
+              </div>
+              <div class="form-group col-sm-12 col-md-6">
+               <label >Veículo *</label>
+               <select class="form-control" name="tipoVeiculo" id="tipoVeiculo" ng-model="proposta.tipoVeiculo" ng-options="item1.tipo as item1.veiculo for item1 in tipoVeiculo" >                                         
+               </select>
+             </div>
+             <div class="form-group col-sm-12 col-md-6">
+              <label >Modelo *</label>
+              <select class="form-control" name="modeloVeiculo" id="modeloVeiculo" ng-model="proposta.modeloVeiculo" ng-options="item2.idModelo as item2.modelo for item2 in modeloVeiculo | filter:{ tipo : proposta.tipoVeiculo }" >
+                <option value="">-- SELECIONE --</option>                            
+              </select>
+            </div>
+            <!--<div ng-if="proposta.tipoVeiculo == 2" class="form-group col-sm-12 col-md-6" ng-init="proposta.acessorio = 0" >
+                <label >Acessório *</label>
+                <select class="form-control" name="acessorio" id="acessorio" ng-model="proposta.acessorio" >                            
+                  <option value="0"> Sem Acessório </option>
+                  <option value="1"> Baú </option>
+                </select>
+              </div>-->
+              <div ng-if="proposta.tipoVeiculo == 2" class="form-group col-sm-12 col-md-6" ng-init="proposta.tipoProtecao = 3">
+                <label >Proteção *</label>
+                <select class="form-control" name="tipoProtecao" id="tipoProtecao" ng-model="proposta.tipoProtecao" ng-options="modelo.idProtecao as modelo.protecao for modelo in tipoProtecao" >
+                  <option value="">-- Selecione --</option>                                                    
+                </select>
+              </div>
+              <div class="form-group col-sm-12 col-md-3">
+                <label >Data Início *</label>                    
+                <input type="text" class="form-control data-locacao" name="dataInicio" id="dataInicio" ng-model="proposta.dataInicio" ng-change="periodoLocacao(proposta.dataInicio)" autocomplete="off" />
+              </div>
+              <div class="form-group col-sm-12 col-md-3">
+                <label >Data Final *</label>
+                <input type="text" class="form-control data-locacao" name="dataFim" id="dataFim" autocomplete="off" ng-model="proposta.dataFim" disabled >
+              </div>
+              <div class="form-group col-sm-12 col-md-6">
+                <label >Local Retirada *</label>
+                <select class="form-control" name="localRetirada" id="localRetirada" ng-model="proposta.localRetirada" >
+                  <option value="" selected> -- Selecione -- </option>
+                  <option value="1">Campinas</option>   
+                  <option value="2">São Paulo</option>                                               
+                </select>                        
+              </div>
+              <div ng-show="proposta.completo == 'nao'">
+                <div class="form-group col-xs-12 col-md-12">
+                  <label for="cnh">Foto CNH *</label>
+                  <input type="file" class="form-control-file" id="imgCnh" name="imgCnh" >
+                </div>
+              </div>
+              <div class="form-group col-xs-12 col-md-12">
+                <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-11 recap">
+                    <div class="g-recaptcha"  data-sitekey="6LeaQHQUAAAAAC7KVG-vv0zbA4ZG8I5rf597HX31"></div> 
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-xs-12 col-md-12">
+                <div class="row">
+                 <div class="col-md-12 cadatroBtnPro">
+                  <button  id="btn-cadastro-proposta"  ng-click="cadastroUsuarioLocacao2();" >Enviar</button>
+                  <br>
+                  <div class="loadUsuLocacao" id="loadUsuLocacaoGif" style="display: none;"> 
+                    <img src="./images/gif/loading-saritur.gif" >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row" id="bloco-2" style="display: none">
+              <div class="col-sm-12 col-md-4">
+                <p>Veículo </p>
+                <p ng-if="proposta.tipoVeiculo == 2">Proteção </p>
+              </div>
+              <div class="col-sm-12 col-md-8">
+                <p>{{simulacao.tipoVeiculo}}</p>
+                <p ng-if="proposta.tipoVeiculo == 2">{{simulacao.tipoProtecao}}</p>
+              </div>                     
+            </div>
+          </form>   
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***********##################### JA SOU CLIENTE ##################****************--> 
+  <div class="modal-body" id="bloco2">
+    <div class="container login-container"  style="width: 100%;">
+      <div class="row">
+        <div class="col-md-12 formulario" >
+          <div class="col-md-6 login-form-1">
+            <h3>Já sou cliente</h3>
+            <form>
+              <div class="form-group">
+                <input id="login-username2" type="text" class="form-control" name="username2" placeholder="CPF"  required ng-model="validation.cpf">
+              </div>
+              <div class="form-group">
+               <input id="login-password3" type="password" class="form-control" name="password3" placeholder="Senha" required ng-model="validation.pass">
+             </div>
+             <div class="form-group " id="reacpLogin">
+               <div class="g-recaptcha" style="margin-left: 0px !important;" data-sitekey="6LeaQHQUAAAAAC7KVG-vv0zbA4ZG8I5rf597HX31"></div>
+             </div>
+             <div class="form-group">
+              <input type="submit" id="logUser2" class="btnSubmit" value="Entrar" ng-click="logUser()"/>
+              <br>
+              <div class="load" id="login" style="display: none;"> 
+                <img src="./images/gif/loading-saritur.gif" style=" width: 60px;">
+              </div>
+            </div>
+            <div class="form-group">
+              <span class="pull-left">
+                <a href="#" data-ng-click="vm.signIn=false;" >Esqueceu sua Senha?</a>
+              </span>
+            </div>
+          </form>
+        </div>
+        <!-- ***********##################### CRIAR UMA CONTA ##################****************--> 
+        <div class="col-md-6 login-form-2" >
+          <h3>Quero criar uma conta</h3>
+          <form>
+            <div class="form-group">
+              <input type="hidden"  ng-model="login.codUsuario" name="login-codUsuario" id="login-codUsuario"> 
+              <input type="text"  ng-model="login.cpf" name="cpf" id="cpf"  placeholder="CPF" class="form-control" ui-br-cpf-mask required>                                     
+            </div>
+            <div class="form-group">
+             <input id="login-password4" type="password" class="form-control" name="password4" placeholder="Senha" ng-model="login.pass1" required>
+           </div>
+           <div class="form-group">
+             <input id="login-password5" type="password" class="form-control" name="password5" placeholder="Confirmar Senha" ng-model="login.pass2" required>
+           </div>
+           <div class="form-group " id="reacpLogin">
+            <div class="g-recaptcha" style="margin-left: 0px !important;" data-sitekey="6LeaQHQUAAAAAC7KVG-vv0zbA4ZG8I5rf597HX31"></div>
+          </div>
+          <div class="form-group">
+            <input type="submit" id="createPass" class="btnSubmit" value="Enviar" ng-click="createPass()"/>
+            <br>
+            <div class="loadConta" id="loginContaGif" style="display: none;"> 
+              <img src="./images/gif/loading-saritur.gif" style=" width: 60px;">
+            </div>
+          </div>
+          <div class="form-group">
+            <span class="pull-left">
+              <a href="#"  style="color: #fff !important">Esqueceu sua Senha?</a>
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ***********##################### PERGUNTAS FREQUENTES ##################****************--> 
+<section>
+  <div class="jumbotronLoca">
+    <div class="container" id="espaço" >
+      <div class="card-deck mb-3 text-left">
+        <div class="row">
+          <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div class="card mb-4">
+             <div class="card-body">
+              <div  id="perguntas">
+                <h3>Perguntas Frequentes</h3>
+                <div class="linha-faq"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+          <div class="card mb-4" id="vantagens"> 
+           <div class="card-body">
+            <b>— Aluguel mensal, vantagens ?</b>
+            <p>  A locação da GOEY Mobilidade Inteligente é um novo produto para clientes Pessoa Física ou Pessoa Jurídica que oferece mobilidade, flexibilidade e economia. O aluguel conta com tarifa especial para locação por, pelo menos, 30 dias. Você tem a praticidade de contar com um veículo sempre novo, não precisa, se preocupar com financiamento, depreciação, custos de manutenção, emplacamento, IPVA, seguro do carro e licenciamento. Conte ainda com toda a assistência da GOEY e, em caso de manutenção do veículo alugado, você tem direito a veículo reserva.</p>
+            <b>— Como posso fazer minha reserva ?</b>
+            <p> Faça a reserva pelo site goeyja.com.br/locacao preenchendo o formulário para análise. Você precisar ter no mínimo 21 anos, pelo menos 2 anos de habilitação, para carro/moto.  Para locação do veículo você não precisa possuir cartão de crédito com limite suficiente para realização do pagamento antecipado, o pagamento será feito via Boleto Bancário, uma oportunidade a mais para você.</p>
+            <b>— Preciso devolver o carro antes do período contratado ?</b>
+            <p> Você tem a flexibilidade de devolver o veículo a qualquer momento. Caso a devolução seja feita antes do 30º dia, será cobrado um valor de tarifa correspondente ao período utilizado.</p>
+            <b>— Em caso de multas, o que acontece ? </b>
+            <p>Em caso de multas por infrações de trânsito aplicadas ao veículo, o responsável pelo contrato receberá um e-mail com a notificação, o valor efetivo a ser pago e um formulário de indicação do real infrator. O valor da infração será cobrado com acréscimo de 20%.</p>
+            <b>— Como prorrogar a locação de um veículo ?</b>
+            <p>Só entrar em contato com a GOEY solicitando a prorrogação. O pagamento será realizado de forma automática no boleto bancário.</p>
+            <b>— Posso alugar mais de um veículo ?</b>
+            <p>Sim, você pode ter mais de um veículo alugado com a GOEY simultaneamente, essa aprovação dependerá da análise de crédito. Casos serão analisados individualmente pela nossa equipe.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+        <div class="card mb-4" id="vantagens" >
+          <div class="card-body">
+            <b>— Preciso pagar antecipado ?</b>
+            <p>  Para a locação do veículo o pagamento será feito posteriormente via Boleto Bancário, será feita análise prévia de crédito. Caso haja necessidade de caução será solicitado um depósito prévio.</p>
+            <b>— Tenho restrição no CPF, posso alugar um veículos ?</b>
+            <p>Pode! Os casos serão analisados individualmente poderá ser solicitado avalistas e garantidores. Ficando a único e exclusivo critério da GOEY a aprovação ou não do crédito.</p>
+            <b>— Se algum veículo der alguma pane ?</b>
+            <p>  Entre em contato imediatamente com a Assistência a Clientes para obter todas as orientações necessárias.</p>
+            <b>— Onde fazer a retirada e devolução do veículo ?</b>
+            <p>Veículo será entregue no endereço de cadastro.</p>
+            <b>—  Como devo devolver o veículo ?</b>
+            <p> O veículo deve ser entregue nas mesmas condições em que foi recebido:<br> 
+             • Carro/Moto: Com o tanque de combustível completo;<br>
+             • Em estado físico igual ao verificado no check-in da entrega;<br>
+             • Limpo o suficiente para conferir o estado da carroceria.<br>
+           Na devolução, caso o carro/moto não esteja totalmente abastecido, será cobrado o reembolso referente à despesa de abastecimento dos mesmos. Por se tratar de leitura com valores aproximados, a cobrança do combustível poderá sofrer variação em relação ao posto de abastecimento em até 30% (trinta por cento) para mais ou menos. Caso o carro/moto alugado tenha percorrido menos de 100 (cem) quilômetros e o marcador de combustível não sofra alteração, será cobrado o combustível com base na estimativa de consumo.</p>
+           <b>— Se roubarem o veículo, eu pago alguma coisa ?</b>
+           <p>Sim. Nesse caso, será cobrado o valor referente à Indenização por Custos Operacionais. Esse valor depende do grupo de carro e tarifa contratados.</p>
+           <b>— Posso fazer caução em dinheiro/cheque ?</b>
+           <p>Sim. Nos pacotes, flexibilizamos a realização da caução mediante pagamento antecipado da locação em cartão de crédito. Caso o pagamento antecipado seja em dinheiro ou debito, é obrigatória a caução em dinheiro.</p>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+</div>
+</section>
+<!-- ***********##################### FOOTER GOEY ##################****************-->
+<section  id="footer"> 
+ <div class="container">
+  <div>
+    <div class=" col-sm-12 col-md-6 col-lg-6 col-xl-6" id="padding0">
+      <h2>Faça seu dinheiro trabalhar por você, invista em um veículo para locação.</h2>
+      <a  href="https://www.goeyja.com.br/#/rendagarantida">
+        <button >Conhecer a renda garantida</button>
+      </a>
+    </div>
+    <div class=" col-sm-12 col-md-6 col-lg-6 col-xl-6" id="padding1">
+      <img class="img-responsive" src="images/locacaoVeiculosNovos/carroFooter.png" >
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="col-sm-12 col-md-12  col-md-12 col-lg-12 col-xl" id="padding0">
+    <p>Coisas boas acontecem quando as<br> pessoas podem se movimentar.</p>
+  </div> 
+</div>
+<div class="linha-footer col-sm-12 col-md-12 col-lg-12 col-xl-12 "></div>
+<div id="footer-mobilidade" id="padding0">
+ <div class="container">
+  <div class="col-sm-3  col-md-3 col-lg-3 col-xl-3 " id="padding0" >
+    <h6> GOEY Mobilidade Inteligente.</h6>
+  </div>    
+  <div class="col-sm-6  col-md-6 col-lg-6 col-xl-6" id="padding0">
+    <h6>Você também pode nos contactar pelo telefone   
+      <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5519983320031">
+        <b> +55 (19) 98332-0031</b>
+      </a> ou 
+      <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5519984211515">
+        <b>+55 (19) 98421-1515</b>
+      </a>
+    </h6>
+  </div>    
+  <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+   <h5> 
+    <a href="https://www.facebook.com/goeyja">
+     <img src="images/investimento/face.png" alt="">
+   </a>
+   <a href="https://www.instagram.com/goeyja/">
+     <img src="images/investimento/insta.png" alt="">
+   </a>
+   <a href="https://linkedin.com/company/ddtotal">
+     <img src="images/investimento/link.png" alt="">
+   </a>
+ </h5>
+</div>
+</div>
+</div>
+</section>
+</body>
+</html>
+<!-- ***********##################### FUNCAO JAVASCRIPT ##################****************--> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<script>
+  $(document).ready(function(){
+    var current_fs, next_fs, previous_fs; 
+    var opacity;
+
+    $(".next").click(function(){
+      current_fs = $(this).parent();
+      next_fs = $(this).parent().next();
+
+      //Add Class Active
+      $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+      //show the next fieldset
+      next_fs.show();
+
+      //hide the current fieldset with style
+      current_fs.animate({opacity: 0}, {
+        step: function(now) {
+
+      // for making fielset appear animation
+      opacity = 1 - now;
+
+      current_fs.css({
+        'display': 'none',
+        'position': 'relative'
+      });
+      next_fs.css({'opacity': opacity});
+    },
+    duration: 600
+  });
+    });
+
+    $(".previous").click(function(){
+      current_fs = $(this).parent();
+      previous_fs = $(this).parent().prev();
+
+    //Remove class active
+    $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+    //show the previous fieldset
+    previous_fs.show();
+
+    //hide the current fieldset with style
+    current_fs.animate({opacity: 0}, {
+      step: function(now) {
+    // for making fielset appear animation
+    opacity = 1 - now;
+
+    current_fs.css({
+      'display': 'none',
+      'position': 'relative'
+    });
+    previous_fs.css({'opacity': opacity});
+  },
+  duration: 600
+});
+
+  });
+
+    $('.radio-group .radio').click(function(){
+      $(this).parent().find('.radio').removeClass('selected');
+      $(this).addClass('selected');
+    });
+
+    $(".submit").click(function(){
+      return false;
+    })
+  });
+  //****************  FUNÇOES ANCORA ******************* 
+  function ancora(id_ancora){
+    var top = $("#"+id_ancora).offset().top-50
+    $('html, body').stop().animate({
+      'scrollTop': top
+    }, 1000, 'swing', function () {   
+    }); 
+  } 
+  $(function(){
+    $("[data-toggle='bottom']").click(function(){
+      $("html, body").animate({ scrollTop: $(document).height() }, );
+    });
+  });
+    //****************  FIM DA ANCORA ******************* 
+  </script>
+
+
+
+
+
+
+
+

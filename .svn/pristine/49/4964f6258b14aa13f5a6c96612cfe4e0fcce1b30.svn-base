@@ -1,0 +1,242 @@
+﻿
+home.controller("homeCtrl", ['$rootScope', '$scope', '$state', '$location', 'loginService', 'Flash','apiService','$http','distanciaService','GoogleDistanceAPI',
+function ($rootScope, $scope, $state, $location, loginService, Flash, apiService,$http,distanciaService,GoogleDistanceAPI) {
+        var vm = this;
+
+          $scope.pg1 = "pg1.html";
+          $scope.totalKm = 0;
+          $scope.totalDuracao = 0;
+          $scope.totalValores = 0;
+
+//FUNCAO DO FORMULARIO CONTATO
+    $scope.enviarEmail = function(){
+
+        var destinatario = 'contato@goeyja.com.br';
+        var copia = '';
+        var assunto = 'Contato - Site goey';
+        var nome = $scope.demail.nome || '';
+        var email = $scope.demail.email || '';
+        var tel = $scope.demail.tel || '';
+        var desc = $scope.demail.desc || '';
+
+        var descricao = "Nome: "+nome+"<br/>"+
+                        "Email: "+email+"<br/>"+                       
+                        "Telefone: "+tel+"<br/>"+
+                        '<br/>'+desc;
+
+        var url = "http://ws.goeyja.com.br/ws/geral/public/enviarEmail";
+                $http.post(url, ({
+                      destinatario: destinatario,
+                      copia: copia,
+                      assunto: assunto,
+                      descricao: descricao
+                })
+                ).then(function(response){
+                  console.log(response);
+                   alert(response.data.mensagem)
+                }, function(response){
+                    console.log(response);
+                });
+    }
+
+
+// Valores de Taxa de entrega
+$scope.taxaEntregaGoey = function(){
+
+  $http({
+    method: 'POST',
+    url: 'http://ws.goeyja.com.br/ws/goey/rest/public/taxaCobrancaEmpresas',
+    data: $.param({auth:"3f018bfb43591ccb2ef46f10de832160"}),
+
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+  }).success(function (response) {   
+
+   $scope.valorFixo = response.fixo;
+   $scope.valorKm   = response.km;
+
+ }).error(function (response) {
+  Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');
+
+}); 
+}
+
+$scope.taxaEntregaGoey();
+
+// Consultar distancia no google
+$scope.consultarValores = function(){
+
+  var origem   = $("#origem").val() || ""; 
+  var destino1 = $("#destino1").val() || "";
+  var destino2 = $("#destino2").val() || "";
+  var destino3 = $("#destino3").val() || "";
+  var destino4 = $("#destino4").val() || "";
+  var destino5 = $("#destino5").val() || "";
+
+  if(origem == "" || destino1 ==""){
+
+    Flash.create('danger', 'Verifique os campos Obrigatórios', 'large-text');
+    return false;
+
+  }else if($scope.total >= 2 && destino2 == ""){
+
+  Flash.create('danger', 'Verifique o campo destino 2', 'large-text');
+  return false;
+
+  }else if($scope.total >= 3 && destino3 == ""){
+
+  Flash.create('danger', 'Verifique o campo destino 3', 'large-text');
+  return false;
+
+  }else if($scope.total >= 4 && destino4 == ""){
+
+  Flash.create('danger', 'Verifique o campo destino 4', 'large-text');
+  return false;
+
+  }else if($scope.total >= 5 && destino5== ""){
+
+  Flash.create('danger', 'Verifique o campo destino 5', 'large-text');
+  return false;
+
+  }else{
+
+
+$("#btnDistancia").hide();
+$("#aguarde").show();
+
+$scope.origins = [origem];
+$scope.destinations = [destino1,destino2,destino3,destino4,destino5];  
+
+var args = {
+            origins: $scope.origins,
+            destinations: $scope.destinations
+          };
+
+$scope.data = GoogleDistanceAPI
+.getDistanceMatrix(args)
+.then(function(response) {
+        $("#btnDistancia").show();
+        $("#aguarde").hide();
+         $scope.gg = response.rows;         
+         $scope.dist = [];
+         $scope.maiorDistancia  = 0;
+         $scope.distanciaKM = '';
+
+    var selecionado = $scope.gg.filter(function (isTrue) {            
+            $scope.dist = isTrue.elements;
+          });
+         
+        var sel = $scope.dist.filter(function (isTrue) {            
+            
+	            if(isTrue.distance){
+
+	              if(parseFloat($scope.maiorDistancia) < parseFloat(isTrue.distance.text) ) {
+	                $scope.maiorDistancia = parseFloat(isTrue.distance.text);
+	                $scope.distanciaKM = isTrue.distance.text;
+	                $scope.totalDuracao = isTrue.duration.text;
+	              }
+
+					if($scope.distanciaKM != ""){
+
+		             $scope.totalKm = $scope.distanciaKM.replace('km','') + 'Km';
+		         	   $scope.distanciaKM = $scope.distanciaKM.replace('km','');
+
+		         	   $scope.distanciaKM = $scope.distanciaKM.replace(',','.');   
+		         	   var calcular = ($scope.valorKm * $scope.distanciaKM);
+		             var multiplicador = ($scope.total * $scope.valorFixo);
+		             $scope.totalValores=  (calcular + multiplicador).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) ;
+
+					}else{
+
+		            	 Flash.create('info', 'Desculpe! Ocorreu um erro. Tente novamente.', 'large-text');
+		            	 return false;
+
+		  				}
+
+	            }  
+         });       
+
+    })
+}
+}
+
+
+
+// Função Adicionar Destinos
+$scope.total = 1;
+$("#removerdestino").hide();
+$scope.addDestino = function(){
+  var total = $scope.total;
+
+$("#removerdestino").show();
+
+  if(total == 1){
+   $("#destino2").css("display","block");
+   $scope.total = 2; 
+ }
+ if(total == 2){
+   $("#destino3").css("display","block");
+   $scope.total = 3;  
+ }
+ if(total == 3){
+   $("#destino4").css("display","block");
+   $scope.total = 4;  
+ }
+ if(total == 4){
+   $("#destino5").css("display","block"); 
+   $scope.total = 5; 
+ } 
+
+ if(total == 5){
+  Flash.create('info', 'Somente 5 destinos. ', 'large-text');
+}
+
+}
+
+// Função Remover Destino
+
+$scope.removerDestino = function(){
+
+
+  var rem = $scope.total;
+
+  if(rem >1){
+
+    $("#destino"+ rem).val("");
+    $("#destino"+ rem).hide();
+    $scope.total = rem-1;
+
+  }
+   
+  if(rem <= 2 ){
+
+  	$("#removerdestino").hide();
+  }
+
+}
+
+
+
+// Quero contratar
+
+
+ }]);
+
+//Criando o módulo para o factory
+// home.factory('email', function ($http) {
+//         return {
+//             enviar: function (destinatario,copia,assunto,descricao) {
+//                 var url = ws+"/geral/public/enviarEmail";
+//                 $http.post(url, $.param({
+//                     destinatario: destinatario,
+//                     copia: copia,
+//                     assunto: assunto,
+//                     descricao: descricao
+//                 })
+//                 ).then(function(response){
+//                    alert(response.data.mensagem)
+//                 }, function(response){
+//                     console.log(response);
+//                 });
+//             }
+//         }
+//     });

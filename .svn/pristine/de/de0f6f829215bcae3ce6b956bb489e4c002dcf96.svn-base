@@ -1,0 +1,60 @@
+﻿<!--
+Author: Ranjithprabhu K
+Page Description: Dashboard page
+Date: 05 Jan 2016
+-->
+
+<section class="content-header">
+    <h1>
+        Restaurantes Favoritos
+    </h1>
+</section>
+<br/><br/><br/>
+<!-- <section class="content" style="min-height: 78vh !important;"> -->
+    <div class="container-fluid" style="min-height: 85vh !important;font-family: Roboto">
+            <div class="row">
+                <div class="col-md-6 col-xs-12 col-12" ng-repeat=" r in restaurantes">
+                    <div class="col-md-3 col-xs-4"> 
+                        <!-- #c8c7c7 -->
+                        <!-- #989797 -->
+                        <div class="form-group">
+                            <a href="http://goeyja.com.br/#/lista-produtos/{{r.id}}/{{r.tipoUsuario}}">
+                            <img ng-src="{{r.img || 'http://goeyja.com.br/images/lista-produtos/noimage.png'}}" class="img-responsive">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-8">
+                        <div class="form-group" style="margin-top:34px">
+                            <a href="http://goeyja.com.br//#/lista-produtos/{{r.id}}/{{r.tipoUsuario}}">
+                                <strong style="color:black;font-family: Roboto">{{r.nomeFantasia | uppercase}}</strong><br/>
+                            </a>
+                            <small>{{r.tipoCozinha}}</small><br/>
+                            <!-- <div class="row" style="margin-top:4px">
+                            <div class="col-xs-6" style="padding-top:14px">
+                                <div class="form-group"><small style="font-size:19px;color:#F37B22;font-weight: bold;">15%</small><small style="font-size:11px"> CASHBACK</small></div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group"><small><span style="font-size:11px;margin: 2px;">CRÉDITO</span><br/><span style="color:#F37B22;font-weight: bold"> R$ 37,50</span> </small></div>
+                            </div>
+                            </div> -->
+                        </div>
+                    </div>
+                   <div class="col-xs-12 visible-xs hidden-md" style="border-bottom:1px solid #c8c7c7; margin-bottom:10px !important;"></div>
+                </div>
+            </div>
+    </div>
+
+    <!-- </section> -->
+    <style>
+    body{
+        margin:0px !important;
+        padding:0px !important;
+    }
+    @media only screen and (max-width: 600px) {
+        .container-fluid {
+        margin:0px !important;
+        padding:0px !important;
+    }
+}
+
+</style>

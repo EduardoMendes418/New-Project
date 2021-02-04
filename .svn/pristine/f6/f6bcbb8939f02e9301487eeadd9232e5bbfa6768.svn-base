@@ -1,0 +1,17 @@
+var listafarmaciaproduto = angular.module('listafarmaciaproduto', ['ui.router', 'ngResource', 'ngAnimate','angular.filter']);
+
+listafarmaciaproduto.config(["$stateProvider", function ($stateProvider) {
+
+// Lista de produtos Estabelecimentos
+    $stateProvider.state('listafarmaciaproduto', {
+    	url: '/lista-produtosfarma/:codLoja/:tipo',
+        // url: '/lista-produtos/:codLoja/:tipo',
+        templateUrl: 'app/modules/farmacia/lista-produtosfarma.html',
+        controller: 'listaprodutosfarmaCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Lista Produtos Farmácia.'
+        }
+    });
+
+}]);

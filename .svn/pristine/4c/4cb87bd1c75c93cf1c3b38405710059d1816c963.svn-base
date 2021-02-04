@@ -1,0 +1,89 @@
+
+compras.controller("comprasCtrl", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http',
+function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http) {
+
+var url = 'https://www.iptufacil.com.br';
+//var url = 'http://192.168.1.215:8025';
+
+// Campo Autocomplete Cidades
+$scope.comboCidade = function(){
+  list = [];
+
+  $http({
+          method: 'POST',
+          url: url + '/ws/goey/rest/public/cidadeAutocomplete',
+          data: $.param({ 
+                                                       
+                auth:'3f018bfb43591ccb2ef46f10de832160'
+
+              }),
+
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+          }).success(function (response){        
+         /// $scope.completing = true;
+          for(var i=0; i < response.length; i++){
+
+              list[i] = response[i].cidade;
+
+            }     
+                  
+          }).error(function (response) {
+              Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');
+                 
+          });
+}
+
+$scope.comboCidade();
+
+    //$scope.availableTags = list;
+
+$scope.complete = function () {
+
+            console.log('aguarde...');
+
+        $( "#tags" ).autocomplete({ source: list,
+                  select : function(evt, ui) {
+
+                    $scope.$apply(function(){
+
+                              $scope.c.cidade = ui.item.value;
+
+                                if( ui.item.value != ''){
+
+                                localStorage.setItem('endereco',JSON.stringify(ui.item.value));
+                                window.location.href = "http://192.168.1.215:4200/#/lista-estabelecimentos";
+                                
+                                }
+                              
+                              });
+                  }
+        });
+};
+
+}]);
+
+/*
+formRestaurante.directive('capitalize', function() {
+    return {
+      require: 'ngModel',
+      link: function(scope, element, attrs, modelCtrl) {
+        var capitalize = function(inputValue) {
+          if (inputValue == undefined) inputValue = '';
+          var capitalized = inputValue.toUpperCase();
+          if (capitalized !== inputValue) {
+            // see where the cursor is before the update so that we can set it back
+            var selection = element[0].selectionStart;
+            modelCtrl.$setViewValue(capitalized);
+            modelCtrl.$render();
+            // set back the cursor after rendering
+            element[0].selectionStart = selection;
+            element[0].selectionEnd = selection;
+          }
+          return capitalized;
+        }
+        modelCtrl.$parsers.push(capitalize);
+        capitalize(scope[attrs.ngModel]); // capitalize initial value
+      }
+    };
+  });
+  */

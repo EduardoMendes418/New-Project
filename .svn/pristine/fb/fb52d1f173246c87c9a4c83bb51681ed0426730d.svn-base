@@ -1,0 +1,349 @@
+
+locacao.controller("locacaoCtrl", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http',
+  function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http) {
+    $scope.carregando = false;
+    $scope.deli = null;
+
+    $scope.proposta = {};
+    $scope.login = {};
+    $scope.recovery = {};
+    $scope.validation = {};
+    var app = null;
+ var url = 'https://www.iptufacil.com.br';
+ //var url = 'http://192.168.1.215:8025';
+ //  $scope.$watch('form.cep.length', function(count, oldCount){
+ //    if(count == 8){
+ //     $scope.getAddressByCep();
+ //   }
+ // })
+
+//Capt 
+var arrayContainer = [];
+var onloadCallback = function(){
+  arrayContainer['msgAtendimentoCaptcha'] = grecaptcha.render('msgAtendimentoCaptcha', {'sitekey' : '6LeIricTAAAAACqJbFWyJ4Y9GTH0CEHlnzSFIHSx'});
+  arrayContainer['msgLojistaCaptcha'] = grecaptcha.render('msgLojistaCaptcha', {'sitekey' : '6LeIricTAAAAACqJbFWyJ4Y9GTH0CEHlnzSFIHSx'});
+  arrayContainer['msgEmpresaCaptcha'] = grecaptcha.render('msgEmpresaCaptcha', {'sitekey' : '6LeIricTAAAAACqJbFWyJ4Y9GTH0CEHlnzSFIHSx'});
+  arrayContainer['credenciamentoVTCaptcha'] = grecaptcha.render('credenciamentoVTCaptcha', {'sitekey' : '6LeIricTAAAAACqJbFWyJ4Y9GTH0CEHlnzSFIHSx'});
+  arrayContainer['ddpagPessoaFisicaCaptcha'] = grecaptcha.render('ddpagPessoaFisicaCaptcha', {'sitekey' : '6LeIricTAAAAACqJbFWyJ4Y9GTH0CEHlnzSFIHSx'});
+  arrayContainer['ddpagPessoaJuridicaCaptcha'] = grecaptcha.render('ddpagPessoaJuridicaCaptcha', {'sitekey' : '6LeIricTAAAAACqJbFWyJ4Y9GTH0CEHlnzSFIHSx'});  
+  /* arrayContainer['g-recaptcha'] = grecaptcha.render('g-recaptcha', {'sitekey' : '6LeaQHQUAAAAAC7KVG-vv0zbA4ZG8I5rf597HX31'});  
+  
+
+
+
+  */
+};
+
+
+$scope.createSession = function(nome,dados) { // recebe dados em array
+
+ var newDados = JSON.stringify(dados);
+
+ var dadosCodificado = window.btoa(newDados); // codifica a string
+
+ localStorage.setItem(nome,dadosCodificado);
+
+}
+
+$scope.loadSession = function(nome) {
+
+  var dados = localStorage.getItem(nome) || '';
+
+  if(dados != "" ){
+
+    var dadosDecodificado = window.atob(dados);
+    return JSON.parse(dadosDecodificado);
+
+    }else{
+
+     return 0;
+
+   }
+
+ }
+
+
+
+//$scope.createSession('log',dados);
+
+if($scope.loadSession('log') == 0) {
+
+ // Habilitar menu para fazer login
+ $("#btn").show();
+
+ }else{
+
+  $("#btn").hide();
+
+  window.location.href = 'https://www.goeyja.com.br/usuario/#/app/home-dashboard';
+
+}
+
+// Combos Formulário
+$scope.combosFormulario = function(){
+
+  $scope.proposta.auth = "3f018bfb43591ccb2ef46f10de832160";
+
+  $http({
+    method: 'POST',
+    url: url + "/ws/goey/rest/public/combosFormularioLocacao",
+    data: $.param($scope.proposta),
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+    }).success(function (response) {
+
+      $scope.tipoVeiculo = response.tipoVeiculos;
+      $scope.modeloVeiculo = response.modeloVeiculos;
+      $scope.tipoProtecao  = response.protecaoVeiculos;
+
+      }) 		
+
+  }
+
+  $scope.combosFormulario();
+
+  $scope.voltarBloco1 = function(){
+   $("#bloco-1").show();
+   $("#bloco-2").hide();
+ }
+
+ $scope.clearInput = function(){
+   $(".form-control").removeClass( "input-error" );
+ }
+
+// Consulta se Existe usu´´ario cadastrado
+$scope.verificaCpf = function(cpf){
+
+  $scope.arq = {};
+
+  if(cpf){
+
+    $scope.arq.auth = "3f018bfb43591ccb2ef46f10de832160";
+    $scope.arq.cpf = cpf;
+
+    $http({
+      method: 'POST',
+      url: url + "/ws/goey/rest/public/consultaCpfUsuarioLocacao",
+      data: $.param($scope.arq),
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+      }).success(function (response) {
+
+       localStorage.setItem('log',JSON.stringify(response));
+
+       })
+      }else{
+
+        alert("Digite um cpf válido");
+
+      }
+
+    }
+
+// Modo Default formulario
+$scope.modalDefault = function(){
+
+	$(".form-control").removeClass( "input-error" );
+	$scope.proposta = {};
+	$("#bloco1").show();
+	$("#bloco2").hide();
+  $("#bloco6").hide();
+  $("#bloco4").hide();
+}
+
+$scope.cadastroUsuarioLocacao = function(){
+
+  var log = localStorage.getItem('log') || '';
+
+  $("#txt-aguarde").html("Aguarde ...");
+  $("#btn-cadastro-proposta").hide();
+  $(".form-control").removeClass( "input-error" );
+
+  var msnError = '';
+  $scope.proposta.auth = "3f018bfb43591ccb2ef46f10de832160";
+
+  $http({
+    method: 'POST',
+    url: url + "/ws/goey/rest/public/cadastroUsuarioLocacao",
+    data: $.param($scope.proposta),
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    }).success(function (response){
+
+      $("#txt-aguarde").html("");
+      $("#btn-cadastro-proposta").show();
+
+      if(response.retorno == 1){
+
+        $scope.validation.cpf = $scope.proposta.cpf;
+        $scope.login.cpf    = $scope.proposta.cpf;
+        $scope.login.codUsuario = response.codUsuario;
+        $("#bloco2").show();
+        $("#bloco1").hide();
+
+        }else if(response.retorno == 2){
+
+         var erro = response.mensagem.filter(function(msn){
+
+          $( "#"+msn.mensagem ).addClass( "input-error" );
+
+          })      
+
+         }else{       		 
+
+          alertify.error(response.mensagem);
+          $scope.validation.cpf = $scope.proposta.cpf;
+          $scope.login.cpf    = $scope.proposta.cpf;
+          $scope.login.codUsuario = response.codUsuario;
+          $("#bloco2").show();
+          $("#bloco1").hide();
+          $("#txt-aguarde").html("");
+
+        }       
+
+        })
+
+  }
+
+  $scope.periodoLocacao = function(dt){
+
+    var qtd = 29;
+    var dt1 = dt.split("/");
+    var hj1 = dt1[2]+"-"+dt1[1]+"-"+dt1[0];
+    var dtat = new Date(hj1);
+    dtat.setDate(dtat.getDate());
+    var myDate = new Date(hj1);
+    myDate.setDate(myDate.getDate() + (qtd+1));
+    var ano = myDate.getFullYear();
+    var dia = myDate.getDate(); if(dia<10){dia='0'+dia};
+    var mes = (myDate.getMonth()+1); 
+    if(mes<10){
+     mes='0'+mes
+   }        
+   $scope.proposta.dataFim = dia+"/"+mes+"/"+ano;
+
+ }
+
+// Create Pass
+$scope.createPass = function(){
+
+  if($scope.login.pass1 != $scope.login.pass2){
+
+    alert("Senhas não conferem.");
+    return false;
+
+    }else{      
+
+      $scope.login.auth = "3f018bfb43591ccb2ef46f10de832160";       
+
+      $("#createPass").hide();
+      $("#txt-aguarde").html("Aguarde ...");
+
+
+      $http({
+        method: 'POST',
+        url: url + "/ws/goey/rest/public/createUserGoey",
+        data: $.param($scope.login),
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).success(function (response) {
+
+          $("#createPass").show();
+          $("#txt-aguarde").html("");
+
+          if(response.retorno == 1){
+
+            $scope.createSession('log',response.dados);
+            window.location.href = 'https://www.goeyja.com.br/usuario/#/app/consulta-proposta';
+          }
+
+          })
+
+      }       
+
+    }
+
+// User Log
+$scope.logUser = function(){
+
+  $scope.validation.auth = "3f018bfb43591ccb2ef46f10de832160";
+  if($scope.validation.cpf == undefined  || $scope.validation.pass == undefined ){
+
+    alert("Campos obrigatórios.");
+
+    }else{
+
+      $("#logUser").hide();
+      $("#txt-aguarde").html("Aguarde ...");
+
+      $http({
+        method: 'POST',
+        url: url + "/ws/goey/rest/public/validateUser",
+        data: $.param($scope.validation),
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).success(function (response) {
+
+          $("#logUser").show();
+          $("#txt-aguarde").html("");
+
+
+          if(response.retorno == 1){
+
+            $scope.createSession('log',response.dados);
+            window.location.href = 'https://www.goeyja.com.br/usuario/#/app/home-dashboard';                  
+
+            }else{
+
+              alert(response.dados.mensagem);
+
+            }                            
+
+            })
+      }
+
+    }
+
+    $scope.recoveryPass = function(){
+
+      if($scope.recovery.pass1 != $scope.recovery.pass2){
+
+       alert("Senhas não conferem.");
+       return false;
+
+       }else{      
+
+        $scope.recovery.auth = "3f018bfb43591ccb2ef46f10de832160";       
+
+        $("#btnconfirma").hide();
+        $("#txt-aguarde").html("Aguarde ...");
+
+        $http({
+          method: 'POST',
+          url: url + "/ws/goey/rest/public/recoveryPasswordGoey",
+          data: $.param($scope.recovery),
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+          }).success(function (response) {
+
+           $("#btnconfirma").show();
+           $("#txt-aguarde").html("");
+
+           if(response.retorno == 1){
+
+            $scope.createSession('log',response.dados);
+            window.location.href = 'https://www.goeyja.com.br/usuario/#/app/consulta-proposta';
+
+            }else{
+
+              alert(response.mensagem);
+
+            }
+
+            })
+
+
+        }       
+
+      }
+
+      $(".data-locacao").datepicker({minDate:0});
+//$scope.logUser();
+
+}]); // end Functions

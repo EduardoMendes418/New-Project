@@ -1,0 +1,16 @@
+var listaEstabelecimentos = angular.module('listaEstabelecimentos', ['ui.router', 'ngResource', 'ngAnimate']);
+
+listaEstabelecimentos.config(["$stateProvider", function ($stateProvider) {
+
+//Formulário de cadastro de empresas
+    $stateProvider.state('listaEstabelecimentos', {
+        url: '/lista-estabelecimentos',
+        templateUrl: 'app/modules/compras/lista-estabelecimentos.html',
+        controller: 'listaLojaCtrl',
+        controllerAs: 'vm',
+        data: {
+            	pageTitle: 'Escolha um Estabelecimento.'
+        }
+    });
+
+}]);

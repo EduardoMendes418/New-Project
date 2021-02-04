@@ -1,0 +1,39 @@
+﻿
+dashboard.controller("dashboardHomeCtrl", ['$rootScope', '$scope', '$state', '$location',  'Flash',
+function ($rootScope, $scope, $state, $location, Flash) {
+    var vm = this;
+
+
+$scope.loadSession = function(nome) {
+
+var dados = localStorage.getItem(nome) || '';
+
+    if(dados != "" ){
+
+        var dadosDecodificado = window.atob(dados);
+        return JSON.parse(dadosDecodificado);
+       
+    }else{
+
+       return 0;
+
+    }
+
+}
+
+
+
+if($scope.loadSession('log') == 0) {
+
+  window.location.href = 'https://www.goeyja.com.br/locacao';
+
+}else{
+
+  $scope.tipoUsuario = $scope.loadSession('log').tipoUsuario;
+  $scope.codUsuario = $scope.loadSession('log').codUsuario;
+
+}
+
+
+}]);
+

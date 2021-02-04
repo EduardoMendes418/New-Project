@@ -1,0 +1,109 @@
+cadastro.controller("usuarioCtrl", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http',
+function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http) {
+$scope.carregando = false;
+
+ //var url = 'http://192.168.1.215:8025';
+//var url = 'http://192.168.1.215:4200';
+var url = 'https://www.iptufacil.com.br';
+
+
+//**************** CEP *****************
+  $scope.cadastroOk = false;
+  $scope.getAddressByCep = function(){
+    
+   $http.get("https://www.iptufacil.com.br/ws/geral/public/cep/"+$scope.form.cep).success(function(data) {
+
+        $scope.form.bairro     = data.bairro;
+        $scope.form.cidade     = data.cidade;
+        $scope.form.uf         = data.estado;
+        $scope.form.logradouro = data.logradouro;
+
+  });
+}
+
+//**************** ComprasCadastrarUsuario *****************
+ $scope.ComprasCadastrarUsuario = function(){
+    /*Recaptcha*/
+    if (grecaptcha.getResponse() == "") {
+        Flash.create('danger', 'Robôs não podem enviar esse formulário!', 'large-text');
+        return false;
+    }
+
+    if ($scope.formUsuario.$invalid) {
+        angular.forEach($scope.formUsuario.$error, function (field) {
+          angular.forEach(field, function(errorField){
+            errorField.$setTouched();
+          })
+        });
+
+        Flash.create('danger', 'Por favor, preencha os campos em vermelho!', 'large-text');
+        return false;
+      } 
+
+    //Formulario Carregando 
+     $scope.carregando = true;
+     var nome = $scope.form.nome;
+     var cpf = $scope.form.cpf;
+     var datanascimento = $scope.form.datanascimento;
+     var email = $scope.form.email;
+     var telefone = $scope.form.telefone; 
+     var cep = $scope.form.cep;
+     var logradouro = $scope.form.logradouro;
+     var numero = $scope.form.numero;
+     var bairro = $scope.form.bairro;
+     var cidade = $scope.form.cidade;
+     var uf = $scope.form.uf;
+     var complemento = $scope.form.complemento;
+     var senha = $scope.form.senha;
+
+     $.ajax({
+        type:'POST',
+        data: {nome:nome, cpf:cpf, datanascimento:datanascimento, email:email, telefone:telefone, cep:cep, logradouro:logradouro,numero:numero, bairro:bairro, cidade:cidade, uf:uf, complemento:complemento, senha:senha,  auth:'3f018bfb43591ccb2ef46f10de832160'},
+        url: url+'/ws/goey/rest/public/ComprasCadastrarUsuario',
+        dataType: 'json',
+        success: function(data){
+
+          if(data.erro == 1){
+
+            alert(data.mensagem);
+            $("#formCadastro").trigger('reset');
+            //REDIRECT Após O CADASTRO / SUCESSO!!!!!
+            //var codLojaRedirect = JSON.parse(localStorage.getItem('loja')) || "" ; window.location.href =  'http://www.goeyja.com.br/#/lista-produtos/'+codLojaRedirect.loja+'/'+codLojaRedirect.tipoUsuario;
+
+            $.ajax({
+              type: 'POST',
+              crossDomain: true,
+              url: url + '/ws/goey/rest/public/consultarUsuario',
+              data:{
+                'email': email ,
+                'senha': senha,
+                'auth': '3f018bfb43591ccb2ef46f10de832160'
+              },
+              dataType: 'json',
+              success: function (response){
+                localStorage.setItem('user',JSON.stringify(response));  
+                
+                window.location.href = "https://www.goeyja.com.br/usuario/#/app/pagamento";
+
+              }
+              
+            });            
+
+          
+
+          }else{
+           // $scope.cadastroOk = false;
+            alert(data.mensagem);
+          }
+
+        }, 
+        error: function(error){
+        $scope.cadastroOk = false;
+          $(".msn").html('Ocorreu um erro, tente novamente.');
+      
+        }
+      });
+       $scope.carregando = false;
+ }
+}]);
+

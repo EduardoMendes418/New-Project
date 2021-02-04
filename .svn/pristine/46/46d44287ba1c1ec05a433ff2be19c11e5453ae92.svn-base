@@ -1,0 +1,322 @@
+﻿
+
+<!-- Content Header (Page header) -->
+<section class="content-header titulo">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-5 encontre">
+        <h1>
+         Encontre o veículo perfeito para sua necessidade.
+         <hr>
+       </h1>
+     </div>
+   </div>
+   <div class="row">    
+    <div class="col-sm-12 col-md-7 facil">
+     <p>
+      É fácil alugar um carro, uma moto, uma bike ou até mesmo um trailer com a <label>#GOEY</label>, o jeito mais simples e fácil de voltar ao mercado de trabalho ser o seu próprio chefe. Uma locadora de veículos focada na mobilidade urbana. Não importa o tipo de veículo, na GOEY você encontra o ideal para você.
+    </p>
+  </div> 
+</div>
+<div class="row">
+  <div class="col-sm-12 col-md-4  center" >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12  border" >
+          <img src="../images/home/carrokwi.png" style="width: 100%">
+          <div class="left">
+            <label>Renault Kwid</label>
+            <p>Carro Compacto</p>  
+          </div>
+          <div class="left">
+            <button data-toggle="modal" data-target="#myModal" ng-click="proposta.tipoVeiculo = 5;proposta.modeloVeiculo = 2468">Enviar Proposta</button>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-4 center" >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12  border" >
+          <img src="../images/home/motoca.png" style="width: 100%">
+          <div class="left">
+            <label>CG160</label>  
+            <p>Motocicleta</p>  
+          </div>
+          <div class="left">
+            <button data-toggle="modal" data-target="#myModal" ng-click="proposta.tipoVeiculo = 2;proposta.modeloVeiculo = 2463">Enviar Proposta</button>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-4 center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 border" >
+          <img src="../images/home/trailer.png" style="width: 95% !important">
+          <div class="left">
+            <label>Trailer</label>
+            <p>Cargo Traler</p>    
+          </div>
+          <div class="left">
+            <button data-toggle="modal" data-target="#myModal" ng-click="proposta.tipoVeiculo = 7;proposta.modeloVeiculo = 2470">Enviar Proposta</button>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12 col-md-12 encontre">
+                <h2>
+                  Quase lá, selecione a data desejada
+                  <hr>
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-body">
+          <div class="col-md-4 analise">
+            <label>Renault Kwid</label>
+            <p>CARRO COMPACTO</p>
+          </div>
+          <div class="col-md-8" >
+           <div class="PeriodoModal">
+            <div class="col-md-12 ">
+              <label>Data Início</label>
+              <div class="col-md-12 zeromargin" >
+                <div class="col-xs-6 col-md-6 zeromargin" >
+                   <input type="text" id="dataInicio" name="dataInicio" class="data-locacao" ng-model="proposta.dataInicio" ng-change="periodoLocacao(proposta.dataInicio)" placeholder="dd/mm/aaaa" style="width: 100px" autocomplete="off">
+                </div>
+                <div class="col-xs-6 col-md-6 zeromargin" >
+                   <input type="text" name="dataFinal" id="dataFinal" ng-model="proposta.dataFim" placeholder="dd/mm/aaaa" style="width: 100px;background-color: transparent;" disabled>
+                </div>
+
+                <div class="col-xs-12 col-md-12 zeromargin" ng-if="proposta.tipoVeiculo == 2" ng-init="proposta.acessorio = ''">
+                  <label >Acessório *</label>
+                  <select  name="acessorio" id="acessorio" ng-model="proposta.acessorio">
+                  <option value="">-- Selecione -- </option>                            
+                    <option value="0"> Sem Acessório </option>
+                    <option value="1"> Baú </option>
+                   <!-- <option value="2">Capacete </option>
+                    <option value="3">Baú,Capacete </option>-->
+                  </select>
+                </div>
+
+                <div class="col-xs-12 col-md-12 zeromargin" ng-if="proposta.tipoVeiculo == 2" ng-init="proposta.tipoProtecao = 3">
+                  <label >Proteção *</label>
+                  <select name="tipoProtecao" id="tipoProtecao" ng-model="proposta.tipoProtecao" ng-options="modelo.idProtecao as modelo.protecao for modelo in tipoProtecao">
+                        <option value="">-- Selecione --</option>                                                    
+                  </select>
+                </div>
+
+                 <div class="col-xs-12 col-md-12 zeromargin" >
+                  <label>Local da Retirada</label>
+                  <select  name="localRetirada" id="localRetirada" ng-model="proposta.localRetirada" >
+                    <option value="" selected>-- Selecione --</option>
+                    <option value="1">Campinas</option>
+                   <!-- <option value="2">São Paulo</option> -->                                                      
+                  </select>
+                </div>
+
+              </div>              
+            </div> 
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="cadastrarProposta()">Enviar para Análise</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+
+
+</div>
+</section>
+
+<style type="text/css">
+.zeromargin{
+  padding: 0px !important;
+  margin-bottom: 10px !important;
+}
+.PeriodoModal label {
+  margin-top: 0px !important;
+}
+
+.analise p{
+  font-size: 10px;
+  color: #24549E;
+}
+
+.analise label{
+  color: #000;
+  font-weight: bold;
+}
+
+.modal-dialog {
+  width: 600px;
+  margin: 150px auto;
+}
+.facil p{
+  color:#000 !important;
+}
+
+.facil label{
+  font-weight: bold;
+}
+
+.left{
+  text-align: left;
+}
+.left label{
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 18px;
+  color: #000 !important;
+}
+
+.left p{
+  color: #24549E;
+}
+
+.border{
+  border:1px solid #ccc;
+  padding: 30px;
+}
+.center{
+  text-align: center;
+}
+
+.container{
+  width: auto;
+}
+
+.encontre h1{
+  font-size: 35px;
+}
+
+#date{
+  width: 150px;
+}
+.data input{
+  border:1px  solid #ccc !important;
+}
+
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  width: 300px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+button{
+  background: #24549E !important;
+  color: #fff;
+  border:1px solid #24549E !important;
+  padding: 5px !important;
+  width: 150px;
+  margin-top: 5vh;
+  font-size: 16px;
+}
+
+.status, .Periodo{
+  color: #707070;
+}
+.status input{
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #000;
+}
+
+.Periodo label{
+  margin-top: 10px;
+}
+
+.content-header{
+  height: 88vh;
+}
+.titulo h1{
+  font-weight: bold;
+}
+hr {
+  width: 400px;
+  margin-left: 0px;
+  border-top: 1px solid #000 !important;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+h2{
+  font-size: 25px !important;
+  font-weight: bold !important;
+}
+
+  .content-header{
+  min-height: 100vh !important;
+  width: auto !important;
+}
+ 
+
+
+@media screen and (max-width: 600px) {
+   .content-header{
+  min-height: 100vh !important;
+  width: auto !important;
+}
+
+.left{
+  text-align: center;
+}
+
+.analise{
+  text-align: center;
+}
+
+.border{
+  margin-top: 20px;
+}
+
+.modal-dialog {
+  width: 100% !important;
+  margin: 129px auto;
+}
+
+hr {
+  width: 100%;
+  margin-left: 0px;
+  border-top: 1px solid #000 !important;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+}
+
+
+</style>
+

@@ -1,0 +1,73 @@
+
+<!-- Content Header (Page header) -->
+<section class="content-header titulo">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>
+          Débitos de Veículos
+          <hr>
+        </h1>
+        <div class="status">
+         <label>Tipo de Ocorrência</label><br>
+         <select ng-model="filtro.tipoDebito">
+          <option value="">-- SELECIONE --</option>
+          <option value="1">Danos e Avarias</option>
+          <option value="2">Multa</option>
+          <option value="3">Furto ou Roubo</option>
+        </select>       
+      </div>
+    </div>
+    
+    <div class="Periodo">
+      <div class="col-md-6 data">
+        <label>Data Ocorrência</label>
+        <div class="col-6">
+          <div class="row"> 
+            <div class="column">
+              <label>De: <input id="data-ini" type="text" class="data-locacao" autocomplete="off"></label> 
+              <label>Até: <input id="data-fim" type="text" class="data-locacao" autocomplete="off"></label>
+            </div> 
+          </div>
+        </div>
+        <button ng-click="consultarDebitos()">Consultar</button>   
+      </div> 
+    </div>
+  </div>
+  <div class="row">
+    <h4 id="msn-return" style="text-align: center;color: #d3d3d3"></h4>
+    <table class="table" ng-if="listaDebitos.length > 0">
+      <th>Contrato Nº</th>
+      <th>Tipo Débito</th>
+      <th>Descrição</th>
+      <th>Data Ocorrência</th>
+      <th>Valor</th>          
+      <tr ng-repeat="l in listaDebitos">
+        <td>{{l.idContrato}}</td>
+        <td>{{l.tipoDebitoDesc}}</td>
+        <td>{{l.descricao}}</td>
+        <td>{{l.dataOcorrencia}}</td>
+        <td>{{l.valor | currency}}</td>            
+      </tr>
+    </table>
+
+  </div>
+
+
+  <style type="text/css">
+  .content-header{
+    min-height: 100vh !important;
+    width: auto !important;
+  }
+  @media screen and (max-width: 600px) {
+
+   .titulo h1{
+    font-weight: bold;
+    font-size: 30px !important;
+  }
+
+  .content-header{
+    min-height: 100vh !important;
+    width: auto !important;
+  }
+</style>

@@ -1,0 +1,156 @@
+login.controller("investimentoCtrl", ['$rootScope', '$scope', '$state', '$location', 'loginService', 'Flash','apiService','$http',
+	function ($rootScope, $scope, $state, $location, loginService, Flash, apiService,$http) {
+		var vm = this;
+		$scope.proposta = {};
+		$scope.carro = {};
+		$scope.moto = {};
+
+  var url = 'https://www.iptufacil.com.br';
+  //var url = 'http://192.168.1.215:8025';
+
+ $scope.auth = "3f018bfb43591ccb2ef46f10de832160";
+
+$scope.arrayCarro =({'veiculo':'Renault KWID','tipoVeiculo':5,'modeloVeiculo':2468,'texto':'Ideal para Motoristas de Aplicativo que buscam um carro compacto e econômico.','valor':38500.00,'qtd':1,'image':'5-2468.png','maisVeiculos':0});
+$scope.arrayMoto =({'veiculo':'Cargo 160','tipoVeiculo':2,'modeloVeiculo':2463,'texto':'A moto ideal para Motofretistas. Com a Cargo 160 você tem conforto, robustez e economia.','valor':12500.00,'qtd':1,'image':'2-2463.png','maisVeiculos':0});
+$scope.carro = $scope.arrayCarro;
+$scope.moto = $scope.arrayMoto;
+
+$scope.confirmarProposta = function(tipo){
+
+localStorage. removeItem('dadosVeiculo');
+
+	if(tipo == 5){
+
+		$scope.proposta = $scope.carro;
+
+	}else if(tipo == 2){
+
+		$scope.proposta = $scope.moto;
+		
+	}
+
+localStorage.setItem('dadosVeiculo',JSON.stringify($scope.proposta));
+
+	window.location.href = 'https://www.goeyja.com.br/#/investimentoProposta';
+
+}
+
+$scope.proposta = JSON.parse(localStorage.getItem('dadosVeiculo')) || '';
+
+if($scope.proposta == ''){
+
+	window.location.href = 'https://www.goeyja.com.br/#/investimento';
+
+}
+// CADASTRO PROPOSTA INVESTIDOR
+$scope.cadastroProposta = function(){
+
+
+	$scope.proposta.auth = $scope.auth;
+
+
+/*	var inputMais = $("input[name='mais-veiculo']:checked"). val();
+
+ if(inputMais != 1){
+  
+   $scope.proposta.maisVeiculos = 0;
+ }*/
+
+	$("#txt-cadastroProposta").html(" Enviando...");
+	$("#btn-cadastro-proposta").hide();
+	$(".form-control").removeClass( "input-error" );
+
+	$http({
+		method: 'POST',
+		url: url + "/ws/goey/rest/public/cadastroPropostaInvestidorSite",
+		data: $.param($scope.proposta),
+		headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+	}).success(function (response){     
+
+		$("#txt-cadastroProposta").html("");
+		$("#btn-cadastro-proposta").show();		
+
+		if(response.retorno <=1){
+
+			alert(response.mensagem);
+
+			$scope.proposta = {};
+			localStorage.removeItem('dadosVeiculo');
+			window.location.href = 'https://www.goeyja.com.br/#/investimento';
+
+		}else {
+
+			 alert("Campos obrigatórios.");
+		}  
+
+	})
+
+}
+
+
+// SIMULAÇÃO TAXAS GOEY INVESTIMENTO 
+$scope.simulatorGoey = function(tipo,qtd,valor){
+$scope.dados = {};
+$scope.dados.auth = $scope.auth;
+$scope.dados.qtd = qtd;
+$scope.dados.valor = valor;
+
+  $http({
+		    method: 'POST',
+		    url: url + "/ws/goey/rest/public/txSimulator",
+		    data: $.param($scope.dados),
+		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+		}).success(function (response){		
+
+		  $scope.simGoey = response.goey;
+		  $scope.simCdb = response.cdb;
+		  $scope.simPoupanca = response.poupanca;
+
+		  if(tipo == 5){
+
+		  		$scope.carro.valor = response.valor;
+
+			}else if(tipo == 2){
+
+		  		$scope.moto.valor = response.valor;
+			}
+
+			$scope.tipoVeiculo = tipo;
+
+		  $scope.valorTotal = response.valor;       
+
+    	})
+
+}
+
+
+// Modo Default formulario
+$scope.blocoSimulator = function(tipo,qtd,valor){
+
+	$scope.simulatorGoey(tipo,qtd,valor)
+
+		$("#bloco-simulator").show();
+	
+}
+
+
+$scope.getAddressByCep = function(){
+    
+   $http.get("https://www.iptufacil.com.br/ws/geral/public/cep/"+$scope.proposta.cep).success(function(data) {
+     
+        $scope.proposta.bairro     = data.bairro;
+        $scope.proposta.cidade     = data.cidade;
+        $scope.proposta.uf         = data.estado;
+        $scope.proposta.logradouro = data.logradouro;
+
+  });
+}
+
+
+	//$(".data-locacao").datepicker({minDate:0}); // Calendário
+
+}]);
+
+

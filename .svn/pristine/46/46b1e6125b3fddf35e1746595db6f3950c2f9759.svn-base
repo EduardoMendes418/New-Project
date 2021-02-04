@@ -1,0 +1,228 @@
+﻿<div class="wrapper" >
+    <header class="main-header"  >
+        <!-- Logo -->
+        <a class="logo" href="https://www.goeyja.com.br/#/compras">
+        
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><img src="images/logo_branco.png" style="width: 100px" ></span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><img src="images/logo_branco.png" style="width: 100px" ></span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation"  >
+            <!-- Sidebar toggle button-->
+            <a class="sidebar-toggle" data-toggle="offcanvas" role="button" data-ng-click="vm.sideBar(1);">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <!-- Navbar Right Menu -->
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav" >
+                    <li class="dropdown notifications-menu hidden-xs hidden-sm" >
+                       <!--  <a class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-align-justify"></i> Layouts
+                        </a> -->
+                    <!--     <ul class="dropdown-menu">
+                            <li>
+                                <ul class="menu">
+                                    
+                                    <li data-ng-repeat="screen in vm.layouts" data-ng-click="vm.setLayout(screen.layout);">
+                                        <a>
+                                            <i class="fa fa-indent"></i> {{screen.name}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul> -->
+                    </li>
+
+                    <li class="dropdown notifications-menu" >
+                        <!-- <a class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-gears"></i> Temas
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <ul class="menu">
+                                    <li data-ng-repeat="theme in vm.themes" data-ng-click="vm.setTheme(theme.color);">
+                                        <a>
+                                            <i class="fa fa-flag{{theme.icon}} text-{{theme.theme}}"></i>{{theme.title}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul> -->
+                    </li>
+
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu" >
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            <!-- <img src="./images/user.png" class="user-image" alt="User Image" /> -->
+                            <span class="hidden-xs">{{userNome}}</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header" style="font-family: Roboto">
+                                <!-- <img src="./images/user.png" class="img-circle" alt="User Image"> -->
+                                
+                                <div class="text-left" style="font-family: Roboto;padding:20px !important;color:#FFF;padding-bottom: 20px !important;text-transform: uppercase;">
+                                    <!-- <div class="pull-left image" >
+                                        <img src="./images/user.png" class="img-circle" alt="User Image">
+                                    </div> -->
+                                    <div class="pull-left info">
+                                        <p style="white-space: normal !important;font-size:12px !important;">
+                                        {{userNome}}
+                                    </p>
+                                    <p style="white-space: normal !important;font-size:12px !important;">
+                                        {{userEmail}}
+                                    </p>
+                                </div>
+                            </div>
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <!-- <div class="pull-left">
+                                    <a ui-sref="app.recent-projects" class="btn btn-success btn-flat">Perfil</a>
+                                </div> -->
+                                <div class="pull-right">
+                                    <a ui-sref="login" class="btn btn-danger btn-flat" onclick="limpaSessao();">Sair</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+        <!-- sidebar -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="text-left" style="height:120px;font-family: Roboto;padding:20px !important;color:#FFF;padding-bottom: 20px !important;text-transform: uppercase;">
+                <!-- <div class="pull-left image" >
+                    <img src="./images/user.png" class="img-circle" alt="User Image">
+                </div> -->
+                <div class="pull-left info">
+                    <p style="white-space: normal !important;">
+                       <small > {{userNome}}</small>
+                    </p>
+                    <p style="white-space: normal !important;font-size:10px !important;">
+                        <small>{{userEmail}}</small>
+                    </p>
+                </div>
+            </div>
+            <!-- search form -->
+            
+         <!--        <div class="input-group">
+                    
+                    <span class="input-group-btn">
+                        <hr />
+                    </span>
+                </div>
+            -->
+            <!-- /.search form -->
+            <ul class="sidebar-menu" >
+                <li ng-if="tipoUsuario == 3" class="treeview" ui-sref-active="active" ng-click="vm.sideBar();">
+                    <a  ng-click="redirectCardapio()">
+                        <i class="fa fa-cart-plus"></i><span> Meu Cardápio</span>
+                    </a>
+                </li>
+              
+                <li class="treeview" ui-sref-active="active" ng-click="vm.sideBar();" data-ng-repeat="menu in vm.menuItems">
+                    <a ui-sref="app.{{menu.state}}">
+                        <i class="fa fa-{{menu.icon}}"></i> <span>{{menu.title}}</span>
+                    </a>
+                </li>
+                <br>
+                <li >
+                    <div class="pull-left sair">
+                        <i class="fa fa-share"></i>  
+                        <a ui-sref="login" class="btn btn-danger btn-flat" onclick="limpaSessao();">Sair</a>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <ui-view></ui-view>
+        </div>
+
+        <footer class="main-footer" >
+            <div class="pull-right hidden-xs">
+                <b>Versão</b> 1.0
+            </div>
+            <strong>GOEY&copy; <a href="https://www.ddtotal.com.br" target="_blank">Empresa DDTOTAL</a>.</strong> Todos Direitos Reservados.
+        </footer>
+    </div>
+<script>
+    function limpaSessao(){
+        localStorage.removeItem('user');
+    }
+</script>
+
+<style>
+        .sidebar-toggle{
+            display: none;
+        }
+        .main-header .sidebar-toggle:before {
+            content: "\f0c9";
+            color: #fff;
+        }
+        .main-header .navbar .nav > li > a {
+            color: #fff !important;
+            background: #ee6626 !important;
+        }
+        .main-header li.user-header {
+            background-color: #ee6626 !important;
+        }
+        .sair{
+            display: none;
+        }
+        .skin-purple .main-header .logo {
+            background-color: #222d32 !important;
+            color: #ffffff;
+            border-bottom: 0 solid transparent;
+        }
+        .navbar{
+            background: #222d32 !important;
+        }
+
+    @media screen and (max-width: 767px) {
+        .sair{
+            display: block;
+        }
+        .skin-purple .main-header .logo {
+            background-color: #222d32 !important;
+        }
+        .sidebar-toggle{
+            display: block;
+            background: #ef6a25 !important;
+        }
+        .sidebar-toggle:hover{
+            display: block;
+            background: #4266ae  !important;
+        }
+        .user-menu{
+            display: none !important;
+        }
+        .sair i{
+            padding-left: 20px;
+            padding-right: 5px;
+        }
+        .btn-danger{
+            color:#fff !important;
+            background: #ee6626;
+            height: 40px;
+            border: 1px solid #ee6626
+        }
+        .btn-danger:hover{
+            background: #ef6c00 ;
+            border: 1px solid  #ef6c00 ;
+        }
+    }
+        
+        </style>

@@ -1,0 +1,586 @@
+﻿
+
+dashboard.controller("agendarCtrl", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http','distanciaService','GoogleDistanceAPI',
+  function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http,distanciaService,GoogleDistanceAPI) {
+    var vm = this;
+
+    $scope.agendamento = 1;
+    $scope.cadastro = [];  
+
+    var usuario = JSON.parse(localStorage.getItem('user'));
+    $scope.tipoUsuario = usuario.tipoUsuario;
+    $scope.codUsuario = usuario.codUsuario;
+    $scope.lat = undefined;
+    $scope.lng = undefined;
+    $scope.cadastrar = [];
+
+
+    $('#horaRetirada').val();
+
+//Retorno endereço com número
+ $scope.retornoEndereco = function(endereco,numero){
+    var end = endereco.split(',');
+    return    end[0]+', '+numero + '-'+end[1] + ', '+end[2];  
+  }
+
+// Campo Auto Complete endereço
+$scope.fetchUsers = function(tx){ 
+
+      var searchText_len = tx.trim().length;
+      var gg = [];
+
+      // Check search text length
+      if(searchText_len > 3){
+         $http({
+                method: 'post',
+                url: "https://www.iptufacil.com.br/ws/goey/rest/public/listarEndereco",
+                data: {endereco:tx,auth:'3f018bfb43591ccb2ef46f10de832160'}
+              }).then(function successCallback(response) {
+
+                for(i=0;i<response.data.length;i++){
+                  gg[i] = response.data[i].endereco;
+                } 
+
+                $(".autocomplete" ).autocomplete({
+                  source: gg
+                });
+
+         });
+
+      }
+                
+}
+$scope.endereco = [];
+
+var cmp = [];
+cmp[0] = 'origem';
+cmp[1] = 'destino 1';
+cmp[2] = 'destino 2';
+cmp[3] = 'destino 3';
+cmp[4] = 'destino 4';
+cmp[5] = 'destino 5';
+// Função contar ocorrência de caracteres numa string
+ $scope.contador = function(string, char) {
+    var re = new RegExp(char, "gi");
+    return string.match(re).length;
+  }
+
+// Consultar distancia no google
+$scope.consultarValores = function(){ 
+
+
+   
+  if($scope.cadastrar.tipoVeiculo == undefined)$scope.cadastrar.tipoVeiculo = 2;  
+  var tipoVeiculo = $("input[name=tipoVeiculo]:checked").val();
+
+  var origem   = $("#origem").val() || ""; 
+  var destino1 = $("#destino1").val() || "";
+  var destino2 = $("#destino2").val() || "";
+  var destino3 = $("#destino3").val() || "";
+  var destino4 = $("#destino4").val() || "";
+  var destino5 = $("#destino5").val() || "";
+  var numero   = $("#numero").val() || "";
+  var numero1  = $("#numero1").val() || "";
+  var numero2  = $("#numero2").val() || "";
+  var numero3  = $("#numero3").val() || "";
+  var numero4  = $("#numero4").val() || "";
+  var numero5  = $("#numero5").val() || "";
+  var rotas = [];
+
+  if( origem == "" || numero == ""){
+
+    Flash.create('danger', 'Verifique o enderço de origem com o número', 'large-text');
+    return false;
+
+  }else{
+
+     origem   = $scope.retornoEndereco(origem,numero);
+
+  }
+     
+ 
+   if($scope.total >= 1 && (destino1 == "" || numero1 == "")){
+
+    Flash.create('danger', 'Verifique o endereço de destino com o número', 'large-text');
+    return false;
+
+   }else{
+
+     destino1 = $scope.retornoEndereco(destino1,numero1);
+
+   }
+
+  if($scope.total >= 2 && (destino2 == "" || numero2 == "")){
+
+  Flash.create('danger', 'Verifique o endereço de destino 2 com o número', 'large-text');
+  return false;
+
+  }else{
+
+    destino2 = $scope.retornoEndereco(destino2,numero2);
+    
+  }
+
+ if($scope.total >= 3 && (destino3 == "" || numero3 == "")){
+
+  Flash.create('danger', 'Verifique o endereço de destino 3 com o número', 'large-text');
+  return false;
+
+  }else{
+
+    destino3 = $scope.retornoEndereco(destino3,numero3);
+    
+  }
+
+ if($scope.total >= 4 && (destino4 == "" || numero4 == "")){
+
+  Flash.create('danger', 'Verifique o endereço de destino 4 com o número', 'large-text');
+  return false;
+
+  }else{
+
+    destino4 = $scope.retornoEndereco(destino4,numero4);
+    
+  }
+
+  if($scope.total >= 5 && (destino5== "" || numero5 == "")){
+
+  Flash.create('danger', 'Verifique o endereço de destino 5 com o número', 'large-text');
+  return false;
+
+  }else{
+
+    destino5 = $scope.retornoEndereco(destino5,numero5);
+    
+  }
+
+ 
+$(".autocomplete").each(function( index ) { 
+
+    if($( this ).val() != '' && (!$( this ).val().match(/- SP/) || $scope.contador($(this).val(),',') != 2) ){
+
+      alert("Digite um endereço de "+cmp[index]+" válido <br>Ex: logradouro, bairro, cidade-uf");
+      return false;
+
+    }
+  
+});
+
+if($scope.total == 1){
+  
+  $scope.enderecos = [{origem:origem,destino:destino1}];
+  rotas.push({origem:origem,destino1:destino1});
+
+}else if($scope.total == 2){
+  
+  $scope.enderecos = [{origem:origem,destino:destino1},
+                      {origem:destino1,destino:destino2}];
+  rotas.push({origem:origem,destino1:destino1,destino2:destino2}); 
+
+}else if($scope.total == 3){
+ 
+  $scope.enderecos = [{origem:origem,destino:destino1},
+                      {origem:destino1,destino:destino2},
+                      {origem:destino2,destino:destino3}];
+  rotas.push({origem:origem,destino1:destino1,destino2:destino2,destino3:destino3});  
+
+}else if($scope.total == 4){ 
+
+$scope.enderecos = [{origem:origem,destino:destino1},
+                    {origem:destino1,destino:destino2},
+                    {origem:destino2,destino:destino3},
+                    {origem:destino3,destino:destino4}];
+rotas.push({origem:origem,destino1:destino1,destino2:destino2,destino3:destino3,destino4:destino4});   
+
+}else if($scope.total == 5){
+  
+ $scope.enderecos = [{origem:origem,destino:destino1},
+                    {origem:destino1,destino:destino2},
+                    {origem:destino2,destino:destino3},
+                    {origem:destino3,destino:destino4},
+                    {origem:destino4,destino:destino5}];
+rotas.push({origem:origem,destino1:destino1,destino2:destino2,destino3:destino3,destino4:destino4,destino5:destino5});  
+
+}
+
+$("#btnDistancia").hide();
+$("#aguarde").show();
+
+//var url = 'http://192.168.0.69:8025/ws/goey/rest/public/matrixGoogle'; 
+var url = 'https://www.iptufacil.com.br/ws/goey/rest/public/matrixGoogle';
+ $http.post(url, ({
+                      auth: "3f018bfb43591ccb2ef46f10de832160",
+                      tipo: tipoVeiculo,
+                      enderecos: $scope.enderecos
+                          
+                      })
+                      ).then(function(response){
+                         localStorage.setItem('rotas',JSON.stringify(rotas));                    
+                        $scope.cadastrar.distancia =  response.data.km;                      
+                        $scope.cadastrar.valor = response.data.total;
+                        $("#aguarde").hide();
+                        $("#btnDistancia").show();
+                         
+                      }); 
+}
+
+
+// FUNÇÃO AGENDAR ENTREGAS
+$scope.agendarEntrega = function(){
+ $scope.dados = [];
+ var origem = $("#origem").val() || "";
+ var destino1 = $("#destino1").val() || "";
+ var destino2 = $("#destino2").val() || "";
+ var destino3 = $("#destino3").val()|| "";
+ var destino4 = $("#destino4").val() || "";
+ var destino5 = $("#destino5").val() ||"";
+ var numero   = $("#numero").val() || "";
+  var numero1  = $("#numero1").val() || "";
+  var numero2  = $("#numero2").val() || "";
+  var numero3  = $("#numero3").val() || "";
+  var numero4  = $("#numero4").val() || "";
+  var numero5  = $("#numero5").val() || "";
+
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+
+    var yyyy = today.getFullYear();
+
+    if(dd<10){
+
+        dd='0'+dd;
+
+    }
+
+    if(mm<10){
+
+        mm='0'+mm;
+
+    } 
+
+var today = dd+'/'+mm+'/'+yyyy;
+$scope.dados = {}; 
+if($scope.agendamento == 1){
+
+  $scope.dados.dataAgenda = today;
+
+}else{
+  $scope.dados.dataAgenda = $('#dataAgenda').val();
+}
+//$scope.dados = $scope.cadastrar;
+ $scope.dados.auth =  '3f018bfb43591ccb2ef46f10de832160'; 
+ $scope.dados.tipoUsuario = usuario.tipoUsuario;
+ $scope.dados.codUsuario = usuario.codUsuario;
+ $scope.dados.distancia= $("#distancia").val();
+ $scope.dados.valor    = $scope.cadastrar.valor;
+ $scope.dados.tipoVeiculo = $("input[name=tipoVeiculo]:checked").val();
+
+
+ if($("#origem").val() == ""){
+
+    Flash.create('danger', 'O campo origem é obrigatório.', 'large-text');
+    return false;
+
+ }
+
+  
+ if($("#destino1").val() == ""){
+
+    Flash.create('danger', 'O campo destino é obrigatório.', 'large-text');
+    return false;
+    
+ }
+
+
+  if($scope.total >= 2 &&  (destino2 == undefined || destino2 ==  "")){
+
+      Flash.create('danger', 'O campo segundo destino é obrigatório.', 'large-text');
+      return false;
+
+  }
+
+
+   if($scope.total >= 3 &&  (destino3 == undefined || destino3 ==  "" )){
+
+      Flash.create('danger', 'O campo terceiro destino é obrigatório.', 'large-text');
+      return false;
+
+  }
+
+   if($scope.total >= 4 &&  (destino4 == undefined || destino4 ==  "")){
+
+      Flash.create('danger', 'O campo quarto destino é obrigatório.', 'large-text');
+      return false;
+
+  }
+
+  if($scope.total >= 5 &&  (destino5 == undefined || destino5 ==  "")){
+
+      Flash.create('danger', 'O campo quinto destino é obrigatório.', 'large-text');
+      return false;
+
+  }
+
+// verifica se o endereço digitado segue o padrão
+$(".autocomplete").each(function( index ) { 
+
+    if($( this ).val() != '' && (!$( this ).val().match(/- SP/) || $scope.contador($(this).val(),',') != 2) ){
+
+      alert("Digite um endereço de "+cmp[index]+" válido <br>Ex: logradouro, bairro, cidade-uf");
+      return false;
+
+    }
+  
+});
+
+if($("#distancia").val() == ''){
+
+  Flash.create('danger', 'Clique em calcular para gerar a distância.', 'large-text');
+  return false;
+
+}
+
+if($("#valor").val() == ''){
+
+  Flash.create('danger', 'Clique em calcular para gerar o valor.', 'large-text');
+  return false;
+
+}
+
+if($("input[name=objeto]:checked").val() == undefined){
+
+    Flash.create('danger', 'O campo tipo de objeto é obrigatório.', 'large-text');
+    return false;
+    
+ }else{
+
+    $scope.dados.objeto = $("input[name=objeto]:checked").val() ;
+ }
+
+
+ if($("#responsavel").val() == ""){
+
+    Flash.create('danger', 'O campo responsável é obrigatório.', 'large-text');
+    return false;
+
+ }else{
+
+    $scope.dados.responsavel = $("#responsavel").val();
+ }
+
+
+ if($("#descricao").val() == ""){
+
+    Flash.create('danger', 'O campo descrição é obrigatório.', 'large-text');
+    return false;
+    
+ }else{
+
+    $scope.dados.descricao = $("#descricao").val();
+ }
+
+if($("#observacao").val() == ""){
+
+    Flash.create('danger', 'O campo observação é obrigatório.', 'large-text');
+    return false;
+    
+ }else{
+
+    $scope.dados.observacao = $("#observacao").val();
+ }
+
+if( $scope.agendamento == 2 && $("#dataAgenda").val() == ''){
+
+    Flash.create('danger', 'O campo outra data é obrigatório.', 'large-text');
+    return false;
+    
+ }
+
+ if( $("#horaRetirada").val() == ''){
+
+    Flash.create('danger', 'O campo hora de retirada é obrigatório.', 'large-text');
+    return false;
+    
+ }else{
+
+    $scope.dados.horaRetirada = $("#horaRetirada").val() ;
+
+ }
+ 
+var rotas = JSON.parse(localStorage.getItem('rotas'));
+ 
+if(rotas[0].origem != $scope.retornoEndereco(origem,numero)){
+
+  Flash.create('info', 'Por favor clique em calcular novamente.', 'large-text');
+  return false;
+
+}else{
+
+  $scope.dados.origem  = $scope.retornoEndereco(origem,numero);
+ }
+
+if(rotas[0].destino1 != $scope.retornoEndereco(destino1,numero1)){
+
+  Flash.create('info', 'Por favor clique em calcular novamente.', 'large-text');
+  return false;
+
+}else{
+
+    $scope.dados.destino1 = $scope.retornoEndereco(destino1,numero1);
+    
+ }
+
+if($scope.total >= 2){
+
+    if(rotas[0].destino2 != $scope.retornoEndereco(destino2,numero2)){
+      Flash.create('info', 'Por favor clique em calcular novamente.', 'large-text');
+      return false;
+
+    }else{
+
+    $scope.dados.destino2 = $scope.retornoEndereco(destino2,numero2);
+    
+  }
+}
+
+if($scope.total >= 3 ){
+
+      if(rotas[0].destino3 != $scope.retornoEndereco(destino3,numero3)){
+
+      Flash.create('info', 'Por favor clique em calcular novamente.', 'large-text');
+      return false;
+
+    }else{
+
+        $scope.dados.destino3 = $scope.retornoEndereco(destino3,numero3);
+       
+      }
+}
+
+if($scope.total >= 4){
+
+      if(rotas[0].destino4 != $scope.retornoEndereco(destino4,numero4)){
+      Flash.create('info', 'Por favor clique em calcular novamente.', 'large-text');
+      return false;
+
+    }else{
+
+        $scope.dados.destino4 = $scope.retornoEndereco(destino4,numero4);
+
+  }
+}
+
+if($scope.total >= 5){
+     if(rotas[0].destino5 != $scope.retornoEndereco(destino5,numero5)){
+      Flash.create('info', 'Por favor clique em calcular novamente.', 'large-text');
+      return false;
+
+    }else{
+
+        $scope.dados.destino5 = $scope.retornoEndereco(destino5,numero5);
+      }
+}
+
+$("#btnAgendar").hide();  
+$("#aguarde2").show(); 
+
+ var url = 'https://www.iptufacil.com.br';
+ //var url = 'http://192.168.0.69:8025';
+
+ $http({
+    method: 'POST',
+    url: url+'/ws/goey/rest/public/cadastrarEntregas',
+    data: $.param($scope.dados),
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+  }).success(function (response) {
+
+    $("#aguarde2").hide(); 
+    $("#btnAgendar").show(); 
+
+    if(response.retorno == 1){
+
+     Flash.create('success', response.mensagem, 'large-text');
+     $scope.cadastrar = "";
+     $scope.total = 1; 
+     $(".geral").hide();
+     $("#remover-destino").hide();
+     localStorage.removeItem('rotas');
+
+   }else{                        
+
+     Flash.create('info', response.mensagem, 'large-text'); 
+
+   }
+
+ }).error(function (response) {
+
+  Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');
+
+}); 
+
+}
+
+$scope.total = 1;
+$scope.addDestino = function(){
+   
+  var total = $scope.total;
+
+$("#remover-destino").show();
+  if(total == 1){   
+   $("#grupo2").css("display","block");
+   $scope.total = 2; 
+ }
+ if(total == 2){
+   $("#grupo3").css("display","block");
+   $scope.total = 3;  
+ }
+ if(total == 3){
+   $("#grupo4").css("display","block");
+   $scope.total = 4;  
+ }
+ if(total == 4){
+   $("#grupo5").css("display","block"); 
+   $scope.total = 5; 
+ }
+
+ if(total == 5){
+  Flash.create('info', 'Somente 5 destinos. ', 'large-text');
+}
+
+}
+
+$scope.removerDestino = function(){
+  
+var rem = $scope.total;
+
+  if(rem >1){
+   
+    $("#destino"+ rem).val("");
+    $("#numero"+ rem).val("");
+    $("#grupo"+ rem).hide();
+
+    $scope.total = rem-1;
+
+  }
+
+   if($scope.total  == 1){
+
+    $("#remover-destino").hide();
+  
+   }
+
+}
+
+$( ".datepicker" ).datepicker({
+  locale: 'pt-br'
+});
+
+
+  $('#horaRetirada').datetimepicker({
+                    format: 'HH:mm'                 
+            
+                });
+
+}]);

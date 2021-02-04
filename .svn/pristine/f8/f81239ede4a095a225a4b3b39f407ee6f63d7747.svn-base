@@ -1,0 +1,201 @@
+<!-- Div Cep Origem -->
+<section>
+<div class="container-home ">  
+    <!--TOPO MENU -->
+    <nav class="site-header sticky-top py-1">
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2" href="#">
+          <div class="col-lg-2 logo-goey">                    
+                <img src="images/home/logo-goey.png">
+            </div>
+        </a>
+        <div class="menu">
+            <div class="menu-link" >
+                <a class="py-2 d-none d-md-inline-block" href="#">O QUE É GOEY</a>
+                <a class="py-2 d-none d-md-inline-block" href="#">VANTAGENS</a>
+                <a class="py-2 d-none d-md-inline-block" href="#">CONTATO</a>
+                <span>0800 941 3950</span>
+            </div>
+            <div class="menu-btn">
+                <a class="btn btn-cadastre-secondary" href="#" >CADASTRE SUA EMPRESA</a>
+                <a class="btn btn-acesse-secondary" href="#login" >ACESSE SUA CONTA</a>   
+            </div>    
+         </div>
+      </div>
+    </nav>
+
+    <!-- TITULO TEXTO -->
+    <div class="row" style="padding: 0px !important">                
+        <div class="col-lg-3"></div>    
+        <div class="col-lg-6 p-lg-5 mx-auto my-5 titulo-texto">
+            <p class="lead font-weight-normal " >
+            Não se preocupe com <span> trânsito, filas e <br>atrasos </span> para realizar suas entregas.
+            </p>
+      </div>  
+         <div class="col-lg-3"></div>          
+    </div> 
+
+    <div class="row" >
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <!-- Alert Invalid -->
+                <div id="alert-invalid" class="alert alert-danger fade show" role="alert" style="display:none">
+                    <span></span>
+                </div>
+                <!-- Alert Aguarde-->
+                <div id="alert-wait" class="alert alert-primary" role="alert" style="display:none;">
+                        Aguarde...
+                </div>
+                <!-- Alert error -->
+                <div id="alert-error" class="alert alert-danger  fade show" role="alert" style="display:none">
+                        Ocorreu um Erro ao Consultar. Tente de Novo!  
+                </div>
+        </div>
+        <div class="col-lg-4"></div>
+
+    </div>  
+
+    <!-- Div form Simular -->
+    <div class="row" style="margin-top:2%;" >
+        <div class="col-lg-4"></div>
+            <div class="col-lg-4"> 
+                <div class="form-group">
+                                <!--logradouro, numero - bairro, cidade - estado, brasil-->
+                    <input type="text" class="form-control" id="origem" name="origem" gm-places-autocomplete ng-model="cadastrar.origem" />
+                </div>
+                <div class="form-group">
+                     <input type="text" class="form-control" id="destino" name="destino" gm-places-autocomplete ng-model="cadastrar.destino" />
+                </div>
+                    <input type="button" class="btn btn-simular btn-block" ng-click="simularEntrega()" value="SIMULE SUA ENTREGA">
+                    <button type="button" id="btnModal" data-toggle="modal" data-target="#modalSimular" style="display:none" ></button>                        
+            </div>
+        <div class="col-lg-4"></div>
+    </div>            
+                <!-- Modal Simular Entrega-->
+                <div class="modal" id="modalSimular">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h1 class="simulador_de_Entrega">Simulador de Entrega</h1>
+                                <button type="button" id="btn-fechar" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body background_modal text-center">
+                                <div class="col-lg-12">
+                                    <img src="images/moto_desc.png">
+                                </div>
+                                <div class="col-lg-12" style=" margin-top:25px !important">
+                                        <strong><span id="txtValor"></span></strong>
+                                </div>
+                                <div class="col-lg-12" id="txtRodape" style="margin-top:25px !important">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                        Vestibulum et enim accumsan, gravida urna ac, suscipit metus. 
+                                        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae
+                                </div>
+                            </div>        
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer background_modal" style="padding:0px 0px 15px 0px !important">
+                                <div class="col-lg-12 background-btn" data-dismiss="modal" ng-click="contratarAgora()">
+                                    <strong><span class="txt-contratar">CONTRATAR AGORA</span></strong> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+              <!--  <div class="col-sm-12 dd-footer">          
+                        <div class="small text-white">
+                            TERMOS E REGULAMENTO <a href="#">AQUI</a> | contato@goey.com.br | 0800
+                                7878 9090 | GOEY É UM PRODUTO DA DDTOTAL
+                        </div>            
+                </div>-->
+</div>
+</section>
+
+
+<style>
+.container-home{
+    background-image: url(images/home/banner-pg1.png);
+    min-height: 100vh;
+    position: relative;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat; 
+}
+
+.logo-goey{
+    margin-top:20px;
+}
+
+.logo-goey img{
+    max-width:380px;
+    display: inline;
+     width: 60%;
+     float: left;
+}
+
+.btn-simular{
+    background:#f37b22;
+    color: #fff;
+}
+.menu{
+    display: block;
+    margin-top: 18px;"
+}
+
+.menu a{
+    color: #fff;
+    font-weight: 700;
+}
+
+.menu span{
+    color: #f37b22;
+    font-weight: bold;
+    margin-left: 5px; 
+}
+
+.menu-btn{
+    display: inline;
+    width: 30%;
+    float: right;
+}
+
+.btn-cadastre-secondary{
+    background: #f37b22;
+}
+
+.btn-acesse-secondary{
+    background:#4266ae; 
+}
+.menu-link,.menu-btn{
+    display: inline-block;
+}
+.menu-link{
+     margin-top: 8px;
+ }
+.menu-link a{
+    padding-right:5px !important;
+    padding-left: 5px !important;
+    border-right: 2px solid #fff;
+}
+.menu-btn a{
+    margin-right: 5px ;
+}
+
+.titulo-texto{
+    margin-top: 30vh;
+    text-align: center;
+}
+.titulo-texto p{
+    color: #fff;
+     font-size: 6vh;
+      line-height: 0.8;
+ }
+.titulo-texto p span{
+    font-weight: bold;
+ }
+
+</style>

@@ -1,0 +1,28 @@
+
+var investimento = angular.module('investimento', ['ui.router', 'ngResource', 'ngAnimate']);
+
+investimento.config(["$stateProvider", function ($stateProvider) {
+
+    //investimento page state
+    $stateProvider.state('investimento', {
+        url: '/investimento',
+        templateUrl: 'app/modules/investimento/investimento.html',
+        controller: 'investimentoCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'investimento'
+        }
+    });
+
+    //investimentoProposta page state
+    $stateProvider.state('investimentoProposta', {
+        url: '/investimentoProposta',
+        templateUrl: 'app/modules/investimento/investimentoProposta.html',
+        controller: 'investimentoCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Investimento Proposta'
+        }
+    });
+
+}]);

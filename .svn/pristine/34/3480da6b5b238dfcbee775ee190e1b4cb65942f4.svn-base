@@ -1,0 +1,62 @@
+dashboard.controller("HistoricoController", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http','distanciaService',
+    function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http,distanciaService) {
+        $scope.historico = false;
+        var vm = this;  
+        $scope.cadastro = [];
+        var usuario = JSON.parse(localStorage.getItem('user'));  
+        if(!usuario){
+            window.location.href="/entregador/#login";
+        }  
+        $scope.carregando = false;
+
+
+        $scope.carregarHistorico = function(periodo){
+                if(!usuario){
+            window.location.href="/entregador/#login";
+    }  
+        $scope.carregando = true;
+          var dados = {
+            codCondutor:usuario.codCondutor,
+            auth:'3f018bfb43591ccb2ef46f10de832160',
+            dataInicio:$scope.dataIni,
+            dataFim:$scope.dataFim
+
+        }
+
+        if(!$scope.dataIni){
+                return Flash.create('error', 'Por favor, selecione uma data inicial!', 'small-text')
+            }else if(!$scope.dataFim){
+                return Flash.create('error', 'Por favor, selecione uma data final!', 'small-text')
+        }
+
+    $http.post("http://ws.goeyja.com.br/ws/goey/rest/public/historicoEntregasCondutor", dados).success(function(data) {
+// Número entrega, Local retirada/Cidade e Local Entrega/Cidade, tempo gasto 
+// e KM Rodado. Somatória de quantidades de Entregas, de tempo gasto e km rodado.
+    $scope.mensagemRetorno = false;
+        if(data[0].retorno == 0){
+            $scope.mensagemRetorno = true;
+            return false;
+        }
+        $scope.historico = data;
+        $scope.i = 0;
+        $scope.kmTotal =0;
+        $scope.totalTime = 0;
+        
+            var selecionado = $scope.historico.filter(function (isTrue) {
+                $scope.kmTotal += parseFloat(isTrue.distancia);
+                $scope.valorTotal+=parseFloat(isTrue.valor);
+                $scope.i++;
+                $scope.totalTime +=parseFloat(isTrue.tempMinutos);
+            });
+            // console.log($scope.totalTime);
+
+        });
+    $scope.carregando = false;
+}
+$( ".datepicker" )
+.datepicker({
+                locale: 'pt-br'
+            });
+
+}]);
+

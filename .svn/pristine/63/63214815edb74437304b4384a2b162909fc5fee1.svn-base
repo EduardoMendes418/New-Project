@@ -1,0 +1,42 @@
+
+
+
+var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'flash','ui.utils.masks',
+    //main modules
+    'login', 'dashboard','home','step','googleAutocomplete','ngMap','empresa','formRestaurante','compras','listaEstabelecimentos','listaProdutos'
+    ,'restaurante', 'angular.google.distance','step','cadastro','ngJsonExportExcel','investimento','investimentoProposta','farmacia','listafarmacia', 'listafarmaciaproduto','formFarmacia', 'locacao' ,  ]);
+
+app.run(function($rootScope, $templateCache) {
+ $rootScope.$on('$viewContentLoaded', function() {
+  $templateCache.removeAll();
+  });
+ });
+
+app.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function ($stateProvider, $locationProvider, $urlRouterProvider, $modalInstance) {
+
+    //IdleScreenList
+    $stateProvider
+    .state('app', {
+     url: '/app',
+     templateUrl: 'app/common/app.html',
+     controller: 'appCtrl',
+     controllerAs: 'vm',
+     data: {
+       pageTitle: 'Home'
+     }
+     });
+
+    $urlRouterProvider.otherwise('locacao');
+    $urlRouterProvider.otherwise('investimento');
+    $urlRouterProvider.otherwise('investimentoProposta');
+    //$urlRouterProvider.otherwise('step');
+    // $locationProvider.html5Mode(true);
+    // $locationProvider.hashPrefix('');
+    //$urlRouterProvider.otherwise('app/dashboard');
+    //$urlRouterProvider.otherwise('/app/dashboard');
+    }]);
+
+// set global configuration of application and it can be accessed by injecting appSettings in any modules
+app.constant('appSettings', appConfig);
+
+

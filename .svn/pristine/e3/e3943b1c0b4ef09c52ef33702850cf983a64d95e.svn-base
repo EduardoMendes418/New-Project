@@ -1,0 +1,142 @@
+﻿
+
+dashboard.controller("newPropostaCtrl", ['$rootScope', '$scope', '$state', '$location', 'Flash','$http',
+  function ($rootScope, $scope, $state, $location, Flash,$http) {
+    var vm = this;  
+    var url = 'https://www.iptufacil.com.br';
+// var url = 'http://192.168.1.215:8025';
+ $scope.auth  = "3f018bfb43591ccb2ef46f10de832160";
+ 
+
+  $http.defaults.headers.post["Content-Type"] = "application/json";
+
+$scope.loadSession = function(nome) {
+
+var dados = localStorage.getItem(nome) || '';
+
+    if(dados != "" ){
+
+        var dadosDecodificado = window.atob(dados);
+        return JSON.parse(dadosDecodificado);
+       
+    }else{
+
+       return 0;
+
+    }
+
+}
+
+
+if($scope.loadSession('log') == 0) {
+
+  window.location.href = 'https://www.goeyja.com.br/locacao';
+
+}else{
+
+  $scope.tipoUsuario = $scope.loadSession('log').tipoUsuario;
+  $scope.codUsuario = $scope.loadSession('log').codUsuario;
+  
+}
+
+/* ############## COMBOS FORMULÁRIOS ##################### */
+$scope.combosFormulario = function(){
+
+
+$http({
+          method: 'POST',
+          url: url + "/ws/goey/rest/public/combosFormularioLocacao",
+          data: $.param({auth:$scope.auth}),
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+      }).success(function (response) {
+
+       $scope.tipoVeiculo = response.tipoVeiculos;
+       $scope.modeloVeiculo = response.modeloVeiculos;
+       $scope.tipoProtecao  = response.protecaoVeiculos;
+            
+          })    
+       
+
+}
+
+$scope.combosFormulario();
+
+
+
+/* ###################################################### */
+
+/* ################### LISTA DE PROPOSTA LOCAÇÃO ################# */
+$scope.listaProposta = function(codUser){
+        $scope.consulta = {};
+        $scope.consulta.auth = $scope.auth;
+        $scope.consulta.codUsuario = codUser;
+
+        $http({
+                method: 'POST',
+                url: url + "/ws/goey/rest/public/listaPropostasUsuario",
+                data: $.param($scope.consulta),
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+              }).success(function (response) {
+
+                if(response.retorno == 1){
+
+                  $scope.listaProposta = response.dados;                                                   
+
+                }
+                    
+                              
+                    
+              })
+
+}
+
+$scope.listaProposta($scope.codUsuario);
+/* ################################################################## */
+
+/* ############### FAZ O CALCULO DO PERÍODO LOCAÇÃO ################# */
+$scope.periodoLocacao = function(dt){
+
+var qtd = 29;
+var dt1 = dt.split("/");
+var hj1 = dt1[2]+"-"+dt1[1]+"-"+dt1[0];
+var dtat = new Date(hj1);
+dtat.setDate(dtat.getDate());
+var myDate = new Date(hj1);
+myDate.setDate(myDate.getDate() + (qtd+1));
+var ano = myDate.getFullYear();
+var dia = myDate.getDate(); if(dia<10){dia='0'+dia};
+var mes = (myDate.getMonth()+1); 
+    if(mes<10){
+      mes='0'+mes
+    }        
+  $scope.proposta.dataFim = dia+"/"+mes+"/"+ano;
+ 
+}
+
+/* ################################################################# */
+
+/* ################# ENVIAR PROPOSTA LOCAÇÃO ####################### */
+$scope.cadastrarProposta = function(){
+
+  $scope.proposta.auth = $scope.auth;
+  $scope.proposta.codUsuario =  $scope.codUsuario; 
+
+  $http({
+                method: 'POST',
+                url: url + "/ws/goey/rest/public/cadastroPropostaUsuario",
+                data: $.param($scope.proposta),
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+              }).success(function (response) {
+                
+                    alert(response.mensagem);                              
+                    
+              })
+
+
+}
+/* ################################################################# */
+
+
+$(".data-locacao").datepicker();
+}]);

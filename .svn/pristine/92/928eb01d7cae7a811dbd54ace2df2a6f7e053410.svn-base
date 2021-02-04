@@ -1,0 +1,195 @@
+﻿
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Meus Dados
+
+        </h1>
+        <ol class="breadcrumb">
+            <li><a><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active">Meus Dados</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="well content">
+    <div class="row">
+    
+        <div class="col-lg-4 col-xs-12">
+
+                 <div class="form-group">
+                 <label for="razaoSocial">Razão Social</label>
+                    <input type="text" class="form-control" id="razaoSocial" name="razaoSocial" readonly ng-model="editar.razaoSocial" />
+                 </div> 
+
+        </div>
+        
+        <div class="col-lg-4 col-xs-12">
+
+                 <div class="form-group">
+                 <label for="nomeFantasia">Nome Fantasia</label>
+                    <input type="text" class="form-control" id="nomeFantasia" name="nomeFantasia" readonly  ng-model="editar.nomeFantasia" />
+                 </div>
+
+        </div>
+        
+        <div class="col-lg-4 col-xs-12">
+
+                 <div class="form-group">
+                 <label for="cnpj">Cnpj</label>
+                    <input type="text" class="form-control" id="cnpj" name="cnpj" readonly  ng-model="editar.cnpj" ui-br-cnpj-mask/>
+                 </div>
+
+        </div>        
+              
+    </div>
+    
+    <div class="row">
+    
+        <div class="col-lg-4 col-xs-12">
+
+                 <div class="form-group">
+                 <label for="nomeContato">Nome Contato</label>
+                    <input type="text" class="form-control" id="nomeContato" name="nomeContato"   ng-model="editar.nomeContato" />
+                 </div> 
+
+        </div>
+        
+        <div class="col-lg-4 col-xs-12">
+
+                 <div class="form-group">
+                 <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email" name="nomeFantasia" readonly  ng-model="editar.email" />
+                 </div>
+
+        </div>
+        
+        <div class="col-lg-4 col-xs-12">
+
+                 <div class="form-group">
+                 <label for="telefone">Telefone</label>
+                    <input type="text" class="form-control" id="telefone" name="telefone" ui-br-phone-number ng-model="editar.telefone" />
+                 </div> 
+
+        </div>
+
+    </div>
+    
+    <div class="row">
+    
+        <div class="col-lg-4 col-xs-12">
+                 <div class="form-group">
+                 <label for="cep">Cep</label>
+                <input type="text" class="form-control" id="cep" name="cep"  ng-model="editar.cep" ng-change="consultaCep(editar.cep)" ui-br-cep-mask/>
+                 </div>    
+        </div>
+        
+        <div class="col-lg-4 col-xs-12">
+                 <div class="form-group">
+                 <label for="logradouro">Logradouro</label>
+                    <input type="text" class="form-control" id="logradouro" name="logradouro"  ng-model="editar.logradouro" />
+                 </div>    
+        </div>
+        
+        <div class="col-lg-3 col-xs-12">
+        
+                 <div class="form-group">
+                 <label for="complemento">Complemento</label>
+                    <input type="text" class="form-control" id="complemento" name="complemento"  ng-model="editar.complemento" />                    
+                 </div> 
+                   
+        </div>
+         <div class="col-lg-1 col-xs-12">
+        
+                 <div class="form-group">
+                 <label for="numero">Nº</label>
+                    <input type="text" class="form-control" id="numero" name="numero"  ng-model="editar.numero" />                    
+                 </div> 
+                   
+        </div>           
+              
+    </div>
+    
+    <div class="row">
+    
+        <div class="col-lg-4 col-xs-12">
+                 <div class="form-group">
+                 <label for="bairro">Bairro</label>
+                    <input type="text" class="form-control" id="bairro" name="bairro"  ng-model="editar.bairro" />
+                 </div>    
+        </div>
+        
+        <div class="col-lg-4 col-xs-12">
+                 <div class="form-group">
+                 <label for="cidade">Cidade</label>
+                    <input type="text" class="form-control" id="cidade" name="cidade"  ng-model="editar.cidade" />
+                 </div>    
+        </div>
+        
+        <div class="col-lg-4 col-xs-12">
+                 <div class="form-group">
+                 <label for="uf">Uf</label>
+                    <input type="text" class="form-control" id="uf" name="uf"  ng-model="editar.uf" />
+                 </div>    
+        </div>        
+             
+    </div>
+    
+    <div class="row">
+    
+        <div class="col-lg-3 col-xs-12">      
+                 
+            <button class="btn btn-info btn-block" id="btnAtualizarDados" ng-click="atualizarDados()">Atualizar</button>
+            <img src="images/loader.png"  class="fa fa-refresh glyphicon-refresh-animate" style="display:none" id="img-loader">
+
+        </div>        
+             
+    </div>
+    
+    </section><!-- /.content -->
+    <section class="well content">
+
+        <div class="row">
+
+            <div class="col-sm-4 col-xl-12">
+
+            <a href="#" data-toggle="modal" data-target="#modal-senha">Alterar Senha</a>
+
+            </div>
+
+            <!-- The Modal -->
+            <div class="modal" id="modal-senha">
+              <div class="modal-dialog">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title">Alterar Senha</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    <h4></h4>
+
+                     <form class="form-inline">                         
+                             
+                          <input type="password" class="form-control" id="novaSenha" placeholder="Nova Senha" name="novaSenha"  ng-model="novaSenha">
+                          
+                          <button type="button" class="btn btn-primary" ng-click="alterarSenha()" id="btn-alterar-senha">Altera Senha</button>
+                          <img src="images/loader.png" id="img-loader-2" class="fa fa-refresh glyphicon-refresh-animate"  style="display:none">
+
+                    </form>
+
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Fechar</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+    </section>

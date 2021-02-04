@@ -1,0 +1,84 @@
+﻿if(window.location.hostname.indexOf("localhost") != -1 || window.location.hostname.indexOf("192") != -1){
+    var ws = window.location.protocol+"//"+window.location.host.replace(":"+window.location.port,"")+ ":8025/ws";
+}else{
+    var ws = "https://www.iptufacil.com.br/ws";
+}
+
+login.controller("loginCtrl", ['$rootScope', '$scope', '$state', '$location', 'loginService', 'Flash','apiService',
+function ($rootScope, $scope, $state, $location, loginService, Flash, apiService) {
+        var vm = this;
+        $scope.carregando = false;
+        localStorage.removeItem('user');
+        vm.getUser = {};
+        vm.setUser = {};
+        vm.signIn = true;
+
+        //access login
+        vm.login = function (data) {  
+            $scope.carregando = true;
+            if (data.Username != "" && data.Password != "") {
+                
+                $.ajax({
+                        type: 'POST',
+                        crossDomain: true,
+                        url: ws+'/goey/rest/public/loginEntregador',
+                        data:{
+                        'cpf': data.Username ,
+                        'senha': data.Password,
+                        'auth': '3f018bfb43591ccb2ef46f10de832160'
+                        },
+                        dataType: 'json',
+                        success: function (response){
+                            if(response.retorno == 1){
+                                var entregador = {
+                                    codCondutor:response.codCondutor,
+                                    nome:response.condutor,
+                                    codSascar:response.codSascar,
+                                    placa:response.placa,
+                                    marca:response.marca,
+                                    modelo:response.modelo,
+                                    cpf:response.cpf,
+                                    horarioEntrada:response.horarioEntrada,
+                                    almocoSaida:response.almocoSaida,
+                                    almocoRetorno:response.almocoRetorno,
+                                    horarioSaida:response.horarioSaida,
+                                    celular:response.celular,
+                                    zona:response.zona
+                                    }
+                                
+                                localStorage.setItem('user',JSON.stringify(entregador));
+                                
+                                $state.go('app.entrega'); 
+                            }else{
+                               Flash.create('danger', 'Login ou Senha Inválido(s)', 'large-text') 
+                            }
+                        // codigo aqui
+                        }
+                        });
+                    $scope.carregando = false;
+                }else{
+                    Flash.create('danger', 'Login ou Senha Inválido(s)', 'large-text')
+                }
+               
+               
+        };
+
+
+
+
+        //get registration details
+        vm.register = function () {
+            if (vm.setUser.confirmPassword == vm.setUser.Password){
+                loginService.registerUser(vm.setUser).then(function (response) {
+                    if (response.message == 'success')
+                console.log('after post>>',response);
+                //if (response.length > 0)
+                //    $state.go('app');
+                //else
+                //    Flash.create('danger', 'Invalid Credentials', 'large-text');
+            });
+            }
+        };
+
+    }]);
+

@@ -1,0 +1,16 @@
+var listaProdutos = angular.module('listaProdutos', ['ui.router', 'ngResource', 'ngAnimate']);
+
+listaProdutos.config(["$stateProvider", function ($stateProvider) {
+
+// Lista de produtos Estabelecimentos
+    $stateProvider.state('listaProdutos', {
+        url: '/lista-produtos/:codLoja/:tipo',
+        templateUrl: 'app/modules/compras/lista-produtos.html',
+        controller: 'listaCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Compre com a Goey.'
+        }
+    });
+
+}]);

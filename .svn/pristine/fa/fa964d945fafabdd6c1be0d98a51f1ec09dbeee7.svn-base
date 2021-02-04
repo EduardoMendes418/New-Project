@@ -1,0 +1,14 @@
+﻿
+
+dashboard.controller("atualizarProdutosCtrl", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http',
+function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http) {
+    var vm = this;
+    $scope.editar = [];
+   	var usuario = JSON.parse(localStorage.getItem('user'));
+    $scope.editar = JSON.parse(localStorage.getItem('produto'));
+   	$("#tipoUsuario").val(usuario.tipoUsuario);
+   	$("#codUsuario").val(usuario.codUsuario);
+   	$("#codProduto").val($scope.editar.cod);
+   	//var url = 'https://www.iptufacil.com.br';
+
+}]);

@@ -1,0 +1,780 @@
+.pg1farmacia{
+	background-image: url('../images/farmacia/far.jpg');
+	color: #fff;
+	height: 90vh;
+	position: relative;
+    background-size: cover !important;
+    background-position: center  !important;
+    background-position-y: 10px; 
+    background-repeat: no-repeat;  
+   	opacity: 0.9;
+  	filter: alpha(opacity=50);	
+  	 z-index: 000 !important;
+}	
+
+
+
+.formulario-input{
+	margin-top: 10px !important;
+    width: 450px !important;
+    margin: 0 auto;
+}
+
+.cover-container {
+    max-width: 42em;
+}
+
+.ml-auto, .mx-auto {
+    margin-left: auto!important;
+}
+.mr-auto, .mx-auto {
+    margin-right: auto!important;
+}
+
+.textofarmacia{
+	margin-top: 30vh; 
+}
+.textofarmacia h1{
+	color: #4266ae ;
+	font-weight: 600;
+	font-size: 40px;
+	letter-spacing: -0.2rem;
+	z-index: 22222 !important;
+	line-height: 0.9;
+}
+.textofarmacia span{
+	color: #f37b22;
+	font-weight: 600;
+	z-index: 22222 !important;
+}
+.textfarmacia p{
+	color: #717171;
+	z-index: 22222 !important;
+}
+
+#sujeito p{
+	color: #717171 !important;
+	font-weight: 600;
+	font-size: 10px;
+	letter-spacing: 0.2rem;
+}
+.input-lg {
+    height: 40px !important;
+    padding: -3px 3px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+}
+
+.home{
+	height: 10vh;
+}
+.site-header-farma {
+	z-index: 2 !important;
+}	
+.btn-fisi{
+        padding-top: 3px;
+        padding-right: 35px;
+        padding-bottom: 9px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        border: transparent;
+        border-bottom: 1px solid #fff;
+        border-radius: 2px; 
+        font-weight: 600;
+    }
+    .btn-juri{
+        padding-top: 3px;
+        padding-bottom: 9px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        border: transparent;
+        border-bottom: 1px solid #fff;
+        border-radius: 2px; 
+        font-weight: 600;
+    }
+
+    .btn-rest{
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-left: 11px;
+        margin-top: 3px;
+        margin-bottom: 2px;
+        border: transparent;
+        border-radius: 2px; 
+        font-weight: 600;
+    }
+
+.dropdown-item {
+    width: 100%;
+    background: transparent;
+    color: #fff;
+}
+    
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 147px;
+    padding: 4px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    text-align: left;
+    background-color: #fb8c00;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+
+.btn-cadastre-secondary{
+    background: #f37b22;
+    margin-right: 4px;
+    color: #fff !important;
+    font-weight: 800;
+}    
+
+.btn-fraquia-secondary{
+    font-weight: 800;
+}   
+
+.btn-acesse-secondary{
+    font-weight: 800;
+}
+    
+/*<!-- PAGINA-->*/
+.ddtotal-test p a{
+    color: #000 !important
+}
+
+.ddtotal-test p a:hover{
+    color: #4266ae !important
+}
+
+.telefone span{
+    color: #000 !important;
+    font-weight: 700 !important;
+}
+.cartao{
+    border-bottom: 1px solid #000;
+    margin-bottom: 10px;
+}
+
+.restaurante{
+    padding-top: 0px;
+}
+.restaurante p{
+    color: #fff;
+    font-size: 35px;
+    font-weight: 300;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',Roboto, Oxygen, Ubuntu, Cantarell, 
+    'Open Sans', 'Helvetica Neue', sans-serif
+}
+.formulario{
+    margin-top: 10vh;
+}
+.formulario h1{
+    color: #4266ae;
+    font-size: 25px;
+}
+
+.formulario input{
+    background: #e5e5e5;
+    border: 1px solid #000;
+    margin-bottom: 10px;
+}
+
+.col-md-offset-6 {
+    margin-left: -6%;
+}
+
+/*
+.alert-info {
+    border-color: orange !important;
+}*/
+
+.pricing-header {
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+.cozinha{
+    margin-top: 20px;
+}
+.cozinha p{
+    color: #fff;
+    font-size: 18px;
+}
+.cozinha h2{
+    font-weight: 300;
+}
+
+.seguranca {
+    color: #fff
+}
+.seguranca p{
+    font-size: 18px;
+}
+.seguranca h2{
+    font-weight: 300;
+}
+.footer{
+    margin-top: 10vh;
+}
+.footer p{
+    font-size: 12px;
+    color: #000;
+    font-weight: 600;
+}
+
+h2{
+    color: #f37a24;
+    font-size: 35px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.credito{
+    margin-top: 10vh;
+    margin-bottom: 15px;
+}
+
+.bloco{
+ padding-top: 15vh;
+}
+
+.bloco p {
+    font-size: 20px;
+    color: #000;
+    line-height: 1em;
+}
+
+.lead {
+    line-height: 1 !important;
+}
+.site-header-farma{
+    padding-bottom: 10px;
+}
+.navbar{
+    display: none;
+}
+.bloco1{
+  margin-left: 10vh;
+  padding-top: 5px;
+}
+
+.container-cartao{
+    background-color: #e5e5e5;
+    min-height: 90vh;
+    position: relative;
+    background-size: cover;
+    z-index: 0;
+    background-position: center top;
+    background-repeat: no-repeat; 
+}
+.container-orange{
+    background-color: #ef6327;
+    min-height: 15vh;
+}
+
+.logo-goey{
+    margin-top:20px;
+}
+
+.logo-goey img{
+    max-width:300px;
+    display: inline;
+    width: 60%;
+    float: left;
+}
+
+.btn-primary{
+    background:#4266ae; 
+    color:#fff;
+}
+
+.btn-primary:hover{
+    background:#4266ae; 
+}
+
+
+.btn-simular{
+    background:#f37b22;
+    color: #fff;
+}
+.menufarma{
+    display: block;
+    margin-top: 18px;
+}
+
+.menufarma a{
+    color: #fff;
+    font-weight: 600;
+}
+
+.menufarma span{
+    color: #f37b22;
+    font-weight: bold;
+    margin-left: 5px; 
+}
+
+.menu-btn{
+    display: inline;
+    width: 39%;
+    float: right;
+}
+
+.menu-btn {
+	display: block;
+	text-align: center;
+}
+
+.btn-fraquia-secondary{
+    background:#4266ae; 
+}
+.btn-cadastre-secondary{
+    background: #f37b22;
+}
+.btn-acesse-secondary{
+    background: #4266ae;
+}
+.menu-link,.menu-btn{
+    display: inline-block;
+}
+.menu-link{
+     margin-top: 8px;
+ }
+.menu-link a{
+    padding-right:3px !important;
+    padding-left: 3px !important;
+    color: #000;
+    border-right: 2px solid #000;
+}
+.menu-btn a{
+    margin-right: 5px ;
+}
+
+.titulo-texto{
+    margin-top: 15vh;
+    text-align: center;
+}
+.titulo-texto p{
+    color: #fff;
+     font-size: 5vh;
+      line-height: 0.8;
+ }
+.titulo-texto p span{
+    font-weight: bold;
+ }
+
+ .form-group{
+    margin-bottom: 10px;
+ }
+
+.jumbotron {
+    background-color: transparent;
+}
+
+.jumbotron p {
+    margin-bottom: 15px;
+    font-size: 43px !important;
+    font-weight: 200;
+}
+
+.jumbotron button{
+    background: transparent !important;
+    font-weight: 800;
+    padding: 8px; 
+}
+
+.btn-querocontratar-secondary{
+    background: #f37b22;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #fff;
+    width: 35%;
+    float: right;
+    border-radius: 0px;
+}
+
+h3, .h3{
+    margin-top: 5px;
+    font-size: 12px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+.contratar span{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 800;
+}
+.contratar p{
+    color: #fff;
+    font-size: 12px;
+}
+.texto-prestamos {
+    padding-top: 50px;
+}
+.texto-prestamos span{
+ color: #fff;
+ 
+}
+.texto-prestamos p{
+ color: #000;
+ font-size: 48px; 
+ line-height: 0.8em; 
+
+}
+.somos{
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 3.5px;
+    position: relative;
+    bottom: 5px;
+}
+
+.container-legumes-mobile{
+    display: none;
+}
+
+	
+@media screen and ( max-width: 700px){
+
+.btn-mobile h1 i{
+    color: #f37b22 !important
+}
+   
+.menu-mobile-btn a{
+    color: #fff !important;
+}
+.menu-mobile-btn a:hover{
+    color: #fff !important;
+}
+
+ .logo-goey {
+    margin-top: 0px !important;
+}      
+.navbar-nav{
+    text-align: center;
+}
+
+.textofarmacia {
+    margin-top: 45vh;
+}
+
+.formulario-input {
+    margin-top: 10px !important;
+    width: 300px !important;
+    margin: 0 auto;
+}
+
+.textofarmacia h1 {
+    color: #4266ae;
+    font-weight: 600;
+    font-size: 25px;
+    letter-spacing: -0.2rem;
+    z-index: 22222 !important;
+    line-height: 0.9;
+}
+
+.logo-goey img{
+	display: none;
+}
+
+.navbar {
+    margin-bottom: 0px !important;
+    background: transparent;
+    border: transparent;
+}
+
+.site-header-farma {
+    padding-bottom: 0px;
+ }	
+
+.pg1farmacia{
+    background-size: cover !important;
+    background-position: right !important;
+    background-repeat: no-repeat; 
+}
+
+.recapmobile{
+        padding-left: 0px !important;
+        padding-right: 0px;
+    }
+
+
+.logo-goey-mobile {
+    max-width: 40px;
+    display: inline;
+    width: 60%;
+    float: left;
+    margin-top: 25px !important;
+    margin-left: 10px !important;
+}
+
+.btn-mobile {
+    float: right;
+    background: transparent;
+    border: 1px solid transparent;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 8px;
+}
+
+
+.btn-cadastre-secondary:hover{
+    color: #f37b22 !important;
+    font-weight: 700;
+    cursor: pointer;
+    background: transparent;
+}
+
+.btn-cadastre-secondary{
+    margin-left: 5px;
+}
+
+.dropdown {
+    position: relative;
+    background: transparent !important;
+    border-radius: 5px;
+    width: 41%;
+}
+
+.navbar-nav .open .dropdown-menu {
+    position: static;
+    float: none;
+    width: auto;
+    border-radius: 5px;
+    margin-top: 3px;
+    background-color: transparent;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+ 
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 146px;
+    padding: 2px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    text-align: left;
+    border: 1px solid #cccccc;
+    background: #fb8c00 !important;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+.dropup, .dropdown {
+    position: relative;
+    background: #f37b22;
+    border-radius: 5px;
+    width: 41%;
+}
+
+.btn-fisi {
+    padding-top: 4px;
+    padding-left: 15px;
+    padding-bottom: 8px;
+    width: 100%;
+}
+
+.btn-juri{
+    width: 100%;
+    padding-left: 15px;
+}
+
+.btn-rest {
+    padding-left: 12px;
+}
+
+.telefone{
+    margin-top: 5vh;
+    color: #90b3fa !important;
+    font-weight: 700 !important;
+}
+
+.container-legumes{
+    background-image: url(images/restaurante/cozinheiro.jpg);
+    min-height: 100vh;
+    position: relative;
+    background-size: cover;
+    z-index: 0;
+    background-position: center top !important;
+    background-repeat: no-repeat; 
+}
+    
+ .menufarma{
+    display: none;
+ }
+
+  .navbar{
+     display: block;
+}
+
+.menu-mobile-btn:hover{
+    background: transparent;
+    border-radius: 5px;
+    color: #f37b22 !important;
+}
+
+.col-md-offset-6 {
+    margin-left: 0% !important;
+}
+
+.jumbotron p {
+    margin-bottom: 10px;
+    font-size: 26px !important;
+    font-weight: 200;
+}
+
+.ddtotal{
+    text-align: center !important;
+}
+
+.footer p{
+    letter-spacing: 4.2px !important; 
+}
+
+.formulario input {
+    margin-bottom: 25px !important;
+}
+
+.somos {
+    font-size: 12px !important;
+}
+
+.texto-prestamos p {
+    color: #000;
+    font-size: 26px !important;
+    line-height: 1em;
+}
+
+.navbar {
+    margin-bottom: 0px !important;
+}
+
+.container-laranja{
+    background:#f58721;
+    min-height: 100vh !important;
+    position: relative;
+    background-size: cover !important;
+    z-index: 0;
+    background-position: center top !important;
+    background-repeat: no-repeat; 
+}
+
+.pessoa{
+    background-image: url(images/restaurante/pessoal.png);
+    min-height: 100vh !important;
+    position: relative;
+    background-size: cover !important;
+    background-position: center top !important;
+    background-repeat: no-repeat; 
+}
+
+.texto-prestamos {
+    padding-top: 0px !important;
+    padding-left: 100px !important;
+}
+
+.seta{
+    float: right !important;
+    margin-top: 10vh;
+}
+.restaurante p {
+    color: #fff;
+    font-size: 30px;
+    line-height: 1em;
+}
+
+.input-lg {
+    height: 39px !important;
+    padding: 14px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+}
+
+
+h2{
+    font-size: 22px !important;
+}
+.panela, .moto{
+    margin-top: 5vh;
+}
+
+.cartao{
+    border-bottom: 1px solid #000;
+    margin-bottom: 10px !important;
+}
+
+.container-legumes{
+    display: none
+}
+.container-legumes-mobile{
+    display: block;
+   /* background: #5b5c5b; */
+    background-image: url(images/restaurante/mobile-cozinheiro.png);
+    min-height: 150vh !important;
+    position: relative;
+    background-size: cover !important;
+    background-position: center top !important;
+    background-repeat: no-repeat; 
+}
+.moto-cozinha{
+    display: none;
+}
+
+.container-legumes-mobile h2{
+    font-weight:600 !important;
+    font-size: 20px !important;
+}
+
+.container-home {
+    background-position-y: 0px !important;
+}
+
+.navbar-collapse.in {
+    overflow-y: auto;
+    background: #e9e9e9;
+}
+
+.navbar-collapse.in {
+    overflow-y: auto;
+    background: #e9e9e9;
+}
+
+.navbar-collapse {
+    overflow-x: visible;
+    padding-right: 15px;
+    padding-left: 15px;
+    background: #e9e9e9 !important;
+    border-top: 1px solid transparent;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: #e9e9e9 !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+
+}

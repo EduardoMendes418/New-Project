@@ -1,0 +1,1776 @@
+
+
+<section class="produtos" onload="loader()">
+    <!--/ ************************
+        *   MENU DESKTOP GOEYJA  * 
+        **************************-->
+        <nav class="site-header-compra sticky-top py-1 menu-desktop" id="menu-desktop">
+            <div class="container d-flex flex-column flex-md-row justify-content-between">
+                <a class="py-2" href="#">
+                    <div class="col-md-2 col-sm-4 logo-goey">   
+                        <a href="https://www.goeyja.com.br/#/step">
+                            <img src="images/home/logo-goey.png">
+                        </a>                 
+                    </div>
+                </a>
+                <div class="menu"></div>
+                    <div class="menu-btn" style="display: block" id="lojaInfo">
+                            <!-- <a class="btn btn-fraquia-secondary" href='https://www.goeyja.com.br/#franquia' >FRANQUIAS</a> -->
+                            <div class="dropdown" style="display: inline-block ">
+                                <button class="btn  btn-cadastre-secondary dropdown-toggle btn-cadastre-se" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    CADASTRAR
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <!--BTN-PESSOAL-->
+                                    <a onclick="" data-toggle="modal">
+                                        <button class="dropdown-item btn-fisi" type="button" id="showModal" ng-click="cadUsuario = {};clearForm();form.$setUntouched();" data-toggle="modal">PESSOAL</button>
+                                    </a>
+                                    <!--BTN-EMPRESARIAL-->
+                                    <!-- <a onclick="window.location.replace('https://www.goeyja.com.br/#empresa');"> -->
+                                    <a onclick="window.location.replace('https://www.goeyja.com.br/#empresa');">
+                                        <button class="dropdown-item btn-juri" type="button">EMPRESARIAL</button>
+                                    </a>
+                                    <!--BTN-RESTAURANTE-->
+                                    <!-- <a onclick="window.location.replace('https://www.goeyja.com.br/#formRestaurante');"> -->
+                                    <a  onclick="window.location.replace('https://www.goeyja.com.br/#formRestaurante');">
+                                        <button class="dropdown-item btn-rest" type="button">RESTAURANTE</button>
+                                    </a>
+                                </div>
+                            </div>
+                        <a class="btn btn-acesse-secondary" style="display: inline-block" href="https://www.goeyja.com.br/#login" >ACESSE SUA CONTA</a> 
+                        <!--<a class="btn btn-acesse-secondary" >CADASTRO USUÁRIO</a> -->
+                        <button type="button" class="btn btn-primary" ng-show="true" ng-click="voltarLoja()"> 
+                            ESCOLHER OUTRA LOJA ?
+                        </button>
+                    </div>    
+                </div>
+        </nav>
+
+     <!--/ ***************************************
+        *    MENU-BRANCO SEM GOEYJA VOLTA LOJA   * 
+        ******************************************-->
+        <nav class="site-header-loja sticky-top py-1 volta-desktop"  id="volta-desktop">
+            <div class="container d-flex flex-column flex-md-row justify-content-between">
+                <a class="py-2" href="#">
+                <div class="col-md-2 col-sm-4 logo-goey"></div>
+                </a>
+                <div class="menu"></div>
+                    <div class="menu-btn-branco" style="display: block" id="lojaInfo">
+                        <div class="dropdown" style="display: inline-block "></div>
+                        <!-- <button type="button" class="btn btn-primary" ng-show="true" ng-click="voltarLoja()"> 
+                            VOLTAR LOJA ?
+                        </button> -->
+                    </div>    
+                </div>
+        </nav>
+
+    <!--/******************
+        *  MENU - Mobile  * 
+        ******************* -->
+        <nav class=" menu-mobile navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class=".col-6 .col-sm-4 logo-goey-mobile">                    
+                <a href="https://www.goeyja.com.br/#/step">
+                <img src="images/home/logo-goey.png"  style=" width: 80px; margin-top: 12px;">
+                </a>  
+            </div>
+            
+            <button class="btn-mobile navbar-right  collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <h1><i class="fa fa-bars"></i></h1>
+            </button>
+
+            <div class="navbar-collapse collapse tab-mobile" id="navbarCollapse" style="margin-top: 14vh;">
+                <div class="navbar-nav  modal-mobile " style=" margin-top: 40px;">
+
+                <div class="menu-mobile-btn" >
+                    <a class="btn" href="#/home#goo"> O QUE É GOEY</a>
+                </div>
+
+                <div class="menu-mobile-btn">
+                    <a class="btn" href="#/home#van">VANTAGENS</a>
+                </div> 
+
+                <div class="menu-mobile-btn">
+                    <a class="btn"  href="#/restaurante">
+                        <span >RESTAURANTE</span>
+                    </a>
+                </div>
+
+                <div class="menu-mobile-btn">
+                    <a class="btn" href='https://www.goeyja.com.br/#franquia'>FRANQUIAS</a>
+                </div>
+
+                <div class="menu-mobile-btn">
+                    <a class="btn" href="#" data-toggle="modal" data-target="#contato">CONTATO</a>
+                </div>
+
+                <div class="menu-mobile-btn" style="margin-top:5px">
+                    <button class="btn btn-acesse-secondary" href="https://www.goeyja.com.br/#login"  >ACESSE SUA CONTA</button>  
+                </div>
+
+                <div class="menu-mobile-btn" style="margin-top:5px">
+                    <button type="button" class="btn btn-primary" ng-show="true" ng-click="voltarLoja()"> 
+                        ESCOLHER OUTRA LOJA ?
+                    </button>
+                </div>
+                
+                <div class="menu-mobile-btn" style="margin-top:5px">
+                    <div class="dropdown" style="display: inline-block ">
+                            <button class="btn  btn-cadastre-secondary dropdown-toggle btn-cadastre-se" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    CADASTRAR
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <!--BTN-PESSOAL-->
+                                <a onclick="$('#cadUsuario').modal('show');">
+                                    <button class="dropdown-item btn-fisi" type="button" id="showModal" ng-click="cadUsuario = {};clearForm();form.$setUntouched();">PESSOAL</button>
+                                </a>
+                                <!--BTN-EMPRESARIAL-->
+                                <a onclick="window.location.replace('http://www.goeyja.com.br/#empresa');">
+                                    <button class="dropdown-item btn-juri" type="button">EMPRESARIAL</button>
+                                </a> 
+                                <!--BTN-RESTAURANTE-->
+                                <a onclick="window.location.replace('https://www.goeyja.com.br/#formRestaurante');">
+                                    <button class="dropdown-item  btn-rest" type="button">RESTAURANTE</button>
+                                </a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid" >
+                <div class="row">
+                 <div class="col-md-8 order-md-1"  style=" height: 200px">
+                    <div class="col-md-12" >
+                        <div class="col-sm-6 col-md-1"></div>
+                        <div class=".col-12 col-xs-12 .col-sm-6 .col-lg-8">
+                            <div class="media">
+                                <div class=" col-xs-4 col-md-3 empresa">
+                                    <div class=" logo-empresa">
+                                        <a href="#">
+                                            <!--<img src="images/lista-produtos/madero.png" >-->
+                                            <img src="https://www.goeyja.com.br/storage/imagens/{{loja.logo}}" class="img-responsive vertical-center" >
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-8 col-md-9">
+                                    <div class="media-body " id="lojaInfo">
+                                        <h2 class="media-heading">{{loja.nomeFantasia}}</h2> 
+                                        <p>{{loja.logradouro}} nº{{loja.numero}}, {{loja.bairro}} - {{loja.cidade}} - {{loja.uf}}</p> 
+                                         <!--/**********
+                                              * DESKTOP * 
+                                              **********-->
+                                        <div class="desktop-horarios">
+                                            <p><span>Telefone:</span> {{loja.telefone}}</p>
+                                            <p><span>Segunda à Sexta:</span> {{loja.segSexta}}</p>
+                                            <p ng-if="loja.sabado != 0"><span>Sabado:</span> {{loja.sabado}}</p>
+                                            <p ng-if="loja.sabado == 0"><span>Sabado:</span> Fechado</p>
+                                            <!-- <p><span>Sabado:</span> {{loja.sabado}}</p>-->
+                                            <p ng-if="loja.domingoFeriado == 0"><span>Domingo e Feriado:</span> Fechado</p>
+                                            <p ng-if="loja.domingoFeriado != 0"><span>Domingo e Feriado:</span> {{loja.domingoFeriado}}</p>
+                                        </div>
+                                         <!--/**********
+                                              * Mobile * 
+                                              **********-->
+                                        <div class="mobile-horarios">
+                                            <button type="button" class=" btn-veja veja" data-toggle="modal" ng-click="paramModal(horario)" data-target=".bd-example-modal-sm" >
+                                                Veja mais
+                                            </button>
+                                            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-sm">
+                                                    <div class="modal-content">
+                                                        <div class="container">
+                                                            <h2 class="media-heading">{{loja.nomeFantasia}}</h2> 
+                                                            <p><span>Telefone:</span> {{loja.telefone}}</p>
+                                                            <p><span>Segunda à Sexta:</span> {{loja.segSexta}}</p>
+                                                            <p ng-if="loga.sabado != 0"><span>Sabado:</span> {{loja.sabado}}</p>
+                                                            <p ng-if="loga.sabado == 0"><span>Sabado:</span> Fechado</p>
+                                                            <!-- <p><span>Sabado:</span> {{loja.sabado}}</p>-->
+                                                            <p ng-if="loja.domingoFeriado == 0"><span>Domingo e Feriado:</span> Fechado</p>
+                                                            <p ng-if="loja.domingoFeriado != 0"><span>Domingo e Feriado:</span> {{loja.domingoFeriado}}</p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                             <button type="button" class=" btn btn-secondary-fechar" data-dismiss="modal">Fechar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col-sm-6 col-md-2"></div>
+                    
+            <!--/***************
+                *  Cart-Mobile * 
+                ****************-->
+                <div id="accordion ">
+                    <div class="container-fluid">
+                        <div class="card row">
+                            <div class="card-header btn-compra col-xs-12" id="headingTwo">
+                                <h5 class="mb-0" style="background: #f37a24;text-align: center">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <div class="panel-heading-mobile">
+                                            <img  src="images/lista-produtos/carrinho.png" alt="25px" height="25px" class="img-responsive">
+                                            <p> Seu Pedido  {{qtdItens}} </p>
+                                        </div>
+                                    </button>
+                                </h5>
+                            </div>
+    
+                            <div id="collapseTwo" class="collapse col-xs-12" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="panell panel-default" >
+                                                    <div class="panel-body">
+                                                        <div ng-show="cartEmpty == 1" style="text-align: center;margin-bottom: 10%">
+                                                            <span style="color:#c3c3c3">Seu carrinho está vazio</span>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12 " ng-repeat="y in cart" class="{{'tr'+ y.cod}}" >
+                                                                <h2 class="card-title pricing-card-title" style="font-size: 15px; font-weight: 500 !important;
+                                                                ">
+                                                                    <div class="col-xs-4" style="padding-left: 0px;">
+                                                                        <span  class="fa fa-minus-circle" aria-hidden="true" title="Retirar" ng-click="minus(y.cod,y.qtd,y.preco)"></span>
+                                                                        <input class="inputValor1" type="text"  readonly ng-model="qtd" ng-value="{{y.qtd}}" placeholder="{{y.qtd}}" style="text-align:center;width: 15px;border: none;position: relative;
+                                                                        bottom: 2px;"/>
+                                                                        <span class="fa fa-plus-circle" aria-hidden="true" ng-click="plus(y.cod,y.qtd)" title="Adicionar"></span>
+                                                                    </div>
+                                                                    <div class="col-xs-8" style="padding: 0px;">
+                                                                        <div class=" col-xs-12"  style="padding: 0px;">
+                                                                            <span  class="linhaproduto" >{{y.produto}}</span>
+                                                                            <!--  <span  class="linhaproduto" >{{y.produto | limitTo:14}}</span>-->
+                                                                        </div>
+
+                                                                        <div class=" col-xs-12" style="padding: 0px; margin-bottom: 2vh; margin-top: 1vh;">
+                                                                            <small class="text-muted"style="font-size: 15px" >
+                                                                                <span>R$ {{y.subtotal}}</span>
+                                                                            </small> 
+                                                                        </div>
+                                                                    </div>
+                                                                </h2>
+                                                            </div>
+                                                        </div> 
+                                
+                                                        <div class="row lista" ng-show="divCart == 1" >
+                                                            <div>
+                                                                <div class="col-md-12">
+                                                                    <h2 class="card-title pricing-card-title" style="font-size: 15px; font-weight: bold">
+                                                                        Subtotal:  
+                                                                        <small class="text-muted"style="font-size: 15px" >
+                                                                            <div class="col-sm-4 text-left" id="subtotal" ng-show="subTotal()" ><span style="font-size:100%">R$ {{subTotal()}}</span></div> 
+                                                                        </small>
+                                                                    </h2>
+                                                                </div>
+                                                                
+                                                                <div class="col-md-12" >
+                                                                    <h2 class="card-title pricing-card-title" style="font-size: 15px; font-weight: bold">
+                                                                        Taxa de entrega: 
+                                                                        <small class="text-muted"style="font-size: 15px">
+                                                                            <div class="col-sm-4 text-left"  ng-show="taxa"><span style="font-size:100%">{{taxa | currency:"R$ "}}</span></div>
+                                                                        </small>
+                                                                    </h2>
+                                                                </div>
+    
+                                                                <div class=" col-md-12">
+                                                                    <h2 class="card-title pricing-card-title" style="font-size: 15px; font-weight: bold">
+                                                                        Total:
+                                                                        <small class="text-muted"style="font-size: 15px">
+                                                                            <div class="col-sm-4 text-left font" id="taxaEntrega"  ng-show="somaTotal">
+                                                                                <span style="font-size:100%">R$ {{somaTotal}}</span>
+                                                                            </div>
+                                                                        </small>
+                                                                    </h2>
+                                                                </div>
+    
+                                                                <div class="col-md-12" id="alterarEnderecomobile" style="margin-bottom: 2%">
+                                                                    <input type="text" class="form-control" id="destinomobile" name="destinomobile" gm-places-autocomplete ng-model="destinomobile"  
+                                                                    placeholder="Informe o endereço para entrega"   onfocusout="validarNumber(this.value)"  style="font-size: 12px !important" />
+                                                                </div>
+
+                                                                <!-- 
+                                                                        /***************** COMPLEMENTO  ***************/
+                                                                <div class="col-xs-12  col-sm-12   col-md-12" id="" style="margin-bottom: 2%">
+                                                                    <input type="text"  class="form-control" name="destino"  gm-places-autocomplete ng-model="" 
+                                                                    placeholder="Complemento"   onfocusout="" style="font-size: 12px !important"  >
+                                                                </div>-->
+                                                            </div>
+    
+                                                            <div ng-if="loja.categoria == 59" data-toggle="modal" data-target="#modalObs" id="obsPedido" style="margin-top: 5px;cursor: pointer" >
+                                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Fazer observação para esse pedido ? 
+                                                            </div>
+    
+                                                        </div> 
+                                                    </div>
+    
+                                                    <div class="" style="">
+                                                        <button class="btn btnFinalizar" ng-click="finalizarPedido(2)"   disabled="disable">
+                                                            Finalizar Compra
+                                                        </button>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>       
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" >
+                        <div class="col-md-12 pesquisa" >
+                            <div class="row">       
+                                <div class="col-md-12 busca">
+                                    <div class="input-group ">
+                                        <input class="form-control " type="search" placeholder="Filtrar Produto..." name="search"  ng-model="cmpnome" ng-change="filter(cmpnome);">
+                                        <div class="input-group-addon" style="cursor: pointer"><i class="fa fa-search"></i></div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div  ng-repeat="(key,itens) in tmp | groupBy: 'categoria'">
+                               <div class=" col-xs-12 col-sm-10 col-md-12  titulo-produtos" >
+                                    <h1 ng-show="key != 'undefined'">{{key}}</h1>
+                                    <!-- <h5 ng-show="key == 'undefined'">Carregando...</h5> -->
+                                </div>
+                                <div class="col-md-6 "ng-repeat="item in itens" style="padding-left: 5px !important; padding-right: 5px !important"> 
+                                    <div class="col-xs-12 col-md-12" ng-show="item.produto">
+                                        <div class="media "   ng-class="{ 'div-disabled': item.ativo}">
+                                            <div class="col-xs-4  col-md-4 " >
+                                                <div class="col-md-12" style="padding: 0px;">
+                                                    <img src="https://www.goeyja.com.br/storage/imagens/{{item.img}}" class="img-responsive teste" style=" border-right: 1px solid #ccc;">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-8 col-md-8" >
+                                                <div class="col-md-12 col-xs-12"  style="padding: 0px;">
+                                                    <div class=" media-body" >
+                                                        <h4 class="media-heading">{{item.produto}}</h4>
+                                                        <p style="font-size: 12px !important;">{{item.descricao | limitTo:50}} {{ item.descricao.length >50 ? '...' : ''}} 
+                                                            <span ng-if="item.descricao.length > 50">
+                                                                <button type="button" class=" btn-veja veja" data-toggle="modal" ng-click="paramModal(item)" data-target="#exampleModal" >
+                                                                    Veja mais
+                                                                </button>
+                                                            </span>
+                                                        </p>
+                                                        
+                                                        <!-- MODAL VEJA -->
+                                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalTitle" aria-hidden="true" >
+                                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                <div class="modal-content" >
+                                                                    <div class="modal-header" style="text-align: center">
+                                                                    <h4 class="media-heading" style="font-size: 25px !important" >{{modal.produto}}</h4>
+                                                                        <div class="col-xs-3 col-md-3"></div>
+                                                                        <div class="col-xs-6 col-md-6 imagem-modal" style="padding: 0px; margin-top: 5vh;">
+                                                                            <img src="https://www.goeyja.com.br/storage/imagens/{{modal.img}}" class="img-responsive teste" style=" border-right: 1px solid #ccc;">
+                                                                        </div>
+                                                                        <div class="col-xs-3 col-md-3"></div>
+                                                                    </div>
+                                                                        <div class="modal-body text-center" >
+                                                                            <div class="col-xs-12 col-md-12">  
+                                                                                <p>{{modal.descricao}}</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    <div class="modal-footer">
+                                                                     <button type="button" class=" btn btn-secondary-fechar" data-dismiss="modal">Fechar</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="row">
+                                                            <div class=" col-xs-12 col-3 col-sm-12">
+                                                                <h1 class="card-title pricing-card-title" style="font-size: 18px; font-weight: bold">
+                                                                    R$ {{item.preco}}
+                                                                    <small class="text-muted">
+                                                                        <span  class="fa fa-plus-circle" aria-hidden="true" title="Adicionar ao carrinho"  ng-click="adicionarItens(item.codProduto,item.produto,item.preco)"></span>
+                                                                    </small>
+                                                                </h1>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--FOOTER-DESKTOP-->
+                            <footer class="footer col-xs-12 col-sm-8 col-md-12" >
+                                <div class="container-fluid"  > 
+                                    <div class="row">
+                                    <div class=" col-xs-12 col-sm-12 col-md-12">
+                                            <div class="col-xs-12 col-sm-12  col-md-6"></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-6 powered">
+                                                <a href="https://www.goeyja.com.br/#/step">
+                                                   <h2> Powered by Goey </h2>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </footer> 
+
+                        </div>
+                    </div>
+
+                    
+                
+                <div class="col-md-4 order-md-2 mb-4" >       
+                    <!--/*******************
+                        *   Sidebar-Panel   *
+                        *   Cart-Desktop    *
+                        ********************-->
+                        <div class="col-md-12 order-md-1  mb-4 blog-sidebar"  >
+                                <div class=" col-md-12 col-xs-12 panel panel-default" >
+                                    <div class="panel-heading">
+                                    <img  src="images/lista-produtos/carrinho.png" alt="25px" height="25px" class="img-responsive">
+                                    <p> Seu Pedido </p>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div ng-show="cartEmpty == 1" style="text-align: center;margin-bottom: 10%">
+                                            <span style="color:#c3c3c3">Seu carrinho está vazio</span>
+                                        </div>
+                                        <div class="row" ng-repeat="y in cart" class="{{'tr'+ y.cod}}" >
+                                            <div class=" col-md-4" style="text-align: center;">
+                                                <span  class="fa fa-minus-circle" aria-hidden="true" title="Retirar" ng-click="minus(y.cod,y.qtd,y.preco)"></span>
+                                                <input class="inputValor1" type="text"  readonly ng-model="qtd" ng-value="{{y.qtd}}" placeholder="{{y.qtd}}" style="text-align:center; width:15px;border: none;position: relative;
+                                                bottom: 2px;"/>
+                                                <span class="fa fa-plus-circle" aria-hidden="true" ng-click="plus(y.cod,y.qtd)" title="Adicionar"></span>
+                                            </div>
+                                            <div class="  col-md-4" >
+                                                <span class="" title="{{y.produto}}" style="font-size:95%" >{{y.produto }}</span>
+                                                <!--  <span class="" title="{{y.produto}}" style="font-size:95%" >{{y.produto | limitTo:14}}</span>-->
+                                            </div>
+                                            <div class="  col-md-4" style="text-align: left">
+                                                <span>R$ {{y.subtotal}}</span>
+                                            </div>
+                                        </div> 
+                
+                                        <div class="row lista" ng-show="divCart == 1">
+                                            <div>
+                                                <div class="col-md-8 textCart fontSize">Subtotal:</div>        
+                                                <div class="col-md-4 text-left" id="subtotal" ng-show="subTotal()" ><span style="font-size:100%">R$ {{subTotal()}}</span></div>
+                                        
+                                                <div class="col-md-8 textCart fontSize">Taxa de entrega:</div>                         
+                                                <div class="col-md-4 text-left"  ng-show="taxa"><span style="font-size:100%">{{taxa | currency:"R$ "}}</span></div>
+                                        
+                                                <div class="col-md-8 textCart font" >Total:</div>
+                                                <div class="col-md-4 text-left font" id="taxaEntrega"  ng-show="somaTotal">
+                                                    <span style="font-size:100%">R$ {{somaTotal}}</span>
+                                                </div>
+                                            </div>                        
+                                            <div  class="col-md-12" id="alterarEndereco" style="margin-bottom: 2%">
+                                                <input type="text" class="form-control" id="destino" name="destino" gm-places-autocomplete ng-model="destino"  
+                                                placeholder="Informe o endereço para entrega"   onfocusout="validarNumber(this.value)"  style="font-size: 12px !important" />
+                                            </div>
+                                             <!--
+                                                /***************** COMPLEMENTO  ***************/
+                                            <div class="col-xs-12  col-sm-12   col-md-12" id="" style="margin-bottom: 2%">
+                                                <input type="text"  class="form-control" name="destino"  gm-places-autocomplete ng-model="" 
+                                                placeholder="Complemento"   onfocusout="" style="font-size: 12px !important"  >
+                                            </div>-->
+
+                                            <!-- somente para restaurantes -->
+                                            <div ng-if="loja.categoria == 59" data-toggle="modal" data-target="#modalObs" id="obsPedido" style="margin-top: 5px;cursor: pointer" >
+                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Fazer observação para esse pedido ? 
+                                            </div>
+                                        </div> 
+                                    </div>
+                                    <div>
+
+                                    <!-- botão finalizar pedidos -->
+                                        <button class="btn btnFinalizar" ng-click="finalizarPedido(1)" disabled="disable" id="ttt">
+                                            Finalizar Compra
+                                        </button>
+                                       
+                                    </div>   
+                
+                                <!--/*******************
+                                    * MODAL BTN LOGIN  *
+                                    ******************** -->
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </section>
+
+       
+    <div class="modal fade modal-login" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="container">
+                                                    <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2" data-ng-show="!vm.signIn">
+                                                        <div class="panel panel-info">
+                                                            <h5 class="msnLogin text-center"><span style="color:#d3d3d3">Fazer Login</span></h5>                                        
+                                                        <div class="panel-body">
+                                                            <form name="vm.loginForm" class="form-horizontal" data-ng-submit="vm.login(vm.getUser);">
+                                                                <div class="col-xs-12 input-group">
+                                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                                                    <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="Email" data-ng-model="login.email" required ng-click="txtLogin()">
+                                                                </div>
+                                                                <div class="col-xs-12 input-group margin-top-20">
+                                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                                                    <input id="login-password" type="password" class="form-control" name="password" placeholder="Senha" data-ng-model="login.senha" required ng-click="txtLogin()">
+                                                                </div>
+
+                                                                <div class="col-xs-12 margin-top-20">
+                                                                    <span class="pull-left">
+                                                                        <a href="#" data-ng-click="vm.signIn=true;" >Esqueceu sua Senha?</a>
+                                                                    </span>
+
+                                                                    <span class="pull-right">
+                                                                        <a onclick="window.location.replace('http://www.goeyja.com.br/#/cadastro')" > Não tem cadastro ainda? </a>
+                                                                    </span> 
+                                                                    <!--<a onclick="window.location.replace('http://www.goeyja.com.br/#empresa');" >Não tem cadastro ainda?</a>-->
+                                                                </div>
+
+                                                                <div class="col-xs-12 margin-top-5">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-12 margin-top-20">
+                                                                            <button class="btn btn-block btn-primary" id="btnLogin" ng-click="validarLogin();">
+                                                                                LOGIN
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12 margin-top-10 text-center">
+                                                                        <a onclick="window.location.replace('http://www.goeyja.com.br');">Powered by Goey</a>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                
+                                                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" data-ng-show="vm.signIn">
+                                                    <div class="panel panel-info">
+                                                        <div class="panel-heading text-center">
+                                                            Esqueceu sua senha?
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <form name="vm.registrationForm" data-ng-submit="vm.register();">
+                                                                <div class="form-group">
+                                                                    <label for="email" class="col-md-12 control-label">Email</label>
+                                                                    <div class="col-md-12">
+                                                                        <input type="email" class="form-control" name="email" placeholder="Seu Email"  ng-model="recuperarEmail">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xs-12 margin-top-20">
+                                                                    <div class="col-xs-6 padding-left-none">
+                                                                        <button type="submit" class="btn btn-block btn-success" ng-click="recuperarSenha()" >
+                                                                            Confirmar
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="col-xs-6 padding-right-none">
+                                                                        <button type="button" class="btn btn-block btn-warning"  onclick="window.location.replace('http://www.goeyja.com.br')";>
+                                                                            Voltar <span class="glyphicon glyphicon-back"></span>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="modal fade" id="myModal" role="dialog">
+                                                    <div class="modal-dialog">
+                                                
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            <h4 class="modal-title">Confirmar Primeiro Acesso</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <small >TERMO E CONDIÇÕES DE USO DA PLATAFORMA GOEY registrado no 2º Cartório de Registro de Títulos e Documentos Civil de Pessoas Jurídicas de Campinas/SP sob número 138932</small>
+                                                                <a href="regulamento.pdf" target="_blank" style="text-decoration: none !important;color:#000"><small> <br/>Abrir termo </small></a><br/><br/>
+                                                                <div class="form-inline">
+                                                                    <input type="checkbox" ng-model="confirmado">
+                                                                    <label for="email" class="">Li e aceito os termos</label>
+                                                                </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <input type="button" value="Confirmar" ng-click="confirmaPrimeiroAcesso(codUsuario);"  data-dismiss="modal" class="btn btn-primary">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+ 
+   
+   
+     
+
+<!--/*******************
+    *     STYLE        * 
+    ********************-->
+<style>
+.mobile-horarios{
+    display: none;
+}
+
+.btn {
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    border-bottom-color: #fff !important;
+}
+.modal-footer{
+    border: #fff !important;
+}
+
+.modal-body{
+    border-bottom-color: #fff !important;
+}
+
+.btn-secondary-fechar{
+    background: #CCC !important;
+    color: #000 !important;
+}   
+h4{
+    font-size: 16px !important;
+}
+.veja{
+    padding: 0px;
+}
+.imagem-modal img{
+    max-height: 350px;
+}
+.btn-veja {
+    background: transparent !important;
+    color: #f37a24 !important;
+    border: 1px solid transparent !important;
+    margin-bottom: 0px !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+}
+
+.titulo-produtos h1{
+    margin-top: 8vh;
+    padding-left: 12px;
+    margin-bottom: 0px !important;
+}
+.teste{
+    width: 0vw !important;
+    object-fit: cover !important;
+    height: 115px !important;
+    background-size: cover !important;
+    background-position: center !important;
+    position: relative;
+    background-position-y: -5px;
+    min-width: 100% !important;
+    max-height: 350px;
+    height: auto;
+    object-fit: contain;
+    object-fit: center;
+    object-position: center;
+}
+
+.img-response{
+    display: block;
+    max-width: 50%;
+    height: auto;
+}
+
+.container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.col-md-4 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 5px !important;
+    padding-right: 0px !important;
+}
+
+.position-static {
+    position: static!important;
+    border-left: 1px solid #fff;
+    padding: 5px;
+}
+
+.busca{
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+.vertical-center{
+    /* position: relative;
+    top: 50%;
+    transform: translateY(25); */
+}
+
+.empresa{
+    padding-left: 0px; 
+    padding-right: 0px;
+}
+
+.prato{
+    padding: 0px;
+}
+.feito{
+    padding: 0px !important;
+    border: 1px solid #ccc;
+    z-index: 150 !important;
+}
+
+.media-left img{
+  width: 100vw !important;
+  min-height: 100px;
+  background-size: cover !important;
+  background-position: center !important;
+  position: relative;
+  background-position-y: -5px;
+  min-width:100% !important;
+  max-height:350px;
+  height: auto;
+  /* object-fit: contain; */
+  object-fit: cover;
+  object-position: center;
+}
+
+.media-left, .media > .pull-left {
+    padding-right: 0px ;
+}
+
+.pull-left a{
+    font-size: 14px;
+}
+
+.pull-right a{
+    font-size: 14px;
+}
+
+.media-heading {
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+.div-disabled
+{
+  pointer-events: none;
+  opacity: 0.5;
+  background: #CCC;
+}
+.linhaproduto {
+    margin-left: 0px !important ;
+}  
+
+.btn-warning{
+    background: red !important
+}
+
+.linhaproduto{
+    margin-left: 55px;
+}
+
+.card-body{
+    margin-bottom: 10vh;
+}
+
+.btn-link:hover, .btn-link:focus{
+    color: #fff;
+}
+
+.btn-link {
+    width: 100%;
+}
+
+p{
+font-size: 14px;
+margin: 0px 0 3px ;
+letter-spacing: 0.7px ;
+}  
+
+p span{
+font-weight: bold;
+}
+.card-title .text-muted{
+margin-left: 18px !important;
+}
+.card-title small{
+float: right !important;
+margin-right: 30px;
+}   
+.alertify-notifier .ajs-message{
+background: #67c100 !important;
+border: #67c100 !important;
+}
+.fa-plus-circle{
+color: #67c100;
+}
+
+.volta-desktop{
+display: block;
+}
+.menu-desktop{
+display: none;
+}
+
+.btn-acesse-secondary {
+background: #4c4b4a;
+font-weight: bold;
+}
+.panel-default > .panel-heading-mobile{
+color: #fff;
+font-weight: 800;
+background: #f37a24;
+border-color: #f37a24;
+display: block;
+}
+.btn {
+border-radius: 3px;
+color: #fff;
+}
+.btn-mobile {
+border-radius: 3px;
+}
+.panel-heading-mobile img{
+display: inline-block
+}
+
+.panel-heading-mobile p{
+display: inline-block;
+padding-left: 10px;
+color: #fff;
+}
+
+.btn-carrinho{
+display: none;
+background: #f37a24;
+margin-top: 15px;
+width: 100%;
+position: relative;
+}
+
+.fa {
+font-size: 20px !important;
+}
+
+.fa-minus-circle{
+color: #ff4949;
+}
+
+.site-header-compra{
+background: #ececec;
+}
+.modal-body{
+font-family: Roboto;
+}
+.btn-fraquia-secondary{
+background:#4266ae; 
+}
+.dropdown-item{
+width: 100%;
+background: #f37b22;;
+color: #fff;
+}
+
+.btn-cadastre-se{
+color: #fff;
+font-weight: 800;
+}
+
+.btn-fisi{
+padding-top: 3px;
+padding-right: 35px;
+padding-bottom: 9px;
+margin-top: 3px;
+margin-bottom: 3px;
+border: transparent;
+border-bottom: 1px solid #fff;
+border-radius: 2px; 
+font-weight: 600;
+}
+.btn-juri{
+padding-top: 3px;
+padding-bottom: 9px;
+margin-top: 3px;
+margin-bottom: 3px;
+border: transparent;
+border-bottom: 1px solid #fff;
+border-radius: 2px; 
+font-weight: 600;
+}
+
+.btn-rest{
+padding-top: 3px;
+padding-bottom: 3px;
+padding-left: 11px;
+margin-top: 3px;
+margin-bottom: 3px;
+border: transparent;
+border-radius: 2px; 
+font-weight: 600;
+}
+
+.moto{
+margin-left: 20px;
+}
+
+.carro{
+margin-right: 10px;
+}
+
+.is-invalid{
+border-color:red !important;
+}
+.is-valid{
+border-color:green !important;
+}
+.help-block{
+color:red !important;   
+}
+/*<!-- PAGINA CEP-->*/
+.navbar{
+display: none;
+}
+.bloco1{
+margin-left: 10vh;
+padding-top: 5px;
+}
+.telefone span{
+color: #000;
+font-weight: 800;
+}
+
+.container-home{
+background-image: url(images/home/banner-pg1-black.jpg);
+min-height: 100vh;
+position: relative;
+background-size: cover;
+background-position: center top;
+background-repeat: no-repeat; 
+}
+.logo-goey{
+margin-top:20px;
+}
+
+.logo-goey img{
+max-width:300px;
+display: inline;
+width: 60%;
+margin-bottom:3vh;
+float: right;
+}
+
+.btn-primary{
+background:#4266ae; 
+color:#fff;
+font-weight: 800 !important;
+}
+
+.btn-primary:hover{
+background:#4266ae; 
+}
+.btn-simular{
+background:#f37b22;
+color: #fff;
+}
+.menu{
+display: block;
+margin-top: 18px;
+}
+
+.menu a{
+color: #fff;
+font-weight: 700;
+}
+
+.menu span{
+color: #f37b22;
+font-weight: bold;
+margin-left: 5px; 
+}
+
+.menu-btn{
+display: inline;
+width: 45%;
+float: right;
+}
+.menu-btn-branco{
+display: inline;
+width: 17%;
+float: right;
+}
+
+.dropdown-menu{
+background: #f37b22 !important;
+}
+
+.btn-cadastre-secondary{
+background: #f37b22;
+margin-right: 4px;
+}
+
+.btn-acesse-secondary {
+background: #4c4b4a ;
+}
+.menu-link,.menu-btn{
+display: inline-block;
+}
+.menu-link{
+margin-top: 8px;
+}
+.menu-link a{
+padding-right:3px !important;
+padding-left: 3px !important;
+border-right: 2px solid #fff;
+}
+.menu-btn a{
+margin-right: 5px ;
+}
+
+.titulo-texto{
+margin-top: 15vh;
+text-align: center;
+}
+.titulo-texto p{
+color: #fff;
+font-size: 5vh;
+line-height: 0.8;
+}
+.titulo-texto p span{
+font-weight: bold;
+}
+
+.form-group{
+margin-bottom: 10px;
+}
+
+.jumbotron{
+margin-top: 15px;
+background: transparent;
+/*border: 2px solid #f37b22; */
+margin-bottom: 0px;
+padding-top: 10px;
+padding-bottom: 10px;
+}
+
+.btn-querocontratar-secondary{
+background: #f37b22;
+font-weight: 800;
+margin-bottom: 10px;
+color: #fff;
+width: 35%;
+float: right;
+border-radius: 0px;
+}
+
+h3, .h3{
+margin-top: 5px;
+font-size: 12px;
+color: #fff;
+margin-bottom: 5px;
+}
+.contratar span{
+color: #fff;
+font-size: 20px;
+font-weight: 800;
+}
+
+.contratar p{
+color: #fff;
+font-size: 12px;
+}
+
+.media{
+border: 1px solid #ccc;
+width: 100%;
+}
+.media{
+margin-top: 15px !important;
+letter-spacing: -0.9px; 
+}
+.media-body h2{
+font-size: 20px;
+margin-top: 15px;
+font-weight: bold;
+color: #f37b22;
+}
+
+.media-body h4{
+color: #f37b22;
+font-weight: bold;
+}
+
+.media-body h5{
+color: #000;
+font-weight: bold;
+}
+
+.panel{
+margin-top: 15px;
+}
+.panel-default > .panel-heading {
+color: #fff;
+font-weight: 800;
+background: #f37a24;
+border-color: #f37a24;
+display: block;
+}
+
+.panel-heading img{
+display: inline-block
+}
+
+.panel-heading p{
+display: inline-block;
+padding-left: 10px;
+}
+
+.panel-body{
+border: 1px solid #f37a24;
+}
+
+.panel-body .logo-sinal-add{
+display: inline-block;
+background-image: url(../images/lista-produtos/sinal_add.png);
+background-size: 100%;
+width: 22%;
+height: 20px;
+position: relative;
+top: 2px;
+background-repeat: no-repeat;
+}
+
+
+.panel-body .logo-sinal-remove{
+display: inline-block;
+background-image: url(../images/lista-produtos/sinal_remove.png);
+background-size: 100%;
+width: 22%;
+position: relative;
+top: 2px;
+height: 20px;
+background-repeat: no-repeat;
+}
+
+.btn-primary {
+background: #4266ae !important;
+}
+
+
+.btnFinalizar {
+background: #f37b22;
+color: #fff;
+font-weight: 800;
+float: right;
+}
+
+.linha{
+width: 100%;
+margin-top: 5px;
+margin-bottom: 0px;
+} 
+
+.lista{
+background:  #ececec;
+border-top: 1px solid #f37a24;
+margin-top: 3vh; 
+}
+
+.panel {
+ margin-top: 15vh;   
+margin-bottom: 20px;
+background-color: #ffffff;
+border: 1px solid transparent;
+border-radius: 4px;
+-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+box-shadow: 0 1px 1px rgba(0, 0, 0, 0.0) !important;
+}
+
+.panel-body {
+padding: 15px !important;
+padding-bottom: 0px !important;
+}
+
+.font{
+color: black;
+font-weight: bold;
+margin-bottom: 10px;
+}
+
+.lista .btnfinalizar{
+width: 40% !important;
+border-radius: 3px !important;
+background: #f37a24 !important;
+text-align: center !important;
+}
+
+.pesquisa{
+margin-top: 3vh;
+margin-bottom: 0vh;
+}
+
+.lanche img{
+max-width:100px !important;
+min-height:  100px !important;
+}
+
+.col-md-4{
+position: relative;
+min-height: 1px;
+padding-left: 0px !important;
+padding-right: 0px !important;
+}
+
+.powered a h2{
+        font-size: 15px !important;
+        color:#bdbdbd;
+    }
+
+ .powered{
+    text-align: center; 
+    margin-top: 5vh; 
+    margin-bottom: 3vh;
+ }   
+
+
+/*************************
+*      MODAL-LOGIN      *
+**************************/
+.panel-info > .panel-heading {
+    color: #000;
+    border-color: #e0e0e0;
+    background: #fff !important;
+}
+.modal-login .panel-body {
+    border: 1px solid #fff;
+    /*margin: 10px;*/
+}
+.btn-primary {
+    background: #f37a24 !important;
+    color: #fff !important;
+    border: 1px solid #f37a24 !important;
+    margin-bottom: 10px;
+    font-weight: 800 !important;
+}
+.btn-compra{
+    display: none;
+}
+
+
+
+/*************************
+*       RESPONSIVO       *
+**************************/
+@media (max-width: 990px){
+    
+}
+
+@media (max-width: 768px){
+    .media-heading {
+    margin-top: 3px !important;
+    margin-bottom: 0px;
+} 
+h4{
+    font-size: 15px !important;
+}
+
+h1{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+    .prato{
+    padding: 0px;
+}
+
+.col-md-4 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    margin-top: 0px;
+}
+
+    .feito-mobile{
+    border: 1px solid #ccc;
+    padding: 0px !important;
+    height: 120px;
+}
+
+
+    .card-title small{
+float: right !important;
+margin-right: 0px !important;
+} 
+    
+    .logo-empresa img {
+    width: 100%;
+    margin: auto;
+    height: 100%;
+    }
+
+    .btn-compra{
+        display: block !important;
+    }
+}
+
+@media(max-width:736px){
+    .feito-mobile {
+    border: 1px solid #ccc;
+    padding: 0px !important;
+    height: 175px;
+        }
+}
+
+@media(max-width:667px){
+    .feito-mobile {
+    border: 1px solid #ccc;
+    padding: 0px !important;
+    height: 147px;
+    }
+}
+
+@media(max-width:375px){
+    .prato {
+    padding: 0px 
+}
+    .linhaproduto {
+    margin-left: 0px !important;
+    }
+
+    .card-title small{
+    float: right !important;
+    margin-right: 0px !important;
+    } 
+}
+
+@media( max-width:360px){
+    .prato {
+    padding: 0px ;
+}
+    .linhaproduto{
+    margin-left: 0p !important;
+    }
+    .card-title small{
+float: right !important;
+margin-right: 0px !important;
+}
+.pull-left a{
+    font-size: 11px !important;
+}
+
+.pull-right a{
+    font-size: 11px !important;
+}
+
+
+}
+
+@media( max-width:320px){
+    .prato {
+    padding: 0px ;
+}
+    .linhaproduto{
+    margin-left: -1px;
+    }
+    .card-title small{
+float: right !important;
+margin-right: 0px !important;
+} 
+}
+
+@media (max-width: 500px){
+    .panel {
+    margin-top: 15vh;
+}   
+
+
+    .pull-left a{
+    font-size: 12px !important;
+}
+
+.pull-right a{
+    font-size: 12px !important;
+}
+
+
+    .titulo-produtos h1{
+        margin-top: 8vh;
+        font-size: 25px !important;
+ }
+
+    .powered a h2{
+        font-size: 15px !important;
+        color: #bdbdbd;
+    }
+    .powered{
+    text-align: center; 
+    margin-top: 0vh; 
+    margin-bottom: 2vh;
+ }   
+
+    p{
+        font-size: 11px !important;
+        margin: 0px 0 3px ;
+        letter-spacing: 0.7px ;
+    } 
+    .mobile-horarios{
+        display: block;
+    }
+    .mobile-horarios h2{
+       margin-bottom: 10px;
+       margin-top: 10px;
+    }
+    .desktop-horarios{
+        display: none
+    }
+    .pesquisa{
+    margin-top: 3vh !important;
+    margin-bottom: 0vh !important;
+    }
+
+    .inputValor1{
+        left: -5px !important;
+    }
+    .fa {
+    font-size: 19px !important;
+    position: relative;
+    right: 5px;
+}
+
+
+.titulo-produtos h1{
+    margin-top: 8vh;
+    padding-left: 12px;
+    margin-bottom: 0px !important;
+}
+    .prato {
+    padding: 0px !important;
+}
+    .logo-empresa img {
+    padding-top: 0px;
+    width: 100%;
+    height: auto;
+    } 
+    .col-md-4 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 0px !important; 
+    padding-left: 0px !important;
+    margin-top: 0px;
+}
+
+.feito-mobile{
+border: 1px solid #ccc;
+padding: 0px !important;
+height: 103px;
+}
+
+.card-title small{
+float: right !important;
+margin-right: 0px !important;
+} 
+
+
+.media-left, .media > .pull-left {
+    padding-right: 0px !important;
+}
+.panel-heading-mobile p{
+    font-weight: bold !important;
+}
+.dropdown-menu{
+margin-top: 5px !important;
+}
+.btn-carrinho{
+    display: block;
+}
+/*     
+.panel{
+display: none;
+}*/
+
+.media {
+border: 1px solid #ececec;
+}
+    
+#cartPrincipal{
+display:none;
+}
+#cartHidden{
+display:block;
+}
+
+.site-header-compra{
+display: none;
+}
+
+.menu-mobile{
+display: none;
+}
+
+.menu-btn {
+display: inline;
+width: 40%;
+float: right;
+}
+
+.bloco1{
+margin-left: 0vh;
+}
+
+.logo-pc{
+display: none;
+}
+
+.logo-mobile{
+display: block;
+background-image: url(images/home/pc-mobile.png);
+background-size: 50%;
+height: 510px;
+}
+
+.logo-moto{
+height: 50vh;
+}
+.banner-laranja {
+height: auto;
+}
+
+
+.logo-goey{
+display: none ;
+}
+
+.menu-mobile{
+background: #ececec;
+border: 1px solid transparent;
+text-align: center;
+}
+
+.menu-mobile ul{
+text-decoration: none !important;
+}
+
+.menu-mobile h1 i{
+font-size: 30px !important;
+}
+
+.btn-mobile{
+float: right;
+background: transparent;
+border: 1px solid transparent;
+margin-left: 10px;
+margin-right: 10px;
+
+}
+.btn-mobile h1{
+font-size: 30px;
+}
+.btn-mobile h1 i{
+color: #f37b22;
+
+}
+.modal-mobile{
+padding-top: 0px;
+}
+.logo-goey-mobile{
+max-width:40px;
+display: inline;
+width: 60%;
+float: left;
+margin-top: 25px;
+margin-left: 10px;
+}
+
+.entenda .pg1 {
+margin-top: 10vh;
+line-height: 1em;
+margin-bottom: 5vh;
+font-size: 20px;
+padding-left: 5px;
+font-weight: 800;
+color: #f37b22;
+}
+
+.entenda .pg2 {
+margin-top: 2vh;
+line-height: 0.9em;
+font-size: 20px;
+font-weight: 300;
+color: #000;
+}
+
+.pag2{
+background-image: url(images/home/banner-seguranca.png);
+max-width: 100%;
+height: auto;
+position: relative;
+background-size: 170%;
+background-position: center top;
+background-repeat: no-repeat; 
+}
+
+.levar .pg1 {
+margin-top: 5vh;
+padding-top: 35vh;
+font-size: 25px;
+color: #4266ae;
+font-weight: 800;
+line-height: 0.9em;
+}
+
+
+.levar .pg4 {
+margin-top: 15px;
+color: #000;
+font-size: 23px;
+line-height: 0.8em;
+font-weight: 300;
+}
+
+.tranquilidade .pg5 span {
+color: #4266ae;
+font-weight: 800;
+}
+
+.tranquilidade .pg5 {
+margin-top: 5vh;
+margin-bottom: 5vh;
+color: #000;
+font-size: 18px;
+font-weight: 300;
+line-height: 0.9em;
+}
+
+.entregas p {
+color: #fff;
+font-weight: 300;
+font-size: 5vh;
+line-height: 0.8;
+letter-spacing: -1.1px !important;
+}
+.entregas span {
+font-size: 5vh;
+font-weight: 700;
+color: #f37a24;
+}
+
+.frota,.rastre,.cadastro,
+.pagamento,.solicitacao,.agendamento{
+margin: 0 auto;
+}
+
+.Propria,.Rastreabilidade,.pagamentos,
+.Online,.entrega,.agenda{
+
+text-align: center;
+}
+
+.solicitacao {
+min-height: 42px;
+}
+
+.cadastro{
+min-height: 60px;
+}
+
+.menu-mobile-btn a{
+color: #4c4b4a; 
+font-weight:700;
+cursor: pointer;
+}
+.menu-mobile-btn a:hover{
+color: #f37b22;
+}
+
+.menu-mobile-btn:hover{
+border-radius: 5px;
+color: #fb8c00 ;
+/*background: -moz-linear-gradient(top, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.7) 100%);*/
+}
+.footer {
+color: #000;
+text-align: center;
+font-size: 9px;
+margin-top: 10vh;
+letter-spacing: 1px;
+}
+
+.container-home {
+min-height: 100vh;
+}
+
+}
+
+#cartHidden{
+
+display:none;
+}
+
+.cartEmpty{
+display: none;
+}
+
+.direcionaLoja{
+display: none;
+}
+
+.totalPrice{
+display: none;
+}
+.fa {
+font-size: 15px;
+}
+.cart-fixed-top{
+position: fixed ;
+top:50px;
+width: 25%; 
+z-index:999;
+}
+.cartHidden-fixed{
+position: fixed !important;
+top:50px !important;
+width: 65% !important; 
+z-index:999;
+}
+
+
+
+
+
+ </style>
+    <!--/*******************
+        *     SCRIPT       * 
+        ********************-->
+    <script type="text/javascript">                             
+
+                    $(document).ready(function () {          
+
+                        //$("#loader").delay(4000).fadeOut("slow");
+
+                        $(window).scroll(function(){
+
+                                if ($(this).scrollTop() > 80){
+
+                                    $('#cartPrincipal').addClass('cart-fixed-top', 500);                                    
+                                    $('#cartHidden').addClass('cartHidden-fixed', 500);
+
+                                } else {
+
+                                    $('#cartPrincipal').removeClass('cart-fixed-top', 500); 
+                                    $('#cartHidden').removeClass('cartHidden-fixed', 500);  
+                                }
+                        });
+                        
+                    }); 
+    </script>
+

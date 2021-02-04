@@ -1,0 +1,106 @@
+﻿<!-- Author: Ranjithprabhu K
+     Date: 24 Dec 2015
+	 Author URL: http://ranjithprabhu.in
+	 Version: 1.0.0
+--->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Goey - Delivery para todos</title>
+  <meta name="description" content="Angular Bootstrap Dashboard"/>
+  <meta name="keywords" content="Angular Bootstrap Dashboard"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  
+    <link href="plugins/angular-material/angular-material.min.css" rel="stylesheet" />
+    <!--CSS-->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/nga.all.min.css" rel="stylesheet" />
+    <link href="css/themes.css" rel="stylesheet" />
+    <link href="css/dashboard.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="plugins/bootstrap-slider/slider.css" rel="stylesheet" />
+    <link href="css/flexslider.css" rel="stylesheet" />
+    <link href="plugins/owl-carousel/owl.theme.css" rel="stylesheet" />
+    <link href="plugins/owl-carousel/owl.transitions.css" rel="stylesheet" />
+    <link href="plugins/owl-carousel/owl.carousel.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/redmond/jquery-ui.css">
+    
+</head>
+<body ng-app="app" class="hold-transition sidebar-mini {{theme}} {{layout}}">
+    <!--Scripts-->
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCt2xiZqA58OcYwli_YwMFoSYcLoiLlHAY&libraries=placeses,visualization,drawing,geometry,places"></script>
+   <!--key=AIzaSyB3flVv3WgMhWkFMJuC5MXAuThelw3gypk-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="plugins/bootstrap-slider/bootstrap-slider.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>   
+
+    <script src="js/angular.min.js"></script>    
+    <script src="js/angular-animate.min.js"></script>
+    <script src="js/angular-ui-router-min.js"></script>
+    <script src="js/angular-resource.js"></script>
+    <script src="plugins/knob/jquery.knob.js"></script>
+    <script src="plugins/Chart.min.js"></script>     
+    <script src="plugins/owl-carousel/owl.carousel.min.js"></script>
+
+    <script src="app/modules/empresa/empresaConfig.js"></script>
+    <script src="app/modules/empresa/empresaCtrl.js"></script>  
+
+    <script src="app/modules/home/homeConfig.js"></script>
+    <script src="app/modules/home/homeCtrl.js"></script>       
+
+    <!-- Angular Material Library -->
+    <script src="js/angular-material.min.js"></script>
+    <script src="js/angular-aria.min.js"></script>
+    <script src="js/angular-messages.min.js"></script>
+
+    <script src="js/angular-flash.js"></script>
+    <script src="js/angular-sanitize.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.13.0.min.js"></script>
+    <script src="js/datepicker-br.js"></script>    
+    <script src="js/angular-google-distance.js"></script>
+    <script type="text/javascript" src="js/angular-input-masks-standalone.js"></script>
+    <script type="text/javascript" src="js/angular-locale_pt-br.js"></script>
+   
+   <script type="text/javascript" src="js/ngAutocomplete.js"></script>
+   <script type="text/javascript" src="js/ng-map.min.js"></script>
+
+    <!--Common-->
+    <script src="app/common/config.js"></script>    
+
+    <!--main app-->
+    <script src="app/app.js"></script>
+    <script src="app/common/appCtrl.js"></script>
+    <script src="app/services/apiService.js"></script>
+    <script src="app/factory/distancia.js"></script>
+
+    <!--Login Module-->
+    <script src="app/modules/login/loginMgmt.js"></script>
+    <script src="app/modules/login/loginService.js"></script>
+    <script src="app/modules/login/loginCtrl.js"></script>
+
+    <!--Dashboard Module-->
+    <script src="app/modules/dashboard/dashboardApplication.js"></script>
+    <script src="app/modules/dashboard/dashboardService.js"></script>
+   
+        <!-- Controllers -->
+        <script src="app/modules/dashboard/controllers/relatorios.js"></script>
+        <script src="app/modules/dashboard/controllers/sair.js"></script>    
+        <script src="app/modules/dashboard/controllers/minhas-entregas.js"></script>
+        <script src="app/modules/dashboard/controllers/boletos.js"></script>      
+        <script src="app/modules/dashboard/controllers/home.js"></script>
+        <script src="app/modules/dashboard/controllers/historico.js"></script>
+        <script src="app/modules/dashboard/controllers/meus-dados.js"></script>
+        <script src="app/modules/dashboard/controllers/agendar.js"></script>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+    <div flash-message="5000"></div>
+
+    <ui-view></ui-view>
+    
+</body>
+
+
+</html>

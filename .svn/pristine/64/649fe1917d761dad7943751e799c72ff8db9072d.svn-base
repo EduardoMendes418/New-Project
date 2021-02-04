@@ -1,0 +1,16 @@
+var formFarmacia = angular.module('formFarmacia', ['ui.router', 'ngResource', 'ngAnimate']);
+
+formFarmacia.config(["$stateProvider", function ($stateProvider) {
+
+//Formulário de cadastro de empresas
+    $stateProvider.state('formFarmacia', {
+        url: '/formFarmacia',
+        templateUrl: 'app/modules/formFarmacia/formFarmacia.html',
+        controller: 'formFarmaciaCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Farmacia'
+        }
+    });
+
+}]);

@@ -1,0 +1,161 @@
+
+
+<!-- Content Header (Page header) -->
+<section class="content-header titulo">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>
+         Consulta de Boletos
+         <hr>
+       </h1>
+       <div class="status">
+         <label>Status do Boleto:</label>
+         <div>    
+          <select id="filtro-status" ng-model="fitro.status">
+            <option value="">-- SELECIONE --</option>
+            <option value="1">A VENCER</option>
+            <option value="2">VENCIDO</option>
+            <option value="3">PAGO</option>
+            <option value="4">CANCELADO</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="Periodo">
+      <div class="col-md-6 data">
+        <label>Período</label>
+        <div class="col-6" >
+          <div class="row"> 
+            <div class="column">
+              <label>De: <input type="text" id="data-ini" class="data-locacao"></label>
+              <label>Até: <input type="text" id="data-fim" class="data-locacao" ></label>
+            </div>
+          </div>
+        </div>
+        <button ng-click="consultarBoletos()">Consultar</button>
+      </div> 
+    </div>
+  </div>
+
+  <!-- GRID LISTA BOLETOS -->
+  <div class="row">
+
+    <h4 id="msn-return" style="text-align: center;color: #d3d3d3"></h4>
+
+    <table class="table" ng-if="listaBoletosLocacao.length > 0">
+      <th>Nº Contrato</th>
+      <th>Nº Parcela</th>
+      <th>Nº Boleto</th>
+      <th>Data Boleto</th>
+      <th>Valor Boleto</th>
+      <th>Status</th>
+      <th>Data Pago</th>
+      <th>Imprimir</th>
+
+      <tr ng-repeat=" b in listaBoletosLocacao">
+        <td>{{b.idContrato}}</td>
+        <td>{{b.numParcela}}</td>
+        <td>{{b.numBoleto}}</td>
+        <td>{{b.dataBoleto}}</td>
+        <td>{{b.valorBoleto | currency}}</td>
+        <td>{{b.status}}</td>
+        <td>{{b.dataPago}}</td>
+
+        <td>
+          <a href="#" ng-if="b.idStatus < 3" ng-click="gerarBoletoContrato(b.numBoleto)">
+            imprimir
+          </a>
+        </td>
+
+      </tr>
+      <tr><td colspan="7">Total: {{listaBoletosLocacao.length}}</td></tr>
+    </table>
+
+  </div>
+</div>
+</section>
+
+<style type="text/css">
+.column{
+  margin-left: 15px !important;
+}
+
+#date{
+  width: 150px;
+}
+.data input{
+  border:1px  solid #ccc !important;
+}
+
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  width: 300px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+button{
+  background: #24549E !important;
+  color: #fff;
+  border:1px solid #24549E !important;
+  padding: 5px !important;
+  width: 150px;
+  margin-top: 5vh;
+  font-size: 16px;
+}
+
+.status, .Periodo{
+  color: #707070;
+}
+.status input{
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #000;
+}
+
+.Periodo label{
+  margin-top: 10px;
+}
+.content-header{
+  min-height: 100vh !important;
+  width: auto !important;
+}
+
+.titulo h1{
+  font-weight: bold;
+}
+hr {
+  width: 400px;
+  margin-left: 0px;
+  border-top: 1px solid #000 !important;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+@media screen and (max-width: 600px) {
+  .titulo h1{
+    font-weight: bold;
+    font-size: 30px !important;
+  }
+
+  hr {
+    width: 100% !important;
+    margin-left: 0px;
+    border-top: 1px solid #000 !important;
+    margin-top: 10px;
+    margin-bottom: 10px
+  }
+  .content-header{
+    min-height: 100vh !important;
+    width: auto !important;
+  }
+
+}
+</style>
+

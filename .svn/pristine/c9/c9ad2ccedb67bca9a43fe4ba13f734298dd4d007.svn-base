@@ -1,0 +1,558 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+<body>
+  <!--Menu-->
+  <div class="container">
+    <div class="row"> 
+      <nav class="navbar navbar-expand navbar-dark" id="logo">
+        <a class="navbar-brand" href="#">
+          <img src="images/locacao/logo.png">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarsExample02" >
+          <a onclick="ancora('participar')">
+            Quero Participar
+          </a>
+          <a onclick="ancora('faq')">FAQ</a>
+          <button>Área do cliente</button>
+        </div>
+      </nav>
+      <nav role="navigation" id="logo-mobile">
+        <div id="menuToggle" >
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu">
+            <li><a href="#">Área do cliente</a></li>
+            <li><a onclick="ancora('faq')">FAQ</a></li>
+            <li><a onclick="ancora('participar')">Quero Participar</a></li>
+          </ul>
+        </div>
+        <div class="logo-principal" >
+         <img src="images/locacao/logo.png" >
+       </div>
+     </nav>
+   </div>
+ </div>
+
+ <!--Rentabilidade-->
+ <div class="jumbotronn text-center" >
+   <div class="container">
+    <div class="card-deck mb-3 text-center">
+      <div class=" col-md-8 card mb-6 border">
+        <div class="card-body rentabilidade" >
+          <h2>Rentabilidade certeira que cresce com você</h2>
+          <p>Criamos um produto direcionado para você com dois pilares:<b> rentabilidade e segurança.</b><br> Num cenário de juros baixos, ficou cada vez mais difícil remunerar seu capital em operações convencionais do mercado financeiro. A GOEY desenvolveu um plano para você. Você compra um veículo (carro, moto ou trailer) e a GOEY aluga ele para você, assumindo os riscos operacionais e inadimplência, proporcionando rentabilidade e segurança para seu dinheiro.<br>
+          </p>
+            <a onclick="ancora('participar')" class="simule">[ Simule agora mesmo ]</a>
+        </div>
+        <div class="card-body rentabilidade-mobile" >
+          <h2>Rentabilidade certeira que cresce com você</h2>
+          <p>Criamos um produto direcionado para você com dois pilares:<b> rentabilidade e segurança.</b> Num cenário de juros baixos, ficou cada vez mais difícil remunerar seu capital em operações convencionais do mercado financeiro. A GOEY desenvolveu um plano para você. Você compra um veículo (carro, moto ou trailer) e a GOEY aluga ele para você, assumindo os riscos operacionais e inadimplência, proporcionando rentabilidade e segurança para seu dinheiro.<br>
+          </p>
+             <a onclick="ancora('participar')" class="simule">[ Simule agora mesmo ]</a>
+        </div>
+      </div>
+      <div class="col-md-4 card mb-6 border" id="carro-kwid">
+        <div class="card-header">
+          <img class="" src="images/investimento/kwid_2.png">
+        </div>
+        <div class="card-body"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Goey -->
+<div class="container">
+  <div class="col-md-12 mb-3 text-center" >
+    <div class="col-md-6 box-shadow"> 
+     <div class="card-body">
+      <div class="card-header" id="notebook-homem">
+       <img class="" src="images/investimento/notebook-homem.png" >
+     </div>
+   </div>
+ </div>
+ <div class="col-md-6 box-shadow" id="goey" > 
+  <p><b>A GOEY acredita no fornecimento de soluções de mobilidade total —</b> incluindo aluguel de veículos a longo prazo. Para clientes interessados em alugar um veículo por várias semanas, um mês ou mais, oferecemos aluguel de longo prazo a preços excelentes.</p>
+  <hr>
+  <h2>
+    Ajudaremos você a aumentar seu capital de forma mais inteligente.
+  </h2>
+    <a onclick="ancora('participar')" class="simuleBlue">[ Simule agora mesmo ]</a>
+</div>
+</div>
+</div>
+
+<!--Mobilidade -->
+<section>
+  <div class="container" >
+    <div id="Mobilidade-desktop">
+      <div class="card-deck mb-3 text-center" >
+        <div class="card mb-4 box-shadow">
+         <div class="card-body" id="dna">
+          <h2>
+            “Mobilidade está no nosso DNA, inclusive na hora de proporcionar ganhos financeiros”.
+          </h2>
+        </div>
+      </div> 
+      <div class="card mb-4 box-shadow" > 
+       <div class="card-body tirarespacomobile" id="dna">
+        <h3>
+          <b>— Digital</b><p class="espaco"> Num mundo digital, somente soluções inovadoras e inclusivas permitem rentabilidade diferenciada. A GOEY loca os veículos de sua plataforma para pessoa física, autônomo, sem emprego formal e eventualmente com restrições de crédito. Um público desprezado pelo mercado financeiro convencional de crédito.</p>
+        </h3>
+        <h3>
+          <b>— Rentabilidade</b><p class="espaco"> A rentabilidade na operação de locação é superior aos ganhos de outros investimentos. Montamos um quadro comparativo para demonstrar.</p>
+        </h3>
+      </div>
+    </div>
+    <div class="card mb-4 box-shadow" >
+      <div class="card-body" id="dna">
+        <h3>
+          <b>— Segurança</b><p class="espaco"> Nossa disciplina e expertise garantirá para você solidez e segurança na gestão do seu veículo. E no final do contrato você pode ainda, a seu livre critério vender o veículo para GOEY por um valor pré definido no contrato. O veículo é seu. Nós garantimos os pagamentos e a conservação do veículo. </p>
+        </h3>
+        <h3>
+          <p class="espaco"> 
+          A GOEY instala um rastreador no seu veículo, permitindo mais segurança na localização e acompanhamento da locação.</p></h3>
+          <h3>
+           <b>— Tamanho da Operação</b><p class="espaco"> A GOEY disponibiliza de forma transparente e recorrente a quantidade total de veículos que estão locados, atualizando todo dia 01 (um) de cada mês. </p>
+         </h3>
+       </div>
+     </div>
+   </div>
+ </div>
+ <!-- Mobile -->
+ <div id="Mobilidade-mobile">
+   <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 box-shadow">
+     <div class="card-body" id="dna">
+      <h2>
+        “Mobilidade está no nosso DNA, inclusive na hora de proporcionar ganhos financeiros”.
+      </h2>
+    </div>
+  </div> 
+  <div class="card mb-4 box-shadow" > 
+    <div class="card-body " id="dna">
+      <h3>
+        <b>— Digital</b><p class="espaco"> Num mundo digital, somente soluções inovadoras e inclusivas permitem rentabilidade diferenciada. A GOEY loca os veículos de sua plataforma para pessoa física, autônomo, sem emprego formal e eventualmente com restrições de crédito. Um público desprezado pelo mercado financeiro convencional de crédito.</p>
+      </h3>
+      <h3>
+        <b>— Rentabilidade</b><p class="espaco"> A rentabilidade na operação de locação é superior aos ganhos de outros investimentos. Montamos um quadro comparativo para demonstrar. Veja aqui.</p>
+      </h3>
+      <h3>
+        <b>— Segurança</b><p class="espaco"> Nossa disciplina e expertise garantirá para você solidez e segurança na gestão do seu veículo. E no final do contrato você pode ainda, a seu livre critério vender o veículo para GOEY por um valor pré definido no contrato. O veículo é seu. Nós garantimos os pagamentos e a conservação do veículo. </p>
+      </h3>
+      <h3>
+        <p class="espaco"> 
+        A GOEY instala um rastreador no seu veículo, permitindo mais segurança na localização e acompanhamento da locação.</p></h3>
+        <h3>
+         <b>— Tamanho da Operação</b><p class="espaco"> A GOEY disponibiliza de forma transparente e recorrente a quantidade total de veículos que estão locados, atualizando todo dia 01 (um) de cada mês. </p>
+       </h3>
+     </div>
+   </div>
+ </div>
+</div>
+</div>
+</section>
+
+<!---Banner-Contratar-->
+<div class="jumbotron" id="jumbotron-banner"></div>
+<div class="jumbotron2 text-center" id="texto-banner">
+  <div class="container">
+    <div class="col-md-6" id="crescer">
+      <p>Para ajudá-lo a crescer do seu jeito no menor tempo possível.</p> 
+    </div>  
+    <div class="col-md-6" id="btn-contratar" >
+      <div id="espacobtn">
+        <a onclick="ancora('participar')">
+          <button >Contratar Agora</button>
+        </a>
+      </div>
+    </div>  
+  </div>   
+</div>
+<!-- faq-->
+<section>
+  <div class="jumbotron"  id="color-blue-banner" >
+    <div class="container">
+      <div class="card-deck mb-3 text-left" >
+        <div class="card mb-4"  >
+         <div class="card-body" >
+          <div id="faq">
+            <h3>FAQ.</h3>
+            <h3>Algumas das suas principais dúvidas estão aqui.</h3>
+            <div class="linha-faq"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-4 " > 
+       <div class="card-body">
+        <b> — Como funciona a plataforma GOEY?</b>
+        <p> A GOEY é uma plataforma digital que contrata veículos para locação à clientes que trabalham em aplicativos de transporte de passageiros, entregas de e-commerce ou para outra finalidade comercial. A GOEY possui expertise em analise de crédito à pessoa física, e integra grupo financeiro registrado no BACEN como Instituição de Pagamentos nos termos da Circular nº 3.682/13 e da Circular nº 3.885/18 do Banco Central do Brasil. Proporciona que você compre um veículo e disponibilize para GOEY locar ao cliente final com todas as garantias.</p>
+        <b>— Como e onde realizo a compra do veículo?</b>
+        <p> O veículo pode ser comprado em qualquer concessionária de veículos novos. A GOEY possui parcerias com concessionárias que podem oferecer as melhores condições comerciais. Você não precisa se preocupar com a retirada do veículo e nem com o transporte à base GOEY.</p>
+        <b>— A documentação do veículo (ex: Licenciamento, IPVA) é de minha responsabilidade ou da GOEY?</b>
+        <p> O veículo fica registrado junto aos órgãos competentes em seu nome, sem qualquer alienação. Ele é seu. O primeiro licenciamento e IPVA são pagos por você e adicionados ao valor do contrato, ou seja, você é reembolsado destes valores.</p>
+        <b>— Em caso de multas como devo proceder?</b>
+        <p> A GOEY informará o condutor do veículo ao órgão responsável, e se responsabiliza pelo pagamento das multas.</p>
+      </div>
+    </div>
+    <div class="card mb-4" >
+      <div class="card-body">
+       <b>— Em caso de colisões, acidentes, furtos e roubos. Quem paga?</b>
+       <p> Todas as colisões, acidentes, furtos e roubos são de responsabilidade da GOEY. Você não paga nada em nenhum destes eventos.</p>
+       <b>— Se o locatário não pagar a locação , recebo mesmo assim ?</b>
+       <p> Sim. Você locou o veiculo para GOEY, recebe sempre nas datas previstas no contrato. Todo o relacionamento com o cliente e a inadimplência é por conta e risco da GOEY.</p>
+       <b>— No final do contrato , retiro o veiculo?</b>
+       <p> Você decide. O veiculo é seu. Retirar ou a GOEY adquirir o veiculo pelo valor previsto no contrato.</p>
+       <b>— A compra garantida. Como funciona?</b>
+       <p> Bem simples e fácil. Você avisa por e-mail , preenche a documentação de transferência em nome da GOEY e recebe os valores na sua conta bancária ou conta de pagamentos.</p>
+       <b>— Retorno do investimento. Compensa?</b>
+       <p> Muito. Montamos um quadro comparativo dos retornos oferecidos pelo mercado financeiro. Você viu! É surpreendente!</p>
+       <b>— Revisões e manutenções , quem paga?</b>
+       <p> Todas as revisões e manutenções são de responsabilidade da GOEY. Você não paga nada em nenhum destes eventos.</p>
+     </div>
+   </div> 
+ </div>
+ <div class="col-sm-12 col-md-4" id="ddtotal"  >
+  <a href="https://www.ddtotal.com.br/ddcartao/index.php?empresa=1" style="color: #fff !important">
+  www.ddtotal.com.br
+  </a>
+</div>
+<div class="col-sm-12 col-md-8" id="ddtotal-mobilidade" >
+  GOEY Mobilidade Inteligente é uma locadora de veículos e plataforma digital pertencente ao grupo DDTOTAL, proprietário da DDTOTAL GFI Arranjos de Pagamento S.A – 05.890.268/0001-60. Somos uma Instituição de Pagamentos nos termos da Circular nº 3.682/13 e da Circular nº 3.885/18 do Banco Central do Brasil.
+</div>
+</div>
+</div>
+</section>
+
+<section>
+  <div class="jumbotron"  id="banner-branco">
+    <div class="container">
+     <div class="card-body">
+      <div id="participar"></div>
+      <h2 >Oportunidade de lucrar e ganhar mais. <br> Faça uma simulação agora mesmo!</h2>
+    </div>
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-3 box-shadow">
+        <div class="card-body" ></div>
+      </div>
+      <div class="card2 mb-3 box-shadow">
+       <div class="card-body" >
+        <div class="col-xs-10 col-md-10" id="radio">
+         <h3>{{carro.veiculo}}</h3>
+       </div>
+       <!--
+       <div class="col-xs-2 col-md-2"> 
+         <label class="radio-inline" ng-click="blocoSimulator(5,1,38500.00);carro.qtd = 1" >
+          <input type="radio" name="optradio">
+        </label>
+      </div> -->
+      <div id="borda-mobi">
+       <div class="card col-sm-12 col-md-12" id="texto">
+         <p>{{carro.texto}}</p>
+         <div class="row">
+          <div class="  col-md-12 mb-3">
+            <div class="flex-container">
+              <div> <label>Digite a Quantidade:</label></div>
+              <div ng-init="carro.qtd = 1">
+                <select class="custom-select d-block w-50" name="qtd" id="qtd" ng-model="carro.qtd" ng-change="simulatorGoey(5,carro.qtd,38500.00)">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>                    
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+         <img class="" src="images/investimento/carro-kwid.png" >
+       </div>
+       <div>
+        <p>Valor da Compra<p> 
+          <p>(*valores aproximados, sujeitos a alteração)</p>
+          <b class="valortotal">{{carro.valor | currency}}</b>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center"></div>
+  </div>
+  <button ng-click="blocoSimulator(5,carro.qtd,38500.00);carro.qtd = 1" data-toggle="modal" data-target="#myModal" class="open">Faça sua Simulação</button>
+</div>
+
+
+<div class="card2 mb-3 box-shadow">
+  <div class="card-body" >
+   <div class="col-xs-10  col-md-10" id="radio">
+     <h3>{{moto.veiculo}}</h3>
+   </div>
+  <!-- <div class="col-xs-2  col-md-2"> 
+     <label class="radio-inline" ng-click="blocoSimulator(2,1,12500.00); moto.qtd = 1" >
+      <input type="radio" name="optradio">
+    </label>
+  </div> -->
+  <div id="borda-mobi">
+   <div class="card  col-sm-12 col-md-12" id="texto">
+     <p>{{moto.texto}}</p>
+     <div class="row">
+      <div class="col-md-12 mb-3">
+        <div class="flex-container">
+          <div> <label>Digite a Quantidade:</label></div>
+          <div ng-init="moto.qtd = 1">
+            <select class="custom-select d-block w-50" name="qtd" id="qtd" ng-model="moto.qtd" ng-change="simulatorGoey(2,moto.qtd,12500.00)">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+       <img class="" src="images/investimento/moto.png" >
+     </div>
+     <div><p>Valor da Compra</p>
+       <p>(*valores aproximados, sujeitos a alteração)</p>
+       <b class="valortotal">{{moto.valor | currency}}</b>
+     </div>
+   </div>
+ </div>
+ <div class="d-flex justify-content-between align-items-center"></div>
+</div>
+<button ng-click="blocoSimulator(2,moto.qtd,12500.00); moto.qtd = 1"  data-toggle="modal" data-target="#myModal" class="open">Faça sua Simulação</button>
+</div>
+<div class="card mb-3 box-shadow">
+  <div class="card-body"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- The Modal -->
+<div class="modal " id="myModal">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h2 class="modal-title" style=" font-size: 19px;">A título de referência veja a tabela abaixo. Locação GOEY, o melhor negócio.</h2>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="card-deck mb-3 text-center " style="padding: 15px !important" >
+          <div class="col-md-12" id="titulo">
+           <div class=" mb-3 box-shadow">
+             <div id="tabela-principal" >
+              <!-- <h1> A titulo de referência veja tabela ao lado. Locação GOEY , o melhor negócio. </h1>-->
+               <div class="d-flex justify-content-between align-items-center">
+               </div>
+             </div>
+           </div>
+         </div>
+         <div class=" col-md-12" id="bloco-investimento">
+          <div class="">
+            <div class="col-md-4 bloco" >
+              <div class="card mb-3 box-shadow"> 
+               <div class="card-body" id="tabelaP" >
+                <div id="tabela-espaco-mobile">
+                  <b class="titulo">— Locação GOEY</b> 
+                  <p>A rentabilidade na operação de locação é superior aos ganhos de outros investimentos.</p>
+                  <div class="titulo-linha"></div>
+                  <b>{{valorTotal | currency}}</b>
+                  <p>Ganho Anual: 17,31%</p><p> Locação Mensal (36 Meses): {{simGoey.locacaoMensal | currency}}</p>
+                  <p>+ Venda do Veículo (opcional): {{simGoey.vendaVeiculo | currency}}</p>
+                  <b> Valor Total: <b class="azul"> {{simGoey.valorTotal | currency}}</b> </b>
+                  <div class="titulo-linha"></div>
+                  <label class="valortotal">Rentabilidade: {{simGoey.liquido | currency}}</label>
+                  <div class="d-flex justify-content-between align-items-center"></div>
+                </div>
+              </div>
+              <div class="col-md-12" id="btn-mobile-cadastrar">
+               <button class="contratar-locacao" ng-click="confirmarProposta(tipoVeiculo)">Quero contratar agora</button>
+             </div>
+           </div>
+         </div>
+         <div class="col-md-4 bloco" >
+          <div class="card mb-3 box-shadow" >
+            <div class="card-body" id="tabelaP" >
+              <div id="tabela-espaco-mobile">
+                <b class="titulo">— Investimento RENDA FIXA</b> 
+                <p>Retorno financeiro já prefixado desde o momento da aplicação, baixo retorno.</p>
+                <div class="titulo-linha"></div>
+                <b> {{valorTotal | currency}}</b>
+                <p>Ganho Anual: 4,55% </p>            
+                <p>Retorno:<b class="azul"> {{simCdb.valorTotal | currency}}</b></p>
+                <div class="titulo-linha2"></div>
+                <label class="valortotal">Rentabilidade: {{simCdb.liquido | currency}}</label>
+                <div class="d-flex justify-content-between align-items-center"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 bloco"  >
+          <div class="card mb-3 box-shadow">
+            <div class="card-body" id="tabelaP">
+              <div id="tabela-espaco-mobile">
+                <b class="titulo">— Investimento POUPANÇA </b> 
+                <p>A poupança é um investimento de baixo risco, assim como seu retorno.</p>
+                <div class="titulo-linha"></div>
+                <b> {{valorTotal | currency}}</b>
+                <p>Ganho Anual: 2.65% </p>           
+                <p>Retorno:<b class="azul"> {{simPoupanca.valorTotal | currency}} </b> </p>
+                <div class="titulo-linha2"></div>
+                <label class="valortotal">Rentabilidade: {{simPoupanca.liquido | currency}}</label>
+                <div class="d-flex justify-content-between align-items-center"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12" id="btn-desktop-cadastrar">
+         <button class="contratar-locacao" ng-click="confirmarProposta(tipoVeiculo)">Quero contratar agora</button>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+<!-- Modal footer -->
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" id="fechar-gambis" data-dismiss="modal">Fechar</button>
+</div>
+</div>
+</div>
+</div>
+<br>
+
+<!---Footer -->
+<div class="container">
+  <div  id="lucros">
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 box-shadow">
+       <div class="card-body">
+        <div class="col-sm-12 col-md-3" id="Mini-logos">
+          <img src="images/investimento/maps.png" alt="">
+        </div>
+        <div class="col-sm-12 col-md-9" id="Mini-logos-texto">
+          <h3>Qualquer hora e lugar</h3>
+          <p>Um negócio que pode ser feito a qualquer hora e de onde estiver. Nós estamos aqui por você.</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-4 box-shadow"> 
+     <div class="card-body">
+       <div class="col-sm-12 col-md-3" id="Mini-logos">
+         <img src="images/investimento/relogio.png" alt="">
+       </div>
+       <div class="col-sm-12 col-md-9" id="Mini-logos-texto" >
+        <h3>Lucro garantido</h3>
+        <p>O retorno da sua locação garantida e a compra do seu veiculo , caso faça opção, no término do contrato.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-4 box-shadow">
+    <div class="card-body">
+      <div class="col-sm-12 col-md-3" id="Mini-logos">
+        <img src="images/investimento/lista.png" alt="">
+      </div>
+      <div class="col-sm-12 col-md-9" id="Mini-logos-texto">
+        <h3>Veículo no seu nome</h3>
+        <p>O veiculo é seu. A GOEY loca seu veiculo e assume as responsabilidades de pagamento.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<section>
+  <div class="container">
+    <div id="Texto-corporativo">
+     <div class="carde mb-4 box-shadow">
+       <div class="card-body">
+        <h4>“Um produto que reflete nossa cultura de resultados e o nosso profundo espírito de serviço e inovação”.</h4>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<div class=" text-center" id="jumb-footer">
+  <div id="footer">
+    <div class="container">
+      <div class="card mb-4 box-shadow" id="borda-footer">
+       <div class="card-body">
+        <p>Coisas boas acontecem quando as pessoas podem se movimentar.</p>
+        <div class="linha-footer"></div>
+        <div id="footer-mobilidade">
+          <div class="row">
+            <div class="col-sm-3  col-md-3 ">
+              <h6> GOEY Mobilidade Inteligente.</h6>
+            </div>    
+
+            <div class="col-sm-6  col-md-6">
+              <h6>Você também pode nos contactar pelo telefone   
+                <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5519983320031">
+                  <b> +55 (19) 98332-0031</b>
+                </a> ou 
+                <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5519984211515">
+                  <b>+55 (19) 98421-1515</b>
+                </a>
+              </h6>
+            </div>    
+
+            <div class="col-sm-3  col-md-3">
+             <h5> 
+              <a href="https://www.facebook.com/goeyja">
+               <img src="images/investimento/face.png" alt="">
+             </a>
+             <a href="https://www.instagram.com/goeyja/">
+               <img src="images/investimento/insta.png" alt="">
+             </a>
+             <a href="https://linkedin.com/company/ddtotal">
+               <img src="images/investimento/link.png" alt="">
+             </a>
+           </h5>
+         </div>
+       </div>
+     </div> 
+   </div>   
+ </div>
+</div>
+</div>
+</div>
+</section>
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+  //funcao ancora
+  function ancora(id_ancora){
+    var top = $("#"+id_ancora).offset().top-50
+    $('html, body').stop().animate({
+      'scrollTop': top
+    }, 1000, 'swing', function () {   
+    }); 
+  } 
+
+  $(function(){
+    $("[data-toggle='bottom']").click(function(){
+      $("html, body").animate({ scrollTop: $(document).height() }, );
+    });
+
+  });
+</script>
+
+
+
+
+

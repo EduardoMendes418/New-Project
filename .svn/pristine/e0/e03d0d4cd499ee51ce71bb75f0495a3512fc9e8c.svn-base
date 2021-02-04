@@ -1,0 +1,75 @@
+﻿/*==========================================================
+    Author      : Ranjithprabhu K
+    Date Created: 13 Jan 2016
+    Description : Controller to handle Experience page
+    Change Log
+    s.no      date    author     description     
+
+
+ ===========================================================*/
+
+dashboard.controller("bonificacaoCtrl", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http',
+function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http) {
+    var vm = this;
+    var usuario = JSON.parse(localStorage.getItem('user'));    
+    $scope.carregando = false;
+    $scope.retornoTable = false;
+
+
+    $scope.carregaMeusPagamentos = function(){
+        $scope.carregando = true;
+    console.log($scope.periodo);
+      var dados = {
+        codCondutor:usuario.codCondutor,
+        auth:'3f018bfb43591ccb2ef46f10de832160',
+        periodo:$scope.periodo
+
+    }
+
+    if($scope.periodo == undefined || $scope.periodo == ""){
+            return Flash.create('error', 'Por favor, selecione um periodo!', 'small-text')
+    }
+
+$http.post("http://ws.goeyja.com.br/ws/goey/rest/public/consultarEntregasBonificacao", dados).success(function(data) {
+    console.log(data);
+    $scope.mensagemRetorno = false;
+// Número entrega, Local retirada/Cidade e Local Entrega/Cidade, tempo gasto 
+// e KM Rodado. Somatória de quantidades de Entregas, de tempo gasto e km rodado.
+    if(data == ""){
+        $scope.mensagemRetorno = true;
+        $scope.retornoTable = false;
+        return false;
+    }
+    $scope.retornoTable = true;
+    $scope.bonificacao = data;
+    $scope.i = 0;
+    $scope.valorTotal = 0;
+// Até 8.000,00 - 0% bonus.
+// De 8.000,01 até 10.000,00  - 1,25% bonus.
+// De 10.000,01 até 12.000,00 - 1,56% bonus.
+// Acima de 12.000,01 - 1,88% bonus.
+        var selecionado = $scope.bonificacao.filter(function (isTrue) {
+            $scope.valorTotal+=parseFloat(isTrue.valor);
+            $scope.i++;
+            
+        });
+
+        console.log($scope.valorTotal);
+        if($scope.valorTotal < 8000 ){
+            $scope.bonus = 0;
+        }else if($scope.valorTotal > 8000 && $scope.valorTotal < 10000){
+            $scope.bonus = 1.25;
+        }else if($scope.valorTotal > 10000 && $scope.valorTotal < 12000){
+            $scope.bonus = 1.56;
+        }else if( $scope.valorTotal > 12000){
+            $scope.bonus = 1.88;
+        }
+        $scope.valorBonificacao = $scope.valorTotal*$scope.bonus/100;
+
+
+        });
+        $scope.carregando = false;
+    }
+
+}]);
+

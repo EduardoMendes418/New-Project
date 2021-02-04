@@ -1,0 +1,190 @@
+
+
+<!-- Content Header (Page header) -->
+<section class="content-header titulo">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10" >
+        <div class="col-md-12 status">
+          <h1>
+           Acompanhe o status das suas propostas
+           <hr>
+         </h1>
+         <p>
+          Acompanhe aqui o status das propostas que você enviou para nós. O processo é bem simples, suas propostas serão analisadas pela nossa equipe de crédito e se aprovadas nossa equipe de vendas providenciará seu contrato de locação.<label> ** Importante: </label> Suas informações devem estar devidamente preenchidas em sua ficha de cadastro, caso tenha alguma dúvida, verifique o menu <label>Meu Perfil/Editar Informações</label> e complete o seu cadastro. Informações adicionais podem ser solicitadas pela nossa equipe.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+   <div class="col-md-10" ng-if="listaProposta.length > 0">
+    <div class="col-md-6 listaProposta" ng-repeat="p in listaProposta" style="margin-bottom: 10px">
+      <div class="col-md-12 blocoPrincipal" >
+        <div class="col-md-5">
+         <img src="../images/home/{{p.tipoVeiculo}}-{{p.modeloVeiculo}}.png" style="width: 100%">
+         <div class="col-md-12 nomeproduto" >
+           <label>{{p.modelo}}</label>
+           <p>{{p.veiculo}}</p>
+         </div>
+       </div>
+       <div class="col-md-7" >
+        <div class="col-md-12 number" >
+          <label>Proposta Nº {{p.idProposta}}</label>
+        </div>
+        <div class="col-md-12 status">            
+          <label ng-if="p.status == 1">{{p.statusDesc}}</label>
+          <label ng-if="p.status == 2">{{p.statusVendaDesc}}</label>
+        </div>
+        <div class="col-md-12 dias" >
+          <label>{{p.dataInicio}} - {{p.dataFim}}</label>
+        </div>
+        <div class="col-md-12">
+         <label></label>
+       </div> 
+       <div class="col-md-12" style="margin-bottom: 3vh">
+        <label style="font-size: 12px">Enviada em - {{p.dataInsert}}</label>
+      </div>
+       
+    </div>
+  </div>
+</div>  
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+
+<style type="text/css">
+
+.blocoPrincipal{
+  border:1px solid #ccc;
+  padding: 0px !important;
+  margin-bottom: 10px;
+}
+
+
+.blocoPrincipal img{
+  margin-top: 5vh;
+}
+
+.status p label{
+  color: #24549E !important;
+  padding: 0px !important;
+}
+#AP{
+  color: #24549E;
+}
+.dias label{
+  color: #24549E;
+  margin-top: 10px !important;
+}
+.nomeproduto label{
+  color: #000 !important;
+}
+.nomeproduto p{
+  color: #24549E !important;
+}
+.number label{
+  color: #000 !important;
+  font-size: 16px !important;
+}
+.number {
+  margin-top: 3vh;
+}
+.status{
+  margin-top: 1vh;
+}
+
+#boleto input{
+  border-bottom: 1px solid #ccc !important
+}
+
+#date{
+  width: 150px;
+}
+.data input{
+  border:1px  solid #ccc !important;
+}
+
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  width: 300px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+button{
+  background: #24549E !important;
+  color: #fff;
+  border:1px solid #24549E !important;
+  padding: 5px !important;
+  width: 150px;
+  margin-top: 5vh;
+  font-size: 16px;
+}
+
+.status, .Periodo{
+  color: #707070;
+}
+.status input{
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #000;
+}
+
+.Periodo label{
+  margin-top: 10px;
+}
+
+.content-header{
+  min-height: 100vh !important;
+  width: auto !important;
+}
+.titulo h1{
+  font-weight: bold;
+}
+hr {
+  width: 600px;
+  margin-left: 0px;
+  border-top: 1px solid #000 !important;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+
+@media screen and (max-width: 600px) {
+ .content-header {
+  height: auto !important;
+}
+.number {
+  margin-top: 0vh;
+}
+.status{
+  margin-top: 0vh;
+}
+hr {
+  width: 100% !important;
+  margin-left: 0px;
+  border-top: 1px solid #000 !important;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+.blocoPrincipal{
+  border:1px solid #ccc;
+  padding: 0px;
+  margin-bottom: 10px;
+}
+
+}
+
+
+</style>
+

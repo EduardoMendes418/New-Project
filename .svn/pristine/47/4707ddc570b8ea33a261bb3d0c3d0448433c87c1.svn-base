@@ -1,0 +1,9 @@
+login.controller("investimentoPropostaCtrl", ['$rootScope', '$scope', '$state', '$location', 'loginService', 'Flash','apiService','$http',
+function ($rootScope, $scope, $state, $location, loginService, Flash, apiService,$http) {
+  var vm = this;
+
+  //var url = 'https://www.iptufacil.com.br';
+  var url = 'http://192.168.1.215:8025';
+
+  
+}]);

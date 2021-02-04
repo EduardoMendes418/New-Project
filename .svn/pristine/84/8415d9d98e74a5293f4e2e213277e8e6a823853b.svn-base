@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+<body>
+  <!--Menu-->
+  <div class="container">
+    <div class="row"> 
+      <nav class="navbar navbar-expand navbar-dark" id="logo">
+        <a class="navbar-brand" href="https://www.goeyja.com.br/#/investimento">
+          <img src="images/locacao/logo.png">
+        </a>
+      </nav>
+      <nav role="navigation" id="logo-mobile">
+        <div class="logo-principal" >
+          <br>
+          <a href="https://www.goeyja.com.br/#/investimento">
+            <img src="images/locacao/logo.png" >
+          </a>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="container"  id="Proposta" >
+    <div class="row">
+      <div class="col-sm-4 col-md-4" >
+        <div class="col-md-12" >
+          <div class=" mb-3 box-shadow"> 
+           <div class="card-body">
+             <div class="card mb-4 shadow-sm bd-placeholder-img card-img-top" id="imagemProposta">
+              <div class="parent">
+               <div class="col-xs-9 col-md-12" id="radio-investimento">
+                 <h3>{{proposta.veiculo}}</h3>
+               </div>
+
+             </div>
+             <div class="parent">
+              <p>{{proposta.texto}}</p>
+            </div>
+
+            <div class="row">
+              <div class=" col-md-12 mb-3">
+                <div class="flex-container">
+                  <div>
+                    <label>Digite a Quantidade: {{proposta.qtd}}</label>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+
+            <img class="bd-placeholder-img card-img-top"  src="images/investimento/{{proposta.image}}" role="img"  >
+            <div class="card-body">
+              <p class="card-text">
+                <p class="compra">Valor da Compra (*valores aproximados)</p>
+                <b id="valortotalInvetimento">{{proposta.valor | currency}}</b>
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12" >
+     <div class=" mb-3 box-shadow"> 
+       <div class="card-body">
+        <div class="card mb-4 shadow-sm bd-placeholder-img card-img-top" id="imagemProposta">
+          <div class="parent">
+            <div class="col-xs-9 col-md-10" id="radio-investimento">
+             <h3>+Veículos</h3>
+           </div>
+           <div class="col-xs-3 col-md-2"> 
+             <label class="radio-inline">
+              <input type="radio" id="mais-veiculo" name="mais-veiculo" ng-model="proposta.maisVeiculos" ng-value="1">
+            </label>
+          </div> 
+        </div>
+        <div class="parent" >
+          <div class="child">
+            <div class="card-body">
+              <p class="card-text" id="categoria">
+                <p>Caso você tenha interesse em nossas outras categorias de veículo, por favor selecione está opção também.</p>
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between align-items-center"></div>
+    </div>
+  </div>
+</div> 
+</div>
+
+<div class="col-sm-8 col-md-8" >
+  <div class="col-md-12 formulario"  id="form-investimento">
+    <h1>Envio de Proposta</h1>
+    <p>COMPRA DE VEÍCULO PARA LOCAÇÃO EM PLATAFORMA DIGITAL</p>
+    <div class="linha-invest-proposta"></div>
+    <br>
+  </div>
+  
+  <form id="msform">
+   <div class="form-group col-sm-12 col-md-8">
+    <label>Nome Completo: *</label>
+    <input type="text" capitalize class="form-control " name="nome" id="nome" ng-model="proposta.nome" required   autocomplete="off" 
+    onkeypress='return SomenteLetra(event)'>
+  </div>
+
+  <div class="form-group col-sm-12 col-md-4">
+    <label>CPF/CNPJ: * </label>
+    <input type="text"  ng-model="proposta.documento" name="documento" id="documento" class="form-control" ui-br-cpfcnpj-mask   
+    onkeypress='return SomenteNumero(event)'>                              
+  </div>
+
+  <div class="form-group col-sm-12 col-md-6">
+    <label >E-mail *</label>
+    <input type="email"  name="email"  id="email"  ng-model="proposta.email" class="form-control" />
+  </div>
+
+  <div class="form-group col-sm-12 col-md-6">
+    <label for="telefone">Telefone *</label>
+    <input type="text" capitalize class="form-control" name="telefone" id="telefone" ng-model="proposta.telefone" ui-br-phone-number  required autocomplete="off" onkeypress='return SomenteNumero(event)'>
+  </div>
+
+  <div class="form-group col-md-6" >
+    <label for="cep">CEP *</label>
+    <input type="text" capitalize class="form-control" name="cep" id="cep" ng-model="proposta.cep" ui-br-cep-mask  required ng-change="getAddressByCep();" >
+  </div>
+
+  <div class="form-group col-md-6" >
+    <label for="cidade">Cidade *</label>
+    <input type="text" capitalize class="form-control" name="cidade" id="cidade" ng-model="proposta.cidade"  required onkeypress='return SomenteLetra(event)' >
+  </div>
+
+  <div class="form-group col-md-6" >
+    <label for="bairro">Bairro *</label>
+    <input type="text" capitalize class="form-control" name="bairro" id="bairro" ng-model="proposta.bairro"  required onkeypress='return SomenteLetra(event)' >
+  </div>
+
+  <div class="form-group col-md-3" >
+    <label for="uf">UF *</label>
+    <select class="form-control" name="uf" id="uf" ng-model="proposta.uf"  required>
+      <option value="">SELECIONE</option>
+      <option value="AC">Acre</option>
+      <option value="AL">Alagoas</option>
+      <option value="AP">Amapá</option>
+      <option value="AM">Amazonas</option>
+      <option value="BA">Bahia</option>
+      <option value="CE">Ceará</option>
+      <option value="DF">Distrito Federal</option>
+      <option value="ES">Espírito Santo</option>
+      <option value="GO">Goiás</option>
+      <option value="MA">Maranhão</option>
+      <option value="MT">Mato Grosso</option>
+      <option value="MS">Mato Grosso do Sul</option>
+      <option value="MG">Minas Gerais</option>
+      <option value="PA">Pará</option>
+      <option value="PB">Paraíba</option>
+      <option value="PR">Paraná</option>
+      <option value="PE">Pernambuco</option>
+      <option value="PI">Piauí</option>
+      <option value="RJ">Rio de Janeiro</option>
+      <option value="RN">Rio Grande do Norte</option>
+      <option value="RS">Rio Grande do Sul</option>
+      <option value="RO">Rondônia</option>
+      <option value="RR">Roraima</option>
+      <option value="SC">Santa Catarina</option>
+      <option value="SP">São Paulo</option>
+      <option value="SE">Sergipe</option>
+      <option value="TO">Tocantins</option>
+    </select>
+  </div>
+
+  <div class="form-group col-md-3" >
+    <label for="numero">Número *</label>
+    <input type="tel" capitalize class="form-control" name="numero" id="numero" ng-model="proposta.numero" required onkeypress='return SomenteNumero(event)' >
+  </div>
+
+  <div class="form-group col-md-6" >
+    <label for="logradouro">Logradouro *</label>
+    <input type="text" capitalize class="form-control" name="logradouro" id="logradouro" ng-model="proposta.logradouro"   >
+  </div>
+
+  <div class="form-group col-md-6" >
+    <label for="complemento">Complemento *</label>
+    <input type="tel" capitalize class="form-control" name="complemento" id="complemento" ng-model="proposta.complemento" required >
+  </div>
+
+  <div class="col-md-12 formulario"  id="form-investimento">
+    <p>Ao clicar em enviar você permite que a GOEY entre em contato com você para análise de proposta e coleta de informações adicionais. Os seus dados são confidenciais e não serão utilizados por terceiros. Para consultas gerais, entre em contato conosco para maiores informações ou esclarecimentos.</p>
+  </div>
+    <div class="col-md-12">
+    <div class="row">
+      <div class="form-group col-md-5 col-sm-12 col-xs-12">
+        <div class="g-recaptcha" data-sitekey="6LeaQHQUAAAAAC7KVG-vv0zbA4ZG8I5rf597HX31"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-12" id="btn-proposta">
+    <button  id="btn-cadastro-proposta"  ng-click="cadastroProposta();" >Enviar</button>
+    <br>
+    <div id="txt-cadastroProposta"></div> 
+  </div> 
+
+  <script src='https://www.google.com/recaptcha/api.js'></script>     
+</form>  
+
+</div>
+
+</div>
+</div>
+
+<script>
+  function SomenteNumero(e) {
+    var tecla = (window.event) ? event.keyCode : e.which;
+    if ((tecla > 47 && tecla < 58)) return true;
+    else {
+      if (tecla == 8 || tecla == 0) return true;
+      else return false;
+    }
+  }
+
+  function SomenteLetra(e) {
+    var tecla = (window.event) ? event.keyCode : e.which;
+    if ((tecla > 47 && tecla < 58)) return false;
+    else {
+      if (tecla == 8 || tecla == 0) return true;
+      else return true;
+    }
+  }
+</script>
+
+</body>
+</html>

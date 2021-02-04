@@ -1,0 +1,128 @@
+﻿
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+          Histórico de Entregas
+
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active">Histórico</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+
+<section class="content" style="margin-top: 5%;">
+<div class="jumbotron">
+<form class="form-inline">
+        
+    <div class="row">
+        
+        <div class="col-lg-4 col-xs-12">        
+        
+            <div class="form-group">
+                    <label for="dataInicio">Data Início:</label>
+                    
+                    <input type="text" class="form-control datepicker" id="dataInicio" name="dataInicio" ng-model="filtro.dataInicio">
+            </div>
+            
+        </div>
+        
+        <div class="col-lg-4 col-xs-12">
+        
+            <div class="form-group">
+                     <label for="dataFim">Data Final:</label>                 
+                    <input type="text" class="form-control datepicker" id="dataFim" name="dataFim" ng-model="filtro.dataFim" />       
+                        
+            </div>            
+      
+        </div>
+        
+        <div class="col-sm-2 col-xs-12">
+        
+            <button  type="button" class="btn btn-info btn-block" ng-click="historicoEntregas()" >Pesquisar</button>          
+      
+        </div>    
+       
+    </div>
+ 
+</form>
+
+</div>
+<div class="table-responsive">
+<table id="example" class="table" style="width:100%;margin-top:3% ">
+        <thead>
+            <tr>
+                <th>Numero</th>
+                <th>Origem</th>
+                <th>Destino(s)</th>
+                <th>Distancia</th>
+                <th>Valor</th>
+                <th></th>
+            </tr>
+        </thead>
+ 
+        <tfoot>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        
+        <tbody>
+       
+            <tr ng-repeat="l in lista">
+                <td>{{l.id}}</td>                
+                <td>{{l.origem}}</td>
+                <td>{{l.destino1}}<br>{{l.destino2}}<br>{{l.destino3}}<br> {{l.destino4}}<br> {{l.destino5}}</td>
+                <td>{{l.distancia}}</td>
+                <td>{{l.valor}}</td>
+                <td><a href="#" data-toggle="modal" data-target="#modalDetalhe"> mais...</a></td>
+            </tr>
+        
+        </tbody>
+ </table>
+ </div>
+
+
+<!-- Modal detalhe-->
+<div class="modal" id="modalDetalhe">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Detalhe</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+</section>
+<section class="content">
+
+
+
+</section>
+<section class="content">
+
+</section>

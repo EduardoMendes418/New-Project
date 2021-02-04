@@ -1,0 +1,56 @@
+<!-- Content Header (Page header) -->
+<section class="content-header titulo">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>
+         Histórico de Locações
+         <hr>
+       </h1>
+       <div class="status">
+         <label>Veículo:</label>
+         <select ng-model="filtro.tipoVeiculo">
+          <option  value="">-- SELECIONE --</option>   
+          <option ng-repeat="t in listaVeiculo" value="{{t.tipo}}">{{t.veiculo}}</option>         
+        </select>          
+      </div>
+    </div>
+
+    <div class="Periodo">
+      <div class="col-md-6 data">
+        <label>Período</label>
+        <div class="col-6">
+          <div class="row"> 
+            <div class="column">
+              <label>De: <input id="data-ini" type="text" class="data-locacao" autocomplete="off"></label>
+              <label>Até: <input id="data-fim" type="text" class="data-locacao" autocomplete="off"></label>
+            </div>
+          </div>
+        </div>
+        <button ng-click="listarContratos()">Consultar</button>
+      </div> 
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+
+
+<style type="text/css">
+.content-header{
+  min-height: 100vh !important;
+  width: auto !important;
+}
+@media screen and (max-width: 600px) {
+
+ .titulo h1{
+  font-weight: bold;
+  font-size: 30px !important;
+}
+
+.content-header{
+  min-height: 100vh !important;
+  width: auto !important;
+}
+</style>

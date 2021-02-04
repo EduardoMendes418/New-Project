@@ -1,0 +1,18 @@
+﻿
+var restaurante = angular.module('restaurante', ['ui.router', 'ngResource', 'ngAnimate']);
+
+restaurante.config(["$stateProvider", function ($stateProvider) {
+
+    //restaurante page state
+    $stateProvider.state('restaurante', {
+        url: '/restaurante',
+        templateUrl: 'app/modules/restaurante/index.html',
+        controller: 'restauranteCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Restaurante'
+        }
+    });
+
+}]);
+

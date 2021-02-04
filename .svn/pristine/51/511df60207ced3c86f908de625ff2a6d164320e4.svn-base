@@ -1,0 +1,40 @@
+﻿/*==========================================================
+    Author      : Ranjithprabhu K
+    Date Created: 27 Dec 2015
+    Description : This service is to communicate with server for CRUD Operaions
+    
+    Change Log
+    s.no      date    author     description     
+ ===========================================================*/
+
+// app.factory('distanciaService', ['$http', '$q', 'appSettings','$resource', function ($http, $q, appSettings,$resource) {
+
+//     var apiService = {};
+//     var apiBase = appSettings.apiBase;
+//     var result = [];
+//     var listaTudo = ['teste'];
+//    function listaTudo(origin,destination){
+
+//    return  $resource('http://google.com/maps/api/distancematrix/json?origins='+ origin +'&destinations='+ destination, {}, { Distance: {method:'GET'}});
+
+//    }
+
+   
+
+// }]);
+
+app.factory('distanciaService', function($http,$resource) { //Não se esqueça de fazer a injeção das dependências aqui
+    
+    var service = {
+        verificaDist:    _verificaDist
+    };
+    return service;
+
+    function _verificaDist(origin,destination) {
+    $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+    // return  $http.get('https://google.com/maps/api/distancematrix/json?key=AIzaSyCt2xiZqA58OcYwli_YwMFoSYcLoiLlHAY&origins='+ origin +'&destinations='+ destination);
+    return $http.get('https://google.com/maps/api/distancematrix/json?key=AIzaSyCt2xiZqA58OcYwli_YwMFoSYcLoiLlHAY&origins='+ origin +'&destinations='+ destination);
+    // return $resource('http://google.com/maps/api/distancematrix/json?origins='+ origin +'&destinations='+ destination, {}, { Distance: {method:'GET'}});
+    };
+
+});

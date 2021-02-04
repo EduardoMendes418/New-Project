@@ -1,0 +1,104 @@
+﻿
+
+dashboard.controller("mapsCtrl", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http',
+function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http) {
+
+ var vm = this;
+ var usuario = localStorage.getItem('user') || "";
+$scope.pos = JSON.parse(localStorage.getItem('pos')) || "";
+   var tipoVeiculo = [];
+        tipoVeiculo[1]= 'pickup.png';
+        tipoVeiculo[2]= 'moto.png';
+        tipoVeiculo[4]= 'bike.png';
+ // Mostrar posição no mapa
+$scope.verPosicao = function(origem,sascar,destino1){
+$scope.end = $scope.pos.destino1;
+
+$http({
+		method: 'POST',
+		url: 'https://www.iptufacil.com.br/ws/goey/soap/rotas.php',
+		data: $.param({
+						servico: 'obterHistoricoVeiculo', 
+                    	codSascar: sascar, 
+                    	auth: '3f018bfb43591ccb2ef46f10de832160'
+	       			 }),
+
+		        		headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+			    	}).success(function (response) {
+                   
+			    		var latLong = response.pop().latitude + ',' + response.pop().longitude;		    		 
+   
+ 
+			    		$scope.rotas = [
+					                   {title: 'Local de Retirada:' + $scope.pos.origem, pos:$scope.pos.origem, 
+					                   icon:'images/icons/goey_origem_40.png', onRoute:false, id:1},
+					                   {title: 'Goey : ' + response.pop().endereco , pos:latLong ,
+					                   icon: 'images/icons/'+tipoVeiculo[$scope.pos.tipoVeiculo], onRoute:false, id: 2},                   
+					                   {title: 'Entrega: '+ $scope.pos.destino1, pos:$scope.pos.destino1,icon: 'images/icons/goey_destino1_40.png', onRoute:false, id:3}                    
+					                 ]; 
+						$scope.way = [
+					                   {location:$scope.pos.origem},
+					                   {location:latLong},                   
+					                   {location:$scope.pos.destino1}                    
+					                 ]; 
+
+
+						/*if(destino2 != ""){
+						 $scope.rotas.push({ title: 'Destino 2: '+ destino2, pos:destino2, icon: 'images/icons/goey_destino2_40.png', onRoute:false, id:4 }); 
+						 $scope.end = destino2; 
+						 $scope.way.push({location:destino2}); 
+						}
+
+						if(destino3  != ""){    
+						$scope.rotas.push({ title: 'Destino 3: '+ destino3, pos:destino3, icon: 'images/icons/goey_destino3_40.png', onRoute:false, id:5 });
+						$scope.end = destino3;       
+						$scope.way.push({location:destino3}); 
+						 }
+
+						if(destino4 != ""){    
+						$scope.rotas.push({ title: 'Destino 4: '+ destino4, pos:destino4,icon:'images/icons/goey_destino4_40.png', onRoute:false, id:6 });
+						$scope.end = destino4;       
+						$scope.way.push({location:destino4}); 
+						}
+
+						if(destino5 != ""){    
+						 $scope.rotas.push({ title: 'Destino 5: '+ destino5, pos:destino5,icon: 'images/icons/goey_destino_40.png', onRoute:false, id:7 });
+						 $scope.end = destino5;      
+						 $scope.way.push({location:destino5}); 
+						}
+	*/
+			    		
+			    	}).error(function (response) {
+
+			       
+			    	});
+
+}
+
+ if($scope.pos == ""){
+
+ 	$state.go('app.minhasEntregas');
+
+ }else{
+
+$scope.verPosicao($scope.pos.origem, $scope.pos.codSascar,$scope.pos.destino1);
+
+ }
+
+$scope.voltar = function(){
+
+	localStorage.removeItem('pos');
+	$state.go('app.minhasEntregas');
+
+}
+
+$scope.atualizarPg = function(){
+	location.reload();
+}
+
+
+
+
+
+}]);

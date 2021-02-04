@@ -1,0 +1,130 @@
+﻿
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+          Histórico de Entregas
+
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active">Histórico</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+
+<section class="content" style="margin-top: 5%;">
+
+<form class="form-inline">
+    <div class="well" >
+    <div class="row">
+        <div class="col-lg-12">
+        <div class="col-lg-4 col-xs-12">        
+        <form class="form-inline" role="form">
+            <div class="form-group">
+                    <label for="dataInicio">Data Início:</label>
+                    
+                    <input type="text" class="form-control datepicker" id="dataInicio" name="dataInicio" ng-model="filtro.dataInicio" autocomplete="off">
+            </div>
+            
+        </div>
+        
+        <div class="col-lg-4 col-xs-12">
+        
+            <div class="form-group">
+                     <label for="dataFim">Data Final:</label>                 
+                    <input type="text" class="form-control datepicker" id="dataFim" name="dataFim" ng-model="filtro.dataFim" autocomplete="off" /> 
+
+                        
+            </div>               
+      
+        </div>
+
+             <div class="col-lg-4 col-xs-12">
+            
+               <br class="visible-xs">   
+               <button  type="button" class="btn btn-info" ng-click="historicoEntregas()" >Pesquisar</button>     
+          
+            </div>
+        
+       </div>
+    </div>  
+ </div>
+</form>
+
+
+<div class="row text-center"><h4 id="msn"></h4></div>
+<div class="well" ng-show="lista">
+    <div class="box-body">
+        <div class="table-responsive">
+            <table id="example" class="table no-margin" style="width:100%;margin-top:1% ">
+                <thead>
+                    <tr>
+                        <th>Numero</th>
+                        <th>Origem</th>
+                        <th>Destino(s)</th>
+                        <th>Distancia</th>
+                        <th style="width: 100px !important;">Valor</th>
+                        <th>Detalhe</th>
+                    </tr>
+                </thead>
+        
+            <tbody>
+           
+                <tr ng-repeat="l in lista">
+                    <td>{{l.id}}</td>                
+                    <td>{{l.origem}}</td>
+                    <td>{{l.destino1}}<br>{{l.destino2}}<br>{{l.destino3}}<br> {{l.destino4}}<br> {{l.destino5}}</td>
+                    <td>{{l.distancia}}</td>
+                    <td style="width: 100px !important;">{{l.valor}}</td>
+                    <td><a href="#" data-toggle="modal" data-target="#modalDetalhe" ng-click="detalhar(l.id,l.dataAgendamento)">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </a></td>
+                </tr>
+            
+            </tbody>
+        </table>
+ </div>
+</div>
+</div>
+
+<!-- Modal detalhe-->
+<div class="modal" id="modalDetalhe">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Detalhe Entrega n° {{numeroEntrega}}</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+       <div class="modal-body">
+
+        <div class="row" ng-repeat="m in modal">
+          <h5><strong>Endereco:</strong>{{m.endereco}} <strong>Hora:</strong> {{m.dataInsert}}</h5>
+        </div>        
+        
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">Fechar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+</section>
+<section class="content">
+
+
+
+</section>
+<section class="content">
+
+</section>

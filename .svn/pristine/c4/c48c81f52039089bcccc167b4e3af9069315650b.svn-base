@@ -1,0 +1,59 @@
+
+listaEstabelecimentos.controller("listaLojaCtrl", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http',
+function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http) {
+
+//var url = 'https://www.iptufacil.com.br';
+var url = 'http://192.168.0.69:8025';
+ 
+$scope.endereco = JSON.parse(localStorage.getItem('endereco')) || "";
+
+// Função buscar Estabelecimento por cidade
+$scope.listarEstabelecimentos = function(){
+
+    if($scope.endereco == "" || $scope.endereco == undefined){
+
+      window.location.href = "http://192.168.0.69:8050/#/compras";
+     
+
+    }else{
+
+      var endereco = $scope.endereco.split('-');
+
+      $http({
+              method: 'POST',
+              url: url + '/ws/goey/rest/public/listarEstabelecimentos',
+              data: $.param({
+                              cidade:endereco[0],
+                              uf: endereco[1],
+                              auth:'3f018bfb43591ccb2ef46f10de832160'
+                              }),
+
+              headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+            }).success(function (response) {
+              
+              $scope.lista = response;
+                    
+            }).error(function (response) {
+
+                Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');
+                   
+            });
+    }
+
+}
+$scope.listarEstabelecimentos();
+
+$scope.redirecionaProduto = function(codLoja,tipo){
+
+  localStorage.setItem('estabelecimento',JSON.stringify({tipoUsuario:tipo,codUsuario:codLoja}));
+
+
+    window.location.href = "http://192.168.0.69:8050/#/lista-produtos/"+codLoja+"/"+tipo;
+
+   
+
+}
+
+/************* Fim ***********/
+}]);

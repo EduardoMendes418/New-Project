@@ -1,0 +1,297 @@
+<!--/**********
+    * Usuario * 
+    ************-->
+<section >
+  <div class="container">
+    <div class="well">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 text-center">
+            <div class="form-group col-md-12">
+                <!--<a href="https://www.goeyja.com.br">
+                    <img src="../images/home/logo-goey.png">
+                </a>-->
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group col-md-12">
+                <h2 class="text-center"><span style="font-weight: 100 !important;">Faça aqui seu cadastro</span></h2>
+            </div>
+        </div>
+    </div>
+
+    <form name="formUsuario" novalidate id="formCadastro">
+        <!--linha1-->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group col-md-3" ng-class="{ 'is-invalid' : formUsuario.nome.$invalid && !formUsuario.nome.$pristine }">
+                        <label for="nome">Nome*</label>
+                        <input type="text" capitalize class="form-control" name="nome" id="nome" ng-model="form.nome" 
+                        ng-class="{'is-invalid': formUsuario.nome.$invalid && formUsuario.nome.$touched,'is-valid': formUsuario.nome.$valid}" onkeypress='return SomenteLetra(event)' required >
+                        <p ng-show="formUsuario.nome.$invalid && !formUsuario.nome.$pristine" class="help-block" >Nome é obrigatório.</p>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="cpf" class="uLabel">CPF*</label>
+                        <input type="text"  ng-model="form.cpf" name="cpf" class="form-control" ui-br-cpf-mask 
+                        ng-class="{'is-invalid': formUsuario.cpf.$invalid && formUsuario.cpf.$touched,'is-valid': formUsuario.cpf.$valid}" required>
+                        <p ng-show="formUsuario.cpf.$invalid && !formUsuario.cpf.$pristine" class="help-block">Digite um CPF válido.</p>
+                    </div>
+                    <div class="form-group col-md-4" ng-class="{ 'is-invalid' : formUsuario.email.$invalid && !formUsuario.email.$pristine }">
+                        <label for="email">E-mail *</label>
+                        <input type="email" capitalize class="form-control" name="email" id="email" ng-model="form.email"  
+                        ng-class="{'is-invalid': formUsuario.email.$invalid && formUsuario.email.$touched,'is-valid': formUsuario.email.$valid}" required>
+                        <p ng-show="formUsuario.email.$invalid && !formUsuario.email.$pristine" class="help-block">E-mail é obrigatório.</p>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="datanascimento">Data de Nascimento*</label>
+                        <input type="text" id="cmpDate" name="input" class="form-control"  ng-model="form.datanascimento"
+                            placeholder=""  min="2013-01-01" max="2023-12-31" ui-date-mask="DD/MM/YYYY" parse="false"/>
+                    </div>
+                </div>
+            </div>
+        <!--linha2-->
+            <div class="row"> 
+                <div class="col-md-12">
+                    <div class="form-group col-md-3" ng-class="{ 'is-invalid' : formUsuario.cep.$invalid && !formUsuario.cep.$pristine }">
+                        <label for="cep">CEP *</label>
+                        <input type="text" capitalize class="form-control" name="cep" id="cep" ng-model="form.cep" ui-br-cep-mask ng-class="{'is-invalid': formUsuario.cep.$invalid && formUsuario.cep.$touched,'is-valid': formUsuario.cep.$valid}" required ng-change="getAddressByCep();">
+                        <p ng-show="formUsuario.cep.$invalid && !formUsuario.cep.$pristine" class="help-block">CEP é obrigatório.</p>
+                    </div>
+                    <div class="form-group col-md-4" ng-class="{ 'is-invalid' : formUsuario.logradouro.$invalid && !formUsuario.logradouro.$pristine }">
+                        <label for="logradouro">Endereço *</label>
+                        <input type="text" capitalize class="form-control" name="logradouro" id="logradouro" ng-model="form.logradouro" ng-class="{'is-invalid': formUsuario.logradouro.$invalid && formUsuario.logradouro.$touched,'is-valid': formUsuario.logradouro.$valid}" required onkeypress='return SomenteLetra(event)'>
+                        <p ng-show="formUsuario.logradouro.$invalid && !formUsuario.logradouro.$pristine" class="help-block" >Endereço é obrigatório.</p>
+                    </div>
+                    <div class="form-group col-md-2" ng-class="{ 'is-invalid' : formUsuario.numero.$invalid && !formUsuario.numero.$pristine }">
+                        <label for="numero">Número *</label>
+                        <input type="tel" class="form-control" name="numero" id="numero" ng-model="form.numero" ng-class="{'is-invalid': formUsuario.numero.$invalid && formUsuario.numero.$touched,'is-valid': formUsuario.numero.$valid}" required onkeypress='return SomenteNumero(event)'>
+                        <p ng-show="formUsuario.numero.$invalid && !formUsuario.numero.$pristine" class="help-block">Número é obrigatório.</p>
+                    </div>
+                    <div class="form-group col-md-3" ng-class="{ 'is-invalid' : formUsuario.telefone.$invalid && !formUsuario.telefone.$pristine }">
+                        <label for="telefone">Telefone *</label>
+                        <input type="text" capitalize class="form-control" name="telefone" id="telefone" ng-model="form.telefone" ui-br-phone-number ng-class="{'is-invalid': formUsuario.telefone.$invalid && formUsuario.telefone.$touched,'is-valid': formUsuario.telefone.$valid}" required>
+                        <p ng-show="formUsuario.telefone.$invalid && !formUsuario.telefone.$pristine" class="help-block">Telefone é obrigatório.</p>
+                    </div>
+                </div>
+            </div> 
+        <!--linha4--> 
+            <div class="row"> 
+                    <div class="col-md-12">
+                     <div class="form-group col-md-6" ng-class="{ 'is-invalid' : formUsuario.bairro.$invalid && !formUsuario.bairro.$pristine }">
+                         <label for="bairro">Bairro *</label>
+                         <input type="text" capitalize class="form-control" name="bairro" id="bairro" ng-model="form.bairro" ng-class="{'is-invalid': formUsuario.bairro.$invalid && formUsuario.bairro.$touched,'is-valid': formUsuario.bairro.$valid}" required onkeypress='return SomenteLetra(event)'>
+                         <p ng-show="formUsuario.bairro.$invalid && !formUsuario.bairro.$pristine" class="help-block" >Bairro é obrigatório.</p>
+                     </div>
+                     <div class="form-group col-md-4" ng-class="{ 'is-invalid' : formUsuario.cidade.$invalid && !formUsuario.cidade.$pristine }">
+                         <label for="cidade">Cidade *</label>
+                         <input type="text" capitalize class="form-control" name="cidade" id="cidade" ng-model="form.cidade" ng-class="{'is-invalid': formUsuario.cidade.$invalid && formUsuario.cidade.$touched,'is-valid': formUsuario.cidade.$valid}" required onkeypress='return SomenteLetra(event)'>
+                         <p ng-show="formUsuario.cidade.$invalid && !formUsuario.cidade.$pristine" class="help-block" >Cidade é obrigatório.</p>
+                     </div>
+                     <div class="form-group col-md-2" ng-class="{ 'is-invalid' : formUsuario.uf.$invalid && !formUsuario.uf.$pristine }">
+                         <label for="uf">UF *</label>
+                         <select class="form-control" name="uf" id="uf" ng-model="form.uf" ng-class="{'is-invalid': formUsuario.uf.$invalid && formUsuario.uf.$touched,'is-valid': formUsuario.uf.$valid}" required>
+                             <option value="">SELECIONE</option>
+                             <option value="AC">Acre</option>
+                             <option value="AL">Alagoas</option>
+                             <option value="AP">Amapá</option>
+                             <option value="AM">Amazonas</option>
+                             <option value="BA">Bahia</option>
+                             <option value="CE">Ceará</option>
+                             <option value="DF">Distrito Federal</option>
+                             <option value="ES">Espírito Santo</option>
+                             <option value="GO">Goiás</option>
+                             <option value="MA">Maranhão</option>
+                             <option value="MT">Mato Grosso</option>
+                             <option value="MS">Mato Grosso do Sul</option>
+                             <option value="MG">Minas Gerais</option>
+                             <option value="PA">Pará</option>
+                             <option value="PB">Paraíba</option>
+                             <option value="PR">Paraná</option>
+                             <option value="PE">Pernambuco</option>
+                             <option value="PI">Piauí</option>
+                             <option value="RJ">Rio de Janeiro</option>
+                             <option value="RN">Rio Grande do Norte</option>
+                             <option value="RS">Rio Grande do Sul</option>
+                             <option value="RO">Rondônia</option>
+                             <option value="RR">Roraima</option>
+                             <option value="SC">Santa Catarina</option>
+                             <option value="SP">São Paulo</option>
+                             <option value="SE">Sergipe</option>
+                             <option value="TO">Tocantins</option>
+                         </select>
+                         <p ng-show="formUsuario.uf.$invalid && !formUsuario.uf.$pristine" class="help-block">UF é obrigatório.</p>
+                     </div>
+                 </div>
+             </div>
+        <!--linha5-->
+             <div class="row">   
+                    <div class="col-md-12">
+                        <div class="form-group col-md-6">
+                            <label for="complemento">Complemento</label>
+                            <input type="text" capitalize class="form-control" id="complemento" name="complemento" ng-model="form.complemento" ng-class="{'is-valid': formUsuario.complemento.$valid && formUsuario.complemento.$touched}">
+                        </div>
+
+                        <div class="form-group col-md-6" ng-class="{ 'is-invalid' : formUsuario.senha.$invalid && !formUsuario.senha.$pristine }">
+                            <label for="senha">Senha *</label>
+                            <input type="password" class="form-control" name="senha" id="senha" ng-model="form.senha" ng-class="{'is-invalid': formUsuario.senha.$invalid && formUsuario.senha.$touched,'is-valid': formUsuario.senha.$valid}" required maxlength="8">
+                            <p ng-show="formUsuario.senha.$invalid && !formUsuario.senha.$pristine" class="help-block">Senha é obrigatório.</p>
+                        </div>
+                    </div>     
+                </div>
+
+        <!--linha6-->
+                <div class="row">
+                    <div class="col-md-12" id="">
+                        <div class="form-group col-md-12 col-sm-12" id="centralizado">
+                            <small>Termo de Acordo para Adesão ao Arranjo de Pagamentos DDTOTAL - Regulamento acesse </small> <a href="https://www.ddtotal.com.br/facilites/index.html#!/home">www.ddtotal.com.br/facilites</a><br/><br/>
+                         </div> 
+                         <div class="form-group col-md-12 col-sm-12 teste" style="position: relative;top: -35px;font-size: 13px;">
+                            <input type="checkbox" ng-model="form.confirma" name="confirma" id="confirma" required>
+                              <small class="li">  &nbsp;Li e concordo com o Termo de Acordo </small>
+                         </div> 
+                    </div>
+                </div> 
+
+        <!--linha7-->
+            <div class="row">   
+                    <div class="col-md-12">
+                        <div class="row">  
+                            <div class="form-group col-md-5 col-sm-12 col-xs-12" style="    position: relative;top: -20px;">
+                                <div class="g-recaptcha" data-sitekey="6LeaQHQUAAAAAC7KVG-vv0zbA4ZG8I5rf597HX31"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-md-offset-4 text-center" ng-show="!cadastroOk">
+                            <button class="btn btn-primary" ng-click="ComprasCadastrarUsuario()"> Cadastrar</button>
+                           <button class="btn btn-primary" ng-show="carregando"><span class="fa fa-refresh glyphicon-refresh-animate"></span> Enviando...</button> 
+                        </div>
+                    </div>
+                    <div class="row" ng-show="cadastroOk">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                               <div class="alert alert-success text-center" role="alert" style="position:relative !important;padding: 0.75rem 1.25rem !important;  margin-bottom: 1rem;  border: 1px solid transparent !important;  border-radius: 0.25rem !important;   color: #155724 !important; background-color: #d4edda !important;border-color: #c3e6cb !important;min-width: 585px !important;">
+                                  Solicitação de cadastro enviado com sucesso, aguarde que em breve entraremos em contato.
+                              </div> 
+                          </div>
+                      </div>
+                  </div><br/><br/><br/>
+              </div><br/>
+
+        <!--linha8-->
+              <div class="row">   
+                <div class="col-md-12" style="position: relative;top: -20px;">
+                    <div class="form-group">
+                        <div class="col-md-4 text-left" ng-show="!cadastroOk">
+                            <a href="https://www.goeyja.com.br/#/step"><button class="btn btn-primary">Voltar</button></a>
+                             <button class="btn btn-primary" ng-show="carregando"><span class="fa fa-refresh glyphicon-refresh-animate"></span> Enviando...</button> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+  </div>
+</section>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+<script>
+    function SomenteNumero(e) {
+        var tecla = (window.event) ? event.keyCode : e.which;
+        if ((tecla > 47 && tecla < 58)) return true;
+        else {
+            if (tecla == 8 || tecla == 0) return true;
+            else return false;
+        }
+    }
+    function SomenteLetra(e) {
+        var tecla = (window.event) ? event.keyCode : e.which;
+        if ((tecla > 47 && tecla < 58)) return false;
+        else {
+            if (tecla == 8 || tecla == 0) return true;
+            else return true;
+        }
+    }
+
+    $(document).ready(function(){
+
+    })
+</script>
+<style>
+.li{
+    position: relative;
+    top: -3px; 
+    font-size: 12px;
+}
+
+.container{
+    margin-top:10px !important;
+}
+*{
+    font-weight: normal !important;
+}
+
+@media only screen and (max-width: 720px){
+    #centralizado{
+     text-align: justify;
+     -moz-text-align-last: center;
+     text-align-last: center;
+    }
+
+    input[type="radio"], input[type="checkbox"] {
+    margin: 15px 0 0 !important;
+    margin-top: 1px \9;
+    line-height: normal;
+    }
+}
+.btn-primary {
+   background-color: #101F44 !important;
+}
+
+.btn-primary:hover {
+    background-color: #283F76 !important;
+}
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+input,select,textarea{
+    border-radius: 0px !important;
+    border:none !important;
+    border-bottom: 1px solid #C4C4C4 !important;
+    background-color:transparent !important;
+}
+textarea:focus,
+input:focus,
+select:focus {
+    border-color: none !important;
+    outline: 0;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+.is-invalid{
+    border-color:red !important;
+}
+.is-valid{
+    border-color:green !important;
+}
+.help-block{
+    color:red !important;   
+}
+
+ h2, .h2 {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+</style>

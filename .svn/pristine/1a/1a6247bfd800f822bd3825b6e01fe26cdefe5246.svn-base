@@ -1,0 +1,17 @@
+
+var investimentoProposta = angular.module('investimentoProposta', ['ui.router', 'ngResource', 'ngAnimate']);
+
+investimentoProposta.config(["$stateProvider", function ($stateProvider) {
+
+    //investimentoProposta page state
+    $stateProvider.state('investimentoProposta', {
+        url: '/investimentoProposta',
+        templateUrl: 'app/modules/investimento/investimentoProposta.html',
+        controller: 'investimentoPropostaCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Investimento Proposta'
+        }
+    });
+
+}]);

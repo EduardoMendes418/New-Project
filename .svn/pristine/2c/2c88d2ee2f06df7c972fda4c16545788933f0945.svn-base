@@ -1,0 +1,20 @@
+var home = angular.module('home', ['ui.router', 'ngResource', 'ngAnimate']);
+/*var home = angular.module('email', []);*/
+
+home.config(["$stateProvider", function ($stateProvider) {
+
+    //login page state
+    $stateProvider.state('home', {
+        url: '/home',
+        templateUrl: 'app/modules/home/home.html',
+        controller: 'homeCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Home'
+        }
+    });
+
+}]);
+
+
+

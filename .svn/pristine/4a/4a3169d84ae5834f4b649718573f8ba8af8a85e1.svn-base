@@ -1,0 +1,798 @@
+
+listaProdutos.controller("listaCtrl", ['$rootScope', '$scope', '$state','$location', 'dashboardService', 'Flash','$http',
+function ($rootScope, $scope, $state,$location, dashboardService, Flash,$http) {
+
+var url = 'https://www.iptufacil.com.br';
+// var url = 'http://192.168.0.67:8025';
+
+var codLoja2 = $state.params.codLoja;
+var tipoUsuario2 = $state.params.tipo;
+var estabelecimentoUrl = JSON.parse(localStorage.getItem('estabelecimento'));
+if(estabelecimentoUrl){
+  if(estabelecimentoUrl.codUsuario != codLoja2){
+
+    localStorage.removeItem('addItems');
+    localStorage.removeItem('loja');
+     // window.location.href = 'http://www.goeyja.com.br/#/compras';
+   }
+ }
+
+localStorage.setItem('estabelecimento',JSON.stringify({tipoUsuario:tipoUsuario2,codUsuario:codLoja2}));
+localStorage.setItem('loja',JSON.stringify({tipoUsuario:tipoUsuario2,codUsuario:codLoja2}));
+
+$scope.tmp = [{}];
+$scope.verify = false;
+var res = "";
+$scope.filter = function(string){
+    $scope.tmp = [{}];
+    var filtro = $scope.grid;    
+
+    if($scope.cmpnome == ""){
+      $scope.tmp = $scope.grid;
+      $http({
+          method: 'POST',
+          url: url +"/ws/goey/rest/public/produtosGoey",
+          data: $.param({                         
+                         codUsuario:codLoja,
+                         tipoUsuario:tipoUsuario,                               
+                         auth:'3f018bfb43591ccb2ef46f10de832160'
+                        }),
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      }).success(function (response) {
+                             
+                $scope.grid = response;
+                $scope.tmp = $scope.grid;
+              //  localStorage.setItem('detalheLoja',JSON.stringify({id:response.data[0].id,nome:response.data[0].nome,categoria:response.data[0].categoria,email:response.data[0].email,endereco:response.data[0].endereco})); 
+
+                //$scope.end = response.data[0].endereco; 
+
+      }).error(function (response) {
+
+              Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');
+                 
+      });
+      return;
+    }
+
+      var retorno = filtro.filter(function(response){
+                
+        res = response.produto.toLowerCase().match(string.toLowerCase());
+        
+        if(!res){
+          res = response.descricao.toLowerCase().match(string.toLowerCase());
+        }
+
+        if(response.categoria.toLowerCase().match(string.toLowerCase())){
+          res = response.categoria.toLowerCase().match(string.toLowerCase());  
+        }
+        
+
+        if(res){
+          if($scope.tmp.produto != response.produto){
+            $scope.tmp.push(response);
+          // $scope.tmp.push(response);
+        }
+      }
+        
+      });
+      $scope.tmp.splice(0,1);
+
+}
+
+$scope.produtos = []; 
+$scope.origem = "";
+$scope.destino = "";
+$scope.txEntrega = "";
+
+$scope.enderecos = [];
+  var codLoja = $state.params.codLoja;
+  var tipoUsuario = $state.params.tipo;
+  var usuario = JSON.parse(localStorage.getItem('user')) || "" ;
+  var estabelecimentoUrl = JSON.parse(localStorage.getItem('estabelecimento')) || "" ;
+
+
+  if(estabelecimentoUrl.codUsuario != codLoja){
+    localStorage.removeItem('addItems');
+    localStorage.removeItem('loja');
+     // window.location.href = 'http://www.goeyja.com.br/#/compras';
+  }
+
+
+// Verifica o tipo Usuario para preencher o campo de endereço para entrega
+if(usuario != "" && tipoUsuario == 1){
+
+  $scope.destino = usuario.logradouro + ',' + usuario.numero + ' - ' + usuario.bairro + ', ' + usuario.cidade + ' - ' + usuario.uf; 
+
+  $("#destino").val($scope.destino);
+
+}
+
+  $scope.end = "";
+  $scope.taxa = 0;
+  $scope.loja = "";
+  $scope.categoria ="";
+  $scope.grid = "";
+  $scope.cart = "";
+  $scope.somaTotal = "";
+  $scope.distanciaLoja = "";
+
+  $scope.voltarLoja = function(){
+
+    var estabelecimento = JSON.parse(localStorage.getItem('estabelecimento' )) || ""; 
+
+    //var cidade = localStorage.getItem('cidade') || "";
+
+     if(estabelecimento != ""){      
+          //alert('voltar estabelecimento goey');
+         $location.url('lista-estabelecimentos');
+
+     }
+  }
+ 
+// Detalhe Loja
+$scope.detalheLoja = function(){            
+
+$http({
+          method: 'POST',
+          url: url +"/ws/goey/rest/public/detalheEstabelecimento",
+          data: $.param({                         
+                         codUsuario:codLoja,
+                         tipoUsuario:tipoUsuario,                               
+                         auth:'3f018bfb43591ccb2ef46f10de832160'
+                        }),
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+      }).success(function (response) {
+           
+                $scope.loja = response;               
+                $scope.origem = response.logradouro + ', '+ response.numero + '-' + response.bairro +','+ response.cidade+ ' - '+ response.uf;                
+
+      }).error(function (response) {
+
+              Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');
+                 
+      });
+} 
+
+$scope.detalheLoja();
+
+//validar Endereço
+validarNumber = function(text){
+  
+        if(text){
+
+            var patt = /[1234567890]/i;
+            var res = patt.test(text);           
+           
+            if(!res){
+
+                Flash.create('danger', 'Digite um endereço válido com número.', 'large-text');
+                return false;
+
+            }else{
+
+             // return true;
+              calcularEntrega(text);
+            }
+
+        }     
+     
+}
+
+// Criando Modal Item 
+$scope.paramModal = function(item){
+  $scope.modal = item;
+}
+
+// Criando Modal horario
+$scope.paramModal = function(horario){
+  $scope.modal = horario;
+}
+
+
+// Taxa de Entrega
+calcularEntrega = function(end){
+ //var endDestino = $("#destino").val(); 
+    $scope.endereco = [{origem:$scope.origem,destino:end}];     
+
+    $http.defaults.headers.post["Content-Type"] = "application/json";
+ 
+    $http.post('https://www.iptufacil.com.br/ws/goey/rest/public/matrixGoogle', ({
+                    auth: "3f018bfb43591ccb2ef46f10de832160",
+                    tipo: 2,
+                    enderecos: $scope.endereco,
+                    tipoUsuario : tipoUsuario,
+                    codUsuario : usuario.codUsuario
+
+                  })).then(function(response){
+
+                  if(response.data.retorno == 1){
+
+                      $scope.taxa = response.data.total;
+                      $(".btnFinalizar").removeAttr('disabled'); 
+
+                      localStorage.setItem('endereco',JSON.stringify($scope.endereco));
+
+                      }else{
+
+                        Flash.create('info', response.data.mensagem, 'large-text');
+
+                      }                  
+
+                  });
+
+  }
+
+// Lista de Produtos
+$scope.listaProdutos = function(){
+
+$http({
+          method: 'POST',
+          url: url +"/ws/goey/rest/public/produtosGoey",
+          data: $.param({                         
+                         codUsuario:codLoja,
+                         tipoUsuario:tipoUsuario,                               
+                         auth:'3f018bfb43591ccb2ef46f10de832160'
+                        }),
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      }).success(function (response) {
+                             
+                $scope.grid = response;
+                $scope.tmp = $scope.grid;
+              //  localStorage.setItem('detalheLoja',JSON.stringify({id:response.data[0].id,nome:response.data[0].nome,categoria:response.data[0].categoria,email:response.data[0].email,endereco:response.data[0].endereco})); 
+
+                //$scope.end = response.data[0].endereco; 
+
+      }).error(function (response) {
+
+              Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');
+                 
+      });
+
+}
+
+$scope.listaProdutos();
+
+/// Início dos Scripts do carrinho de compras
+ var item = [];
+$(".btnFinalizar").hide();
+// lista itens no carrinho de
+$scope.listarItems = function(){
+  
+       var loja = JSON.parse(localStorage.getItem('loja')) || ""; 
+
+        if(loja != ""){
+
+            if(loja.loja === codLoja){
+
+               var carrinho  = JSON.parse(localStorage.getItem('addItems')) || "";
+
+                if(carrinho != "" || carrinho != null){
+
+                  var qtd = 0;
+                  $(".totalPrice").css("display","block");
+
+                  for(var i=0;i<carrinho.length;i++){
+
+                    carrinho[i].subtotal = parseFloat(carrinho[i].subtotal).toLocaleString('pt-br',{minimumFractionDigits:2});
+                    qtd += carrinho[i].qtd;
+                  }
+
+                   $scope.divCart = 1;
+                   $scope.cartEmpty = 0;
+                   $scope.qtdItens = '(' + qtd + ')';
+                   $(".btnFinalizar").show();                            
+                             
+                }else{ 
+                       $scope.divCart = 0;
+                       $scope.cartEmpty = 1;
+                       $scope.qtdItens = '';
+                       
+                     }
+
+            }else {    
+
+                     $(".direcionaLoja").css('display','block');                         
+
+            }
+
+        }else{
+              $scope.divCart = 0;
+              $scope.cartEmpty = 1;
+              $scope.qtdItens = '';
+              $(".btnFinalizar").hide();
+        } 
+
+    return $scope.cart = carrinho; 
+}
+
+$scope.listarItems();
+
+// direciona para a loja no localStorage
+$scope.direcionaLoja = function(){ 
+
+       $(".direcionaLoja").css('display','none'); 
+
+        var loja =  JSON.parse(localStorage.getItem('loja'));
+        $location.url('produtos/' + loja.loja); 
+
+}
+
+// Adiciona item ao carrinho
+ $scope.adicionarItens = function(id,produto,preco){
+
+           var loja = JSON.parse(localStorage.getItem('loja')) || "";
+
+           if(loja != ""){
+
+             if(loja.loja != codLoja){  
+
+                 window.localStorage.removeItem("addItems");
+                 window.localStorage.removeItem("loja");
+                 localStorage.setItem('loja',JSON.stringify({loja:codLoja})); 
+
+             }
+          }
+
+                    localStorage.setItem('loja',JSON.stringify({loja:codLoja,tipoUsuario:tipoUsuario})); 
+
+    var total = preco; 
+
+   item = JSON.parse(localStorage.getItem('addItems')) || ""; 
+
+  if(item !== ""){
+
+      for (var i = 0; i < item.length; i++) {
+          if(id === item[i].cod){                                            
+           $scope.plus(id,item[i].qtd);
+           alertCompra(); 
+           return false;                                              
+           }
+      }
+
+  }else{
+
+      item = [];
+
+       }  
+
+      item.push({cod : id, produto: produto, preco: formatNumber(preco),qtd:1,subtotal:formatNumber(total)});
+      $(".direcionaLoja").css('display','none');                                                                                                                 
+      localStorage.setItem('addItems',JSON.stringify(item));                                                                        
+      alertCompra(); 
+      $scope.listarItems();                       
+
+
+}
+
+$scope.listarItems();
+
+// adiciona quantidade do mesmo item no carrinho
+$scope.plus = function(id,qtd){ 
+
+
+  var item = JSON.parse(localStorage.getItem('addItems'));
+
+                             for (var i = 0; i < item.length; i++) {
+
+                                              if(id === item[i].cod){ 
+
+                                                  item[i].qtd+= 1;                                            
+                                                  break; 
+
+                                               }
+                              }
+
+                        item[i].subtotal =  parseFloat(item[i].preco * item[i].qtd).toFixed(2) ;                        
+                        localStorage.setItem("addItems", JSON.stringify(item));                        
+                        $scope.listarItems();   
+
+}
+// retira  quantidade do mesmo item no carrinho
+$scope.minus = function(id,qtd,preco){
+     
+                    var item = JSON.parse(localStorage.getItem('addItems')); 
+
+                           for (var i = 0; i < item.length; i++) {
+
+                                            if(id === item[i].cod){
+
+                                                item[i].qtd-= 1;
+                                                item[i].subtotal =  parseFloat(item[i].subtotal- item[i].preco).toFixed(2);                                                                                                                      
+                                                break;
+
+                                             }
+                            }
+
+                          if(item[i].qtd == 0){ 
+
+                              if (item[i].cod === id) {
+                                  item.splice(i, 1);
+                                  localStorage.setItem("addItems", JSON.stringify(item));
+                              } 
+
+                          } 
+
+                       localStorage.setItem("addItems", JSON.stringify(item));
+
+                       if( item.length < 1){
+
+                          $(".totalPrice").css("display","none");
+
+                          window.localStorage.removeItem("addItems");
+                          window.localStorage.removeItem("loja"); 
+                          $scope.listarItems();
+
+                        }else{
+
+                           $scope.listarItems();
+
+                        }          
+}
+
+// calculo do subtotal dos itens do carrinho 
+$scope.subTotal = function(){
+
+    var total = 0;
+    var item =  JSON.parse(localStorage.getItem('addItems'));
+
+                 if(item != null){
+
+                        for(var i = 0; i < item.length; i++){ 
+
+                            var subtotal =   parseFloat(item[i].subtotal);                 
+                            total += subtotal;
+
+                        }
+
+                        if($scope.txEntrega != undefined){
+
+                          var st =  parseFloat(total) + parseFloat($scope.taxa); 
+                          $scope.somaTotal = st.toLocaleString('pt-br', {minimumFractionDigits: 2});                         
+                          return  total.toLocaleString('pt-br', {minimumFractionDigits: 2});
+
+                        }          
+                }       
+}
+/*
+// TAXA DE ENTREGA
+$scope.txEntrega = function(){    
+                      
+        $scope.taxa =  0;                    
+     
+}
+$scope.txEntrega();
+*/
+// mensagens de validação 
+  var divMsn = $(".divHeader");
+  var msn = [];
+      msn[0] = '<span style="color:gray"><strong>Faça o Login com CPF ou n° Cartão IPTU.</strong></span>';
+      msn[1] = '<span style="color:#ff6666"><strong>Preencha todos os campos!</strong></span>';
+      msn[2] = '<span style="color:#ff6666"><strong>Login ou senha inválidos!</strong></span>';
+      msn[3] = '<span style="color:gray"><strong> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Observação</strong></span>';
+      msn[4] = '<span style="color:#ff6666"><strong>Preencha o campo de observação!</strong></span>';        
+      divMsn.html(msn[0]);
+
+ 
+// FINALIZAR PEDIDO
+$scope.finalizarPedido = function(origem){ // origem = 1 cart desktop, 2 cart mobile
+
+  var destino = JSON.parse(localStorage.getItem('endereco'));
+  
+  if(origem == 1){
+
+      if($("#destino").val() == ""){
+
+          alert("Digite um endereço para entrega.");
+          return false;
+
+      }else if(destino[0].destino != $("#destino").val()){
+
+          alert("Digite o endereço novamente.");
+         // localStorage.removeItem('endereco');
+          return false;
+
+      }
+
+  }else{
+
+    if($("#destinomobile").val() == ""){
+
+          alert("Digite um endereço para entrega.");
+          return false;
+
+      }else if(destino[0].destino != $("#destinomobile").val()){
+
+          alert("Digite o endereço novamente.");
+         // localStorage.removeItem('endereco');
+          return false;
+
+      }
+  }
+
+          if(usuario != ""){
+            
+            if(usuario.tipoUsuario == 1 ){
+
+              window.location.href =  'http://goeyja.com.br/usuario/#/app/pagamento'; // link para dasboard usuario
+
+            }else{
+
+              window.location.href = 'http://goeyja.com.br/#/app/pagamento'; // link para dashboard estabelecimento
+            }   
+
+          }else{
+
+           $(".btnfinalizarPedido").click();
+
+          }
+}
+
+$scope.txtLogin = function(){
+
+ $(".msnLogin").html("<span style='color:#d3d3d3'>Fazer Login</span>");
+
+}
+
+ // Validar Login
+  $scope.validarLogin = function(){
+
+    $(".msnLogin").html("<span>Aguarde...</span>");
+
+     if($scope.login.email == "" || $scope.login.senha == ""){
+
+      alert("Prencha os campos obrigatórios.");
+      return false;      
+
+
+     }else{
+
+        $.ajax({
+                  type: 'POST',
+                  crossDomain: true,
+                  url: url + '/ws/goey/rest/public/consultarUsuario',
+                  data:{
+                  'email': $scope.login.email ,
+                  'senha': $scope.login.senha,
+                  'auth': '3f018bfb43591ccb2ef46f10de832160'
+                  },
+                  dataType: 'json',
+                  success: function (response){ 
+                      
+                      if(response.retorno == 1){
+                        $("#btnfinalizarPedido").click();
+                         localStorage.setItem('user',JSON.stringify(response));    
+
+                          if(response.tipoUsuario == 1){
+                            
+
+                              window.location.href = 'http://goeyja.com.br/usuario/#/app/pagamento'; // link para dasboard usuario
+                              
+
+                          }else if(response.tipoUsuario == 3 || response.tipoUsuario == 4){                             
+
+                              window.location.href = 'http://goeyja.com.br/#/app/pagamento'; // link para dashboard estabelecimento
+
+                          }
+
+                       }else{
+                            
+                            $(".msnLogin").html("<span style='color:red'>"+response.mensagem+"</span>");
+
+                       }
+                   
+                  }
+        });
+     }
+      
+  }
+
+
+/*
+  $("#cmpOrigem").val('');
+  $scope.limpar();
+
+  var login = localStorage.getItem('session_id');
+
+      if(origem == 1 && login === null){
+
+         $("#user").val('');
+         $("#pass").val(''); 
+         $("#loginModal").modal();                         
+         //$("#finalizarPedido1").attr("data-target","#loginModal"); 
+         $("#cmpOrigem").val(1);
+
+      }else if(origem == 1 && login !== null){
+
+         //$location.url('pagamento/' + codLoja[2]);
+         if(endereco != ""){
+
+                  $location.url('pagamento/' + codLoja);
+
+                }else{
+
+                  $location.url('endereco/' + codLoja);
+
+                }  
+          
+      }else if (origem == 2 && login === null){
+
+         $("#user").val('');
+         $("#pass").val('');
+         $("#btnCartMobile").click();
+         $("#loginModal").modal();
+         //$("#finalizarPedido2").attr("data-target","#loginModal");                          
+         $("#cmpOrigem").val(1); 
+
+      }else if (origem == 2 && login !== null){
+        $("#cmpOrigem").val('');
+        $("#btnCartMobile").click();
+
+        if(endereco != ""){
+
+                  $location.url('pagamento/' + codLoja);
+
+                }else{
+
+                  $location.url('endereco/' + codLoja);
+
+                }  
+
+      }
+       */                 
+
+
+
+
+
+// OBSERVAÇÃO DO PEDIDO PARA RAMO DE ATIVIDADE RESTAURANTE
+$(".divHeaderR").html(msn[3]);
+
+var obsLocal = localStorage.getItem('obs');
+
+    if(obsLocal !== null){
+
+      $("textarea[name='cmpObs']").val(obsLocal);
+     
+    }else{
+
+      $("textarea[name='cmpObs']").val("");
+
+    } 
+
+
+$scope.fechaCartMobile = function(){
+  $("#cartMobile").modal('hide');
+}
+
+// Observação do pedido quando a loja for restaurante
+$scope.obsPedido = function(){
+
+  var obs = $("textarea[name='cmpObs']").val();
+
+      if(obs.length < 1){
+
+        $(".divHeaderR").html(msn[4]);
+
+      }else{
+
+            $(".divHeaderR").html(msn[3]);
+            localStorage.setItem('obs',obs);
+            $("#modalObs").modal('hide');
+      }
+}
+
+/*
+// FORMULÁRIO LOGIN
+$scope.validaForm = function(){
+
+  var user = $('#user').val();
+  var pass = $('#pass').val();
+
+      if(user ==="" || pass === ""){
+
+          divMsn.html(msn[1]);
+
+      }else{
+
+            $http.post(ws+"/ec/public/ECverificarLogin", $.param({                                       
+            'usuario': user,
+            'senha'  : pass
+
+            })).then(function(response){ 
+
+                if(response.data[0].nc === false || response.data[0].nc === undefined ){
+
+                  divMsn.html(msn[2]);
+
+                }else{
+                
+                      $("#btnLoginModal").click();
+                      localStorage.setItem('session_id',JSON.stringify({nome:response.data[0].nome,email:response.data[0].email,nc:response.data[0].nc}));
+                      $location.url('pagamento/' + codLoja);
+                      $scope.limpar();
+                      user.reset();
+                      pass.reset();
+                } 
+
+            });
+    }              
+}
+*/
+// limpa as mensagens
+$scope.limpar = function(){
+  divMsn.html(msn[0]);
+}
+
+// remover a virgula
+function formatNumber(number) {
+
+ var valor = number.replace('.', '');
+return valor.replace(',','.');
+
+}
+/*
+$scope.click = function(){
+
+  setTimeout(function(){
+  $scope.detalheLoja();
+
+  }, 3000);
+    
+}
+*/
+/*
+// Reddit constructor function to encapsulate HTTP and pagination logic
+app.factory('Reddit', function($http,$location,$routeParams) {
+
+  var Reddit = function() {
+    this.items = [];
+    this.busy = false;
+    this.after = '';
+  };
+    
+  Reddit.prototype.nextPage = function() {
+    var codLoja = $routeParams.codLoja;
+    this.loja = codLoja;
+
+    this.mais = false;
+    if (this.busy) return;
+    this.busy = true;
+    this.check = true;
+    if(!this.after)this.after =0;
+    // var url = "http://api.reddit.com/hot?after=" + this.after + "&jsonp=JSON_CALLBACK";
+    
+    var url = ws+"/geral/public/ECgridProduto2/"+this.loja+"/"+this.after;
+
+    $http.get(url).then(function(data) {
+
+
+      var items = data.data;
+
+      if(items[0].cod){
+        
+        for (var i = 0; i < items.length; i++) {
+          this.items.push(items[i]);
+        }
+
+        this.after = this.items[this.items.length - 1].cod;
+        this.busy = false;
+        this.mais = true;
+       
+      }else{
+        this.mais = false;
+      }
+
+        if(data.data.length < 10){
+          this.mais = false;
+        }
+    }.bind(this));
+  };
+
+*/
+
+
+
+
+
+}]);

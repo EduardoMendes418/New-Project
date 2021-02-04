@@ -1,0 +1,141 @@
+﻿
+<style type="text/css">
+  #labelImg {
+  background-color: #3498db;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  margin: 10px;
+  padding: 6px 20px
+}
+
+#showImg{
+
+}
+
+</style>
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Cadastrar Produtos
+
+        </h1>
+        <ol class="breadcrumb">
+            <li><a><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active">Cadastrar Produtos</li>
+        </ol>
+    </section>
+    
+
+    <section class="well content">
+
+                <div class="row">
+
+                    <form action="#" method="post" enctype="multipart/form-data" id="formCadastro" name="formCadastro">
+
+                            <div class="col-lg-12 col-xs-12">
+                                <div class="form-group">
+                                    <label for="cmpProduto">Produto</label>
+                                    <input type="text" class="form-control" id="cmpProduto" name="produto" ng-model="cadastrar.produto" >
+                                    <input type="hidden"  id="auth" name="auth" value="3f018bfb43591ccb2ef46f10de832160">
+                                    <input type="hidden" id="tipoUsuario" name="tipoUsuario">
+                                    <input type="hidden" id="codUsuario" name="codUsuario">
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-12 col-xs-12">
+                                <div class="form-group">
+                                    <label for="cmpDescricao">Descrição</label>
+                                    <textarea class="form-control" id="cmpDescricao" name="descricao" rows="3" ng-model="cadastrar.descricao"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-xs-12">
+                                <div class="input-group">
+                                    <label for="cmpQtd">Quantidade</label>
+                                    <input type="text" class="form-control" name="cmpQtd" id="cmpQtd" ng-model="cadastrar.qtd">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-xs-12" style="margin-top: 5%">
+
+                                <div class="input-group">
+                                  <label id="labelImg" for="imgUpload"><i class="fa fa-image"></i> Adicionar Imagem</label>
+                                  <input type="file" style="display: none" class="form-control"  name="img" id="imgUpload" onchange="showImage()" ng-model="cadastrar.imgUpload" >     
+                                </div>
+
+                                <div id="divImg">
+                                    <i id="trash" style="display: none;cursor:pointer" class="fa fa-trash" onclick="removerImage()" title="Excluir essa imagem"></i>
+                                    <img id="showImg" style="max-width: 200px;">
+                                </div>
+                                    
+                            </div>            
+                        
+                </div>    
+           
+                            <div class="row" style="margin-top: 5%">
+                    
+                                <div class="col-lg-3 col-xs-12">      
+                                         
+                                    <button class="btn btn-info btn-block" id="btnAtualizarDados">Cadastrar</button>
+                                    <img src="images/loader.png"  class="fa fa-refresh glyphicon-refresh-animate" style="display:none" id="img-loader">
+
+                                </div>        
+                            
+                            </div>
+
+                    </form> 
+
+    </section>
+
+    <section class="content">
+        
+    </section>
+
+<script type="text/javascript">
+    
+function showImage() {
+    var oFReader = new FileReader();
+    oFReader.readAsDataURL(document.getElementById("imgUpload").files[0]);
+
+    oFReader.onload = function (oFREvent) {
+
+        document.getElementById("showImg").src = oFREvent.target.result;
+        document.getElementById("trash").style.display = "block";
+    };
+
+};
+
+ function removerImage(){
+    
+    document.getElementById("imgUpload").value = "";
+    document.getElementById("showImg").removeAttribute("src");
+    document.getElementById("trash").style.display = "none";
+
+ }
+
+ $(document).ready(function(){
+
+    $("#btnAtualizarDados").click(function(){
+
+       var formdata = new FormData($("form[name='formCadastro']")[0]);
+       var link = "http://192.168.0.69:8025/ws/goey/rest/public/cadastrarProdutos";       
+      
+        $.ajax({
+            type: 'POST',
+            url: link,
+            data: formdata ,
+            processData: false,
+            contentType: false
+
+        }).done(function (data) {
+
+            //$("div.container-fluid").html(data);
+
+            });
+
+    })
+
+ })
+
+</script>

@@ -1,0 +1,104 @@
+﻿
+
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Acompanhar Entregas
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Acompanhar Entregas</li>            
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <!-- row -->
+            <div class="row">
+
+                <div class="col-md-12">
+
+                <h4 id="msn-retorno" style="display: none;">Nenhuma entrega...</h4>
+                  <!-- The time line -->
+                    <ul class="timeline" id="minhas-entregas" style="display: none;">
+
+                        <li>
+
+                            <div class="timeline-item" ng-repeat="x in lista">
+
+                                <div class="callout callout-info col-md-10 col-sm-8 col-xs-12">
+
+                                    <p class="text-bold">                                      
+                                        <span class="text-bold" >Entrega nº</span> {{x.id}}, {{x.descricaoStatus}} 
+                                        <span class="pull-right">
+                                        <a class="btn btn-primary btn-xs"  ng-show="x.codSascar " ng-click="verMapa(x.origem,x.codSascar,x.destino1,x.destino2,x.destino3,x.destino4,x.destino5)">Ver Mapa</a>
+                                        </span> 
+                                    </p>
+                                    <p><span class="text-bold">Origem:</span> {{x.origem}}</p>
+                                    <p class="text-bold">Destino(s):</p> 
+                                    <p>{{x.destino1}}</p>
+                                    <p  ng-show="x.destino2">{{x.destino2}}</p>
+                                    <p  ng-show="x.destino3">{{x.destino3}}</p>                                 
+
+                                </div>
+                                
+                            </div>
+
+                        </li> 
+
+                        <li>
+                            <i class="fa fa-clock-o bg-gray"></i>
+                        </li>
+
+                    </ul>
+
+                </div><!-- /.col -->
+
+            </div>
+
+        </section><!-- /.content -->
+        <section class="content text-center" id="no-delivery" style="display: none;">
+        <h2><span>Nenhuma entrega no momento.</span></h2>
+        </section>
+        <section class="content">
+        
+        </section>
+        
+        <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Acompanhar {{codSascar}}</h4>
+      </div>
+
+      <div class="modal-body">
+
+      <ng-map zoom-to-include-markers="auto"  zoom="8">
+
+        <marker ng-repeat="p in rotas" position="{{p.pos}}" title="{{p.title}}" icon="{{p.icon}}"></marker>
+            
+            <directions 
+              draggable="true"
+              panel="directions-panel" 
+              travel-mode="DRIVING"
+              origin="{{rotas[0].pos}}"
+              destination="{{end}}"              
+              suppress-markers="true">
+            </directions>
+
+      </ng-map>
+        
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+      

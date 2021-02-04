@@ -1,0 +1,66 @@
+<style>
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+} 
+
+</style>
+
+<section>
+    <div class="container">
+        <div class="well">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 text-center">
+                    <div class="form-group col-md-3 left">
+                        <a href="https://www.goeyja.com.br"><img src="../images/home/logo-goey.png"></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+
+<span>Lista de Estabelecimentos</span>
+                         
+
+                     <!--div class="form-group has-search">
+                        <span class="fa fa-search form-control-feedback"></span>
+                        <input type="text" class="form-control" placeholder="Digite a cidade">
+                    </div-->
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section>
+    
+    <div class="callout"  ng-repeat="x in lista" >
+
+        <div class="well  col-md-3 col-sm-3 col-xs-12" style="color:#000">
+
+            <img src="https://www.ddtotal.com.br/imgPublicidade/ec/{{x.logo}}" class="img-thumbnail img-responsive" style="max-width: 100px; max-height: 100px">
+           
+            <p><span class="text-bold">{{x.nomeFantasia}}</span></p>
+            <span ng-click="redirecionaProduto(x.codUsuario,x.tipoUsuario)">Ir a Loja</span>
+
+        </div>                            
+                                
+    </div>
+    
+
+</section>

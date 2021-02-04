@@ -1,0 +1,2442 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/locacaoNova.css">
+  <link rel="stylesheet" type="text/css" href="">
+</head>
+<body>
+
+  <!-- Menu Desktop-->
+  <nav class="navbar navbar-expand navbar-dark bg-dark"  id="dektopmenu">
+    <div class="container">
+      <div class=".col-6 .col-sm-4 col-md-6">
+        <a class="navbar-brand" href="#"  style="text-align: left;">
+          <img src="images/locacao/logo.png"  style="width: 100%">
+        </a> 
+      </div>
+      <div class=".col-6 .col-sm-4 col-md-6" style="text-align: end; padding-top: 11px;">
+        <a class="dropdown-toggle" data-toggle="modal" data-target="#elegantModalForm"  id="btn" style="text-align: right;" >
+          <img src="images/home/usuario.png" class="user-image" alt="User Image"  style="width: 20px !important "/> 
+        </a>    
+      </div>
+    </div>
+  </nav>
+
+  <!-- Nav mobile-->
+  <nav id="Mobilemenu">
+   <div class="container">
+    <nav role="navigation" class="col-md-12" style="padding: 0px">
+      <div class="row">
+        <div id="menuToggle" style="width: 50px !important; padding: 0px" class="col-md-6" >
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu">
+           <li>
+             <a  data-toggle="modal" data-target="#elegantModalForm"   >
+              <img src="images/home/usuario.png"   style="width: 20px !important "/> 
+            </a>
+          </li>
+          <li><a href="https://www.goeyja.com.br/#/rendagarantida" >
+            FAÇA SEU PATRIMÔNIO RENDER!<br>
+            Compre um veículo para locação
+          </a></li>
+        </ul>
+      </div>
+      <div class="col-md-6" style="text-align: center;">
+        <a href="" >
+         <img src="images/locacao/logo.png"  style="width: 140px">
+       </a>
+     </div>
+   </div>
+ </div>
+</nav>
+
+<div class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content form-elegant"  id="modal-login">
+    <div class="modal-header text-center" style=" padding: 5px !important; background: #fff !important">
+
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"  style="text-align: right;margin: 0px !important"> 
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="col-md-7 login-form-3">
+      <h3>Login</h3>
+      <form>
+        <div class="form-group">
+          <input id="login-username1" type="text" class="form-control" name="username1" placeholder="CPF"  required ng-model="validation.cpf" autocomplete="off" ui-br-cpf-mask>
+        </div>
+        <div class="form-group">
+         <input id="login-password" type="password" class="form-control" name="password" placeholder="Senha" required ng-model="validation.pass" autocomplete="off">
+       </div>
+
+       <div class="form-group " id="recap">
+        <div class="g-recaptcha" data-sitekey="6LeaQHQUAAAAAC7KVG-vv0zbA4ZG8I5rf597HX31"></div>
+      </div>
+
+      <div class="form-group">
+        <input type="button" id="logUser" class="btnSubmit" value="Entrar" ng-click="logUser()"/>
+        <div  id="txt-aguarde" ></div> 
+      </div>
+      <div class="form-group">
+        <div class="col-md-12" style="padding: 0px">
+          <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">        
+            Esqueceu sua Senha?
+          </a>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      <div class="col-md-9 " style="margin: auto;">
+        <div class="panel panel-info">
+          <div class="panel-body esquecer">
+            <h2 style="color: #000">Recupere sua Senha</h2>
+            <div class="form-group">
+              <div class="col-sm-12   col-md-12">
+                <label>Email *</label>
+                <input type="email" class="form-control" name="recovery.email" placeholder="Seu Email"  ng-model="recovery.email">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-12   col-md-12">
+                <label>CPF *</label>
+                <input type="text" class="form-control" name="recovery.cpf" placeholder="Seu CPF"  ng-model="recovery.cpf" ui-br-cpf-mask>
+              </div>
+            </div>
+            <div class="form-group">
+             <div class="col-sm-12   col-md-12">
+              <label>Senha *</label>
+              <input id="login-password31" type="password" class="form-control" name="password" placeholder="No mínimo 8 caracteres" ng-model="recovery.pass1" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-12   col-md-12">
+              <label>Confirmar Senha *</label>
+              <input id="login-password32" type="password" class="form-control" name="password" placeholder="Confirmar Senha" ng-model="recovery.pass2" required>
+            </div>
+          </div>
+          <div class="col-sm-12   col-md-12 margin-top-20">
+            <div class="col-sm-12   col-md-12" style="padding: 0px" >
+              <button type="submit" id="recoveryPass" id="btnconfirma" class="btn btn-block btn-success" ng-click="recoveryPass()">
+                Confirmar
+              </button>
+              <div  id="txt-aguarde-recoveryPass"></div> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ***********##################### BLOCO Cadastrar Cliente ##################****************--> 
+<section class="bloco01" >
+  <div class="container">
+    <div class="row mb-3">
+      <div class="col-md-8 themed-grid-col" id="tituloPrincipal">
+        <h2 class="jumbotron-heading ">Você pode ir mais longe, a GOEY vai com você.<label> Mobilidade Inteligente</label> na locação de veículos.</h2>
+        <p class="form-group" > A Goey Mobilidade Inteligente é uma startup focada no aluguel de veículos para pessoas que utilizam o veículo como ferramenta de trabalho. Fique tranquilo, não há necessidade de cartão de crédito.
+        </p>
+      </div>
+      <div class="col-md-4 themed-grid-col"></div>
+    </div>
+  </div>
+
+  <div class="container">
+   <div class="row">
+
+    <div class="col-md-3">
+     <div class="card3 ">
+      <div class="card-body" id="bordaMobile">
+       <div  >
+         <h3>Renault KWID</h3>
+       </div>
+       <div id="borda-mobi">
+         <div class="card  col-sm-12 col-md-12" id="texto">
+           <p>Ideal para Motoristas de Aplicativo que buscam um carro compacto e econômico.</p>
+           <p  style="color: #fff !important; font-size: 7px !important ">T</p> 
+           <div class="card">
+             <img class="" src="images/locacaoVeiculosNovos/kwid.png" width="100%" height="100%" >
+           </div>
+           <div class="valores">
+             <p>A PARTIR DE</p>
+             <p class="dia"><label>R$ 65,99</label>/dia</p>
+           </div>
+         </div>
+       </div>
+       <div class="d-flex justify-content-between align-items-center"></div>
+
+     </div>
+
+     <button   data-toggle="modal" data-target="#modal-locacao" ng-click="modalDefault(); proposta.tipoVeiculo = 5; proposta.modeloVeiculo = 2468"> Enviar Proposta de Locação</button>
+   </div>
+ </div>
+
+ <div class="col-md-3">
+   <div class="card3 ">
+    <div class="card-body" id="bordaMobile">
+     <div  >
+       <h3>Trailer Cargo</h3>
+     </div>
+     <div id="borda-mobi">
+       <div class="card  col-sm-12 col-md-12" id="texto">
+         <p>Aerodinâmicos e leves. Perfeito para suas entregas e-comerce, mercados e outros. Carga de até 750kg.</p>
+         <div class="card">
+           <img class="" src="images/locacaoVeiculosNovos/goey_Trailer.png" width="100%" height="100%">
+         </div>
+         <div class="valores">
+           <p>A PARTIR DE</p>
+           <p class="dia"><label>R$ 39,99</label>/dia</p>
+         </div>
+       </div>
+     </div>
+     <div class="d-flex justify-content-between align-items-center"></div>
+   </div>
+
+   <button type="button" class="price"  data-toggle="modal" data-target="#modal-locacao" ng-click="modalDefault(); proposta.tipoVeiculo = 7; proposta.modeloVeiculo = 2470">
+  Enviar Proposta de Locação
+</button> 
+ </div>
+</div>
+
+<div class="col-md-3">
+ <div class="card3 ">
+  <div class="card-body" id="bordaMobile">
+   <div  >
+     <h3>Honda Cargo 160</h3>
+   </div>
+   <div id="borda-mobi">
+     <div class="card  col-sm-12 col-md-12" id="texto">
+       <p>A moto ideal para Motofretistas. Com a Cargo 160 você tem conforto, robustez e economia. Uma máquina de trabalhar.</p>
+       <div class="card">
+         <img class="" src="images/locacaoVeiculosNovos/goey_motosb.png" width="100%" height="100%" >
+       </div>
+       <div class="valores">
+         <p>A PARTIR DE</p>
+         <p class="dia"><label>R$ 34,99</label>/dia</p>
+       </div>
+     </div>
+   </div>
+   <div class="d-flex justify-content-between align-items-center"></div>
+ </div>
+
+ <button    data-toggle="modal" data-target="#modal-locacao" ng-click="modalDefault(); proposta.tipoVeiculo = 2; proposta.modeloVeiculo = 2463">Enviar Proposta de Locação</button>
+</div>
+</div>
+
+<div class="col-md-3"></div>
+
+ <!--<div class="col-md-3">
+  <div class="card3 ">
+    <div class="card-body" >
+     <div  >
+       <h3>Versa Sedan</h3>
+     </div>
+     <div id="borda-mobi">
+       <div class="card  col-sm-12 col-md-12" id="texto">
+         <p>Um sedan inovador, com alta tecnologia japonesa, um grande para quem sonha grande. Conforto e segurança para você e seus clientes.</p>
+         <div class="card">
+           <img class="" src="images/locacaoVeiculosNovos/versaBlack.png" >
+         </div>
+         <div class="valores">
+           <p>A PARTIR DE</p>
+           <p class="dia"><label>R$ 75,99</label>/dia</p>
+         </div>
+       </div>
+     </div>
+     <div class="d-flex justify-content-between align-items-center"></div>
+   </div>
+   <button class="open" style="opacity: 0.3">Enviar Proposta de Locação</button>
+ </div>
+</div>-->
+
+<!--<div class="col-md-3">
+  <div class="card3 mb-3 box-shadow">
+    <div class="card-body" >
+     <div  >
+       <h3>Honda Smart 160</h3>
+     </div>
+     <div id="borda-mobi">
+       <div class="card  col-sm-12 col-md-12" id="texto">
+         <p>Perfeito para o transporte de passageiros. A CG 160 Start é a sua autonomia na cidade ou em longos percursos.</p>
+         <div class="card">
+           <img class="" src="images/locacaoVeiculosNovos/motoVermelha.png" >
+         </div>
+         <div class="valores">
+           <p>A PARTIR DE</p>
+           <p class="dia"><label>R$ 24,99</label>/dia</p>
+         </div>
+       </div>
+     </div>
+     <div class="d-flex justify-content-between align-items-center"></div>
+   </div>
+   <button  class="open" style="opacity: 0.5">Enviar Proposta de Locação</button>
+ </div>
+</div>-->
+
+<!-- ***********##################### BLOCO SOU CLIENTE ##################****************--> 
+<div  id="trailerSp">
+  <div class="container">
+    <div  class="row">
+      <div class=" .col-sm-12 col-md-8" >
+        <h2>Nossas soluções foram feitas para você que deseja ir mais longe, uma oportunidade de fazer mais.</h2>
+        <p><label>Por você, é por isso que estamos aqui.</label> É uma honra para Goey percorrer uma milha extra para pessoas que servem a nossa comunidade. Nosso foco está no valor do trabalho, espírito de equipe e simplesmente fazer a coisa certa não importa o momento.</p>
+      </div>
+      <div class=".col-sm-12 col-md-4" >
+        <img class="" src="images/locacaoVeiculosNovos/Group76.png" width="100%" height="100%" >
+      </div>
+    </div>
+  </div>
+</div> 
+</div>
+</div>
+</section>
+
+<!-- ***********##################### FOMRULARIO   LOCACAO ##################**************** -->
+<section>
+  <div class="modal fade bd-example-modal-lg3" id="modal-locacao"  aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header" style="text-align: center !important; background: #fff !important"  >  
+          <img src="images/locacao/logo.png"  > 
+          <a  class="close" data-dismiss="modal" aria-label="Close" ng-click="modalDefault">
+            <span aria-hidden="true">×</span>
+          </a>                            
+        </div>
+        <div class="modal-body" id="bloco1" >
+          <div class="container-fluid">
+            <div class="row ">
+              <div class="col-md-12 formulario" >
+                <form id="msform" name="msform">
+
+                 <div class="form-group col-sm-12 col-md-8">
+                  <label>Nome Completo: *</label>
+                  <input type="text" capitalize class="form-control " name="nome" id="nome" ng-model="proposta.nome" required  autocomplete="off">
+                  <input type="hidden"  name="img" id="img" ng-model="proposta.img">
+                  <input type="hidden"  name="completo" id="completo" ng-model="proposta.completo">
+                </div>
+                <div class="form-group col-sm-12 col-md-4">
+                  <label>CPF: * </label>
+                  <input type="text"  ng-model="proposta.cpf" name="cpf" id="cpf1" class="form-control" ui-br-cpf-mask  ng-change="verificaCpf(proposta.cpf)">                              
+                </div>
+                <div class="form-group col-sm-12 col-md-6">
+                  <label >E-mail *</label>
+                  <input type="email"  name="email"  id="email"  ng-model="proposta.email" class="form-control" />
+                </div>  
+                <div class="form-group col-sm-12 col-md-6">
+                  <label >Celular *</label>
+                  <input type="text" capitalize class="form-control" name="celular" id="celular" ng-model="proposta.celular" ui-br-phone-number ng-minlength="15"/>
+                </div>
+                <div class="form-group col-sm-12 col-md-6">
+                 <label >Veículo *</label>
+                 <select class="form-control" name="tipoVeiculo" id="tipoVeiculo" ng-model="proposta.tipoVeiculo" ng-options="item1.tipo as item1.veiculo for item1 in tipoVeiculo" >                                         
+                 </select>
+               </div>
+               <div class="form-group col-sm-12 col-md-6">
+                <label >Modelo *</label>
+                <select class="form-control" name="modeloVeiculo" id="modeloVeiculo" ng-model="proposta.modeloVeiculo" ng-options="item2.idModelo as item2.modelo for item2 in modeloVeiculo | filter:{ tipo : proposta.tipoVeiculo }" >
+                  <option value="">-- SELECIONE --</option>                            
+                </select>
+              </div>
+              <div ng-if="proposta.tipoVeiculo == 2" class="form-group col-sm-12 col-md-6" ng-init="proposta.acessorio = 0">
+                <label >Acessório *</label>
+                <select class="form-control" name="acessorio" id="acessorio" ng-model="proposta.acessorio" >                            
+                  <option value="0"> Sem Acessório </option>
+                  <option value="1"> Baú </option>
+                 <!-- <option value="2">Capacete </option>
+                  <option value="3">Baú,Capacete </option>-->
+                </select>
+              </div>
+              <div ng-if="proposta.tipoVeiculo == 2" class="form-group col-sm-12 col-md-6" ng-init="proposta.tipoProtecao = 3">
+                <label >Proteção *</label>
+                <select class="form-control" name="tipoProtecao" id="tipoProtecao" ng-model="proposta.tipoProtecao" ng-options="modelo.idProtecao as modelo.protecao for modelo in tipoProtecao" >
+                  <option value="">-- Selecione --</option>                                                    
+                </select>
+              </div>
+              <div class="form-group col-sm-12 col-md-3">
+                <label >Data Início *</label>                    
+                <input type="text" class="form-control data-locacao" name="dataInicio" id="dataInicio" ng-model="proposta.dataInicio" ng-change="periodoLocacao(proposta.dataInicio)" autocomplete="off" />
+              </div>
+              <div class="form-group col-sm-12 col-md-3">
+                <label >Data Final *</label>
+                <input type="text" class="form-control data-locacao" name="dataFim" id="dataFim" autocomplete="off" ng-model="proposta.dataFim" disabled >
+              </div>
+              <div class="form-group col-sm-12 col-md-6">
+                <label >Local Retirada *</label>
+                <select class="form-control" name="localRetirada" id="localRetirada" ng-model="proposta.localRetirada" >
+                  <option value="" selected>-- Selecione --</option>
+                  <option value="1">Campinas</option>
+                  <!-- <option value="2">São Paulo</option>  -->                                                
+                </select>                        
+              </div>
+              
+              <!-- Bloco completo  -->
+              <div ng-show="proposta.completo == 'nao'">
+
+                <div class=" form-group col-xs-12 col-md-4">
+                  <label >Cep *</label>
+                  <input type="text" class="form-control" name="cep" id="cep" ng-model="proposta.cep" ui-br-cep-mask ng-class="{'is-invalid': formlocacao.cep.$invalid && formlocacao.cep.$touched,'is-valid': formlocacao.cep.$valid}" required ng-change="getAddressByCep();">
+                </div>
+                <div class="form-group col-xs-12 col-md-5">
+                 <label >Endereço *</label>
+                 <input type="text" capitalize class="form-control" name="logradouro" id="logradouro" ng-model="proposta.logradouro" >
+               </div>
+
+               <div class="form-group col-xs-12  col-md-3" >
+                 <label for="uf">UF *</label>
+                 <select class="form-control" name="uf" id="uf" ng-model="proposta.uf"  required>
+                   <option value="">SELECIONE</option>
+                   <option value="AC">Acre</option>
+                   <option value="AL">Alagoas</option>
+                   <option value="AP">Amapá</option>
+                   <option value="AM">Amazonas</option>
+                   <option value="BA">Bahia</option>
+                   <option value="CE">Ceará</option>
+                   <option value="DF">Distrito Federal</option>
+                   <option value="ES">Espírito Santo</option>
+                   <option value="GO">Goiás</option>
+                   <option value="MA">Maranhão</option>
+                   <option value="MT">Mato Grosso</option>
+                   <option value="MS">Mato Grosso do Sul</option>
+                   <option value="MG">Minas Gerais</option>
+                   <option value="PA">Pará</option>
+                   <option value="PB">Paraíba</option>
+                   <option value="PR">Paraná</option>
+                   <option value="PE">Pernambuco</option>
+                   <option value="PI">Piauí</option>
+                   <option value="RJ">Rio de Janeiro</option>
+                   <option value="RN">Rio Grande do Norte</option>
+                   <option value="RS">Rio Grande do Sul</option>
+                   <option value="RO">Rondônia</option>
+                   <option value="RR">Roraima</option>
+                   <option value="SC">Santa Catarina</option>
+                   <option value="SP">São Paulo</option>
+                   <option value="SE">Sergipe</option>
+                   <option value="TO">Tocantins</option>
+                 </select>
+               </div>
+
+               <div class="form-group col-xs-12 col-md-3">
+                 <label for="cidade">Cidade *</label>
+                 <input type="text" capitalize class="form-control" name="cidade" id="cidade" ng-model="proposta.cidade"  >
+
+               </div>
+               <div class=" form-group col-xs-12 col-md-4">
+                <label for="bairro">Bairro *</label>
+                <input type="text" capitalize class="form-control" name="bairro" id="bairro" ng-model="proposta.bairro"  >
+              </div>
+
+              <div class="form-group col-xs-12 col-md-3">
+               <label >Complemento *</label>
+               <input type="text" capitalize class="form-control" id="complemento" name="complemento" ng-model="proposta.complemento" >
+             </div>
+
+             <div class="form-group col-xs-12  col-md-2" >
+              <label for="numero">Número *</label>
+              <input type="tel" class="form-control" name="numero" id="numero" ng-model="proposta.numero"  required >
+
+            </div>
+            <div class="form-group col-xs-12 col-md-12">
+              <label for="cnh">Foto CNH *</label>
+              <input type="file" class="form-control-file" id="imgCnh" name="imgCnh" >
+            </div>
+          </div>
+                
+            <!--- Final bloco completo-->
+          <div class="form-group col-xs-12 col-md-12">
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-11" style=" margin-right: 10px;">
+                <div class="g-recaptcha" data-sitekey="6LeaQHQUAAAAAC7KVG-vv0zbA4ZG8I5rf597HX31"></div> 
+            </div>
+          </div>
+          </div>
+
+          <div class="form-group col-xs-12 col-md-12">
+            <div class="row">
+             <div class="col-md-12" style="text-align: center; margin-top: 5vh">
+              <button  id="btn-cadastro-proposta"  ng-click="cadastroUsuarioLocacao2();" style="width: 180px;">Enviar</button>
+              <br>
+              <div id="txt-aguarde-login"></div> 
+            </div>
+        </div>
+        </div>
+     
+
+        <div class="row" id="bloco-2" style="display: none">
+          <div class="col-sm-12 col-md-4">
+            <p>Veículo </p>
+            <p ng-if="proposta.tipoVeiculo == 2">Proteção </p>
+          </div>
+          <div class="col-sm-12 col-md-8">
+            <p>{{simulacao.tipoVeiculo}}</p>
+            <p ng-if="proposta.tipoVeiculo == 2">{{simulacao.tipoProtecao}}</p>
+          </div>                     
+        </div>
+
+      </form>   
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ***********##################### BLOCO SOU CLIENTE ##################****************--> 
+<div class="modal-body" id="bloco2" >
+  <div class="container login-container"  style="width: 100%" >
+    <div class="row">
+      <div class="col-md-12 formulario" >
+        <div class="col-md-6 login-form-1">
+          <h3>Já sou cliente</h3>
+          <form>
+            <div class="form-group">
+              <input id="login-username2" type="text" class="form-control" name="username2" placeholder="CPF"  required ng-model="validation.cpf">
+            </div>
+            <div class="form-group">
+             <input id="login-password3" type="password" class="form-control" name="password3" placeholder="Senha" required ng-model="validation.pass">
+           </div>
+
+           <div class="form-group " id="reacpLogin">
+             <div class="g-recaptcha" data-sitekey="6LeaQHQUAAAAAC7KVG-vv0zbA4ZG8I5rf597HX31"></div>
+           </div>
+           <div class="form-group">
+            <input type="submit" id="logUser2" class="btnSubmit" value="Entrar" ng-click="logUser()"/>
+            <br>
+            <div id="txt-aguarde-loguser"></div> 
+          </div>
+          <div class="form-group">
+            <span class="pull-left">
+              <a href="#" data-ng-click="vm.signIn=false;" >Esqueceu sua Senha?</a>
+            </span>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6 login-form-2">
+        <h3>Quero criar uma conta</h3>
+        <form>
+          <div class="form-group">
+            <input type="hidden"  ng-model="login.codUsuario" name="login-codUsuario" id="login-codUsuario"> 
+            <input type="text"  ng-model="login.cpf" name="cpf" id="cpf"  placeholder="CPF" class="form-control" ui-br-cpf-mask required>                                     
+          </div>
+          <div class="form-group">
+           <input id="login-password4" type="password" class="form-control" name="password4" placeholder="Senha" ng-model="login.pass1" required>
+         </div>
+         <div class="form-group">
+           <input id="login-password5" type="password" class="form-control" name="password5" placeholder="Confirmar Senha" ng-model="login.pass2" required>
+         </div>
+
+         <div class="form-group " id="reacpLogin">
+          <div class="g-recaptcha" data-sitekey="6LeaQHQUAAAAAC7KVG-vv0zbA4ZG8I5rf597HX31"></div>
+        </div>
+        <div class="form-group">
+          <input type="submit" id="createPass" class="btnSubmit" value="Enviar" ng-click="createPass()"/>
+          <br>
+          <div id="txt-aguarde-pass"></div> 
+        </div>
+        <div class="form-group">
+          <span class="pull-left">
+            <a href="#"  style="color: #fff !important">Esqueceu sua Senha?</a>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ***********##################### BLOCO PERGUNTAS FREQUENTES ##################****************--> 
+<section>
+  <div class="jumbotronLoca"  >
+    <div class="container">
+      <div class="card-deck mb-3 text-left" >
+        <div class="card mb-4"  >
+         <div class="card-body" >
+          <div  id="perguntas">
+            <h3>Perguntas Frequentes</h3>
+            <div class="linha-faq"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-4 " id="vantagens" > 
+       <div class="card-body">
+        <b>— Aluguel mensal, vantagens ?</b>
+        <p>  A locação da GOEY Mobilidade Inteligente é um novo produto para clientes Pessoa Física ou Pessoa Jurídica que oferece mobilidade, flexibilidade e economia. O aluguel conta com tarifa especial para locação por, pelo menos, 30 dias. Você tem a praticidade de contar com um veículo sempre novo, não precisa, se preocupar com financiamento, depreciação, custos de manutenção, emplacamento, IPVA, seguro do carro e licenciamento. Conte ainda com toda a assistência da GOEY e, em caso de manutenção do veículo alugado, você tem direito a veículo reserva.</p>
+
+        <b>— Como posso fazer minha reserva ?</b>
+        <p> Faça a reserva pelo site goeyja.com.br/locacao preenchendo o formulário para análise. Você precisar ter no mínimo 21 anos, pelo menos 2 anos de habilitação, para carro/moto.  Para locação do veículo você não precisa possuir cartão de crédito com limite suficiente para realização do pagamento antecipado, o pagamento será feito via Boleto Bancário, uma oportunidade a mais para você.</p>
+
+        
+        <b>— Preciso devolver o carro antes do período contratado ?</b>
+        <p> Você tem a flexibilidade de devolver o veículo a qualquer momento. Caso a devolução seja feita antes do 30º dia, será cobrado um valor de tarifa correspondente ao período utilizado.</p>
+
+
+        <b>— Em caso de multas, o que acontece ? </b>
+        <p>Em caso de multas por infrações de trânsito aplicadas ao veículo, o responsável pelo contrato receberá um e-mail com a notificação, o valor efetivo a ser pago e um formulário de indicação do real infrator. O valor da infração será cobrado com acréscimo de 20%.</p>
+
+
+        <b>— Como prorrogar a locação de um veículo ?</b>
+        <p>Só entrar em contato com a GOEY solicitando a prorrogação. O pagamento será realizado de forma automática no boleto bancário.</p>
+
+
+        <b>— Posso alugar mais de um veículo ?</b>
+        <p>Sim, você pode ter mais de um veículo alugado com a GOEY simultaneamente, essa aprovação dependerá da análise de crédito. Casos serão analisados individualmente pela nossa equipe.</p>
+      </div>
+    </div>
+    <div class="card mb-4" id="vantagens" >
+      <div class="card-body">
+
+        <b>— Preciso pagar antecipado ?</b>
+        <p>  Para a locação do veículo o pagamento será feito posteriormente via Boleto Bancário, será feita análise prévia de crédito. Caso haja necessidade de caução será solicitado um depósito prévio.</p>
+
+        <b>— Tenho restrição no CPF, posso alugar um veículos ?</b>
+        <p>Pode! Os casos serão analisados individualmente poderá ser solicitado avalistas e garantidores. Ficando a único e exclusivo critério da GOEY a aprovação ou não do crédito.</p>
+
+        <b>— Se algum veículo der alguma pane ?</b>
+        <p>  Entre em contato imediatamente com a Assistência a Clientes para obter todas as orientações necessárias.</p>
+
+        <b>— Onde fazer a retirada e devolução do veículo ?</b>
+        <p>Veículo será entregue no endereço de cadastro.</p>
+
+        <b>—  Como devo devolver o veículo ?</b>
+        <p> O veículo deve ser entregue nas mesmas condições em que foi recebido:<br> 
+         • Carro/Moto: Com o tanque de combustível completo;<br>
+         • Em estado físico igual ao verificado no check-in da entrega;<br>
+         • Limpo o suficiente para conferir o estado da carroceria.<br>
+       Na devolução, caso o carro/moto não esteja totalmente abastecido, será cobrado o reembolso referente à despesa de abastecimento dos mesmos. Por se tratar de leitura com valores aproximados, a cobrança do combustível poderá sofrer variação em relação ao posto de abastecimento em até 30% (trinta por cento) para mais ou menos. Caso o carro/moto alugado tenha percorrido menos de 100 (cem) quilômetros e o marcador de combustível não sofra alteração, será cobrado o combustível com base na estimativa de consumo.</p>
+
+       <b>— Se roubarem o veículo, eu pago alguma coisa ?</b>
+       <p>Sim. Nesse caso, será cobrado o valor referente à Indenização por Custos Operacionais. Esse valor depende do grupo de carro e tarifa contratados.</p>
+
+       <b>— Posso fazer caução em dinheiro/cheque ?</b>
+       <p>Sim. Nos pacotes, flexibilizamos a realização da caução mediante pagamento antecipado da locação em cartão de crédito. Caso o pagamento antecipado seja em dinheiro ou debito, é obrigatória a caução em dinheiro.</p>
+
+     </div>
+   </div>
+ </div>
+
+</div>
+</div>
+</section>
+<!---============================Footer======================= -->
+<section  id="footer" >
+ <div class="container">
+  <div>
+    <div class=" col-sm-12  col-md-6" id="padding0">
+      <h2>Faça seu dinheiro trabalhar por você, invista em um veículo para locação.</h2>
+      <a  href="https://www.goeyja.com.br/#/rendagarantida">
+        <button >Conhecer a renda garantida</button>
+      </a>
+    </div>
+    <div class=" col-sm-12 col-md-6" id="padding1">
+      <img class="" src="images/locacaoVeiculosNovos/carroFooter.png">
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="col-md-12" id="padding0">
+    <p>Coisas boas acontecem quando as<br> pessoas podem se movimentar.</p>
+  </div> 
+</div>
+<div class="linha-footer col-md-12"></div>
+<div id="footer-mobilidade" id="padding0">
+ <div class="container">
+
+  <div class="col-sm-3  col-md-3 " id="padding0" >
+    <h6> GOEY Mobilidade Inteligente.</h6>
+  </div>    
+  <div class="col-sm-6  col-md-6" id="padding0">
+    <h6>Você também pode nos contactar pelo telefone   
+      <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5519983320031">
+        <b> +55 (19) 98332-0031</b>
+      </a> ou 
+      <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5519984211515">
+        <b>+55 (19) 98421-1515</b>
+      </a>
+    </h6>
+  </div>    
+
+  <div class="col-sm-3  col-md-3">
+   <h5> 
+    <a href="https://www.facebook.com/goeyja">
+     <img src="images/investimento/face.png" alt="">
+   </a>
+   <a href="https://www.instagram.com/goeyja/">
+     <img src="images/investimento/insta.png" alt="">
+   </a>
+   <a href="https://linkedin.com/company/ddtotal">
+     <img src="images/investimento/link.png" alt="">
+   </a>
+ </h5>
+</div>
+
+</div>
+</div>
+</section>
+
+<!--<div class=" text-center" id="jumb-footer">
+  <div id="footer">
+    <div class="container">
+      <div class="card mb-4 box-shadow" id="borda-footer">
+       <div class="card-body">
+
+        <div class="col-md-12" id="dinheiro" style="padding: 0px">
+
+          <div class="col-md-6" style="padding: 0px">
+            <p>Coisas boas acontecem quando as<br> pessoas podem se movimentar.</p>
+          </div>  
+
+          <div class="linha-footer-mobile col-md-12"></div>
+
+          <a  href="https://www.goeyja.com.br/#/rendagarantida">
+            <div class="col-md-6" id="dinheiro-desktop">
+             <button  >
+               <p class="faca" > FAÇA SEU DINHEIRO TRABALHAR POR VOCÊ!</p>
+               <p class="faca"> Invista num veículo para locação.</p>
+             </button>
+           </div>
+         </a>
+       </div>
+
+       <div class="linha-footer col-md-12"></div>
+       <div id="footer-mobilidade">
+         <div class="container">
+
+          <div class="col-sm-3  col-md-3 ">
+            <h6> GOEY Mobilidade Inteligente.</h6>
+          </div>    
+
+          <div class="col-sm-6  col-md-6">
+            <h6>Você também pode nos contactar pelo telefone   
+              <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5519983320031">
+                <b> +55 (19) 98332-0031</b>
+              </a> ou 
+              <a href="http://api.whatsapp.com/send?1=pt_BR&phone=5519984211515">
+                <b>+55 (19) 98421-1515</b>
+              </a>
+            </h6>
+          </div>    
+
+          <div class="col-sm-3  col-md-3">
+           <h5> 
+            <a href="https://www.facebook.com/goeyja">
+             <img src="images/investimento/face.png" alt="">
+           </a>
+           <a href="https://www.instagram.com/goeyja/">
+             <img src="images/investimento/insta.png" alt="">
+           </a>
+           <a href="https://linkedin.com/company/ddtotal">
+             <img src="images/investimento/link.png" alt="">
+           </a>
+         </h5>
+       </div>
+
+
+     </div>
+   </div>
+ </div> 
+</div>   
+
+</div>
+</div>
+</div>
+
+-->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<script>
+
+  $(document).ready(function(){
+
+var current_fs, next_fs, previous_fs; //fieldsets
+var opacity;
+
+$(".next").click(function(){
+
+  current_fs = $(this).parent();
+  next_fs = $(this).parent().next();
+
+//Add Class Active
+$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+//show the next fieldset
+next_fs.show();
+//hide the current fieldset with style
+current_fs.animate({opacity: 0}, {
+  step: function(now) {
+// for making fielset appear animation
+opacity = 1 - now;
+
+current_fs.css({
+  'display': 'none',
+  'position': 'relative'
+});
+next_fs.css({'opacity': opacity});
+},
+duration: 600
+});
+});
+
+$(".previous").click(function(){
+
+  current_fs = $(this).parent();
+  previous_fs = $(this).parent().prev();
+
+//Remove class active
+$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+//show the previous fieldset
+previous_fs.show();
+
+//hide the current fieldset with style
+current_fs.animate({opacity: 0}, {
+  step: function(now) {
+// for making fielset appear animation
+opacity = 1 - now;
+
+current_fs.css({
+  'display': 'none',
+  'position': 'relative'
+});
+previous_fs.css({'opacity': opacity});
+},
+duration: 600
+});
+});
+
+$('.radio-group .radio').click(function(){
+  $(this).parent().find('.radio').removeClass('selected');
+  $(this).addClass('selected');
+});
+
+$(".submit").click(function(){
+  return false;
+})
+
+});
+
+
+    // Em decorrência da epidemia de Coronavirus disease (COVID-19), temporariamente não estamos recebendo equipamentos importados de paises asiáticos
+
+    $(document).ready(function(){
+
+      $(".msn-indisponivel").html("Em decorrência da epidemia de Coronavirus disease (COVID-19), temporariamente não estamos recebendo equipamentos importados de países asiáticos.");
+
+      $(".icon-edita").click(function(){
+        $(this).next().toggle("slow");
+      });     
+
+    });
+
+
+    //funcao ancora
+    function ancora(id_ancora){
+      var top = $("#"+id_ancora).offset().top-50
+      $('html, body').stop().animate({
+        'scrollTop': top
+      }, 1000, 'swing', function () {   
+      }); 
+    } 
+
+
+    $(function(){
+      $("[data-toggle='bottom']").click(function(){
+        $("html, body").animate({ scrollTop: $(document).height() }, );
+      });
+
+    });
+
+
+  </script>
+
+  <style type="text/css">
+  #modal-login{
+    margin: auto;
+    width: 525px;
+  }
+
+
+  .rc-anchor-logo-portrait {
+    margin: 8px 0 0 10px !important;
+    width: 58px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
+  .g-recaptcha {
+    margin-left: 15px !important;
+  }
+
+  #reacpLogin .g-recaptcha{
+    margin-left: 0px !important;
+  }
+
+  #recap .g-recaptcha{
+    margin-left: 0px !important;
+  }
+
+
+  #espaco{
+    margin-top: 15vh !important;
+  }
+
+  .jumbotronLoca p {
+    margin-bottom: 15px;
+    font-size: 11px !important;
+    letter-spacing: 1px;
+    font-weight: 200;
+    line-height: 1.3 !important;
+    padding-left: 0vh;
+    padding-right: 0vh;
+  }
+
+  #vantagens .card-body b{
+    margin-top: 3px !important;
+    margin-bottom: 8px !important;
+    font-size: 12px !important; 
+    letter-spacing: 0.2px !important; 
+  } 
+
+  #vantagens .card-body p{
+    margin-top: 3px !important;
+    margin-bottom: 8px !important; 
+    font-size: 12px !important;
+    letter-spacing: 0.2px !important;
+  } 
+
+  #perguntas{
+    margin: 0px !important;
+  }
+
+  #perguntas h3{
+    margin-right: 134px !important;
+    margin-top: 0px !important;
+    font-size: 30px;
+    font-weight: 600;
+    color: #4965A9 !important;
+  }
+
+
+
+
+  #dinheiro-desktop{
+   padding: 0px !important;
+   text-align: right !important;
+ }
+
+ #dinheiro-desktop a{
+  color: #fff !important;
+  border-radius: 0px !important; 
+  background: #4965A9 !important;
+  border: 0px !important;
+  font-size: 16px !important;
+  padding-top: 10px !important;
+  width: 325px !important;
+  padding-bottom: 10px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  color: #FFF !important;
+}
+
+#dinheiro-desktop button{
+  color: #fff !important;
+  border-radius: 0px !important; 
+  background: #4965A9 !important;
+  border: 0px !important;
+  font-size: 16px !important;
+  padding-top: 10px !important;
+  width: 325px !important;
+  padding-bottom: 10px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  color: #FFF !important;
+}
+
+#dinheiro-desktop button p {
+  text-align: center !important; 
+  font-size: 12px !important ;
+  color: #fff !important;
+}
+
+
+.linha-footer-mobile {
+  display: none;
+}
+
+
+#Mobilemenu{
+  display: none;
+}
+
+#dektopmenu{
+  display: block;
+}
+
+.navbar-brand {
+  float: left;
+  padding-top: 12px !important;
+  padding: 25px 15px !important;
+  width: 180px !important;
+}
+
+#navbarsExample02 {
+  margin: 0px !important
+}
+
+#navbarsExample02 button {
+  background: #ed5202 !important;
+  color: #fff !important;
+  margin-bottom: 10px !important;
+  padding: 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+  padding: 10px;
+  border-radius: 0px;
+  border: #000 !important;
+  font-size: 11px;
+  width: 250px !important;
+}
+
+.navbar {
+  margin-bottom: 20px;
+  padding: 0px !important; 
+}
+
+.bg-dark {
+  background-color: #343a40!important;
+}
+.navbar-expand {
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+.navbar {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: .5rem 1rem;
+}
+
+.navbar-expand .navbar-nav {
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+#imgdecktop img{
+  display: block;
+}
+
+#imgmobile img{
+  display: none;
+}
+
+.bikeeltricatitulo {
+  margin-bottom: 5vh !important;
+  margin-top: 5vh !important;
+  color: #4266AE;
+  font-size: 28px !important;
+}
+/*
+
+.lead {
+  margin-bottom: 25px !important;
+  font-size: 14px !important;
+  letter-spacing: 1px;
+  font-weight: 200;
+  line-height: 1.3 !important;
+  padding-left: 7vh;
+  padding-right: 7vh;
+
+  }*/
+  .lead {
+    margin-bottom: 25px !important;
+    font-size: 16px !important;
+    letter-spacing: 0px;
+    font-weight: 200;
+    line-height: 1.3 !important;
+    padding-left: 25vh;
+    padding-right: 25vh;
+  }
+
+  #accordionExample button{
+    margin: 0px !important;
+  }
+
+  .jumbotron {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: -110px !important;
+    color: inherit;
+    background-color: #eee;
+  }
+
+
+  .btn {
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0) !important;
+  }
+
+  #txt-aguarde, #txt-aguarde-pass, 
+  #txt-aguarde-recoveryPass, #txt-aguarde-login, 
+  #txt-aguarde-loguser{
+    font-size:  18px !important;
+    text-align: center !important;
+    font-weight: bold !important;
+  }
+
+
+  .esquecer h2{
+    text-align: center;
+    font-size: 18px !important;
+  }
+
+  .esquecer label{
+    padding-top: 10px;
+  }
+
+  .modal-header {
+    padding: 30px !important;
+  }
+
+  .espacoTrailer{
+    padding-left: 25px !important;
+  }
+  .espacomoto{
+   padding-left: 25px !important;
+ }
+
+ .login-form-3 h3{
+  text-align: center;
+  color: #333;
+  margin-top: 0vh !important;
+  margin-bottom: 3vh !important;
+}
+
+.login-form-3 {
+  padding: 5%;
+  margin: auto !important;
+  border-top: 1px solid #fff; 
+  border-bottom: 1px solid #fff; 
+  border-left: 1px solid #fff; 
+  border-right: 1px solid #fff; 
+
+}
+.login-form-3 .btnSubmit{
+  font-weight: 600;
+  color: #fff;
+  padding: 8px;
+  border-radius: 0px;
+  background-color: #FF7F00;
+}
+
+.formulario .form-group{
+  text-align: left !important;
+}
+.container {
+ max-width: 1200px !important;
+ /*max-width: 1140px !important;*/
+ /* background: red !important; */
+}
+
+.alertify .ajs-footer .ajs-buttons.ajs-primary {
+  text-align: center;
+}
+
+.alertify .ajs-body .ajs-content {
+  text-align: center;
+}
+
+.btn-warning{
+ width: 100%;
+ text-align: center;
+ background: green !important;
+ color: #fff !important;
+ margin: auto;
+ border-radius: 20px !important;
+ width: 100px !important;
+ border-color: #fff !important;
+ padding-bottom: 10px !important;
+ padding-left: 15px !important;
+ padding-right: 15px !important;
+}
+
+.btn-success{
+  width: 100%;
+  text-align: center;
+  background: #FF7F00 !important;
+  color: #fff !important;
+  margin: auto;
+  border-radius: 20px !important;
+  width: 130px !important;
+  border-color: #fff !important;
+  padding-top: 9px !important;
+  padding-bottom: 10px !important;
+  padding-bottom: 10px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  font-size: 15px !important;
+  font-weight: bold !important;
+}
+
+.btn-login {
+  width: 100%;
+  text-align: center;
+  background: #FF7F00 !important;
+  color: #fff !important;
+  margin: auto;
+  border-radius: 20px !important;
+  width: 170px !important;
+  border-color: #ccc !important;
+  padding-bottom: 10px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+.panel-info>.panel-heading {
+  color: #fff !important; 
+  background-color: #fff !important; 
+  border-color: #fff !important; 
+}
+
+.panel-info > .panel-heading {
+  color: #fff !important; 
+  background-color: #fff !important; 
+  border-color: #fff !important; 
+}
+.panel-info {
+  border-color: #f5f5f5!important;
+}
+
+#msform fieldset .form-card {
+  text-align: left;
+  /* color: #9E9E9E; */
+}
+
+#msform fieldset .form-card {
+  background: white;
+  border: 0 none;
+  border-radius: 0px;
+  /* box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2); */
+  padding: 20px 10px 20px 10px;
+  box-sizing: border-box;
+  width: 94%;
+  margin: 0 1% 20px 1%;
+  position: relative;
+}
+
+#grad1 {
+  background-color: : #9C27B0;
+  background-image: linear-gradient(120deg, #FF4081, #81D4FA)
+}
+
+#msform {
+  text-align: center;
+  position: relative;
+  margin-top: 20px
+}
+
+
+
+#msform fieldset {
+  background: white;
+  border: 0 none;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding-bottom: 20px;
+  position: relative
+}
+
+#msform fieldset:not(:first-of-type) {
+  display: none
+}
+
+#msform fieldset .form-card {
+  text-align: left;
+  color: #9E9E9E
+}
+
+#msform .action-button-previous {
+  width: 100px;
+  background: #616161;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 0px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px
+}
+
+#msform .action-button-previous:hover,
+#msform .action-button-previous:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
+}
+
+select.list-dt {
+  border: none;
+  outline: 0;
+  border-bottom: 1px solid #ccc;
+  padding: 2px 5px 3px 5px;
+  margin: 2px
+}
+
+select.list-dt:focus {
+  border-bottom: 2px solid skyblue
+}
+
+.card {
+  z-index: 0;
+  border: none;
+  border-radius: 0.5rem;
+  position: relative
+}
+
+.fs-title {
+  font-size: 25px;
+  color: #2C3E50;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: left
+}
+
+#progressbar {
+  margin-bottom: 30px;
+  overflow: hidden;
+  color: lightgrey
+}
+
+#progressbar .active {
+  color: #000000
+}
+
+#progressbar li {
+  list-style-type: none;
+  font-size: 12px;
+  width: 25%;
+  float: left;
+  position: relative
+}
+
+#progressbar #account:before {
+  font-family: FontAwesome;
+  content: "\f023"
+}
+
+#progressbar #personal:before {
+  font-family: FontAwesome;
+  content: "\f007"
+}
+
+#progressbar #payment:before {
+  font-family: FontAwesome;
+  content: "\f09d"
+}
+
+#progressbar #confirm:before {
+  font-family: FontAwesome;
+  content: "\f00c"
+}
+
+#progressbar li:before {
+  width: 50px;
+  height: 50px;
+  line-height: 45px;
+  display: block;
+  font-size: 18px;
+  color: #ffffff;
+  background: lightgray;
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+  padding: 2px
+}
+
+#progressbar li:after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: lightgray;
+  position: absolute;
+  left: 0;
+  top: 25px;
+  z-index: -1
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+  background: skyblue
+}
+
+.radio-group {
+  position: relative;
+  margin-bottom: 25px
+}
+
+.radio {
+  display: inline-block;
+  width: 204;
+  height: 104;
+  border-radius: 0;
+  background: lightblue;
+  box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  cursor: pointer;
+  margin: 8px 2px
+}
+
+.radio:hover {
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3)
+}
+
+.radio.selected {
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1)
+}
+
+.fit-image {
+  width: 100%;
+  object-fit: cover
+}
+
+
+.card-header {
+  padding: .75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0,0,0,0) !important;
+  border-bottom: 1px solid rgba(0,0,0,0) !important;
+}
+.navbar {
+  position: relative;
+  min-height: 50px;
+  width: 100% !important;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+}
+.navbar-collapse.collapse{
+  display: block!important;
+  height: auto!important;
+  text-align: right !important;
+  padding-bottom: 0;
+  overflow: visible!important;
+}
+
+.btnalugar{
+ margin-top: 3vh;
+}
+.espacoCarro{
+  margin-top: 10vh;
+  width: 0px !important;
+}
+.espacoPrincipal{
+ margin-top: 5vh;
+}
+
+.goey a img {
+  width: 70% !important;
+}
+
+.btn-entregas button {
+  width: 180px !important;
+  background: #FF7F00;
+  border-radius: 20px;
+  color: #fff !important;
+  text-align: center;
+  font-size: 14px  !important;
+  font-weight: 600 !important;
+}
+.btn-entregas {
+  margin-top: 1vh !important;
+}
+
+.btn-entregas button label{
+
+}
+.card {
+  border: 1px solid rgba(0,0,0,0) !important;
+}
+.text-moto{
+  padding-top: 5vh; 
+}
+
+.bloco8{
+  padding-left: 10vh; 
+}
+
+.indisponivel{
+  display: none;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300i&display=swap');
+
+
+
+.input-error{
+
+  border: 1px solid red;
+
+}
+
+.diariaa p{
+  padding-right: 70px;
+}
+
+
+td label p{
+  font-weight: 300 !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-style: italic !important;
+  display: inline-block;
+  padding-top: 0px;
+  padding-left: 1px;
+  padding-right: 5px;
+  padding-bottom: 0px;
+  font-size: 10px;
+}
+.table-responsive{
+  border-bottom: 0.5px solid #ccc;
+  border-top: 0.5px solid #ccc;
+  border-right: 1px solid #fff !important;
+  border-left: 1px solid #fff !important;
+
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+  padding-top: 8px;
+  padding-bottom: 4px;
+  padding-left: 0px;
+  padding-right:0px; 
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #fff;
+}
+
+child>th, .table>colgroup+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>th, .table>thead:first-child>tr:first-child>td, .table>thead:first-child>tr:first-child>th {
+  border-top: 0;
+  border: 0px !important;
+  padding-top: 10px !important;
+  padding-left: 0px !important;
+  padding-right: : 0px !important;
+  padding-bottom: : 0px !important;
+}
+.table-striped>tbody>tr{
+  background: #fff !important;
+}
+
+.goey img{
+  width: 20% !important;
+}
+
+.Box_editor {
+  padding-left: 15px !important;
+}
+label{
+  margin-bottom: 0px !important;
+  font-family: roboto !important;
+}
+
+.Box_editor {
+  display:none;
+}
+
+.btn-entregas{
+  text-align: right; 
+  margin-top: 2vh; 
+}
+
+.btn-entregas button{
+  width: 200px;
+  background: #FF7F00; 
+}
+
+.btn-entregas button p{
+  font-size: 15px;
+}
+
+button:focus{
+  box-shadow: 0 0 0 0 !important;
+  border: 0 none !important;
+  outline: 0 !important;
+} 
+
+textarea:focus, input:focus, select:focus {
+  outline: 0 !important;
+}
+
+.radius label{
+  padding-left: 2px !important;
+  position: relative;
+  bottom: 2px;
+}
+
+.transport label{
+  padding-bottom: 5px;
+}
+
+.aplicativo{
+  padding: 0px;
+}
+
+.transporte{
+  padding: 0px;
+}
+
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: 500 !important;
+}
+
+.carousel-indicators {
+  margin-bottom: 85px !important;
+}
+
+
+
+.textoperg{
+  text-align: left;
+}
+
+.moto img{
+  width: 100% !important;
+  max-height: auto !important;
+}
+
+.motosembau img{
+  width: 100% !important;
+  max-height: auto !important;
+}
+
+.bike img{
+  width: 100% !important;  
+  max-height:auto !important;
+}
+
+.bikeblack img{
+  width: 100% !important; 
+  max-height:auto !important;
+}
+
+
+
+.carousel-inner>.item>a>img, .carousel-inner>.item>img {
+  line-height: 1;
+  margin: auto !important;
+}
+
+.carousel-indicators li{
+  background-color: #ccc;
+  border: 1px solid #ccc;
+}
+
+
+#imgSetaTopo {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  margin: 0px 20px 20px 20px;
+  cursor: pointer;
+  display: none ;
+}
+
+.collapse{
+  margin-top: 10px;
+}
+
+.btn-primary {
+  background-image: -webkit-linear-gradient(#f4f4f4) !important;
+  background-image: -o-linear-gradient(#f4f4f4, #f4f4f4 50%, #f4f4f4) !important;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f4f4f4), color-stop(50%, #f4f4f4), to(#f4f4f4));
+  background-image: linear-gradient(#f4f4f4, #f4f4f4 50%, #f4f4f4) !important;
+  background-repeat: no-repeat !important;
+  border-bottom: 1px solid #f4f4f4 !important; 
+  border-top: 1px solid #fff !important; 
+  border-left: 1px solid #fff !important; 
+  border-right: 1px solid #fff !important; 
+  color: #000 !important;
+  margin: 0px !important;
+}
+
+
+.btn-primary{
+  width: 100%;
+  text-align: left;
+  background: #fff !important;
+  color: #000;
+  border-bottom: 1px solid #f4f4f4 !important; 
+  border-top: 1px solid #fff !important; 
+  border-left: 1px solid #fff !important; 
+  border-right: 1px solid #fff !important; 
+}
+
+.btn-primary:hover{
+ background: #fff !important;
+ color: #000 !important;
+ border-bottom: 1px solid #f4f4f4 !important; 
+ border-top: 1px solid #fff !important; 
+ border-left: 1px solid #fff !important; 
+ border-right: 1px solid #fff !important; 
+}
+
+.footer a{
+  text-decoration: none !important;
+  font-weight: 800 !important;
+  color:#000;
+  font-family: 'roboto' !important;
+}
+
+.footer label{
+  color: #ed5202 !important;
+  font-weight: 800 !important;
+  display: inline-block !important;
+}
+
+.footer{
+  display: inline-block !important;
+}
+
+.footer p{
+  font-weight: 400 !important;
+  display: inline-block !important;
+}
+
+.card-body p{
+  color: #999999;
+  text-align: left;
+  font-family:'roboto'; 
+  font-size: 13px;
+}
+.card-body p{
+  color: #999999;
+  text-align: left;
+  font-family:'roboto';
+  font-size: 13px; 
+}
+.card-body p{
+  color: #999999;
+  text-align: left;
+  font-family:'roboto';
+  font-size: 13px; 
+}
+
+.card-body h4{
+  text-align: left;
+  color:#4266AE; 
+  font-weight: 800;
+}
+.card-body h4{
+  text-align: left;
+  color:#4266AE; 
+  font-weight: 800;
+}
+.card-body h4{
+  text-align: left;
+  color:#4266AE; 
+  font-weight: 800;
+}
+
+
+h1, .h1 {
+  margin-bottom: 5px !important;
+}
+
+label{
+  margin-bottom: 0px !important;  
+}
+
+.lead{
+  line-height: 1.2;
+  text-align: justify !important;
+  font-weight: 400 !important;
+}
+
+.frequente h1{
+  margin-top: 1vh !important;
+  font-weight: bold;
+  letter-spacing: -1px;
+  color: #4266AE
+}
+
+.bikeeltricaapartir{
+  color:#4266AE; 
+  font-size: 28px;
+  padding: 0px;
+  padding-right: 10px;
+  font-weight: bold !important;
+}
+
+.bikeeltricatitulo{
+  color:#4266AE; 
+  font-size: 28px;
+  font-weight: 700;
+  padding: 0px;
+  padding-right: 10px;
+}
+
+.militares {
+  margin-top: 20vh;
+  font-family: 'roboto' !important;
+  text-decoration: none !important;
+}
+
+.border-frenquecia{
+ width: 100%;
+ text-align: left;
+ border: 1px solid #ccc;
+ color: #000;
+ font-weight: 800;
+ text-decoration: none;
+
+}  
+
+.border-frenquecia:hover{
+  border: 1px solid #ccc;
+  color: #000;
+  text-decoration: none;   
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
+  width: 100%;
+  border-top: 1px solid #eeeeee !important;
+}
+
+.display-4{
+  margin-top: 0px;
+  font-weight: bold;
+  letter-spacing: -4px;
+  font-size: 50px;
+  font-family: 'roboto';
+  color: #ed5202;
+
+}
+
+
+.instruçao{
+ padding-top: 1vh;
+}
+
+.instruçao p{
+  margin: 2px;
+}
+
+button {
+  color: #fff;
+  border-radius: 0px !important;
+  background: #FF7F00;
+  border: 0px;
+  font-size: 16px;
+  padding-top: 10px;
+  width: 270px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.bloco{
+  min-height: 100vh;
+  background: white; 
+
+}
+.bloco2{
+  min-height: 100vh;
+  background:  white;
+
+}
+.bloco3{
+  min-height: 100vh !important;
+  background:  white;
+
+}
+.bloco4{
+  min-height: 100vh;
+  background:  white;
+}
+
+.bloco5{
+  min-height: 100vh;
+  background:  white; 
+}
+
+.jumbotron p {
+  margin-bottom: 15px;
+  font-size: 14px !important;
+  letter-spacing: 1px;
+  font-weight: 200;
+  line-height: 1.3 !important;
+  padding-left: 20vh;
+  padding-right: 20vh;
+}
+
+.jumbotron{
+  background: transparent;
+  padding-top: 15px !important;
+  padding-bottom: 0px !important;
+}
+
+p{
+  margin: 0 0 0 0 !important;
+}
+
+.diaria h1{
+  display: -webkit-inline-box !important;
+}
+
+.diaria p{
+  padding-left: 15px;
+  display: inline-block !important;
+  line-height: 1em;
+  color: #ccc;
+  font-size: 10px !important;
+  margin: 0px;
+}
+
+
+.navbar{
+  background: transparent !important;
+  border-bottom: transparent !important;
+}
+
+.navbar-toggler{
+  display: none;
+}
+
+.carro img{
+  padding-top: 10px; 
+  padding-bottom: 0px;
+}
+
+.moto img{
+  padding-top: 0px;
+}
+
+.bike img{  
+  padding-top: 0px;
+}
+
+.desktop{
+  display: block;
+  padding:0px; 
+}
+
+.mobile{
+  display: none;
+}
+
+
+#bloco2 label{
+  color: #9E9E9E !important;
+}
+#bloco2 .criar{
+  color: #fff !important;
+}
+
+.login-container{
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.login-form-1{
+  padding: 5%;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  padding-bottom: 82px !important;
+  /*box-shadow: 0 5px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 26px 0 rgba(0, 0, 0, 0.2);*/
+}
+.login-form-1 h3{
+  text-align: center;
+  color: #333;
+}
+.login-form-2{
+  padding: 5%;
+  background: #FF7F00;
+
+  /*box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);*/
+}
+.login-form-2 h3{
+  text-align: center;
+  color: #fff;
+}
+.login-container form{
+  padding: 10%;
+}
+.btnSubmit
+{
+  width: 50%;
+  border-radius: 1rem;
+  padding: 1.5%;
+  border: none;
+  cursor: pointer;
+}
+.login-form-1 .btnSubmit{
+  font-weight: 600;
+  color: #fff;
+  padding: 8px;
+  border-radius: 0px;
+  background-color: #FF7F00;
+}
+.login-form-2 .btnSubmit{
+  font-weight: 600;
+  color: #FF7F00;
+  padding: 8px;
+  border-radius: 0px;
+  background-color: #fff;
+}
+.login-form-2 .ForgetPwd{
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+.login-form-1 .ForgetPwd{
+  color: #FF7F00;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.modal-content {
+  padding: 0px;
+}
+
+.modal-header img{
+  width: 150px;
+}
+
+#imagem72{
+  display: block !important;
+}
+
+#imagem100{
+  display: none !important;
+}
+
+@media screen and (max-width: 1200px){
+
+  .jumbotron p {
+    margin-bottom: 15px;
+    font-size: 19px;
+    font-weight: 200;
+    padding: 0px !important;
+
+  }
+
+  .carro img{
+    padding-top: 0px; 
+    padding-bottom:5px
+  }
+
+  .moto img{
+    padding-top: 0px;
+  }
+
+  .bike img{  
+    padding-top: 0px;
+  }
+
+}
+
+
+@media screen and ( max-width: 990px){
+
+ .carousel-indicators {
+  margin-bottom: 85px !important;
+}
+
+
+.bikeeltricatitulo{
+  color:#4266AE; 
+  font-size: 30px !important; 
+
+}
+
+.display-4{
+  padding-right: 8px !important;
+}
+
+.carro img{
+ margin-top: 5vh !important; 
+}
+
+.frequente h1{
+  margin-top: 5vh;
+}
+
+.militares {
+  margin-top: 10vh;
+}
+
+h1, .h1 {
+  font-size: 30px !important;
+  margin-bottom: 5px !important;
+}
+
+.desktop{
+  display: none;
+}
+
+.mobile{
+  display: block;
+  padding: 0px;
+}
+
+.text-moto{
+  margin-top: 8vh;
+}
+.text-bike{
+  margin-top: 8vh;
+}
+.text-carro{
+  margin-top: 8vh;
+}
+
+.close {
+  float: right;
+  font-size: 40px !important;
+  font-weight: bold;
+  line-height: 1;
+  color: #000000;
+  text-shadow: 0 1px 0 #ffffff;
+}
+
+}
+
+@media screen and (max-width: 600px) {
+
+  .modal-body {
+    position: relative;
+    padding: 5px !important;
+  }
+
+
+  #modal-login{
+    margin: auto;
+    width: 100% !important;
+  }
+
+  #espaco{
+    margin-top: 5vh !important;
+  }
+
+  #perguntas h3 {
+    font-size: 23px !important;
+  }
+
+  #menuToggle input:checked ~ ul {
+    transform: none;
+    padding-top: 100px;
+    padding-right: 5px;
+    padding-left: 55px;
+  }
+
+  #menu li a {
+    font-size: 11px !important;
+    color: #000 !important;
+    font-weight: 600 !important;
+  }
+
+  .lead {
+    margin-bottom: 15px !important;
+    font-size: 13px !important;
+    letter-spacing: 1px;
+    font-weight: 200;
+    line-height: 1.3 !important;
+    padding-left: 0vh !important;
+    padding-right: 0vh !important;
+
+  }
+
+  .logo-mobile-locacao{
+    padding-top: 10px;
+    display: block !important;
+  }
+
+
+  .lead {
+    font-size: 12px !important;
+  }
+
+  .bikeeltricatitulo {
+    margin-bottom: 5vh !important;
+    color: #4266AE;
+    font-size: 19px !important;
+  }
+
+  .text-muted{
+    margin: 10px !important;
+
+  }
+
+  #espasRenault{
+    padding: 0px !important;
+  }
+
+  .espacoTrailer{
+    padding-left: 0px !important;
+  }
+
+  .espacomoto{
+    padding-left: 0px !important;
+  }
+
+  .bloco8{
+    padding-left: 0vh !important; 
+  }
+
+  #imagem72{
+    display: none !important;
+  }
+  #imagem100{
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  .modal-content{
+    padding: 5px;
+  }
+
+  .modal-header img{
+    margin-top: 10px;
+    width: 120px ;
+  }
+
+  .goey a img {
+    width: 100% !important;
+  }
+
+  .bloco8{
+    padding-left: 2vh; 
+  }
+
+  .btnalugar{
+   margin-top: 3vh !important;
+ }
+
+ .espacoCarro{
+  margin-top: 9vh !important;
+}
+
+.diariaa p {
+  padding-right: 82px;
+}
+
+.frequente h1 {
+  margin-top: 5vh !important;
+}
+
+
+}
+
+@media screen and (max-width: 600px) {
+
+  #trabalhar{
+    margin-top: 15px !important;
+    text-align: right !important;
+  }
+
+
+  #menu {
+    position: absolute;
+    width: 250px;
+    min-height: 100vh !important;
+    box-shadow: 0 0 10px #85888C;
+    margin: -50px 0 0 -60px !important;
+    padding: 70px;
+    padding-top: 125px;
+    background-color: #F5F6FA;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  }
+
+  #menu li {
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+
+  }
+
+  li {
+    list-style-type: none;
+  }
+  .navbar-brand {
+    float: left;
+    padding-top: 12px !important;
+    padding: 15px 15px;
+  }
+
+  #imgdecktop img{
+    display: none;
+  }
+
+  #navbarsExample02 button {
+    background: #000 !important;
+    color: #fff !important;
+    margin-bottom: 10px !important;
+    padding: 5px;
+    margin-top: 5px;
+
+    margin-right: 5px;
+    border: #000 !important;
+    font-size: 12px;
+    width: 180px !important;
+  }
+
+  .espacoCarro {
+    margin-top: 4vh !important;
+  }
+
+  #Mobilemenu{
+    display: block; 
+    width: 100% !important;
+  }
+
+  #dektopmenu{
+    display: none;
+  }
+
+  .bikeeltricatitulo {
+    margin-bottom: 5vh !important;
+    margin-top: 5vh !important;
+    color: #4266AE;
+    font-size: 24px !important;
+  }
+
+}
+
+
+@media screen and ( max-width: 500px){
+
+  #dinheiro-desktop {
+    margin-top: 5vh;
+    padding: 0px !important;
+    text-align: right !important;
+  }
+
+  .linha-footer-mobile{
+    width: 100%;
+    border: 1px solid #ccc !important;
+    margin-top: 20px;
+    display: block;
+  }
+
+  #footer #dinheiro p {
+    text-align: left !important;
+    font-size: 14px !important;
+    margin-right: 0px;
+  }
+
+
+  .table-responsive{ 
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #fff !important;
+    border-left: 1px solid #fff !important;
+
+  }
+
+  td label p{
+    font-weight: 400 !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-style: italic !important;
+    display: inline-block;
+    padding-top: 0px;
+    padding-left: 1px;
+    padding-right: 5px;
+    padding-bottom: 0px;
+    font-size: 8px !important;
+  }
+
+  .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding-top: 8px;
+    padding-bottom: 4px;
+    padding-left: 0px;
+    padding-right:0px; 
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #fff;
+  }
+
+  child>th, .table>colgroup+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>th, .table>thead:first-child>tr:first-child>td, .table>thead:first-child>tr:first-child>th {
+    border-top: 0;
+    border: 0px !important;
+    padding-top: 10px !important;
+    padding-left: 0px !important;
+    padding-right: : 0px !important;
+    padding-bottom: : 0px !important;
+  }
+
+  .btn-entregas button{
+    width: 150px !important;
+    background:  #4266AE !important;
+  }
+
+  .btn-entregas button p{
+    font-size: 10px !important;
+  }
+
+  .goey img{
+    width: 50% !important;
+  }
+
+  .card label {
+    font-size: 12px !important;
+    font-family: 'roboto' !important; 
+  }
+  body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px !important;
+  } 
+  .carro img {
+    margin-top: 0vh !important;
+  }
+  .jumbotron p {
+    font-size: 16px !important;
+  }
+  .moto{
+    margin-top: 25px !important;
+  }
+  .motosembau{
+    margin-top: 25px !important;
+  }
+}
+
+
+</style>
+
+
+
+
+
+

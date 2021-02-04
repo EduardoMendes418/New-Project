@@ -1,0 +1,121 @@
+
+
+.bloco2{
+  padding: 10px !important;
+}
+.bloco2 img{
+  width: 100% !important
+}
+
+.bloco1{
+  padding: 10px !important;
+}
+.bloco1 img{
+  width: 100% !important
+}
+.enviar label{
+  font-size: 12px !important;
+} 
+.borda-cinza{
+   border:1px solid #ccc !important;
+}
+
+#AP{
+    color: #24549E;
+}
+.dias label{
+  color: #24549E;
+  font-size: 12px  !important;
+}
+.nomeproduto label{
+  color: #000 !important;
+}
+.nomeproduto p{
+  color: #24549E !important;
+}
+.number label{
+  color: #000 !important;
+}
+.number {
+  margin-top: 3vh;
+}
+.status{
+  margin-top: 3vh;
+}
+
+#boleto input{
+  border-bottom: 1px solid #ccc !important
+}
+
+#date{
+  width: 150px;
+}
+.data input{
+  border:1px  solid #ccc !important;
+}
+
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  width: 300px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+button{
+  background: #24549E !important;
+  color: #fff;
+  border:1px solid #24549E !important;
+  padding: 5px !important;
+  width: 150px;
+  margin-top: 5vh;
+  font-size: 16px;
+}
+
+.status, .Periodo{
+  color: #707070;
+}
+.status input{
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #000;
+}
+
+.Periodo label{
+  margin-top: 10px;
+}
+
+.content-header-status{
+  min-height: 100vh !important;
+}
+.titulo h1{
+  font-weight: bold;
+}
+hr {
+  width: 600px;
+  margin-left: 0px;
+  border-top: 1px solid #000 !important;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+
+@media screen and (max-width: 600px) {
+ .content-header-status {
+  height: auto !important;
+}
+.number {
+  margin-top: 0vh;
+}
+.status{
+  margin-top: 0vh;
+}
+
+}
+
+</style>
+

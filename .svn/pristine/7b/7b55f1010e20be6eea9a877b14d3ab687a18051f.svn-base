@@ -1,0 +1,43 @@
+﻿
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+           Acompanhar Entregas
+
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="#" ng-click="voltar()">Acompanhar Entregas</a></li>
+            <li class="active">Maps</li>
+        </ol>
+    </section>
+    <section class="content-header">
+        <button class="btn btn-info" ng-click="voltar()">Voltar</button>
+
+    </section>
+    <!-- Main content -->
+    <section class="content">
+
+        <div id="divMaps">
+
+            <ng-map  zoom="8">
+
+            <marker ng-repeat="p in rotas" position="{{p.pos}}" title="{{p.title}}" icon="{{p.icon}}"></marker>
+            
+                <directions 
+                  draggable="true"
+                  panel="directions-panel" 
+                  travel-mode="DRIVING"
+                  origin="{{rotas[0].pos}}"
+                  destination="{{end}}"              
+                  suppress-markers="true">
+                </directions>
+
+            </ng-map>
+            
+        </div>         
+      
+    </section><!-- /.content -->
+
+
+<section class="content"></section>

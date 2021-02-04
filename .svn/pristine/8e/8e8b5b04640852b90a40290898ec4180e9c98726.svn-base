@@ -1,0 +1,16 @@
+var formRestaurante = angular.module('formRestaurante', ['ui.router', 'ngResource', 'ngAnimate']);
+
+formRestaurante.config(["$stateProvider", function ($stateProvider) {
+
+//Formulário de cadastro de empresas
+    $stateProvider.state('formRestaurante', {
+        url: '/formRestaurante',
+        templateUrl: 'app/modules/formRestaurante/formRestaurante.html',
+        controller: 'formRestauranteCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Restaurante'
+        }
+    });
+
+}]);

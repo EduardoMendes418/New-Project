@@ -1,0 +1,58 @@
+﻿
+
+login.controller("loginCtrl", ['$rootScope', '$scope', '$state', '$location', 'loginService', 'Flash','apiService','$http',
+function ($rootScope, $scope, $state, $location, loginService, Flash, apiService,$http) {
+        var vm = this;
+        localStorage.removeItem('user');
+        vm.getUser = {};
+        vm.setUser = {};
+        vm.signIn = true;
+
+        //access login
+        vm.login = function (data) {  
+            
+            if (data.Username != "" && data.Password != "") {
+                
+                $.ajax({
+                        type: 'POST',
+                        crossDomain: true,
+                        url: 'http://ws.goeyja.com.br/ws/goey/rest/public/consultarUsuario',
+                        data:{
+                        'email': data.Username ,
+                        'senha': data.Password,
+                        'auth': '3f018bfb43591ccb2ef46f10de832160'
+                        },
+                        dataType: 'json',
+                        success: function (response){
+                            if(response.retorno == 1){
+                            
+                               // var users = {codUsuario:response.id,tipoUsuario:response.tipoUsuario,nome:response.razaoSocial,nomeFantasia:response.nomeFantasia,email:response.email,telefone:response.telefone,razaoSocial:response.nome};
+                                localStorage.setItem('user',JSON.stringify(response));
+                                
+                                $state.go('app.minhasEntregas'); 
+                            }else{
+                               Flash.create('danger', 'Login ou Senha Inválido(s)', 'large-text') 
+                            }
+                        // codigo aqui
+                        }
+                        });
+                }else{
+                    Flash.create('danger', 'Login ou Senha Inválido(s)', 'large-text')
+                }
+                
+               
+        };
+
+
+
+
+        //get registration details
+        $scope.recuperarSenha = function () {
+          if($scope.recuperarEmail == undefined){
+             Flash.create('danger', 'Digite um email válido!', 'large-text')
+             return false;
+          }
+        };
+
+    }]);
+

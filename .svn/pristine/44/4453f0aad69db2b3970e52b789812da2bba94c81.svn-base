@@ -1,0 +1,88 @@
+﻿<!--
+Author: Ranjithprabhu K
+Page Description: Dashboard page
+Date: 05 Jan 2016
+-->
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Bonificação
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Bonificação</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- row -->
+    <div class="row">
+        <div class="col-md-12">
+                <div class="row">
+                         <div class="col-md-3">
+                             <div class="form-group">
+                                 <label class="text-center"><small>SELECIONE O PERIODO PARA BUSCA</small></label>
+                                 <select name="periodo" id="periodoBusca" class="form-control" ng-model="periodo">
+                                     <option value="" selected>SELECIONE</option>
+                                     <option value="1">Mês Anterior</option>
+                                     <option value="2">Dia 1 até data Atual</option>
+                                 </select>
+                             </div>
+                         </div>
+                         <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-2">
+                                    <button ng-click="carregaMeusPagamentos();mensagemRetorno = false;" class="btn btn-primary" ng-show="!carregando">Consultar</button>
+                                    <img src="../images/loader.png" class='fa fa-refresh glyphicon-refresh-animate' ng-show="carregando">
+                                </div>
+                            </div>
+                        </div>
+        </div><!-- /.col -->
+    </div>
+    </div>
+    <br/>
+    <div class="well" ng-show="mensagemRetorno">
+    <p class="text-center"> Nenhum resultado encontrado! </p>
+    </div>
+    <!-- Número entrega, Local Retirada/Cidade e Local Entrega/Cidade, valor da taxa de entrega e valor da bonificação obedecendo ao filtro -->
+    <div class="well" ng-show="retornoTable">
+        <div class="box-body">
+            <div class="table-responsive">
+                <table class="table no-margin">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Local Retirada</th>
+                            <th>Local Entrega</th>
+                            <th>Valor de Entrega</th>
+                            <th>Bonificação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="cF in bonificacao" class="animate-repeat">
+                            <td>{{cF.codigo}}</td>
+                            <td>{{cF.origem}}</td>
+                            <td>
+                                <span ng-show="cF.destino1">Destino 1: </span> {{cF.destino1}}<br ng-show="cF.destino1">
+                                <span ng-show="cF.destino2">Destino 2: </span> {{cF.destino2}}<br ng-show="cF.destino2">
+                                <span ng-show="cF.destino3">Destino 3: </span> {{cF.destino3}}<br ng-show="cF.destino3">
+                                <span ng-show="cF.destino4">Destino 4: </span> {{cF.destino4}}<br ng-show="cF.destino4">
+                                <span ng-show="cF.destino5">Destino 5: </span> {{cF.destino5}}
+                            </td>
+                            <td>{{cF.valor | currency:'R$ '}}</td>
+                            <td>{{bonus}} %</td>
+                        </tr>
+                        <tr>
+                            <td>Total: {{i}}</td>
+                            <td colspan='2'></td>
+                            <td>{{valorTotal | currency}}</td>
+                            <td>{{valorBonificacao | currency:'R$ '}}</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><!-- /.table-responsive -->
+        </div><!-- /.box-body -->
+    </div><!-- /.box -->
+</section><!-- /.content -->
+

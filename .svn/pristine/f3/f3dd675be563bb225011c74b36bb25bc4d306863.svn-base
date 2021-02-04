@@ -1,0 +1,365 @@
+﻿var ws = 'https://www.iptufacil.com.br/ws';
+//var ws = 'http://192.168.0.69:8025/ws';
+
+dashboard.controller("pagamentoCtrl", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http','distanciaService',
+  function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http,distanciaService) {
+    
+    var vm = this;
+    $scope.btnPagar = false;
+    $scope.valorTroco = 0;
+    $scope.agendamento = 1;
+    $scope.cadastro = [];
+    $scope.sub_total = 0;
+    var cpfCnpj = '';    
+
+    var usuario = JSON.parse(localStorage.getItem('user'));
+    $scope.tipoUsuario = usuario.tipoUsuario;
+    $scope.codUsuario = usuario.codUsuario;
+    $scope.lat = undefined;
+    $scope.lng = undefined;
+
+    $scope.nomeCliente = usuario.nome;
+
+    var item    = window.localStorage.getItem('addItems');
+    if(!item){
+      $state.go('app.minhasEntregas');
+    }
+
+    var loja    = window.localStorage.getItem('loja');
+    var user    = window.localStorage.getItem('user');
+    user        = JSON.parse(user);
+    loja        = JSON.parse(loja);
+    $scope.loja = loja.loja;
+    
+    var endereco    = window.localStorage.getItem('endereco');
+    endereco        = JSON.parse(endereco);
+
+    var end     = JSON.parse(window.localStorage.getItem('endereco'));
+    var session = JSON.parse(localStorage.getItem('session_id'));
+
+    var estabelecimento = JSON.parse(localStorage.getItem('estabelecimento'));
+
+    $scope.carregaValorMercadoria = function(){
+      var itens =  window.localStorage.getItem('addItems');
+      itens = JSON.parse(itens);     
+
+      var linguica = '';
+      var qtdProduto = [];
+      var produtos = '';
+      var linguicaAdc = '';
+      var qtdGambis = 0;
+      $scope.sub_total = 0;
+      $scope.somaTotal = 0;
+
+      var selecionado = itens.filter(function(sel){
+
+    if(sel.obs == ""){
+      sel.obs = 0;
+      }
+
+        linguica += sel.codProduto+'-'+sel.qtd+ '-' + sel.obs+'/'+sel.id+',';    
+        qtdProduto[sel.cod] = sel.qtd;
+        $scope.idGambis = sel.id;
+        qtdGambis = sel.qtd;
+        produtos += sel.produto + ',';
+        $scope.sub_total += parseFloat(sel.valorTotalComplemento);
+
+        var selec = sel.complemento.filter(function(seloc){
+
+          if(seloc.id){
+            linguicaAdc += seloc.id+'/'+$scope.idGambis+'-'+qtdGambis+',';
+          }
+        });
+      });
+
+      $scope.listarItens = itens;
+
+      linguicaAdc = linguicaAdc.substring(0,(linguicaAdc.length - 1));
+      linguica = linguica.substring(0,(linguica.length - 1));
+      $scope.produtos = produtos.substring(0,(produtos.length - 1));
+
+      $scope.merc = {
+                      "codigo":linguica,
+                      "auth":"3f018bfb43591ccb2ef46f10de832160"
+                    }
+
+      $http.post(ws+'/goey/rest/public/carregarDadosProduto',$scope.merc ).then(function(response){       
+
+        $scope.mercadoria = response.data;
+        $scope.total = 0;
+        var merc = [];
+        var selecionado = $scope.mercadoria.filter(function(soma){
+              
+              if(!qtdProduto[soma.cod]){
+
+                $scope.total +=  parseFloat(soma.preco)*soma.qtd;
+               
+              }else{
+                // console.log(soma);
+                $scope.total +=  parseFloat(soma.preco) * soma.qtd;  
+              }
+              // console.log(soma);
+              // nome: "Teste", descricao: "Testando O Teste", preco: ".99", cod: "149"
+              if(soma.complemento == 0){
+
+                merc.push({"nome":soma.nome,"descricao":soma.descricao,"preco":soma.preco,"qtd":soma.qtd,"codProduto":soma.cod,"complemento":0,"id":soma.id,"obs":soma.obs});
+              
+              }else{
+
+                merc.push({"nome":soma.nome,"descricao":soma.descricao,"preco":soma.preco,"qtd":1,"codProduto":soma.cod,"complemento":1,"id":soma.id,"obs":soma.obs});
+
+              }
+
+        }); 
+        $scope.compra = merc;
+
+        
+      });
+
+    };
+
+    $scope.carregaValorMercadoria();
+
+    $scope.carregaDados = function(){
+      $scope.dados = {
+        "loja":loja.loja,
+        "usuario":user.codUsuario,
+        "tipoUsuario":user.tipoUsuario,
+        "auth":"3f018bfb43591ccb2ef46f10de832160"
+      }
+
+          // Carrega origem endereço da loja
+          $http.post(ws+'/goey/rest/public/carregaDadosLoja',$scope.dados).then(function(response){
+              
+            $scope.enderecos = [{origem:response.data[0].origem,destino:endereco[0].destino}];
+
+             $http.post(ws + '/goey/rest/public/matrixGoogle', ({
+                    auth: "3f018bfb43591ccb2ef46f10de832160",
+                    tipo: 2,
+                    enderecos: $scope.enderecos,
+                    tipoUsuario : loja.tipoUsuario,
+                    codUsuario : loja.loja
+                  })).then(function(response){
+                      
+        $scope.tipoUsuario;
+        $scope.codUsuario;
+        $scope.objeto          = '';
+        $scope.responsavel     = '';
+        $scope.descricao       = '';
+        $scope.observacao      = localStorage.getItem("comp-end") || '';
+        $scope.enderecos.origem;
+        $scope.destino1        = $scope.enderecos.destino;
+        $scope.distancia       = response.data.km;
+        $scope.valor           = response.data.total;
+        $scope.frete           = response.data.total;
+        $scope.formaPagamento  = $scope.pagamentoDiretoTipo;
+        $scope.valorProduto    = '';
+        $scope.troco           = $scope.troco;
+        $scope.dataAgendamento = '';
+        $scope.valorProdutoFrete  = parseFloat($scope.total)+parseFloat(response.data.total);
+        $scope.somaTotal        = parseFloat($scope.frete)+parseFloat($scope.sub_total);
+        $scope.endereco_entrega = endereco[0].destino;
+        $scope.complemento      =  localStorage.getItem("comp-end") || false;
+        $scope.telefone         = localStorage.getItem("telefone") ||  "";
+
+                       // $http.post(ws+'/goey/rest/public/cadastrarEntregasEstabelecimentos',$scope.dados).then(function(response){
+
+                       // });
+             });
+
+
+          });
+
+    }
+    $scope.carregaDados();
+
+$scope.finalizaPagamentoDinheiro = function(){
+
+   if($scope.cpfCnpj != undefined){
+      cpfCnpj = $scope.cpfCnpj;
+   }
+
+
+if($scope.pagamentoDiretoTipo == 3){
+  $scope.valorTroco = $("#valorTroco").val();
+  $scope.valorTroco = $scope.valorTroco.replace('R$','');
+  $scope.valorTroco = $scope.valorTroco.replace('.','');
+  $scope.valorTroco = $scope.valorTroco.replace(',','.');
+}
+
+$scope.totalValor = parseFloat($scope.total.toFixed(2))+parseFloat($scope.valor); 
+
+if($scope.valorTroco > 0){
+
+  if( $scope.totalValor > $scope.valorTroco ){
+    alert('Valor do Troco é menor que o valor do produto');
+    return false;
+  }
+
+    $scope.valorTroco = $scope.valorTroco - $scope.valorProdutoFrete;
+    
+}
+
+$scope.dadosDinheiro = {
+                        "tipoUsuario" : 3,
+                        "codUsuario" : $scope.loja,
+                        "objeto" : $scope.objeto,
+                        "responsavel" : $scope.responsavel,
+                        "descricao" : $scope.descricao,
+                        "observacao" : $scope.observacao,
+                        "origem" : $scope.enderecos[0].origem,
+                        "destino1" : $scope.enderecos[0].destino,
+                        "distancia" : $scope.distancia,
+                        "valor" : $scope.valor,
+                        "formaPagamento" : $scope.pagamentoDiretoTipo,
+                        "valorProduto" : $scope.total,
+                        "troco" : $scope.valorTroco,
+                        "dataAgendamento" : $scope.dataAgendamento,
+                        "pedido" : $scope.compra,
+                        "tipoVeiculo":2,
+                        "auth": "3f018bfb43591ccb2ef46f10de832160",
+                        "solicitante": $scope.codUsuario,
+                        "telefone": $scope.telefone,
+                        "nome" : $scope.nomeCliente,
+                        "cpf" : cpfCnpj
+                        };
+
+
+  //SOLICITA A ENTREGA RESTAURANTE
+     $http.post(ws+'/goey/rest/public/cadastrarEntregasEstabelecimentos',$scope.dadosDinheiro).then(function(response){
+              
+              alert(response.data.mensagem);
+
+              if(response.data.retorno == 1){
+
+                  localStorage.removeItem('addItems');
+                  localStorage.removeItem('loja');
+                  localStorage.removeItem('endereco');
+                  localStorage.removeItem('cliente');
+                  localStorage.removeItem('telefone');
+                  localStorage.removeItem('comp-end');
+                  $state.go('app.minhasEntregas');
+
+              }
+     });
+
+
+}
+
+
+$scope.finalizaPagamentoCartao = function(){
+if($scope.cpfCnpj != undefined){
+      cpfCnpj = $scope.cpfCnpj;
+   }
+
+$scope.tokenCartao = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)+ Math.random().toString(36).substring(2, 15);
+$http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+var dadosToken = {
+  auth:$scope.dados.auth,
+  token:$scope.tokenCartao
+}; 
+
+
+$scope.dadosDinheiro = {
+                        "tipoUsuario" : 3,
+                        "codUsuario" : $scope.loja,
+                        "objeto" : $scope.objeto,
+                        "responsavel" : $scope.responsavel,
+                        "descricao" : $scope.descricao,
+                        "observacao" : $scope.observacao,
+                        "origem" : $scope.enderecos[0].origem,
+                        "destino1" : $scope.enderecos[0].destino,
+                        "distancia" : $scope.distancia,
+                        "valor" : $scope.valor,
+                        "formaPagamento" : 6,
+                        "valorProduto" : $scope.total,
+                        "troco" : '0',
+                        "dataAgendamento" : $scope.dataAgendamento,
+                        "pedido" : $scope.compra,
+                        "tipoVeiculo":2,
+                        "auth": "3f018bfb43591ccb2ef46f10de832160",
+                        "solicitante":$scope.codUsuario,
+                        "telefone": $scope.telefone,
+                        "nome" :    $scope.nomeCliente,
+                        "cpf"  :    cpfCnpj
+                        };
+
+
+
+$http.post(ws+'/goey/rest/public/security',$.param(dadosToken)).then(function(result){
+   
+  var dadosCartao = {
+                      funcao         :'pagamentoGenerico',
+                      cartao         : $scope.cartaoCredito.numCartao,//'12345678978979',
+                      validade       : $scope.cartaoCredito.ano+$scope.cartaoCredito.mes,//'0418',
+                      codSeguranca   : $scope.cartaoCredito.seguranca,//'123',
+                      produto        : '4',
+                      valor          : $scope.valorProdutoFrete,
+                      token          : $scope.tokenCartao,
+                      loja : '',
+                      nascimento: '',
+                      cpfTitular : ''
+                    };
+
+  
+  $http.post(ws+'/wsGetNet/client.php',$.param(dadosCartao)).then(function(result){
+    
+    // grecaptcha.reset();
+    if(result.data.status != 'AP'){
+      Flash.create('danger', result.data.display, 'large-text');
+      $("#aguarde2").hide(); 
+      $("#btnAgendar").show(); 
+    }else{
+        // Flash.create('success', result.display, 'large-text');
+      // var url = 'https://www.iptufacil.com.br';
+      
+      $scope.dados.autorizacao = result.data.auto;
+      $http({
+        method: 'POST',
+        url: ws+'/goey/rest/public/cadastrarEntregasEstabelecimentos',
+        data: $.param($scope.dadosDinheiro),
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+      }).success(function (response) {
+
+        $("#aguarde2").hide(); 
+        $("#btnAgendar").show(); 
+
+        if(response.retorno == 1){
+
+          alert(response.mensagem);
+          $scope.cadastrar = "";
+          $scope.total = 1; 
+          if(response.retorno == 1){
+                  localStorage.removeItem('addItems');
+                  localStorage.removeItem('loja');
+                  localStorage.removeItem('endereco');
+                  $state.go('app.minhasEntregas');
+          }
+
+          $scope.btnPagar = false;
+        }else{                        
+          // Cancelar a transacao
+          //cancelaPagamento
+           $http.post(ws+'/wsGetNet/client.php',$.param({codigo:$scope.dados.autorizacao,funcao:'cancelaPagamento'})).then(function(result){
+              console.log(result);
+           });
+            Flash.create('info', response.mensagem, 'large-text'); 
+
+        }
+
+      }).error(function (response) {
+
+        Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');
+
+      }); 
+    }
+
+  });
+});
+
+
+}
+
+
+}]);

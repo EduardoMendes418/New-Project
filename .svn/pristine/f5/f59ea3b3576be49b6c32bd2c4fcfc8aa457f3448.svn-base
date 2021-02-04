@@ -1,0 +1,29 @@
+.content-header-ativas{
+	height: 100vh !important;
+}
+.locacao h1{
+	margin-left: 10px;
+}
+.contrato{
+	font-size: 13px;
+ display: inline-flex;
+}
+.contrato span{
+	color: #24549E !important;
+}
+
+.protecao{
+	font-size: 13px;
+	 display: inline-flex;
+}
+.protecao span{
+	color: #24549E !important;
+}
+
+
+@media only screen and (max-width: 600px) {
+	.content-header-ativas{
+		height: auto !important;
+	}
+
+}

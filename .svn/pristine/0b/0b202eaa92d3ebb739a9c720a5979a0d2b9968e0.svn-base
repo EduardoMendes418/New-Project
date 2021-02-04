@@ -1,0 +1,2199 @@
+
+
+
+<!--Pagina bloco-->
+<section  class="bloco"  >
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container"> 
+      <a class="navbar-brand" href="#">
+        <img src="images/locacao/logo.png" width="130px" style="padding-top: 0px;">
+      </a>
+      <div class="btn-entregas" >
+        <a href="https://www.goeyja.com.br/#/entregas">
+          <button>
+            <p>Goey para empresas</p>
+          </button>
+        </a>
+      </div> 
+    </div>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+
+  <div class="jumbotron text-center  animated pulse">
+    <div class="container">
+      <h2 class="jumbotron-heading bikeeltricatitulo">Precisa de um veículo para trabalhar?</h2>
+      <p class="lead text-muted">Faça agora seu cadastro e alugue o veículo que mais atende a sua necessidade. Bike elétrica, moto ou carro. Abra a porta para dirigir e ganhar sua renda, veículos econômicos e de baixo custo para você voltar ao mercado de trabalho.
+      </p>
+    </div>
+  </div>
+
+<!--Bike Motorizada  -->
+<div class=" col-md-3">
+  <a onclick="ancora('motorizada')">
+    <div class="card mb-4 carro" style="text-align: center;">
+      <img class="" src="images/locacao/bikecombu22.jpg"  width="72%" >
+      <div class="card-body-carro">
+        <h4 style="margin-top: 0vh !important">Bike Motorizada </h4>
+         <p>São menos reféns do tráfego, podem se movimentar melhor e com mais velocidade durante todo o dia. Essa Bike tem autonomia de até 60km por litro. <label style="color:#4266AE"> entregas de aplicativos (Ifood,Rappi,Loggi,etc) ou para uso pessoal.</label></p>
+      <div class="d-flex justify-content-between align-items-center"></div>
+      </div>
+    </div>
+  </a>
+</div>
+
+
+  <!-- bike-->
+  <div class="col-md-3">
+    <a onclick="ancora('goey')">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!--<div class="carousel-inner">
+          <div class="item active bike">
+            <img class="" src="images/locacao/bike.jpg" >
+          </div>
+        </div>-->
+         <div class="item bikeblack">
+            <img class="img-responsive" src="images/locacao/bike_sb.jpg"  >
+          </div>
+      </div>
+    </a>
+  <ol class="carousel-indicators" >
+  <!--<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>-->
+  </ol>
+  <div class="card-body-bike" style="margin-top: 15px !important;">
+    <h4>Bike Elétrica sem Baú </h4>
+    <p>São menos reféns do tráfego, podem se movimentar melhor e com mais velocidade durante todo o dia, sendo assim uma estratégia inteligente de delivery pra você que trabalha com <label style="color:#4266AE"> entregas de aplicativos (Ifood,Rappi,Loggi,etc) ou para uso pessoal.</label></p>
+    <div class="d-flex justify-content-between align-items-center"></div>
+  </div>
+</div>
+
+
+<!--moto -->
+<div class="col-md-3" style=" height: 367px;">
+  <a onclick="ancora('goey3')">
+    <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="item active moto">
+           <img class="" src="images/locacao/moto.jpg"  >
+         </div>
+         <div class="item motosembau">
+          <img class="" src="images/locacao/moto_sb.jpg" >
+        </div>
+      </div>
+    </div>
+  </a> 
+  <ol class="carousel-indicators" >
+   <!-- <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel2" data-slide-to="1"></li>-->
+  </ol>
+  <div class="card-body-moto">
+    <h4 style="margin-top: 2vh;">Honda CG Cargo com/sem Baú</h4>
+    <p>Ideal para profissionais que trabalham com <label style="color:#4266AE"> entregas de aplicativo(Ifood,Rappi,Loggi,etc).</label> Uma excelente opção para o seu dia-a-dia, robusta e com sistema de freio CBS. </p>
+    <div class="d-flex justify-content-between align-items-center">
+    </div>
+  </div>
+</div>
+
+<!--carro -->
+<div class=" col-md-3">
+  <a onclick="ancora('goey2')">
+    <div class="card mb-4 carro" style="text-align: center;">
+      <img class="" src="images/locacao/kwid.jpg"  width="100%" >
+      <div class="card-body-carro">
+        <h4 style="margin-top: 0vh !important">Renault KWID ou similar</h4>
+        <p>O Kwid é perfeito para você que trabalha com <label style="color:#4266AE">mobilidade urbana (UBER,Cabify,99App).</label> Um carro compacto, prático, confortável e pronto para encarar o estilo frenético das grandes cidades.</p>
+        <div class="d-flex justify-content-between align-items-center">
+
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+</section>
+
+<div class="col-md-12" style="margin-top: 2vh"></div>
+
+<!-- motorizada -->
+<section class="bloco01">
+     <div class="container">
+      <div class="row featurette text-moto">
+        <div id="motorizada" ></div>
+        <div class="col-sm-12 col-md-7 order-md-1 text-center mobile">
+          <img src="images/locacao/motorizada.jpg" width="100%" >
+          <br>
+        </div>
+
+        <div class="col-md-7 order-md-1 text-center desktop">
+          
+          <img src="images/locacao/motorizada.jpg" width="550px" >
+        </div>
+
+        <div class="col-sm-12 col-md-5 order-md-2 order-sm-2" >
+         <div class="pricing-header mx-auto text-left" style="padding-left: 20px">
+          <div class="row">
+           <div class="diariaa">
+             <br>
+              <p><label  class="bikeeltricaapartir">Bike Motorizada</label> A PARTIR DE </p>
+           </div>
+           <div class="diaria"> 
+            <h1 class="display-4" >R$ 12,84</h1><label style="color:#4266AE" >/POR DIA</label>
+          </div>
+          <p class="bikeeletrica">
+            Leve, prática e confortável. Um transporte 100% <br>eco-friendly. 
+          <label style="color:#4266AE"> Locação mínima de 30 dias.</label>
+          </p>
+          <hr>
+          <div class="instruçao">
+           <p style="font-weight: 600"><img src="images/locacao/ve.png" width="25px"> Sem necessidade de Cartão de Crédito</p>
+          <p style="font-weight: 600"><img src="images/locacao/ve.png" width="25px"> Pagamento por Boleto Bancário</p>
+          <p><img src="images/locacao/ve.png" width="25px"> Manutenção Incluída</p>
+          <p><img src="images/locacao/ve.png" width="25px"> Conforto & Segurança</p>
+          <p><img src="images/locacao/ve.png" width="25px"> Não precisa de CNH</p>
+          <p><img src="images/locacao/ve.png" width="25px"> Autonomia de até 60km por litro</p>
+          <p><img src="images/locacao/ve.png" width="25px"> Usa combustível</p>
+           <!--<p><img src="images/locacao/ve.png" width="25px"> Bag Térmica para Restaurantes</p>-->
+         </div>
+         <br>
+        <!-- <a class="price"  data-toggle="bottom" onclick="stepbanner(2);" >
+            <button>Alugar Bike</button>
+          </a>-->
+
+          <!-- Large modal -->
+          <button type="button" class="price"  data-toggle="modal" data-target=".bd-example-modal-lg10"> Alugar Bike Motorizada </button>
+
+          <div class="modal fade bd-example-modal-lg10"   aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+
+               <div  class="col-xs-12 col-md-12" style="padding: 25px; background: white; border-radius: 5px;">
+                 <h2 class="text-center"><label  class="bikeeltricaapartir">Bike Motorizada</label>     
+                  <a type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </a>
+                </h2>
+
+                <form class=" form-group needs-validation form1 form-group form-cadastro" name="formlocacao-motorizada" novalidate="" id="formlocacao-motorizada" >
+                 <div class="row">
+
+                  <!--Nome-->
+                  <div class="form-group col-xs-12 col-md-4"  ng-class="{'is-invalid' : formlocacao.nomeCompleto.$invalid && !formlocacao.nomeCompleto.$pristine }">
+                   <label>Nome Completo: *</label>
+                   <input type="text" capitalize class="form-control" name="nome" id="nome" ng-model="nome" 
+                   ng-class="{'is-invalid': formlocacao.nome.$invalid && formlocacao.nome.$touched,'is-valid': formlocacao.nome.$valid}" onkeypress='return SomenteLetra(event)' required >
+                   <!-- <p ng-show="formlocacao.nome.$invalid && !formlocacao.nome.$pristine" class="help-block" >Nome é obrigatório.</p>-->
+                 </div>
+
+                 <!--cpf-->
+                 <div class="form-group col-xs-12 col-md-4" ng-class="{'is-invalid' : formlocacao.cpf.$invalid && !formlocacao.cpf.$pristine }" >
+                  <label>CPF:*</label>
+                  <input type="text"  ng-model="cpf" name="cpf" class="form-control" ui-br-cpf-mask 
+                  ng-class="{'is-invalid': formlocacao.cpf.$invalid && formlocacao.cpf.$touched,'is-valid': formlocacao.cpf.$valid}" onkeypress='return SomenteNumero(event)' required>
+                  <!--<p ng-show="formlocacao.cpf.$invalid && !formlocacao.cpf.$pristine" class="help-block">Digite um CPF válido.</p>-->
+                </div>
+
+                <!--Rg-->
+                <div class=" form-group col-xs-12 col-md-4" ng-class="{'is-invalid' : formlocacao.rg.$invalid && !formlocacao.rg.$pristine }">
+                  <label>RG:*</label>
+                  <input type="text"  ng-model="rg" name="rg" class="form-control" ui-br-rg-mask id="Rg"  size="30" maxlength="12"  
+                  ng-class="{'is-invalid': formlocacao.rg.$invalid && formlocacao.rg.$touched,'is-valid': formlocacao.rg.$valid}" onkeypress='return SomenteNumero(event)' required>
+                  <!-- <p ng-show="formlocacao.rg.$invalid && !formlocacao.rg.$pristine" class="help-block">Digite um rg válido.</p>-->
+                </div>
+
+                <!--sexo -->
+                <div class="form-group col-xs-6 col-md-3">
+                  <label >Sexo:</label>
+                  <select class="form-control" name="sexo" ng-model="sexo">
+                    <option value="0">Selecione</option>    
+                    <option value="1">Masculino</option>          
+                    <option value="2">Feminino</option>           
+                  </select>
+                </div>
+
+                <!-- nascimento-->
+                <div class="form-group col-xs-6 col-md-3">
+                  <label >Nascimento:</label>
+                  <input type="text" id="cmpDate" name="datanascimento" class="form-control"  ng-model="datanascimento"
+                  placeholder=""  min="2013-01-01" max="2023-12-31" ui-date-mask="DD/MM/YYYY" parse="false"/>
+                </div>
+
+                <!-- Estado  civil-->
+                <div class="form-group col-xs-6 col-md-3">
+                  <label >Estado Civil:</label>
+                  <select class="form-control" name="estadocivil" id="estadocivil" ng-model="estadocivil">
+                   <option value="0" >Selecione</option>
+                   <option value="1" >Solteiro(a)</option>
+                   <option value="2" >Casado(a)</option>
+                   <option value="3" >Viuvo(a)</option>
+                   <option value="4" >Separado(a) Judicial</option>
+                   <option value="5" >Companheiro(a)</option>
+                   <option value="6" >Divorciado(a)</option>
+                   <option value="7" >Outros</option>
+                 </select>
+               </div>
+
+               <!--filhos -->
+               <div class="form-group col-xs-6 col-md-3">
+                <label >Possui Filhos:</label>
+                <select class="form-control" name="filhos" id="filhos" ng-model="filhos">
+                  <option value="0" >Selecione</option>
+                  <option value="1" >Sim</option>
+                  <option value="2" >Não</option>
+                </select>
+              </div>
+
+              <!--celular -->
+              <div class="form-group col-xs-12 col-md-6">
+                <label >Celular *</label>
+                <input type="text" capitalize class="form-control" name="telefone" id="telefone" ng-model="telefone" ui-br-phone-number ng-minlength="15" ng-class="{'is-invalid': formlocacao.telefone.$invalid && formlocacao.telefone.$touched,'is-valid': formlocacao.telefone.$valid}" >
+              </div> 
+
+              <!--email -->
+              <div class="form-group col-xs-12 col-md-6">
+                <label >E-mail *</label>
+                <input capitalize class="form-control" name="email"  ng-model="email"  type="email">
+              </div>
+
+              <div class="form-group col-xs-12 col-md-4">
+                <label >Cep:</label>
+                <!-- <input type="text" capitalize class="form-control" name="cep" id="cep" ng-model="cep" ui-br-cep-mask ng-class="{'is-invalid': formlocacao.cep.$invalid && formlocacao.cep.$touched,'is-valid': formlocacao.cep.$valid}" required ng-change="getAddressByCep();">-->
+                <input type="text" class="form-control inputBuscar" id="cep" name="cep" autofocus ng-model="buscar.cep" ui-br-cep-mask ng-change="buscaCep(buscar.cep)"/>
+              </div>
+
+              <!--uf -->
+              <div class="form-group col-xs-12  col-md-4" ng-class="{ 'is-invalid' : formlocacao.uf.$invalid && !formlocacao.uf.$pristine }">
+               <label for="uf">UF *</label>
+               <select class="form-control" name="uf" id="uf" ng-model="uf" ng-class="{'is-invalid': formlocacao.uf.$invalid && formlocacao.uf.$touched,'is-valid': formlocacao.uf.$valid}" required>
+                <option value="">SELECIONE</option>
+                  <!--  <option value="AC">Acre</option>
+                   <option value="AL">Alagoas</option>
+                   <option value="AP">Amapá</option>
+                   <option value="AM">Amazonas</option>
+                   <option value="BA">Bahia</option>
+                   <option value="CE">Ceará</option>
+                   <option value="DF">Distrito Federal</option>
+                   <option value="ES">Espírito Santo</option>
+                   <option value="GO">Goiás</option>
+                   <option value="MA">Maranhão</option>
+                   <option value="MT">Mato Grosso</option>
+                   <option value="MS">Mato Grosso do Sul</option>
+                   <option value="MG">Minas Gerais</option>
+                   <option value="PA">Pará</option>
+                   <option value="PB">Paraíba</option>
+                   <option value="PR">Paraná</option>
+                   <option value="PE">Pernambuco</option>
+                   <option value="PI">Piauí</option>
+                   <option value="RJ">Rio de Janeiro</option>
+                   <option value="RN">Rio Grande do Norte</option>
+                   <option value="RS">Rio Grande do Sul</option>
+                   <option value="RO">Rondônia</option>
+                   <option value="RR">Roraima</option>
+                   <option value="SC">Santa Catarina</option>-->
+                   <option value="SP" selected>São Paulo</option>
+                   <!--<option value="SE">Sergipe</option>
+                     <option value="TO">Tocantins</option>-->
+                   </select>
+                   <!-- <p ng-show="formlocacao.uf.$invalid && !formlocacao.uf.$pristine" class="help-block">UF é obrigatório.</p>-->
+                 </div>
+
+                 <!--cidade-->
+                 <div class="form-group col-xs-12 col-md-4" ng-class="{ 'is-invalid' : formlocacao.cidade.$invalid && !formlocacao.cidade.$pristine }">
+                  <label for="cidade">Cidade *</label>
+                  <select  class="form-control" id="cidade" name="cidade" ng-model="cidade" >
+                    <option ng-repeat="c in comboCidades" ng-value="c.cidade">{{c.cidade}}</option>
+                  </select>   
+                </div>
+
+                <!-- bairro -->
+                <div class="form-group col-xs-12 col-md-4" ng-class="{ 'is-invalid' : formlocacao.bairro.$invalid && !formlocacao.bairro.$pristine }">
+                  <label for="bairro">Bairro *</label>
+                  <input type="text" capitalize class="form-control" name="bairro" id="bairro" ng-model="bairro" ng-class="{'is-invalid': formlocacao.bairro.$invalid && formlocacao.bairro.$touched,'is-valid': formlocacao.bairro.$valid}" required onkeypress='return SomenteLetra(event)'>
+                  <!--<p ng-show="formlocacao.bairro.$invalid && !formlocacao.bairro.$pristine" class="help-block" >Bairro é obrigatório.</p>-->
+                </div>
+
+                <!--Logradouro-->
+                <div class="form-group col-xs-6 col-md-3">
+                 <label >Logradouro:</label>
+                 <input type="text" capitalize class="form-control" name="logradouro" id="logradouro" ng-model="logradouro" ng-class="{'is-invalid': formlocacao.logradouro.$invalid && formlocacao.logradouro.$touched,'is-valid': formlocacao.logradouro.$valid}" required onkeypress='return SomenteLetra(event)'>
+               </div>
+
+               <!--complemento-->
+               <div class="form-group col-xs-6 col-md-3">
+                 <label >Complemento:</label>
+                 <input type="text" capitalize class="form-control" id="complemento" name="complemento" ng-model="complemento" ng-class="{'is-valid': formlocacao.complemento.$valid && formlocacao.complemento.$touched}">
+               </div>
+
+               <!--numero-->
+               <div class="form-group col-xs-12  col-md-2" >
+                <label for="numero">Número *</label>
+                <input type="tel" class="form-control" name="numero" id="numero" ng-model="numero" ng-class="{'is-invalid': formUsuario.numero.$invalid && formUsuario.numero.$touched,'is-valid': formUsuario.numero.$valid}" required onkeypress='return SomenteNumero(event)'>
+              </div>
+
+
+              <!--
+              <div class="form-group col-xs-6 col-md-4">
+                <label >Numero de CNH:</label>
+                <input type="text" class="form-control" name="ncnh" id="moto-ncnh" placeholder="" value="" required="" ng-model="ncnh" size="15" maxlength="15" onkeypress='return SomenteNumero(event)'>
+              </div>
+
+              <div class="form-group col-xs-6 col-md-4">
+                <label >Validade:</label>
+                <input type="text" class="form-control" ui-date-mask="DD/MM/YYYY" name="validade"  id="moto-validade" ng-model="validade">
+              </div>
+
+              <div class="form-group col-xs-12 col-md-4">
+                <label >1º Habilitação:</label>
+                <input type="text" class="form-control" name="habilitacao" id="moto-habilitacao" ng-model="habilitacao" ui-date-mask="DD/MM/YYYY">
+              </div>
+
+              <div class="form-group col-xs-6 col-md-6">
+                <label >Fotos CNH:</label>
+                <input type="file" class="form-control-file input-cnh" id="moto-cnh" name="cnh" accept="image/*" >
+              </div>-->
+
+              <div class=" col-xs-12 col-md-12 aplicativo">
+                <div class="col-xs-12">
+                  <label >Trabalha por aplicativo:</label>
+                </div>
+
+                <div class="form-group col-xs-6 col-md-4">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input check4" type="checkbox" id="ifood" name = "aplicativo[]"  value="1"  ng-model="ifood" >
+                    <label class="form-check-label" for="ifood">Ifood</label>
+                  </div>
+                </div>
+                <div class="form-group col-xs-6 col-md-4">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input check4" type="checkbox" id="uber" name = "aplicativo[]" value="3"  ng-model="uber">
+                    <label class="form-check-label" for="uber">Uber Eats</label>
+                  </div>
+                </div>
+
+                <div class="form-group col-xs-6 col-md-4">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input check4" type="checkbox" id="loggi" name = "aplicativo[]" value="4"  ng-model="loggi">
+                    <label class="form-check-label" for="loggi">Loggi</label>
+                  </div>
+                </div>
+                   <!--RAPPI-->
+               <div class="form-group col-xs-12 col-md-4 aplicativo">
+                    <i class="icon icon-edita">
+                      <input class="form-check-input check4 " type="checkbox" id="rappi" name="aplicativo[]" value="2" ng-model="rappi" style="margin-left: 15px;">
+                      <label>Rappi</label> <label style="color:red; font-size:10px "> *Código Obrigatório</label>
+                    </i>
+                    <div class="Box_editor">
+                        <input type="text" name="codRappi" maxlength="6" placeholder="Insira o código da Rappi" style="padding: 5px" 
+                        ng-model="codRappi" >
+                    </div>
+                </div> 
+
+              </div> 
+
+              
+
+         <!--     <div class="form-group col-xs-12 col-md-12 transporte">
+                <div class="col-xs-12 transport">
+                  <label >Transportes da Moto:</label>
+                </div>
+
+                <div class="form-group col-xs-6 col-md-6">
+                  <div class="form-check form-check-inline radius">
+                    <input class="form-check-input" type="radio"  name = "transporte"  value="1"  ng-model="bau" >
+                    <label class="form-check-label" for="combau">Com Baú (R$ 36,99) </label>
+                  </div>
+                </div>
+
+                <div class="form-group col-xs-6 col-md-6">
+                  <div class="form-check form-check-inline radius">
+                    <input class="form-check-input" type="radio" name = "transporte" value="0"  ng-model="bau">
+                    <label class="form-check-label" for="sembau">Sem Baú (R$ 34,99) </label>
+                  </div>
+                </div>
+              </div>  -->  
+              <div class="form-group col-xs-12 cadastro btn2" style="padding-left: 15px;">
+                <button type="button"  class="btn-cadastro" ng-click="enviarCadastro('6');"  ng-show="!cadTrue">Enviar Cadastro</button>
+                <span class="msn-txt"></span>
+              </div>
+            </div>
+          <!-- <div class="row">  
+                <div class="form-group col-md-5 col-sm-12 col-xs-12" style="    position: relative;top: 10px;">
+                    <div class="g-recaptcha" data-sitekey="6LeaQHQUAAAAAC7KVG-vv0zbA4ZG8I5rf597HX31"></div>
+                </div>
+              </div>-->
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <hr>
+              <!--  <p>Nossos serviços de locação são exclusivamente desenvolvidos para você que deseja voltar ao mercado de trabalho com um custo mais acessível. <label>Termos de Uso.</label></p>
+               <hr>-->
+             </div>
+           </div>
+         </div>
+       </div>
+</section>
+
+
+
+<div class="col-md-12" style="margin-top: 10vh"></div>
+
+<!--Pagina bloco2-->
+<section class="bloco2 " >
+  <div class="container"  >
+    <div class="row featurette text-moto "  >
+
+     <div class="col-sm-12 col-md-7 text-center mobile"  >
+       <img src="images/locacao/bikepreta.jpg" width="100%">
+       <br>
+     </div>
+
+
+     <div class="col-sm-12 col-md-5 order-md-2 order-sm-2" >
+        <div id="goey"></div> 
+       <div class="pricing-header mx-auto text-left" style="padding-left: 20px">
+        <div class="row">
+          <div class="diariaa">
+           <br>
+           <p><label  class="bikeeltricaapartir">Bike Elétrica</label> A PARTIR DE </p>
+         </div>
+         <div class="diaria"> 
+          <h1 class="display-4" >R$ 10,84</h1><label style="color:#4266AE" >/POR DIA</label>
+        </div>
+
+        <p class="bikeeletrica">
+          Leve, prática e confortável. Um transporte 100% <br>eco-friendly. 
+          <label style="color:#4266AE"> Locação mínima de 30 dias.</label>
+        </p>
+
+        <hr>
+        <div class="instruçao">
+          <p style="font-weight: 600"><img src="images/locacao/ve.png" width="25px"> Sem necessidade de Cartão de Crédito</p>
+          <p style="font-weight: 600"><img src="images/locacao/ve.png" width="25px"> Pagamento por Boleto Bancário</p>
+          <p><img src="images/locacao/ve.png" width="25px"> Manutenção Incluída</p>
+          <p><img src="images/locacao/ve.png" width="25px"> Conforto & Segurança</p>
+          <p><img src="images/locacao/ve.png" width="25px"> Não precisa de CNH</p>
+          <p><img src="images/locacao/ve.png" width="25px"> Autonomia de 25Km</p>
+          <p><img src="images/locacao/ve.png" width="25px"> Não usa combustível</p>
+          <p><img src="images/locacao/ve.png" width="25px"> Recarga Rápida 5/7 horas</p>
+         <!-- <p><img src="images/locacao/ve.png" width="25px"> Bag Térmica para Restaurantes</p>-->
+        </div>
+        <br>
+      <!--  <a class="price"  data-toggle="bottom" onclick="stepbanner(2);" >
+          <button>Alugar Bike</button>
+        </a>-->
+        <!-- Alugar Bike -->
+        <button type="button" class="price" data-toggle="modal" data-target=".bd-example-modal-lg">Alugar Bike</button>
+        <div class="modal fade bd-example-modal-lg"   aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+             <div  class="col-xs-12 col-md-12" style="padding: 25px; background: white; border-radius: 5px;">
+              <h2 class="text-center"><label  class="bikeeltricaapartir">Bike Elétrica</label>
+                <a type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </a>
+              </h2>
+
+              <form class="form-group needs-validation form2  form-group form-cadastro " name="formlocacao-bike" novalidate>
+                <div class="row">
+                  <!--Nome-->
+                  <div class="form-group col-xs-12 col-md-4"  ng-class="{'is-invalid' : formlocacao.nomeCompleto.$invalid && !formlocacao.nomeCompleto.$pristine }">
+                   <label>Nome Completo: *</label>
+                   <input type="text" capitalize class="form-control" name="nome" id="nome" ng-model="nome" 
+                   onkeypress='return SomenteLetra(event)' required >
+                   <!--p ng-show="formlocacao.nome.$invalid && !formlocacao.nome.$pristine" class="help-block" >Nome é obrigatório.</p-->
+                 </div>
+                 <!--cpf-->
+                 <div class="form-group col-xs-12 col-md-4" ng-class="{'is-invalid' : formlocacao.cpf.$invalid && !formlocacao.cpf.$pristine }" >
+                  <label>CPF:*</label>
+                  <input type="text"  ng-model="cpf" name="cpf" class="form-control" ui-br-cpf-mask 
+                  ng-class="{'is-invalid': formlocacao.cpf.$invalid && formlocacao.cpf.$touched,'is-valid': formlocacao.cpf.$valid}" onkeypress='return SomenteNumero(event)' required>
+                  <!-- <p ng-show="formlocacao.cpf.$invalid && !formlocacao.cpf.$pristine" class="help-block">Digite um CPF válido.</p>-->
+                </div>
+                <!--Rg-->
+                <div class=" form-group col-xs-12 col-md-4" ng-class="{'is-invalid' : formlocacao.rg.$invalid && !formlocacao.rg.$pristine }">
+                  <label>RG:*</label>
+                  <input type="text"  ng-model="rg" name="rg" class="form-control" id="Rg"  size="30" maxlength="12"   ng-class="{'is-invalid': formlocacao.rg.$invalid && formlocacao.rg.$touched,'is-valid': formlocacao.rg.$valid}" onkeypress='return SomenteNumero(event)' required>
+                  <!-- <p ng-show="formlocacao.rg.$invalid && !formlocacao.rg.$pristine" class="help-block">Digite um rg válido.</p>-->
+                </div>
+                <!--sexo -->
+                <div class="form-group col-xs-6 col-md-4">
+                  <label >Sexo:</label>
+                  <select class="form-control" name="sexo" ng-model="sexo">
+                    <option value="0">Selecione</option>    
+                    <option value="1">Masculino</option>          
+                    <option value="2">Feminino</option>           
+                  </select>
+                </div>
+                <!-- nascimento-->
+                <div class="form-group col-xs-6 col-md-3">
+                  <label >Nascimento:</label>
+                  <input type="text" id="cmpDate" name="datanascimento" class="form-control"  ng-model="datanascimento"
+                  placeholder=""  min="2013-01-01" max="2023-12-31" ui-date-mask="DD/MM/YYYY" parse="false"/>
+                </div>
+                <!-- Estado  civil-->
+                <div class="form-group col-xs-6 col-md-3">
+                  <label >Estado Civil:</label>
+                  <select class="form-control" name="estadocivil" id="estadocivil" ng-model="estadocivil">
+                    <option value="0" >Selecione</option>
+                    <option value="1" >Solteiro(a)</option>
+                    <option value="2" >Casado(a)</option>
+                    <option value="4" >Viuvo(a)</option>
+                    <option value="5" >Separado(a) Judicial</option>
+                    <option value="6" >Companheiro(a)</option>
+                    <option value="7" >Divorciado(a)</option>
+                    <option value="8" >Outros</option>
+                  </select>
+                </div>
+                <!--filhos -->
+                <div class="form-group col-xs-6 col-md-2">
+                  <label >Possui Filhos:</label>
+                  <select class="form-control" name="filhos" id="filhos" ng-model="filhos">
+                    <option value="0" >Selecione</option>
+                    <option value="1" >Sim</option>
+                    <option value="2" >Não</option>
+                  </select>
+                </div>
+                <!--celular -->
+                <div class="form-group col-xs-12 col-md-6">
+                  <label >Celular *</label>
+                  <input type="text" capitalize class="form-control" name="telefone" id="telefone" ng-model="telefone" ui-br-phone-number ng-minlength="15" ng-class="{'is-invalid': formlocacao.telefone.$invalid && formlocacao.telefone.$touched,'is-valid': formlocacao.telefone.$valid}" >
+                </div> 
+                <!--email -->
+                <div class="form-group col-xs-12 col-md-6">
+                  <label >E-mail *</label>
+                  <input type="email" capitalize class="form-control" name="email" id="email" ng-model="email">
+                </div>
+                <!--cep -->
+                <div class="form-group col-xs-12 col-md-4">
+                  <label >Cep:</label>
+                   <!-- <input type="text" capitalize class="form-control" name="cep" id="cep" ng-model="cep" ui-br-cep-mask ng-class="{'is-invalid': formlocacao.cep.$invalid && formlocacao.cep.$touched,'is-valid': formlocacao.cep.$valid}" required ng-change="getAddressByCep();">
+                   -->
+                   <input type="text" class="form-control inputBuscar" id="cep" name="cep" autofocus ng-model="buscar.cep" ui-br-cep-mask ng-change="buscaCep(buscar.cep)"/>
+                 </div>
+                 <!--uf -->
+                 <div class="form-group col-xs-12  col-md-4" ng-class="{ 'is-invalid' : formlocacao.uf.$invalid && !formlocacao.uf.$pristine }">
+                   <label for="uf">UF *</label>
+                   <select class="form-control" name="uf" id="uf" ng-model="uf" ng-class="{'is-invalid': formlocacao.uf.$invalid && formlocacao.uf.$touched,'is-valid': formlocacao.uf.$valid}" required>
+                     <option value="">SELECIONE</option>
+                      <!--  <option value="AC">Acre</option>
+                       <option value="AL">Alagoas</option>
+                       <option value="AP">Amapá</option>
+                       <option value="AM">Amazonas</option>
+                       <option value="BA">Bahia</option>
+                       <option value="CE">Ceará</option>
+                       <option value="DF">Distrito Federal</option>
+                       <option value="ES">Espírito Santo</option>
+                       <option value="GO">Goiás</option>
+                       <option value="MA">Maranhão</option>
+                       <option value="MT">Mato Grosso</option>
+                       <option value="MS">Mato Grosso do Sul</option>
+                       <option value="MG">Minas Gerais</option>
+                       <option value="PA">Pará</option>
+                       <option value="PB">Paraíba</option>
+                       <option value="PR">Paraná</option>
+                       <option value="PE">Pernambuco</option>
+                       <option value="PI">Piauí</option>
+                       <option value="RJ">Rio de Janeiro</option>
+                       <option value="RN">Rio Grande do Norte</option>
+                       <option value="RS">Rio Grande do Sul</option>
+                       <option value="RO">Rondônia</option>
+                       <option value="RR">Roraima</option>
+                       <option value="SC">Santa Catarina</option>-->
+                       <option value="SP" selected>São Paulo</option>
+                       <!--<option value="SE">Sergipe</option>
+                         <option value="TO">Tocantins</option>-->
+                       </select>
+                       <!--<p ng-show="formlocacao.uf.$invalid && !formlocacao.uf.$pristine" class="help-block">UF é obrigatório.</p>-->
+                     </div>
+                     <!--cidade-->
+                     <div class="form-group col-xs-12 col-md-4" ng-class="{ 'is-invalid' : formlocacao.cidade.$invalid && !formlocacao.cidade.$pristine }">
+                      <label for="cidade">Cidade *</label>
+                      <select  class="form-control" id="cidade" name="cidade" ng-model="cidade" >
+                        <option ng-repeat="c in comboCidades" ng-value="c.cidade">{{c.cidade}}</option>
+                      </select>   
+                    </div>  
+                  <!--
+                  <input type="text" capitalize class="form-control" name="cidade" id="cidade" ng-model="cidade" ng-class="{'is-invalid': formlocacao.cidade.$invalid && formlocacao.cidade.$touched,'is-valid': formlocacao.cidade.$valid}" required onkeypress='return SomenteLetra(event)'>
+                  <p ng-show="formlocacao.cidade.$invalid && !formlocacao.cidade.$pristine" class="help-block" >Cidade é obrigatório.</p>
+                -->
+                <!-- bairro -->
+                <div class="form-group col-xs-12 col-md-4" ng-class="{ 'is-invalid' : formlocacao.bairro.$invalid && !formlocacao.bairro.$pristine }">
+                  <label for="bairro">Bairro *</label>
+                  <input type="text" capitalize class="form-control" name="bairro" id="bairro" ng-model="bairro" ng-class="{'is-invalid': formlocacao.bairro.$invalid && formlocacao.bairro.$touched,'is-valid': formlocacao.bairro.$valid}" required onkeypress='return SomenteLetra(event)'>
+                  <!--<p ng-show="formlocacao.bairro.$invalid && !formlocacao.bairro.$pristine" class="help-block" >Bairro é obrigatório.</p>-->
+                </div>
+                <!--Logradouro-->
+                <div class="form-group col-xs-6 col-md-3">
+                 <label >Logradouro:</label>
+                 <input type="text" capitalize class="form-control" name="logradouro" id="logradouro" ng-model="logradouro" ng-class="{'is-invalid': formlocacao.logradouro.$invalid && formlocacao.logradouro.$touched,'is-valid': formlocacao.logradouro.$valid}" required onkeypress='return SomenteLetra(event)'>
+               </div>
+               <!--complemento-->
+               <div class="form-group col-xs-6 col-md-3">
+                 <label >Complemento:</label>
+                 <input type="text" capitalize class="form-control" id="complemento" name="complemento" ng-model="complemento" ng-class="{'is-valid': formlocacao.complemento.$valid && formlocacao.complemento.$touched}">
+               </div>
+               <div class="form-group col-xs-12  col-md-2" >
+                <label for="numero">Número *</label>
+                <input type="tel" class="form-control" name="numero" id="numero" ng-model="numero" ng-class="{'is-invalid': formUsuario.numero.$invalid && formUsuario.numero.$touched,'is-valid': formUsuario.numero.$valid}" required onkeypress='return SomenteNumero(event)'>
+              </div>
+              <div class="form-group col-xs-12 col-md-12 aplicativo">
+                <div class="col-xs-12">
+                  <label >Trabalha por aplicativo:</label>
+                </div>
+                <div class="col-xs-6 col-md-4">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input check1" type="checkbox" id="ifood" name = "aplicativo[]" value="1"  ng-model="ifood1" >
+                    <label class="form-check-label" for="ifood">Ifood</label>
+                  </div>
+                </div>
+                
+                <div class="form-group col-xs-6 col-md-4">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input check1" type="checkbox" id="uber" name = "aplicativo[]" value="3"  ng-model="uber1">
+                    <label class="form-check-label" for="uber">Uber Eats</label>
+                  </div>
+                </div>
+                <div class="form-group col-xs-6 col-md-4">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input check1" type="checkbox" id="loggi" name = "aplicativo[]" value="4"  ng-model="loggi1">
+                    <label class="form-check-label" for="loggi">Loggi</label>
+                  </div>
+                </div>
+                <!--RAPPI-->
+               <div class="form-group col-xs-12 col-md-4 aplicativo">
+                    <i class="icon icon-edita">
+                      <input class="form-check-input check1 " type="checkbox" id="rappi" name="aplicativo[]" value="2" ng-model="rappi" style="margin-left: 15px;">
+                      <label>Rappi</label> <label style="color:red; font-size:10px "> *Código Obrigatório</label>
+                    </i>
+                    <div class="Box_editor">
+                        <input type="text" name="codRappi" maxlength="6" placeholder="Insira o código da Rappi" style="padding: 5px" 
+                        ng-model="codRappi" >
+                    </div>
+                </div> 
+              </div>  
+              
+
+              <div class="form-group col-xs-12 col-md-12 transporte">
+                <div class="col-xs-12">
+                  <label >Transportes da Bike:</label>
+                </div>
+                <!-- <div class="form-group col-xs-6 col-md-6">
+                 <div class="form-check form-check-inline radius">
+                    <input class="form-check-input check1" type="radio"  name = "transporte"  value="1"  ng-model="bau" >
+                    <label class="form-check-label" for="combau">Com Baú (R$ 17,99)</label>
+                  </div>
+                </div>-->
+
+                <div class="form-group col-xs-12 col-md-12">
+                  <div class="form-check form-check-inline radius">
+                    <input class="form-check-input" type="radio" name = "transporte" value="0"  ng-model="bau">
+                    <label class="form-check-label" for="sembau">Sem Baú (R$ 10,84)</label>
+                  </div>
+                </div>
+              </div>    
+              <div class="form-group col-xs-12  cadastro " style="padding-left: 15px; ">
+               <button type="submit" class="btn-cadastro" ng-click="enviarCadastro('4');"  ng-show="!cadTrue">Enviar Cadastro</button>
+               <span class="msn-txt"></span>
+             </div>
+           </div>
+         </form>
+       </div>
+     </div>
+   </div>
+ </div>
+
+ <hr>
+              <!--  <p>Nossos serviços de locação são exclusivamente desenvolvidos para você que deseja voltar ao mercado de trabalho com um custo mais acessível. <label>Termos de Uso.</label></p>
+               <hr>-->
+             </div>
+           </div>
+         </div>
+
+         <div class="col-md-7  desktop">
+           <img src="images/locacao/bikepreta.jpg" width="540px" >
+         </div>
+       </div>
+     </div>
+   </section>
+
+<div class="col-md-12" style="margin-top: 5vh"></div>
+
+   <!--Pagina bloco3-->
+   <section class="bloco3" >
+     <div class="container">
+      <div class="row featurette text-moto">
+        <div id="goey3" ></div>
+        <div class="col-sm-12 col-md-7 order-md-1 text-center mobile"  >
+          <img src="images/locacao/motobanner.jpg" width="100%" >
+          <br>
+        </div>
+        <div class="col-md-7 order-md-1 text-center desktop">
+          <img src="images/locacao/motobanner.jpg" width="550px" >
+        </div>
+        <div class="col-sm-12 col-md-5 order-md-2 order-sm-2" >
+         <div class="pricing-header mx-auto text-left" style="padding-left: 20px">
+          <div class="row">
+           <div class="diariaa">
+             
+             <br>
+             <p><label  class="bikeeltricaapartir">Honda CG Cargo</label> A PARTIR DE </p>
+           </div>
+           <div class="diaria"> 
+            <h1 class="display-4" >R$ 34,99</h1><label style="color:#4266AE" >/POR DIA</label>
+          </div>
+          <p class="bikeeletrica">
+            Pronta para o dia-a-dia. O motor 160CC alia alto rendimento e <br>
+            baixo consumo de combustível.<label style="color:#4266AE"> Locação mínima de 30 dias.</label>
+          </p>
+          <hr>
+          <div class="instruçao">
+           <p style="font-weight: 600"><img src="images/locacao/ve.png" width="25px"> Sem necessidade de Cartão de Crédito</p>
+           <p style="font-weight: 600"><img src="images/locacao/ve.png" width="25px"> Pagamento por Boleto Bancário</p>    
+           <p><img src="images/locacao/ve.png" width="25px"> Manutenção Incluída</p>
+           <p><img src="images/locacao/ve.png" width="25px"> Documentação Incluída</p>
+           <p><img src="images/locacao/ve.png" width="25px"> Baú Fixo de 61X52cm</p>
+           <p><img src="images/locacao/ve.png" width="25px"> Equipada para Trabalhar</p>
+           <p><img src="images/locacao/ve.png" width="25px"> Veículos Novos</p>
+           <p><img src="images/locacao/ve.png" width="25px"> Rastreamento</p>
+           <!--<p><img src="images/locacao/ve.png" width="25px"> Bag Térmica para Restaurantes</p>-->
+         </div>
+         <br>
+        <!-- <a class="price"  data-toggle="bottom" onclick="stepbanner(2);" >
+            <button>Alugar Bike</button>
+          </a>-->
+
+          <!-- Large modal -->
+          <button type="button" class="price"  data-toggle="modal" data-target=".bd-example-modal-lg2">Alugar Cargo</button>
+
+          <div class="modal fade bd-example-modal-lg2"   aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+
+
+               <div  class="col-xs-12 col-md-12" style="padding: 25px; background: white; border-radius: 5px;">
+                 <h2 class="text-center"><label  class="bikeeltricaapartir">Honda CG Cargo</label>     
+                  <a type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </a>
+                </h2>
+
+                <form class=" form-group needs-validation form1 form-group form-cadastro" name="formlocacao-moto" novalidate="" id="formlocacao-moto" >
+                 <div class="row">
+
+                  <!--Nome-->
+                  <div class="form-group col-xs-12 col-md-4"  ng-class="{'is-invalid' : formlocacao.nomeCompleto.$invalid && !formlocacao.nomeCompleto.$pristine }">
+                   <label>Nome Completo: *</label>
+                   <input type="text" capitalize class="form-control" name="nome" id="nome" ng-model="nome" 
+                   ng-class="{'is-invalid': formlocacao.nome.$invalid && formlocacao.nome.$touched,'is-valid': formlocacao.nome.$valid}" onkeypress='return SomenteLetra(event)' required >
+                   <!-- <p ng-show="formlocacao.nome.$invalid && !formlocacao.nome.$pristine" class="help-block" >Nome é obrigatório.</p>-->
+                 </div>
+
+                 <!--cpf-->
+                 <div class="form-group col-xs-12 col-md-4" ng-class="{'is-invalid' : formlocacao.cpf.$invalid && !formlocacao.cpf.$pristine }" >
+                  <label>CPF:*</label>
+                  <input type="text"  ng-model="cpf" name="cpf" class="form-control" ui-br-cpf-mask 
+                  ng-class="{'is-invalid': formlocacao.cpf.$invalid && formlocacao.cpf.$touched,'is-valid': formlocacao.cpf.$valid}" onkeypress='return SomenteNumero(event)' required>
+                  <!--<p ng-show="formlocacao.cpf.$invalid && !formlocacao.cpf.$pristine" class="help-block">Digite um CPF válido.</p>-->
+                </div>
+
+                <!--Rg-->
+                <div class=" form-group col-xs-12 col-md-4" ng-class="{'is-invalid' : formlocacao.rg.$invalid && !formlocacao.rg.$pristine }">
+                  <label>RG:*</label>
+                  <input type="text"  ng-model="rg" name="rg" class="form-control" ui-br-rg-mask id="Rg"  size="30" maxlength="12"  
+                  ng-class="{'is-invalid': formlocacao.rg.$invalid && formlocacao.rg.$touched,'is-valid': formlocacao.rg.$valid}" onkeypress='return SomenteNumero(event)' required>
+                  <!-- <p ng-show="formlocacao.rg.$invalid && !formlocacao.rg.$pristine" class="help-block">Digite um rg válido.</p>-->
+                </div>
+
+                <!--sexo -->
+                <div class="form-group col-xs-6 col-md-3">
+                  <label >Sexo:</label>
+                  <select class="form-control" name="sexo" ng-model="sexo">
+                    <option value="0">Selecione</option>    
+                    <option value="1">Masculino</option>          
+                    <option value="2">Feminino</option>           
+                  </select>
+                </div>
+
+                <!-- nascimento-->
+                <div class="form-group col-xs-6 col-md-3">
+                  <label >Nascimento:</label>
+                  <input type="text" id="cmpDate" name="datanascimento" class="form-control"  ng-model="datanascimento"
+                  placeholder=""  min="2013-01-01" max="2023-12-31" ui-date-mask="DD/MM/YYYY" parse="false"/>
+                </div>
+
+                <!-- Estado  civil-->
+                <div class="form-group col-xs-6 col-md-3">
+                  <label >Estado Civil:</label>
+                  <select class="form-control" name="estadocivil" id="estadocivil" ng-model="estadocivil">
+                   <option value="0" >Selecione</option>
+                   <option value="1" >Solteiro(a)</option>
+                   <option value="2" >Casado(a)</option>
+                   <option value="3" >Viuvo(a)</option>
+                   <option value="4" >Separado(a) Judicial</option>
+                   <option value="5" >Companheiro(a)</option>
+                   <option value="6" >Divorciado(a)</option>
+                   <option value="7" >Outros</option>
+                 </select>
+               </div>
+
+               <!--filhos -->
+               <div class="form-group col-xs-6 col-md-3">
+                <label >Possui Filhos:</label>
+                <select class="form-control" name="filhos" id="filhos" ng-model="filhos">
+                  <option value="0" >Selecione</option>
+                  <option value="1" >Sim</option>
+                  <option value="2" >Não</option>
+                </select>
+              </div>
+
+              <!--celular -->
+              <div class="form-group col-xs-12 col-md-6">
+                <label >Celular *</label>
+                <input type="text" capitalize class="form-control" name="telefone" id="telefone" ng-model="telefone" ui-br-phone-number ng-minlength="15" ng-class="{'is-invalid': formlocacao.telefone.$invalid && formlocacao.telefone.$touched,'is-valid': formlocacao.telefone.$valid}" >
+              </div> 
+
+              <!--email -->
+              <div class="form-group col-xs-12 col-md-6">
+                <label >E-mail *</label>
+                <input type="email" capitalize class="form-control" name="email"  ng-model="email" >
+              </div>
+
+              <div class="form-group col-xs-12 col-md-4">
+                <label >Cep:</label>
+                <!-- <input type="text" capitalize class="form-control" name="cep" id="cep" ng-model="cep" ui-br-cep-mask ng-class="{'is-invalid': formlocacao.cep.$invalid && formlocacao.cep.$touched,'is-valid': formlocacao.cep.$valid}" required ng-change="getAddressByCep();">-->
+                <input type="text" class="form-control inputBuscar" id="cep" name="cep" autofocus ng-model="buscar.cep" ui-br-cep-mask ng-change="buscaCep(buscar.cep)"/>
+              </div>
+
+              <!--uf -->
+              <div class="form-group col-xs-12  col-md-4" ng-class="{ 'is-invalid' : formlocacao.uf.$invalid && !formlocacao.uf.$pristine }">
+               <label for="uf">UF *</label>
+               <select class="form-control" name="uf" id="uf" ng-model="uf" ng-class="{'is-invalid': formlocacao.uf.$invalid && formlocacao.uf.$touched,'is-valid': formlocacao.uf.$valid}" required>
+                <option value="">SELECIONE</option>
+                  <!--  <option value="AC">Acre</option>
+                   <option value="AL">Alagoas</option>
+                   <option value="AP">Amapá</option>
+                   <option value="AM">Amazonas</option>
+                   <option value="BA">Bahia</option>
+                   <option value="CE">Ceará</option>
+                   <option value="DF">Distrito Federal</option>
+                   <option value="ES">Espírito Santo</option>
+                   <option value="GO">Goiás</option>
+                   <option value="MA">Maranhão</option>
+                   <option value="MT">Mato Grosso</option>
+                   <option value="MS">Mato Grosso do Sul</option>
+                   <option value="MG">Minas Gerais</option>
+                   <option value="PA">Pará</option>
+                   <option value="PB">Paraíba</option>
+                   <option value="PR">Paraná</option>
+                   <option value="PE">Pernambuco</option>
+                   <option value="PI">Piauí</option>
+                   <option value="RJ">Rio de Janeiro</option>
+                   <option value="RN">Rio Grande do Norte</option>
+                   <option value="RS">Rio Grande do Sul</option>
+                   <option value="RO">Rondônia</option>
+                   <option value="RR">Roraima</option>
+                   <option value="SC">Santa Catarina</option>-->
+                   <option value="SP" selected>São Paulo</option>
+                   <!--<option value="SE">Sergipe</option>
+                     <option value="TO">Tocantins</option>-->
+                   </select>
+                   <!-- <p ng-show="formlocacao.uf.$invalid && !formlocacao.uf.$pristine" class="help-block">UF é obrigatório.</p>-->
+                 </div>
+
+                 <!--cidade-->
+                 <div class="form-group col-xs-12 col-md-4" ng-class="{ 'is-invalid' : formlocacao.cidade.$invalid && !formlocacao.cidade.$pristine }">
+                  <label for="cidade">Cidade *</label>
+                  <select  class="form-control" id="cidade" name="cidade" ng-model="cidade" >
+                    <option ng-repeat="c in comboCidades" ng-value="c.cidade">{{c.cidade}}</option>
+                  </select>   
+                </div>
+
+                <!-- bairro -->
+                <div class="form-group col-xs-12 col-md-4" ng-class="{ 'is-invalid' : formlocacao.bairro.$invalid && !formlocacao.bairro.$pristine }">
+                  <label for="bairro">Bairro *</label>
+                  <input type="text" capitalize class="form-control" name="bairro" id="bairro" ng-model="bairro" ng-class="{'is-invalid': formlocacao.bairro.$invalid && formlocacao.bairro.$touched,'is-valid': formlocacao.bairro.$valid}" required onkeypress='return SomenteLetra(event)'>
+                  <!--<p ng-show="formlocacao.bairro.$invalid && !formlocacao.bairro.$pristine" class="help-block" >Bairro é obrigatório.</p>-->
+                </div>
+
+                <!--Logradouro-->
+                <div class="form-group col-xs-6 col-md-3">
+                 <label >Logradouro:</label>
+                 <input type="text" capitalize class="form-control" name="logradouro" id="logradouro" ng-model="logradouro" ng-class="{'is-invalid': formlocacao.logradouro.$invalid && formlocacao.logradouro.$touched,'is-valid': formlocacao.logradouro.$valid}" required onkeypress='return SomenteLetra(event)'>
+               </div>
+
+               <!--complemento-->
+               <div class="form-group col-xs-6 col-md-3">
+                 <label >Complemento:</label>
+                 <input type="text" capitalize class="form-control" id="complemento" name="complemento" ng-model="complemento" ng-class="{'is-valid': formlocacao.complemento.$valid && formlocacao.complemento.$touched}">
+               </div>
+
+               <!--numero-->
+               <div class="form-group col-xs-12  col-md-2" >
+                <label for="numero">Número *</label>
+                <input type="tel" class="form-control" name="numero" id="numero" ng-model="numero" ng-class="{'is-invalid': formUsuario.numero.$invalid && formUsuario.numero.$touched,'is-valid': formUsuario.numero.$valid}" required onkeypress='return SomenteNumero(event)'>
+              </div>
+
+              <div class="form-group col-xs-6 col-md-4">
+                <label >Numero de CNH:</label>
+                <input type="text" class="form-control" name="ncnh" id="moto-ncnh" placeholder="" value="" required="" ng-model="ncnh" size="15" maxlength="15" onkeypress='return SomenteNumero(event)'>
+              </div>
+
+              <div class="form-group col-xs-6 col-md-4">
+                <label >Validade:</label>
+                <input type="text" class="form-control" ui-date-mask="DD/MM/YYYY" name="validade"  id="moto-validade" ng-model="validade">
+              </div>
+
+              <div class="form-group col-xs-12 col-md-4">
+                <label >1º Habilitação:</label>
+                <input type="text" class="form-control" name="habilitacao" id="moto-habilitacao" ng-model="habilitacao" ui-date-mask="DD/MM/YYYY">
+              </div>
+
+              <div class="form-group col-xs-6 col-md-6">
+                <label >Fotos CNH:</label>
+                <input type="file" class="form-control-file input-cnh" id="moto-cnh" name="cnh" accept="image/*" >
+              </div>
+
+              <div class="form-group col-xs-12 col-md-12 aplicativo">
+                <div class="col-xs-12">
+                  <label >Trabalha por aplicativo:</label>
+                </div>
+
+                <div class="form-group col-xs-6 col-md-4">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input check2" type="checkbox" id="ifood" name = "aplicativo[]"  value="1"  ng-model="ifood" >
+                    <label class="form-check-label" for="ifood">Ifood</label>
+                  </div>
+                </div>
+
+                <div class="form-group col-xs-6 col-md-4">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input check2" type="checkbox" id="uber" name = "aplicativo[]" value="3"  ng-model="uber">
+                    <label class="form-check-label" for="uber">Uber Eats</label>
+                  </div>
+                </div>
+
+                <div class="form-group col-xs-6 col-md-4">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input check2" type="checkbox" id="loggi" name = "aplicativo[]" value="4"  ng-model="loggi">
+                    <label class="form-check-label" for="loggi">Loggi</label>
+                  </div>
+                </div>
+                <!--Rappi-->
+                <div class="form-group col-xs-12 col-md-4 aplicativo">
+                    <i class="icon icon-edita">
+                      <input class="form-check-input check2 " type="checkbox" id="rappi" name="aplicativo[]" value="2" ng-model="rappi" style="margin-left: 15px;">
+                      <label>Rappi</label> <label style="color:red; font-size:10px "> *Código Obrigatório</label>
+                    </i>
+                    <div class="Box_editor">
+                        <input type="text" name="codRappi" maxlength="6" placeholder="Insira o código da Rappi" style="padding: 5px" 
+                        ng-model="codRappi" >
+                    </div>
+                </div> 
+              </div>   
+
+          
+              <div class="form-group col-xs-12 col-md-12 transporte">
+                <div class="col-xs-12 transport">
+                  <label >Transportes da Moto:</label>
+                </div>
+
+                <div class="form-group col-xs-6 col-md-6">
+                  <div class="form-check form-check-inline radius">
+                    <input class="form-check-input" type="radio"  name = "transporte"  value="1"  ng-model="bau" >
+                    <label class="form-check-label" for="combau">Com Baú (R$ 36,99) </label>
+                  </div>
+                </div>
+
+                <div class="form-group col-xs-6 col-md-6">
+                  <div class="form-check form-check-inline radius">
+                    <input class="form-check-input" type="radio" name = "transporte" value="0"  ng-model="bau">
+                    <label class="form-check-label" for="sembau">Sem Baú (R$ 34,99) </label>
+                  </div>
+                </div>
+              </div>    
+
+
+              <div class="form-group col-xs-12 cadastro btn2" style="padding-left: 15px;">
+                <button type="button"  class="btn-cadastro" ng-click="enviarCadastro('2');"  ng-show="!cadTrue">Enviar Cadastro</button>
+                <span class="msn-txt"></span>
+              </div>
+            </div>
+
+          <!-- <div class="row">  
+                <div class="form-group col-md-5 col-sm-12 col-xs-12" style="    position: relative;top: 10px;">
+                    <div class="g-recaptcha" data-sitekey="6LeaQHQUAAAAAC7KVG-vv0zbA4ZG8I5rf597HX31"></div>
+                </div>
+              </div>-->
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <hr>
+              <!--  <p>Nossos serviços de locação são exclusivamente desenvolvidos para você que deseja voltar ao mercado de trabalho com um custo mais acessível. <label>Termos de Uso.</label></p>
+               <hr>-->
+             </div>
+           </div>
+         </div>
+
+         
+       </div>
+     </div>
+   </section>
+
+
+<div class="col-md-12" style="margin-top: 5vh"></div>
+
+   <!--Pagina bloc4-->
+   <section class="bloco4"   >
+    <div class="container">
+      <div class="row featurette text-moto"   >
+        <div id="goey2"></div>
+        <div class="col-sm-12 col-md-7 order-md-1 text-center mobile">
+          <img src="images/locacao/carrobanner.jpg" width="100%">
+          <br>
+        </div>
+        <div class="col-sm-12 col-md-5 order-md-2 order-sm-2" >
+         <div class="pricing-header mx-auto text-left" style="padding-left: 20px">
+          <div class="row">
+            <div class="diariaa">
+             <br>
+             <p><label  class="bikeeltricaapartir">Renault KWID</label> A PARTIR DE </p>
+           </div>
+
+           <div class="diaria"> 
+            <h1 class="display-4" >R$ 65,99</h1><label style="color:#4266AE" >/POR DIA</label>
+          </div>
+
+          <p class="bikeeletrica">
+            Design, segurança e economia. Locação válida somente <br> para Motoristas de Aplicativos. 
+            <label style="color:#4266AE"> Locação mínima de 30 dias.</label>
+          </p>
+          <hr>
+          <div class="instruçao">
+            <p style="font-weight: 600"><img src="images/locacao/ve.png" width="25px"> Sem necessidade de Cartão de Crédito</p>
+            <p style="font-weight: 600"><img src="images/locacao/ve.png" width="25px"> Pagamento por Boleto Bancário</p>
+            <p><img src="images/locacao/ve.png" width="25px"> Econômico com ar </p>
+            <p><img src="images/locacao/ve.png" width="25px"> 4 Portas, direção e travas elétricas </p>
+            <p><img src="images/locacao/ve.png" width="25px"> Emplacado e licenciado</p>
+            <p><img src="images/locacao/ve.png" width="25px"> Manutenção constante</p>
+            <p><img src="images/locacao/ve.png" width="25px"> Custo fixo, você sabe o quanto vai gastar</p>
+            <p><img src="images/locacao/ve.png" width="25px"> Seu veículo sempre novo</p>
+            <p><img src="images/locacao/ve.png" width="25px"> Quando termina de usar, é só devolver</p>
+          </div>
+          <br>
+            <!-- <a class="price"  data-toggle="bottom" onclick="stepbanner(2);" >
+              <button>Alugar Bike</button>
+            </a>-->
+
+            <!-- Large modal -->
+            <button type="button" class="price"  data-toggle="modal" data-target=".bd-example-modal-lg3">Alugar KWID</button>
+
+            <div class="modal fade bd-example-modal-lg3"   aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div  class="col-xs-12 col-md-12" style="padding: 25px; background: white;  border-radius: 5px;">
+                   <h2 class="text-center"><label  class="bikeeltricaapartir">Renault KWID</label>
+                    <a type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </a>
+                  </h2>
+
+                  <form class=" form-group needs-validation form1 form-group form-cadastro" name="formlocacao-carro" novalidate="" id="formlocacao-carro" >
+                   <div class="row">
+
+                    <!--Nome-->
+                    <div class="form-group col-xs-12 col-md-4"  ng-class="{'is-invalid' : formlocacao.nomeCompleto.$invalid && !formlocacao.nomeCompleto.$pristine }">
+                     <label>Nome Completo: *</label>
+                     <input type="text" capitalize class="form-control" name="nome" id="nome" ng-model="nome" 
+                     ng-class="{'is-invalid': formlocacao.nome.$invalid && formlocacao.nome.$touched,'is-valid': formlocacao.nome.$valid}" onkeypress='return SomenteLetra(event)' required >
+                     <!--<p ng-show="formlocacao.nome.$invalid && !formlocacao.nome.$pristine" class="help-block" >Nome é obrigatório.</p>-->
+                   </div>
+
+                   <!--cpf-->
+                   <div class="form-group col-xs-12 col-md-4" ng-class="{'is-invalid' : formlocacao.cpf.$invalid && !formlocacao.cpf.$pristine }" >
+                    <label>CPF:*</label>
+                    <input type="text"  ng-model="cpf" name="cpf" class="form-control" ui-br-cpf-mask 
+                    ng-class="{'is-invalid': formlocacao.cpf.$invalid && formlocacao.cpf.$touched,'is-valid': formlocacao.cpf.$valid}" onkeypress='return SomenteNumero(event)' required>
+                    <!-- <p ng-show="formlocacao.cpf.$invalid && !formlocacao.cpf.$pristine" class="help-block">Digite um CPF válido.</p>-->
+                  </div>
+
+                  <!--Rg-->
+                  <div class=" form-group col-xs-12 col-md-4" ng-class="{'is-invalid' : formlocacao.rg.$invalid && !formlocacao.rg.$pristine }">
+                    <label>RG:*</label>
+                    <input type="text"  ng-model="rg" name="rg" class="form-control" ui-br-rg-mask id="Rg"  size="30" maxlength="12"  
+                    ng-class="{'is-invalid': formlocacao.rg.$invalid && formlocacao.rg.$touched,'is-valid': formlocacao.rg.$valid}" onkeypress='return SomenteNumero(event)' required>
+                    <!-- <p ng-show="formlocacao.rg.$invalid && !formlocacao.rg.$pristine" class="help-block">Digite um rg válido.</p>-->
+                  </div>
+
+                  <!--sexo -->
+                  <div class="form-group col-xs-6 col-md-3">
+                    <label >Sexo:</label>
+                    <select class="form-control" name="sexo" ng-model="sexo">
+                      <option value="0">Selecione</option>    
+                      <option value="1">Masculino</option>          
+                      <option value="2">Feminino</option>           
+                    </select>
+                  </div>
+
+                  <!-- nascimento-->
+                  <div class="form-group col-xs-6 col-md-3">
+                    <label >Nascimento:</label>
+                    <input type="text" id="cmpDate" name="datanascimento" class="form-control"  ng-model="datanascimento"
+                    placeholder=""  min="2013-01-01" max="2023-12-31" ui-date-mask="DD/MM/YYYY" parse="false"/>
+                  </div>
+
+                  <!-- Estado  civil-->
+                  <div class="form-group col-xs-6 col-md-3">
+                    <label >Estado Civil:</label>
+                    <select class="form-control" name="estadocivil" id="estadocivil" ng-model="estadocivil">
+                      <option value="0" >Selecione</option>
+                      <option value="1" >Solteiro(a)</option>
+                      <option value="2" >Casado(a)</option>
+                      <option value="3" >Viuvo(a)</option>
+                      <option value="4" >Separado(a) Judicial</option>
+                      <option value="5" >Companheiro(a)</option>
+                      <option value="6" >Divorciado(a)</option>
+                      <option value="7" >Outros</option>
+                    </select>
+                  </div>
+
+                  <!--filhos -->
+                  <div class="form-group col-xs-6 col-md-3">
+                    <label >Possui Filhos:</label>
+                    <select class="form-control" name="filhos" id="filhos" ng-model="filhos">
+                      <option value="0" >Selecione</option>
+                      <option value="1" >Sim</option>
+                      <option value="2" >Não</option>
+                    </select>
+                  </div>
+
+                  <!--celular -->
+                  <div class="form-group col-xs-12 col-md-6">
+                    <label >Celular *</label>
+                    <input type="text" capitalize class="form-control" name="telefone" id="telefone" ng-model="telefone" ui-br-phone-number ng-minlength="15" ng-class="{'is-invalid': formlocacao.telefone.$invalid && formlocacao.telefone.$touched,'is-valid': formlocacao.telefone.$valid}" >
+                  </div> 
+
+                  <!--email -->
+                  <div class="form-group col-xs-12 col-md-6">
+                    <label >E-mail *</label>
+                    <input  capitalize class="form-control" name="email"  ng-model="email" type="email" >
+                  </div>
+
+                  <!--cep -->
+                  <div class="form-group col-xs-12 col-md-4">
+                    <label >Cep:</label>
+                    <!-- <input type="text" capitalize class="form-control" name="cep" id="cep" ng-model="cep" ui-br-cep-mask ng-class="{'is-invalid': formlocacao.cep.$invalid && formlocacao.cep.$touched,'is-valid': formlocacao.cep.$valid}" required ng-change="getAddressByCep();">-->
+                    <input type="text" class="form-control inputBuscar" id="cep" name="cep" autofocus ng-model="buscar.cep" ui-br-cep-mask ng-change="buscaCep(buscar.cep)"/>
+                  </div>
+
+                  <!--uf -->
+                  <div class="form-group col-xs-12  col-md-4" ng-class="{ 'is-invalid' : formlocacao.uf.$invalid && !formlocacao.uf.$pristine }">
+                   <label for="uf">UF *</label>
+                   <select class="form-control" name="uf" id="uf" ng-model="uf" ng-class="{'is-invalid': formlocacao.uf.$invalid && formlocacao.uf.$touched,'is-valid': formlocacao.uf.$valid}" required>
+                    <option value="">SELECIONE</option>
+                  <!--  <option value="AC">Acre</option>
+                   <option value="AL">Alagoas</option>
+                   <option value="AP">Amapá</option>
+                   <option value="AM">Amazonas</option>
+                   <option value="BA">Bahia</option>
+                   <option value="CE">Ceará</option>
+                   <option value="DF">Distrito Federal</option>
+                   <option value="ES">Espírito Santo</option>
+                   <option value="GO">Goiás</option>
+                   <option value="MA">Maranhão</option>
+                   <option value="MT">Mato Grosso</option>
+                   <option value="MS">Mato Grosso do Sul</option>
+                   <option value="MG">Minas Gerais</option>
+                   <option value="PA">Pará</option>
+                   <option value="PB">Paraíba</option>
+                   <option value="PR">Paraná</option>
+                   <option value="PE">Pernambuco</option>
+                   <option value="PI">Piauí</option>
+                   <option value="RJ">Rio de Janeiro</option>
+                   <option value="RN">Rio Grande do Norte</option>
+                   <option value="RS">Rio Grande do Sul</option>
+                   <option value="RO">Rondônia</option>
+                   <option value="RR">Roraima</option>
+                   <option value="SC">Santa Catarina</option>-->
+                   <option value="SP" selected>São Paulo</option>
+                   <!--<option value="SE">Sergipe</option>
+                     <option value="TO">Tocantins</option>-->
+                   </select>
+                   <!-- <p ng-show="formlocacao.uf.$invalid && !formlocacao.uf.$pristine" class="help-block">UF é obrigatório.</p>-->
+                 </div>
+
+                 <!--cidade-->
+                 <div class="form-group col-xs-12 col-md-4" ng-class="{ 'is-invalid' : formlocacao.cidade.$invalid && !formlocacao.cidade.$pristine }">
+                  <label for="cidade">Cidade *</label>
+                  <select  class="form-control" id="cidade" name="cidade" ng-model="cidade" >
+                    <option ng-repeat="c in comboCidades" ng-value="c.cidade">{{c.cidade}}</option>
+                  </select>   
+                </div>
+
+                <!-- bairro -->
+                <div class="form-group col-xs-12 col-md-4" ng-class="{ 'is-invalid' : formlocacao.bairro.$invalid && !formlocacao.bairro.$pristine }">
+                  <label for="bairro">Bairro *</label>
+                  <input type="text" capitalize class="form-control" name="bairro" id="bairro" ng-model="bairro" ng-class="{'is-invalid': formlocacao.bairro.$invalid && formlocacao.bairro.$touched,'is-valid': formlocacao.bairro.$valid}" required onkeypress='return SomenteLetra(event)'>
+                  <!--<p ng-show="formlocacao.bairro.$invalid && !formlocacao.bairro.$pristine" class="help-block" >Bairro é obrigatório.</p>-->
+                </div>
+
+                <!--Logradouro-->
+                <div class="form-group col-xs-6 col-md-3">
+                 <label >Logradouro:</label>
+                 <input type="text" capitalize class="form-control" name="logradouro" id="logradouro" ng-model="logradouro" ng-class="{'is-invalid': formlocacao.logradouro.$invalid && formlocacao.logradouro.$touched,'is-valid': formlocacao.logradouro.$valid}" required onkeypress='return SomenteLetra(event)'>
+               </div>
+
+               <!--complemento-->
+               <div class="form-group col-xs-6 col-md-3">
+                 <label >Complemento:</label>
+                 <input type="text" capitalize class="form-control" id="complemento" name="complemento" ng-model="complemento" ng-class="{'is-valid': formlocacao.complemento.$valid && formlocacao.complemento.$touched}">
+               </div>
+
+               <!--numero-->
+               <div class="form-group col-xs-12  col-md-2" >
+                <label for="numero">Número *</label>
+                <input type="tel" class="form-control" name="numero" id="numero" ng-model="numero" ng-class="{'is-invalid': formUsuario.numero.$invalid && formUsuario.numero.$touched,'is-valid': formUsuario.numero.$valid}" required onkeypress='return SomenteNumero(event)'>
+              </div>
+
+              <div class="form-group col-xs-6 col-md-4">
+                <label >Numero de CNH:</label>
+                <input type="text" class="form-control" name="ncnh" id="carro-ncnh" placeholder="" value="" required="" ng-model="ncnh"
+                size="15" maxlength="15" onkeypress='return SomenteNumero(event)'>
+              </div>
+
+              <div class="form-group col-xs-6 col-md-4">
+                <label >Validade:</label>
+                <input type="text" class="form-control" ui-date-mask="DD/MM/YYYY" name="validade"  id="carro-validade" placeholder="" value="" required="" ng-model="validade">
+              </div>
+
+              <div class="form-group col-xs-12 col-md-4">
+                <label >1º Habilitação:</label>
+                <input type="text" class="form-control" name="habilitacao" id="carro-habilitacao" ng-model="habilitacao" ui-date-mask="DD/MM/YYYY">
+              </div>
+
+              <div class="form-group col-xs-6 col-md-6">
+                <label >Fotos CNH:</label>
+                <input type="file" class="form-control-file input-cnh" id="carro-cnh" name="cnh" accept="image/*" >
+              </div>
+
+              <div class="form-group col-xs-12 col-md-12 aplicativo">
+                <div class="col-xs-12 transport">
+                  <label >Trabalha por aplicativo:</label>
+                </div>
+
+                <div class="form-group col-xs-6 col-md-6">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input check3" type="checkbox" id="ifood" name = "aplicativo[]"  value="5"  ng-model="ifood" >
+                    <label class="form-check-label" for="ifood">Cabify</label>
+                  </div>
+                </div>
+
+                <div class="form-group col-xs-6 col-md-6">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input check3" type="checkbox" id="rappi" name = "aplicativo[]" value="6"  ng-model="rappi">
+                    <label class="form-check-label" for="rappi">99 App</label>
+                  </div>
+                </div>
+
+                <div class="form-group col-xs-6 col-md-6">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input check3" type="checkbox" id="uber" name = "aplicativo[]" value="7"  ng-model="uber">
+                    <label class="form-check-label" for="uber">Uber</label>
+                  </div>
+                </div>
+
+               <!-- <div class="form-group col-xs-6 col-md-6">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input check1" type="checkbox" id="loggi" name = "aplicativo[]" value="4"  ng-model="loggi">
+                    <label class="form-check-label" for="loggi"></label>
+                  </div>
+                </div>-->
+              </div>   
+
+              <div class="form-group col-xs-12 cadastro btn2" style="padding-left: 15px;">
+                <!--
+                <button type="button"  class="btn-cadastro" ng-click="enviarCadastro(1);"  ng-show="!cadTrue">Enviar Cadastro</button>
+              -->
+              <button type="button"  class="btn-cadastro" ng-click="enviarCadastro('5');"  ng-show="!cadTrue">Enviar Cadastro</button>
+              <span class="msn-txt"></span>
+            </div>
+
+          </div>
+
+          <!-- <div class="row">  
+                <div class="form-group col-md-5 col-sm-12 col-xs-12" style="    position: relative;top: 10px;">
+                    <div class="g-recaptcha" data-sitekey="6LeaQHQUAAAAAC7KVG-vv0zbA4ZG8I5rf597HX31"></div>
+                </div>
+              </div>-->
+
+            </form> 
+          </div>                
+
+        </div>
+      </div>
+    </div>
+
+    <hr>
+              <!--  <p>Nossos serviços de locação são exclusivamente desenvolvidos para você que deseja voltar ao mercado de trabalho com um custo mais acessível. <label>Termos de Uso.</label></p>
+               <hr>-->
+             </div>
+           </div>
+         </div>
+
+         <div class="col-md-7 order-md-1 text-center desktop">
+          <img src="images/locacao/carrobanner.jpg" width="550px">        
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<div class="col-md-12" style="margin-top: 5vh"></div>
+
+  <section class="bloco5">
+   <div class="col-md-12 text-center frequente">
+    <h1>Perguntas Frequentes</h1>
+    <br>
+    <br>
+  </div>
+
+  <div class="container">
+    <div class="col-md-6 text-center ">
+     <div class="accordion" id="accordionExample">
+
+      <div class="card">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+          <label>Aluguel mensal, vantagens:</label>
+        </button>
+        <div class="collapse" id="collapseExample1">
+          <div class="card card-body  textoperg" >
+           <p> A locação da GOEY Mobilidade Inteligente é um novo produto para clientes Pessoa Física ou Pessoa Jurídica que oferece mobilidade, flexibilidade e economia. O aluguel conta com tarifa especial para locação por, pelo menos, 30 dias. Você tem a praticidade de contar com um veículo sempre novo, não precisa, se preocupar com financiamento, depreciação, custos de manutenção, emplacamento, IPVA, seguro do carro e licenciamento. Conte ainda com toda a assistência da GOEY e, em caso de manutenção do veículo alugado, você tem direito a veículo reserva.
+           </p>
+         </div>
+       </div>
+     </div>
+     <br>
+     <div class="card">
+       <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+        <label>Como posso fazer minha reserva:</label>
+      </button>
+      <div class="collapse" id="collapseExample2">
+        <div class="card card-body textoperg">
+          <p>Faça a reserva pelo site goeyja.com.br/locacao preenchendo o formulário para análise. Você precisar ter no mínimo 21 anos, pelo menos 2 anos de habilitação, para carro/moto.  Para locação do veículo você não precisa possuir cartão de crédito com limite suficiente para realização do pagamento antecipado, o pagamento será feito via Boleto Bancário, uma oportunidade a mais para você.
+          </p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="card">
+     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">
+      <label>Preciso devolver o carro antes do período contratado:</label>
+    </button>
+    <div class="collapse" id="collapseExample3">
+      <div class="card card-body textoperg">
+        <p>Você tem a flexibilidade de devolver o veículo a qualquer momento. Caso a devolução seja feita antes do 30º dia, será cobrado um valor de tarifa correspondente ao período utilizado.</p>
+      </div>
+    </div>
+  </div>  
+  <br>
+  <div class="card">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample8" aria-expanded="false" aria-controls="collapseExample8">
+      <label> Em caso de multas, o que acontece: </label>
+    </button>
+    <div class="collapse" id="collapseExample8">
+      <div class="card card-body textoperg">
+        <p>Em caso de multas por infrações de trânsito aplicadas ao veículo, o responsável pelo contrato receberá um e-mail com a notificação, o valor efetivo a ser pago e um formulário de indicação do real infrator. O valor da infração será cobrado com acréscimo de 20%.</p>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="card">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample12" aria-expanded="false" aria-controls="collapseExample12">
+      <label>Como prorrogar a locação de um veículo:</label>
+    </button>
+    <div class="collapse" id="collapseExample12">
+      <div class="card card-body textoperg">
+        <p>Só entrar em contato com a GOEY solicitando a prorrogação. O pagamento será realizado de forma automática no boleto bancário.</p>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="card">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample13" aria-expanded="false" aria-controls="collapseExample13">
+     <label> Posso alugar mais de um veículo:</label>
+   </button>
+   <div class="collapse" id="collapseExample13">
+    <div class="card card-body textoperg">
+     <p> A parceria com a GOEY prevê a locação de apenas um carro por motorista cadastrado.</p>
+   </div>
+ </div>
+</div>
+<br>
+<div class="card">
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample14" aria-expanded="false" aria-controls="collapseExample14">
+   <label>Tenho restrição no CPF, posso alugar um veículo:</label>
+ </button>
+ <div class="collapse" id="collapseExample14">
+  <div class="card card-body textoperg">
+    <p> Pode! Os casos serão analisados individualmente poderá ser solicitado avalistas e garantidores. Ficando a único e exclusivo critério da GOEY a aprovação ou não do crédito.
+    </p>
+  </div>
+</div>
+</div> 
+<br>
+</div>
+</div>
+
+
+<div class="col-md-6 text-center">         
+ <div class="card">
+   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample5" aria-expanded="false" aria-controls="collapseExample5">
+    <label>Preciso pagar antecipado:</label>
+  </button>
+  <div class="collapse" id="collapseExample5">
+    <div class="card card-body textoperg">
+      <p>
+        Para a locação do veículo o pagamento será feito posteriormente via Boleto Bancário, será feita análise prévia de crédito. Caso haja necessidade de caução será solicitado um depósito prévio.
+      </p>
+    </div>
+  </div>
+</div>
+<br>
+<div class="card">
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample6" aria-expanded="false" aria-controls="collapseExample6">
+   <label>Se algum veículo der alguma pane:</label>
+ </button>
+ <div class="collapse" id="collapseExample6">
+  <div class="card card-body textoperg">
+    <p>
+      Entre em contato imediatamente com a Assistência a Clientes para obter todas as orientações necessárias.
+    </p>
+  </div>
+</div>
+</div>
+<br>
+<div class="card">
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample7" aria-expanded="false" aria-controls="collapseExample7">
+    <label>
+      Onde fazer a retirada e devolução do veículo:
+    </label>
+  </button>
+  <div class="collapse" id="collapseExample7">
+    <div class="card card-body textoperg">
+     <p> Veículo será entregue no endereço de cadastro.</p>
+   </div>
+ </div>
+</div>
+<br>
+<div class="card">
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample9" aria-expanded="false" aria-controls="collapseExample9">
+    <label>
+      Como devo devolver o veículo:
+    </label>
+  </button>
+  <div class="collapse" id="collapseExample9">
+    <div class="card card-body textoperg" >
+      <p>
+       O veículo deve ser entregue nas mesmas condições em que foi recebido: 
+
+       • Carro/Moto: Com o tanque de combustível completo;
+
+       • Em estado físico igual ao verificado no check-in da entrega;
+
+       • Limpo o suficiente para conferir o estado da carroceria.
+
+       Na devolução, caso o carro/moto não esteja totalmente abastecido, será cobrado o reembolso referente à despesa de abastecimento dos mesmos. Por se tratar de leitura com valores aproximados, a cobrança do combustível poderá sofrer variação em relação ao posto de abastecimento em até 30% (trinta por cento) para mais ou menos. Caso o carro/moto alugado tenha percorrido menos de 100 (cem) quilômetros e o marcador de combustível não sofra alteração, será cobrado o combustível com base na estimativa de consumo.
+     </p>
+   </div>
+ </div>
+</div>
+<br>
+<div class="card">
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample10" aria-expanded="false" aria-controls="collapseExample10">
+    <label>
+     Se roubarem o veículo, eu pago alguma coisa:
+   </label>
+ </button>
+ <div class="collapse" id="collapseExample10">
+  <div class="card card-body textoperg">
+    <p>
+      Sim. Nesse caso, será cobrado o valor referente à Indenização por Custos Operacionais. Esse valor depende do grupo de carro e tarifa contratados.
+    </p>
+  </div>
+</div>
+</div>
+<br>
+<div class="card">
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample11" aria-expanded="false" aria-controls="collapseExample11">
+    <label>
+     Posso fazer caução em dinheiro/cheque:
+   </label>
+ </button>
+ <div class="collapse" id="collapseExample11">
+  <div class="card card-body textoperg">
+    <p>
+      Sim. Nos pacotes, flexibilizamos a realização da caução mediante pagamento antecipado da locação em cartão de crédito. Caso o pagamento antecipado seja em dinheiro ou debito, é obrigatória a caução em dinheiro.
+    </p>
+  </div>
+</div>
+</div>
+<br>
+</div>
+  <div class="col-sm-12  col-md-12 text-center" >
+    <img src="images/locacao/wha.png" width="300px" > 
+  </div>
+</div>
+
+
+</div>
+</div>
+
+</section>
+<section class="text-center">
+
+  <div class="col-sm-12  col-md-12 footer" style="margin-bottom: 10px;">
+    <a href="https://www.ddtotal.com.br/ddcartao/index.php?empresa=1" target="_blank" >
+      <label>GOEY </label> <p>É UM PRODUTO DA  DDTOTAL<p/> 
+      </a> 
+
+    </div>
+    <br>
+  </section>
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <script>
+    
+   $(document).ready(function(){
+    $(".icon-edita").click(function(){
+        $(this).next().toggle("slow");
+    });
+});
+
+    function Rg(v){
+      v=v.replace(/\D/g,""); //Substituí o que não é dígito por "", /g é [Global][1]
+      v=v.replace(/(\d{1,2})(\d{3})(\d{3})(\d{1})$/,"$1.$2.$3-$4"); 
+    // \d{1,2} = Separa 1 grupo de 1 ou 2 carac. (\d{3}) = Separa 1 grupo de 3 carac. (\d{1}) = Separa o grupo de 1 carac.
+    // "$1.$2.$3-$4" = recupera os grupos e adiciona "." após cada.
+
+    return v
+  }
+
+    //funcao ancora
+    function ancora(id_ancora){
+      var top = $("#"+id_ancora).offset().top-50
+      $('html, body').stop().animate({
+        'scrollTop': top
+      }, 1000, 'swing', function () {   
+      }); 
+    } 
+
+    function SomenteNumero(e) {
+      var tecla = (window.event) ? event.keyCode : e.which;
+      if ((tecla > 47 && tecla < 58)) return true;
+      else {
+        if (tecla == 8 || tecla == 0) return true;
+        else return false;
+      }
+    }
+    function SomenteLetra(e) {
+      var tecla = (window.event) ? event.keyCode : e.which;
+      if ((tecla > 47 && tecla < 58)) return false;
+      else {
+        if (tecla == 8 || tecla == 0) return true;
+        else return true;
+      }
+    }
+
+    $(function(){
+      $("[data-toggle='bottom']").click(function(){
+        $("html, body").animate({ scrollTop: $(document).height() }, );
+      });
+
+    });
+
+  
+    function handleFiles(){
+    var filesToUpload = document.getElementById('input').files;
+    var file = filesToUpload[0];
+
+    // Create an image
+    var img = document.createElement("img");
+    // Create a file reader
+    var reader = new FileReader();
+    // Set the image once loaded into file reader
+    reader.onload = function(e)
+    {
+        img.src = e.target.result;
+
+        var canvas = document.createElement("canvas");
+        //var canvas = $("<canvas>", {"id":"testing"})[0];
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+
+        var MAX_WIDTH = 400;
+        var MAX_HEIGHT = 300;
+        var width = img.width;
+        var height = img.height;
+
+        if (width > height) {
+          if (width > MAX_WIDTH) {
+            height *= MAX_WIDTH / width;
+            width = MAX_WIDTH;
+          }
+        } else {
+          if (height > MAX_HEIGHT) {
+            width *= MAX_HEIGHT / height;
+            height = MAX_HEIGHT;
+          }
+        }
+        canvas.width = width;
+        canvas.height = height;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, width, height);
+
+        var dataurl = canvas.toDataURL("image/png");
+        document.getElementById('image').src = dataurl;     
+    }
+    // Load files into file reader
+    reader.readAsDataURL(file);
+
+
+    // Post the data
+    /*
+    var fd = new FormData();
+    fd.append("name", "some_filename.jpg");
+    fd.append("image", dataurl);
+    fd.append("info", "lah_de_dah");*/
+}
+  </script>
+
+
+
+<style type="text/css">
+
+.Box_editor {
+    padding-left: 15px !important;
+}
+label{
+    margin-bottom: 0px !important;
+    font-family: roboto !important;
+}
+
+.Box_editor {
+  display:none;
+}
+
+.btn-entregas{
+  text-align: right; 
+  margin-top: 2vh; 
+}
+
+.btn-entregas button{
+  width: 200px;
+  background: #FF7F00; 
+}
+
+.btn-entregas button p{
+  font-size: 15px;
+}
+ 
+  button:focus{
+    box-shadow: 0 0 0 0 !important;
+    border: 0 none !important;
+    outline: 0 !important;
+  } 
+
+  textarea:focus, input:focus, select:focus {
+    outline: 0 !important;
+  }
+
+  .radius label{
+    padding-left: 2px !important;
+    position: relative;
+    bottom: 2px;
+  }
+
+  .transport label{
+    padding-bottom: 5px;
+  }
+
+  .aplicativo{
+    padding: 0px;
+  }
+
+  .transporte{
+    padding: 0px;
+  }
+
+  label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 500 !important;
+  }
+
+  .carousel-indicators {
+    margin-bottom: 85px !important;
+  }
+
+
+
+  .textoperg{
+    text-align: left;
+  }
+  
+  .moto img{
+    width: 100% !important;
+    max-height: auto !important;
+  }
+
+  .motosembau img{
+    width: 100% !important;
+    max-height: auto !important;
+  }
+
+  .bike img{
+    width: 100% !important;  
+    max-height:auto !important;
+  }
+
+  .bikeblack img{
+    width: 100% !important; 
+    max-height:auto !important;
+  }
+
+
+
+  .carousel-inner>.item>a>img, .carousel-inner>.item>img {
+    line-height: 1;
+    margin: auto !important;
+  }
+
+  .carousel-indicators li{
+    background-color: #ccc;
+    border: 1px solid #ccc;
+  }
+
+
+  #imgSetaTopo {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    margin: 0px 20px 20px 20px;
+    cursor: pointer;
+    display: none ;
+  }
+
+  .collapse{
+    margin-top: 10px;
+  }
+
+  .btn-primary {
+    background-image: -webkit-linear-gradient(#f4f4f4, #f4f4f4 50%, #f4f4f4) !important;
+    background-image: -o-linear-gradient(#f4f4f4, #f4f4f4 50%, #f4f4f4) !important;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f4f4f4), color-stop(50%, #f4f4f4), to(#f4f4f4));
+    background-image: linear-gradient(#f4f4f4, #f4f4f4 50%, #f4f4f4) !important;
+    background-repeat: no-repeat !important;
+    border: 1px solid #ccc !important; 
+    color: #000 !important;
+  }
+
+  .btn-primary{
+    width: 100%;
+    text-align: left;
+    background: white;
+    color: #000;
+    border-color: #ccc !important;
+  }
+
+  .btn-primary:hover{
+   background: white;
+   color: #000 !important;
+   border-color: #ccc !important;
+ }
+
+ .footer a{
+  text-decoration: none !important;
+  font-weight: 800 !important;
+  color:#000;
+  font-family: 'roboto' !important;
+}
+
+.footer label{
+  color: #ed5202 !important;
+  font-weight: 800 !important;
+  display: inline-block !important;
+}
+
+.footer{
+  display: inline-block !important;
+}
+
+.footer p{
+  font-weight: 400 !important;
+  display: inline-block !important;
+}
+
+.card-body-bike p{
+  color: #999999;
+  text-align: left;
+  font-family:'roboto'; 
+  font-size: 13px;
+}
+.card-body-moto p{
+  color: #999999;
+  text-align: left;
+  font-family:'roboto';
+  font-size: 13px; 
+}
+.card-body-carro p{
+  color: #999999;
+  text-align: left;
+  font-family:'roboto';
+  font-size: 13px; 
+}
+
+.card-body-bike h4{
+  text-align: left;
+  color:#4266AE; 
+  font-weight: 800;
+}
+.card-body-moto h4{
+  text-align: left;
+  color:#4266AE; 
+  font-weight: 800;
+}
+.card-body-carro h4{
+  text-align: left;
+  color:#4266AE; 
+  font-weight: 800;
+}
+
+
+h1, .h1 {
+  margin-bottom: 5px !important;
+}
+
+label{
+  margin-bottom: 0px !important;  
+}
+
+.lead{
+  line-height: 1.2;
+  text-align: center;
+  font-weight: 400 !important;
+}
+
+.frequente h1{
+  margin-top: 5vh !important;
+  font-weight: bold;
+  letter-spacing: -1px;
+  color: #4266AE
+}
+
+.bikeeltricaapartir{
+  color:#4266AE; 
+  font-size: 28px;
+  padding: 0px;
+  padding-right: 10px;
+  font-weight: bold !important;
+}
+
+.bikeeltricatitulo{
+  color:#4266AE; 
+  font-size: 28px;
+  font-weight: 700;
+  padding: 0px;
+  padding-right: 10px;
+}
+
+.militares {
+  margin-top: 20vh;
+  font-family: 'roboto' !important;
+  text-decoration: none !important;
+}
+
+.border-frenquecia{
+ width: 100%;
+ text-align: left;
+ border: 1px solid #ccc;
+ color: #000;
+ font-weight: 800;
+ text-decoration: none;
+
+}  
+
+.border-frenquecia:hover{
+  border: 1px solid #ccc;
+  color: #000;
+  text-decoration: none;   
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 1px solid #eeeeee;
+}
+
+.display-4{
+  margin-top: 0px;
+  font-weight: bold;
+  letter-spacing: -4px;
+  font-size: 50px;
+  font-family: 'roboto';
+  color: #ed5202;
+
+}
+
+.instruçao p{
+  margin: 2px;
+}
+
+button {
+  color: #fff;
+  border-radius: 30px;
+  background: #FF7F00;
+  border: 0px;
+  font-size: 16px;
+  padding-top: 10px;
+  width: 270px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.bloco{
+  min-height: 100vh;
+  background: white; 
+
+}
+.bloco2{
+  min-height: 100vh;
+  background:  white;
+
+}
+.bloco3{
+  min-height: 100vh !important;
+  background:  white;
+
+}
+.bloco4{
+  min-height: 110vh;
+  background:  white;
+}
+.bloco5{
+  min-height: 100vh;
+  background:  white; 
+}
+
+.jumbotron p {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 200;
+  padding-left: 20vh;
+  padding-right: 20vh;
+}
+
+.jumbotron{
+  background: transparent;
+  padding-top: 15px !important;
+  padding-bottom: 0px !important;
+}
+
+p{
+  margin: 0 0 0 0 !important;
+}
+
+.diaria h1{
+  display: -webkit-inline-box !important;
+}
+
+.diaria p{
+  padding-left: 15px;
+  display: inline-block !important;
+  line-height: 1em;
+  color: #ccc;
+  font-size: 10px !important;
+  margin: 0px;
+}
+
+
+.navbar{
+  background: transparent !important;
+  border-bottom: transparent !important;
+}
+
+.navbar-toggler{
+  display: none;
+}
+
+.carro img{
+  padding-top: 10px; 
+  padding-bottom: 0px;
+}
+
+.moto img{
+  padding-top: 0px;
+}
+
+.bike img{  
+  padding-top: 0px;
+}
+
+.desktop{
+  display: block;
+  padding:0px; 
+}
+
+.mobile{
+  display: none;
+}
+
+
+
+@media screen and (max-width: 1200px){
+
+  .jumbotron p {
+    margin-bottom: 15px;
+    font-size: 19px;
+    font-weight: 200;
+    padding: 0px !important;
+
+  }
+
+  .carro img{
+    padding-top: 0px; 
+    padding-bottom:5px
+  }
+
+  .moto img{
+    padding-top: 0px;
+  }
+
+  .bike img{  
+    padding-top: 0px;
+  }
+
+}
+
+
+@media screen and ( max-width: 990px){
+
+ .carousel-indicators {
+  margin-bottom: 85px !important;
+}
+
+
+.bikeeltricatitulo{
+  color:#4266AE; 
+  font-size: 30px !important; 
+
+}
+
+.display-4{
+  padding-right: 8px !important;
+}
+
+.carro img{
+ margin-top: 5vh !important; 
+}
+
+.frequente h1{
+  margin-top: 5vh;
+}
+
+.militares {
+  margin-top: 10vh;
+}
+
+h1, .h1 {
+  font-size: 30px !important;
+  margin-bottom: 5px !important;
+}
+
+.desktop{
+  display: none;
+}
+
+.mobile{
+  display: block;
+  padding: 0px;
+}
+
+.text-moto{
+  margin-top: 8vh;
+}
+.text-bike{
+  margin-top: 8vh;
+}
+.text-carro{
+  margin-top: 8vh;
+}
+
+.close {
+  float: right;
+  font-size: 40px !important;
+  font-weight: bold;
+  line-height: 1;
+  color: #000000;
+  text-shadow: 0 1px 0 #ffffff;
+}
+
+}
+
+@media screen and ( max-width: 500px){
+
+.btn-entregas button{
+  width: 150px !important;
+  background:  #4266AE !important;
+}
+
+.btn-entregas button p{
+  font-size: 10px !important;
+}
+
+
+
+  .card label {
+    font-size: 12px !important;
+    font-family: 'roboto' !important; 
+  }
+  body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px !important;
+  } 
+  .carro img {
+    margin-top: -1vh !important;
+  }
+  .jumbotron p {
+    font-size: 16px !important;
+  }
+  .moto{
+    margin-top: 25px !important;
+  }
+  .motosembau{
+    margin-top: 25px !important;
+  }
+
+</style>
+
+
+
+
+
+

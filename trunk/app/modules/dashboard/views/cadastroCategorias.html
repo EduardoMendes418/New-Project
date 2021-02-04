@@ -1,0 +1,98 @@
+﻿
+<style type="text/css">
+  #labelImg {
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid transparent;
+    background-color: #3498db;
+    /*border-radius: 5px;*/
+    color: #fff;
+    cursor: pointer;
+    /*margin: 10px;*/
+    padding: 6px 20px;
+    /*background-image: -webkit-linear-gradient(#7bbdf7, #3399f3 50%, #208ff2);*/
+    /*background-image: -o-linear-gradient(#7bbdf7, #3399f3 50%, #208ff2);*/
+    /*background-image: -webkit-gradient(linear, left top, left bottom, from(#7bbdf7), color-stop(50%, #3399f3), to(#208ff2));*/
+    background-image: linear-gradient(#7bbdf7, #3399f3 50%, #208ff2);
+    background-repeat: no-repeat;
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff7bbdf7', endColorstr='#ff208ff2', GradientType=0);*/
+    /*-webkit-filter: none;*/
+    /*filter: none;*/
+    border: 1px solid #0e80e5;
+}
+
+
+</style>
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Cadastrar Categorias
+
+        </h1>
+        <ol class="breadcrumb">
+            <li><a><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active">Cadastrar Categorias</li>
+        </ol>
+    </section>
+    
+
+    <section class="well content">
+
+            <div class="row">               
+                       
+                <div class="col-lg-8 col-xs-8 col-md-5">
+                        <label>Descrição *</label>
+                    <div class="form-inline">                        
+                        <input type="text" ng-model="vm.descricao" id="descricao" class="form-control">
+                        <input type="hidden" ng-model="vm.codigo">
+                        <input type="text" ng-model="vm.ordem" class="form-control" ui-number-mask="0" style="width: 50px">
+                        <input type="button" id="btn" class="btn btn-info"  ng-click="cadastroCategoria();" value="Cadastrar">                        
+                    </div>
+                </div>               
+                       
+            </div> 
+
+<!-- Grid Categorias -->
+            <div class="row" style="margin-top: 5%">
+                <div class="col-md-12 col-xs-12">
+
+                    <table class="table table-striped">
+                       <thead>
+                            <tr> 
+                                <th>Categoria</th>                                           
+                                <th>Ordem</th>
+                                <th>Editar</th>                         
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                        
+                        <tr ng-repeat="p in comboCategoria">
+                            
+                            <td>
+                                {{p.descricao}}
+                            </td>
+                            <td>
+                                {{p.ordem}}
+                            </td>                                                         
+                            <td>
+                               <a>
+                                    <span class="glyphicon glyphicon-edit" ng-click="atualizarProduto(p)" title="Atualizar esse produto"></span>
+                                </a>
+                            </td>  
+                            </tr>
+                        
+                        </tbody>
+         
+                    </table>            
+
+                </div>  
+            </div>
+
+
+
+    </section>
+    <section class="content">
+    </section>
+        

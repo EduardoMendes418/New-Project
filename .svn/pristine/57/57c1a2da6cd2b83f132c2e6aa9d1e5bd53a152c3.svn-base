@@ -1,0 +1,163 @@
+
+empresa.controller("empresaCtrl", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http',
+function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http) {
+$scope.carregando = false;
+
+//var url = 'http://192.168.0.69:8025';
+var url = 'https://www.iptufacil.com.br';
+
+ //  $scope.$watch('form.cep.length', function(count, oldCount){
+ //    if(count == 8){
+ //     $scope.getAddressByCep();
+ //   }
+ // });
+
+  // Maximum call stack size exceeded
+  $scope.cadastroOk = false;
+  $scope.getAddressByCep = function(){
+    
+   $http.get("https://www.iptufacil.com.br/ws/geral/public/cep/"+$scope.form.cep).success(function(data) {
+
+        $scope.form.bairro     = data.bairro;
+        $scope.form.cidade     = data.cidade;
+        $scope.form.uf         = data.estado;
+        $scope.form.logradouro = data.logradouro;
+
+  });
+}
+
+
+$scope.ramoAtividade = function(){
+
+    $http.post(url +"/ws/goey/rest/public/comboRamoAtividade", ({
+                          auth: "3f018bfb43591ccb2ef46f10de832160"                     
+                              
+                      })).then(function(response){                   
+
+                      $scope.comboRamo = response.data;
+                            
+                          });
+
+}
+
+$scope.ramoAtividade();
+  
+//   $scope.consultaCep = function(cep){
+//     $http({
+//       method: 'POST',
+//       url: 'https://www.iptufacil.com.br/ws/goey/rest/public/viaCep',
+//       data: $.param({
+//         cep: cep ,
+
+//         auth: '3f018bfb43591ccb2ef46f10de832160'
+//       }),
+
+//       headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+//     }).success(function (response) {
+
+//         if(response.retorno == 1){
+
+//         // $scope.form = response;
+//         console.log(response);
+
+//         }else{                        
+
+//           Flash.create('info', 'Desculpe, sem serviço.', 'large-text');
+
+//         }
+
+//       }).error(function (response) {
+//         Flash.create('info', 'Desculpe! Ocorreu um erro.', 'large-text');
+
+//     }); 
+// }
+
+
+
+
+$scope.cadastrarEmpresa = function(){
+
+  if (grecaptcha.getResponse() == "") {
+    
+    Flash.create('danger', 'Robôs não podem enviar esse formulário!', 'large-text');
+    return false;
+}
+
+
+  if ($scope.formEmpresa.$invalid) {
+    angular.forEach($scope.formEmpresa.$error, function (field) {
+      angular.forEach(field, function(errorField){
+        errorField.$setTouched();
+      })
+    });
+    Flash.create('danger', 'Por favor, preencha os campos em vermelho!', 'large-text');
+    return false;
+  }
+
+  $scope.carregando = true;
+ var razaoSocial = $scope.form.razaoSocial;
+ var nomeFantasia = $scope.form.nomeFantasia;
+ var ramoAtividade = $scope.form.ramoAtividade;
+ var cnpj = $scope.form.cnpj;
+ var nomeContato = $scope.form.nomeContato;
+ var email = $scope.form.email;
+ var telefone = $scope.form.telefone;    
+ var qtdFuncionarios = $scope.form.qtdFuncionarios;
+ var logradouro = $scope.form.logradouro;
+ var bairro = $scope.form.bairro;
+ var cidade = $scope.form.cidade;
+ var uf = $scope.form.uf;
+ var complemento = $scope.form.complemento;
+ var numero = $scope.form.numero;
+ var cep = $scope.form.cep;
+ var senha = $scope.form.senha;  
+
+$.ajax({
+  type:'POST',
+  data: {razaoSocial:razaoSocial, nomeFantasia:nomeFantasia,ramoAtividade:ramoAtividade, cnpj:cnpj, nomeContato:nomeContato, email:email, telefone:telefone, qtdFuncionarios:qtdFuncionarios, logradouro:logradouro, bairro:bairro, cidade:cidade, uf:uf, complemento:complemento, numero:numero, cep:cep, senha:senha,  auth:'3f018bfb43591ccb2ef46f10de832160'},
+  url: url+'/ws/goey/rest/public/cadastroEmpresa',
+  dataType: 'json',
+  success: function(data){
+    if(data.erro == 1){
+      $scope.cadastroOk = true;
+      
+    }else{
+      $scope.cadastroOk = false;
+      alert(data.mensagem);
+    }
+  }, 
+  error: function(error){
+  $scope.cadastroOk = false;
+    $(".msn").html('Ocorreu um erro, tente novamente.');
+
+  }
+});
+ $scope.carregando = false;
+}
+
+}]);
+
+
+empresa.directive('capitalize', function() {
+    return {
+      require: 'ngModel',
+      link: function(scope, element, attrs, modelCtrl) {
+        var capitalize = function(inputValue) {
+          if (inputValue == undefined) inputValue = '';
+          var capitalized = inputValue.toUpperCase();
+          if (capitalized !== inputValue) {
+            // see where the cursor is before the update so that we can set it back
+            var selection = element[0].selectionStart;
+            modelCtrl.$setViewValue(capitalized);
+            modelCtrl.$render();
+            // set back the cursor after rendering
+            element[0].selectionStart = selection;
+            element[0].selectionEnd = selection;
+          }
+          return capitalized;
+        }
+        modelCtrl.$parsers.push(capitalize);
+        capitalize(scope[attrs.ngModel]); // capitalize initial value
+      }
+    };
+  });

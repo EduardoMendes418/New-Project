@@ -1,0 +1,245 @@
+﻿
+<style type="text/css">
+  #labelImg {
+  background-color: #3498db;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  margin: 10px;
+  padding: 6px 20px
+}
+
+#showImg{
+
+}
+
+</style>
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Cadastrar Produtos
+
+        </h1>
+        <ol class="breadcrumb">
+            <li><a><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active">Cadastrar Produtos</li>
+        </ol>
+    </section>
+    
+
+    <section class="well content">
+
+    <div class="row">
+
+        <form action="#" method="post" enctype="multipart/form-data" id="formCadastro" name="formCadastro">
+
+                <div class="col-lg-8 col-xs-12">
+                    <div class="form-group">
+                        <label for="cmpProduto">Produto *</label>
+                        <input type="text" class="form-control" id="cmpProduto" name="produto" ng-model="cadastrar.produto" maxlength="1000" >
+                        <input type="hidden"  id="auth" name="auth" value="3f018bfb43591ccb2ef46f10de832160">
+                        <input type="hidden" id="tipoUsuario" name="tipoUsuario" ng-model="cadastrar.tipoUsuario">
+                        <input type="hidden" id="codUsuario" name="codUsuario" ng-model="cadastrar.codUsuario">
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-xs-12">
+
+                    <div class="form-group">
+                        <label for="cmpCardapio">Código Cardápio</label>
+                        <input type="text" class="form-control" name="codCardapio" id="cmpCardapio" ng-model="cadastrar.codCardapio">
+                    </div>
+
+                </div>
+
+                <div class="col-lg-12 col-xs-12">
+                    <div class="form-group">
+                        <label for="cmpDescricao">Descrição *</label>
+                        <textarea class="form-control" id="cmpDescricao" name="descricao" rows="3" ng-model="cadastrar.descricao" maxlength="1000"></textarea>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-xs-8">
+                    <div class="form-group">                        
+                        <label for="cmpPreco">Preço Unidade *</label>
+                        <input type="text" class="form-control" name="cmpPreco" id="cmpPreco" ng-model="cadastrar.preco" ui-money-mask>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xs-8 col-md-4">
+                    <div class="form-group">                        
+                        <label for="cmpPreco">Categoria *</label>
+                        <select ng-model="cadastrar.categoria" class="form-control" name="categoria" ng-options="combo.descricao for combo in comboCategoria track by combo.codigo">
+                                <option value="">SELECIONE</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xs-8 col-md-4">
+                        <label for="cmpPreco">Adicionar Categoria *</label>
+                    <div class="form-inline">                        
+                        <input type="text" ng-model="category" class="form-control">
+                        <i class="fa fa-plus" ng-click="newCategory(category);" style="margin-left:10px !important;color:#3498db !important;"></i>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-xs-12" style="margin-top: 5%">
+
+                    <div class="input-group">
+                      <label id="labelImg" for="imgUpload"><i class="fa fa-image"></i> Adicionar Imagem</label>
+                      <input type="file" style="display: none" class="form-control"  name="img" id="imgUpload" ng-model="cadastrar.imgUpload">     
+                    </div>
+
+                    <div id="divImg">
+
+                        <table style="border:none">                                       
+                            <tr>
+                                <td>
+                                    <img id="showImg" style="max-width: 200px;">
+                                </td>
+                            </tr>
+                             <tr>
+                                <td style="text-align: right;">
+
+                                <i id="trash" style="display: none;cursor:pointer" class="fa fa-trash" onclick="removerImage()" title="Excluir essa imagem"></i>
+
+                                </td>
+                            </tr>
+                        </table>
+                        
+                    </div>
+                        
+                </div>            
+            
+    </div>    
+
+                <div class="row" style="margin-top: 5%">
+        
+                    <div class="col-lg-3 col-xs-12">      
+                             
+                        <button class="btn btn-info btn-block" id="btnCadastrarDados">Cadastrar</button>
+                        <img src="images/loader.png"  class="fa fa-refresh glyphicon-refresh-animate" style="display:none" id="img-loader">
+
+                    </div>        
+                
+                </div>
+
+        </form> 
+
+    </section>
+
+    <section class="content">
+        
+    </section>
+
+<script type="text/javascript">
+
+
+    
+function showImage() {
+    
+    var oFReader = new FileReader();
+    oFReader.readAsDataURL(document.getElementById("imgUpload").files[0]);
+
+    oFReader.onload = function (oFREvent) {
+
+        document.getElementById("showImg").src = oFREvent.target.result;
+        document.getElementById("trash").style.display = "block";
+    };
+
+};
+
+ function removerImage(){
+    
+    document.getElementById("imgUpload").value = "";
+    document.getElementById("showImg").removeAttribute("src");
+    document.getElementById("trash").style.display = "none";
+
+ }
+
+ $(document).ready(function(){
+
+$('#imgUpload').change(function() {
+//2097152 = 2mb   
+
+    if(this.files[0].size > 2097152){
+        alert("Tamanho da Imagem não permitida!");
+        $("#btnCadastrarDados").attr("disabled","disabled");
+        return false;
+    }else{
+
+    var oFReader = new FileReader();
+    oFReader.readAsDataURL(document.getElementById("imgUpload").files[0]);
+
+    oFReader.onload = function (oFREvent) {
+
+        document.getElementById("showImg").src = oFREvent.target.result;
+        document.getElementById("trash").style.display = "block";
+    };
+
+$("#btnCadastrarDados").removeAttr("disabled","disabled");
+    }
+
+});
+
+
+    $("#btnCadastrarDados").click(function(){
+
+        if($("#cmpProduto").val() == ""){
+
+             alert("O campo Produto é Obrigatório!");
+             return false;
+        }
+
+        if($("#cmpDescricao").val() == ""){
+
+             alert("O campo Descrição é Obrigatório!");
+             return false;
+        }       
+
+        if($("#cmpPreco").val() == ""){
+
+             alert("O campo Preço é Obrigatório!");
+             return false;
+        }
+
+        $("#btnCadastrarDados").hide(); 
+        $("#img-loader").show();
+
+       var formdata = new FormData($("form[name='formCadastro']")[0]);
+     //  var link = "http://192.168.0.67:8025/ws/goey/rest/public/cadastrarProdutos";      
+      var link = "https://www.iptufacil.com.br/ws/goey/rest/public/cadastrarProdutos";
+        $.ajax({
+                type: 'POST',
+                url: link,
+                data: formdata ,
+                processData: false,
+                contentType: false,
+                dataType: 'json'
+
+        }).success(function (response) {
+            
+            if(response.retorno == 1){
+
+                $("#btnCadastrarDados").show(); 
+                $("#img-loader").hide();
+
+                alert(response.mensagem);              
+
+                $("#formCadastro").trigger("reset");
+
+                document.getElementById("showImg").src = '';                
+                document.getElementById("trash").style.display = "none";
+
+            }else{
+
+                alert(response.mensagem);
+                $("#btnCadastrarDados").show(); 
+                $("#img-loader").hide();
+
+            }
+
+            });
+
+    })
+
+ })
+
+</script>

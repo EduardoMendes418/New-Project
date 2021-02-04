@@ -1,0 +1,144 @@
+<!--MENU-->
+<section>
+	<!--MENU-DESKTOP-->
+        <nav class="site-header sticky-top" id="restaurante">
+            <div class="container d-flex flex-column flex-md-row justify-content-between">
+              <a class="py-2 t">
+                <div class="col-md-2 col-sm-4 logo-goey">  
+                    <a href="https://www.goeyja.com.br/#/step">
+                        <img src="images/home/logo-goey.png">
+                    </a>
+                </div>
+              </a>
+              <div class="menu" >
+                  <div class="menu-link">
+                     <!-- <a class="py-2 d-none d-md-inline-block"  href="" onclick="ancora('como')">COMO FUNCIONA</a>
+                      <a class="py-2 d-none d-md-inline-block"  href="" onclick="ancora('vanta')">VANTAGENS</a>
+                      <a class="py-2 d-none d-md-inline-block"  href="" onclick="ancora('contato')">CONTATO</a>
+                      <a class="py-2 d-none d-md-inline-block"  href="https://www.goeyja.com.br/#restaurante">
+                        <span >RESTAURANTE</span>
+                     </a>-->
+                  </div>
+                  <div class="menu-btn ">
+                        <!--
+                            <a class="btn btn-fraquia-secondary" href='https://www.goeyja.com.br/#franquia' >FRANQUIAS</a>
+                        -->
+                        <div class="dropdown" style="display: inline-block ">
+                          <!--  <button class="btn  btn-cadastre-secondary dropdown-toggle btn-cadastre-se" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                CADASTRAR
+                            </button>-->
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <!--BTN-PESSOAL-->
+                                <a onclick="">
+                                    <button class="dropdown-item btn-fisi" type="button" id="showModal" ng-click="cadUsuario = {};clearForm();form.$setUntouched();">PESSOAL</button>
+                                </a>
+
+                                <!--BTN-EMPRESARIAL
+                                <a href="/#/empresa">
+                                    <button class="dropdown-item btn-juri" type="button">EMPRESARIAL</button>
+                                </a>-->
+
+                                <!--BTN-RESTAURANTE-->
+                                <a href="http://www.goeyja.com.br/#/formRestaurante">
+                                    <button class="dropdown-item btn-rest" type="button">RESTAURANTE</button>
+                                </a>
+                            </div>
+    
+                        </div>
+                    <a class="btn btn-acesse-secondary" style="display: inline-block" href="https://www.goeyja.com.br/#login" >ACESSE SUA CONTA</a>   
+                </div> 
+               </div>
+            </div>
+          </nav>
+
+            <!--MENU-MOBILE-->
+        <nav class=" menu-mobile navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class=".col-6 .col-sm-4 logo-goey-mobile">                    
+                <a href="https://www.goeyja.com.br/#/step">
+                    <img src="images/home/logo-goey.png">
+                </a>
+            </div>
+            <button class="btn-mobile navbar-right  collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <h1><i class="fa fa-bars"></i></h1>
+            </button>
+            <div class="navbar-collapse collapse tab-mobile" id="navbarCollapse" style="margin-top: 12vh;">
+                <div class="navbar-nav  modal-mobile "  style=" margin-top: 20px;" >
+                    <!--      <div class="menu-mobile-btn" >
+                        <a class="btn"  onclick="ancora('como')">COMO FUNCIONA</a>
+                    </div>
+                    <div class="menu-mobile-btn">
+                         <a class="btn"  onclick="ancora('vanta')">VANTAGENS</a>
+                    </div>
+              
+                    <div class="menu-mobile-btn">
+                        <a class="btn" href='https://www.goeyja.com.br/#franquia'>FRANQUIAS</a>
+                    </div>
+              
+                    <div class="menu-mobile-btn">
+                        <a class="btn" onclick="ancora('contato')">CONTATO</a>
+                    </div>
+                          --> 
+                    <div class="menu-mobile-btn">
+                        <a class="btn" href="https://www.goeyja.com.br/#login">ACESSE SUA CONTA</a>  
+                    </div>
+
+                    <div class="menu-mobile-btn" style="margin-top:10px;">
+                        <div class="dropdown" style="display: inline-block ">
+                              <!--  <button class="btn  
+                                dropdown-toggle btn-cadastre-se" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    CADASTRAR
+                                </button>-->
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    
+                                    <a onclick="$('#cadUsuario').modal('show');">
+                                        <button class="dropdown-item btn-fisi" type="button" id="showModal" ng-click="cadUsuario = {};clearForm();form.$setUntouched();">PESSOAL </button>
+                                    </a>
+                                 <!--
+                                <a href="/#/empresa">
+                                    <button class="dropdown-item btn-juri" type="button">EMPRESARIAL</button>
+                                </a>-->
+                                
+                                <a href="http://www.goeyja.com.br/#/formRestaurante">
+                                    <button class="dropdown-item btn-rest" type="button">RESTAURANTE</button>
+                                </a> 
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </nav>
+</section>
+
+<!--PAGINA BANNER FARMACIA-->
+<section class="pg1farmacia">
+	<main  class="container">
+      <div class="starter-template bloco-one  text-center">
+        <div class="" >
+            <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+              <main role="main" class="inner cover textofarmacia">
+                <h1 class="cover-heading">
+                   Sua farmácia sem sair de casa. Pagamento em até 
+                   <span> 3X no *Boleto Bancário</span> ou <span>Cartão de Crédito.</span> 
+                <h1>
+              </main>
+               <div id="sujeito">
+                    <p>* SUJEITO A APROVAÇÃO DE CRÉDITO ONLINE</p>
+                </div>  
+            </div> 
+        </div>
+        <!--FORMULARIO-->
+        <div class="col-md-12" >
+             <form class="formulario-input ng-pristine ng-valid">
+                <div class="col-xs-12 col-md-12 input-group">
+                    <div class="col-xs-12 col-md-12 custom-file">
+                        <input type="text" id="tags" ng-keyup="complete()" ng-model="c.name" class="form-control input-lg t ng-pristine ng-valid ng-touched" placeholder="Digite sua cidade " autofocus="" autocomplete="off" style="display: inline-block; border-radius: 5px" aria-invalid="false">
+                    </div>
+                </div>    
+            </form>
+        </div>
+      </div>
+    </main>  
+</section>
+

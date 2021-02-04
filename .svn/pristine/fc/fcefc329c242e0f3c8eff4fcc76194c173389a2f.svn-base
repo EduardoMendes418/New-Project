@@ -1,0 +1,127 @@
+﻿<!--  <style>
+ p{
+  font-family: Roboto !important;
+  font-weight: normal !important;
+  line-height: 0.8 !important;
+ }
+ </style>  -->  
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Acompanhar Entregas
+          </h1>
+
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <!-- row -->
+          <div class="row">
+            <div class="col-md-12"> 
+              <br></br></br>
+              <div class="well" ng-if="showTable == 0" ><h4 id="msn-retorno" class="text-center">Nenhuma entrega encontrada.</h4></div>
+              <!-- The time line -->
+              <ul class="timeline" ng-if="showTable == 1">
+
+                <li ng-repeat="cor in entrega">
+                  <div class="timeline-item">
+                    <div class="well col-md-10 col-sm-8 col-xs-12">
+                      <p class="text-bold">Código: {{cor.codEntrega}} <span class="pull-right"><a class="btn btn-primary btn-xs" ng-click="alterarStatusEntrega(cor.codEntrega,4);" ng-if="cor.status == 3">Finalizado</a></span></p>
+                      <p class="text-bold">Status: {{cor.descricaoStatus}}</p>
+                      <p class="text-bold">Observação: {{cor.observacao}}</p>
+                      <p class="text-bold">Descrição do Produto: {{cor.descricao}}</p>
+                      <p class="text-bold">Responsável: {{cor.responsavel}}</p>
+                      <p class="text-bold">Data Agendamento: {{cor.dataAgendamento2}}</p>
+                      <span ng-if="cor.tipoUsuario == 3 || cor.tipoUsuario == 4">
+                      <p class="text-bold"><h4>Opções de Entrega</h4></p>
+                      <p class="text-bold" ng-if="cor.formaPagamento == 6">Pago Online</p>
+                      <p class="text-bold" ng-if="cor.formaPagamento != 6">Forma de Pagamento: {{cor.formaPagamentoVarchar}}</p>
+                      <p class="text-bold">Valor Produto: {{cor.valorProduto | currency}}</p>
+                      <p class="text-bold">Valor Entrega: {{cor.valor | currency}}</p>
+                      <p class="text-bold">Valor Total: {{cor.valorTotal | currency}}</p>
+                      <p class="text-bold" ng-if="cor.formaPagamento == 3">Troco: {{cor.troco | currency}}</p>
+                      </span>
+                      <p class="text-bold" ng-if="cor.numHistorico == 1"> <a class="btn btn-primary btn-xs" ng-click="abrirLink(cor.origem)" >Ver Mapa</a> Retirar em: {{cor.origem}}</p>
+
+                      <p><a class="btn btn-primary btn-xs" ng-click="alterarStatusEntrega(cor.codEntrega,3,cor.origem);" ng-if="cor.numHistorico == 1 && cor.status == 2">Coletado<br/></a></p>
+
+                      <p class="text-bold" ng-if="cor.numHistorico == 2 && cor.destino1"><a class="btn btn-primary btn-xs" ng-click="abrirLink(cor.destino1)" >Ver Mapa</a> Destino(s)1:  {{cor.destino1}}</p>
+                      <p><a class="btn btn-primary btn-xs" ng-click="alterarStatusEntrega(cor.codEntrega,3,cor.destino1);" ng-if="cor.numHistorico == 2 && cor.destino1">Coletado / Entregue<br/></a></p>
+
+                      <p class="text-bold" ng-if="cor.numHistorico == 3 && cor.destino2"><a class="btn btn-primary btn-xs" ng-click="abrirLink(cor.destino2)" >Ver Mapa</a> Destino(s)2:  {{cor.destino2}}</p>
+                      <p><a class="btn btn-primary btn-xs" ng-click="alterarStatusEntrega(cor.codEntrega,3,cor.destino2);" ng-if="cor.numHistorico == 3 && cor.destino2">Coletado / Entregue<br/></a></p>
+
+                      <p class="text-bold" ng-if="cor.numHistorico == 4 && cor.destino3"><a class="btn btn-primary btn-xs" ng-click="abrirLink(cor.destino3)" >Ver Mapa</a> Destino(s)3:  {{cor.destino3}}</p>
+                      <p><a class="btn btn-primary btn-xs" ng-click="alterarStatusEntrega(cor.codEntrega,3,cor.destino3);" ng-if="cor.numHistorico == 4 && cor.destino3">Coletado / Entregue<br/></a></p>
+
+                      <p class="text-bold" ng-if="cor.numHistorico == 5 && cor.destino4"><a class="btn btn-primary btn-xs" ng-click="abrirLink(cor.destino4)" >Ver Mapa</a> Destino(s)4:  {{cor.destino4}}</p>
+                      <p><a class="btn btn-primary btn-xs" ng-click="alterarStatusEntrega(cor.codEntrega,3,cor.destino4);" ng-if="cor.numHistorico == 5 && cor.destino4">Coletado / Entregue<br/></a></p>
+
+                      <p class="text-bold" ng-if="cor.numHistorico == 6 && cor.destino5"><a class="btn btn-primary btn-xs" ng-click="abrirLink(cor.destino5)" >Ver Mapa</a> Destino(s)5:  {{cor.destino5}}</p>
+                      <p><a class="btn btn-primary btn-xs" ng-click="alterarStatusEntrega(cor.codEntrega,3,cor.destino5);" ng-if="cor.numHistorico == 6 && cor.destino5">Coletado / Entregue<br/></a></p>
+                      <div class="timeline-footer">
+                        <!-- <a class="btn btn-primary btn-xs" ng-click="abrirLink(cor.origem)" >Ver Mapa</a> -->
+                        <a class="btn btn-primary btn-xs" ng-click="aceitarCorrida(cor.codEntrega);" ng-if="cor.status == 1">Aceitar</a>
+                        
+                      </div>
+                    </div>
+
+                  </div>
+                </li>
+
+                <li>
+                  <i class="fa fa-clock-o bg-gray"></i>
+                </li>
+              </ul>
+            </div><!-- /.col -->
+          </div>
+
+        </section><!-- /.content -->
+        
+        <section class="content">
+
+        </section>
+        
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Acompanhar {{codSascar}}</h4>
+              </div>
+              <div class="modal-body" >
+
+                <ng-map zoom-to-include-markers="true">
+                  <!--   <marker ng-repeat="p in rotas" position="{{p.pos}}" title="{{p.title}}" icon="{{p.icon}}"></marker> -->
+
+                  <directions 
+                  draggable="true"
+                  panel="directions-panel" 
+                  travel-mode="DRIVING"
+                  origin="{{rotas[0].pos}}"
+                  destination="{{end}}"
+                  ng-waypoints="{{destinos}}"
+                  suppress-markers="true">
+                </directions>    
+              </ng-map>
+
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div id="sound"></div>
+      <style>
+      .bg-green, .callout.callout-success, .alert-success, .label-success, .modal-success .modal-body {
+        background-color: #4266ae !important;
+      }
+      .callout.callout-success {
+        border-color: #4266ae !important;
+      }
+    </style>

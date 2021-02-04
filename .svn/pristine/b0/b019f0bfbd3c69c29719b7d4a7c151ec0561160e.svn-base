@@ -1,0 +1,1996 @@
+
+
+<!--/*******
+    * Home * 
+    ********-->
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+<section >
+<div class="container-home parallax"  >   
+    <!--MENU-DESKTOP-->
+    <nav class="site-header sticky-top py-1 ">
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2" >
+          <div class="col-md-2 col-sm-4 logo-goey">   
+            <a href="https://www.goeyja.com.br/#/step">
+                <img src="images/home/logo-goey.png">
+            </a>                 
+        </div>
+        </a>
+        <div class="menu">
+            <div class="menu-link">
+                <a class="py-2 d-none d-md-inline-block " onclick="ancora('goey')">O QUE É GOEY</a>
+                <a class="py-2 d-none d-md-inline-block " onclick="ancora('van')">VANTAGENS</a>
+                <a class="py-2 d-none d-md-inline-block"  data-toggle="modal" data-target="#contato">CONTATO</a>
+                <a class="py-2 d-none d-md-inline-block"  href="https://www.goeyja.com.br/#restaurante">
+                    <span >RESTAURANTE</span>
+                 </a>
+            </div>
+            <div class="menu-btn" style="display: block">
+                <div class="dropdown" style="display: inline-block ">
+                    <button class="btn  btn-cadastre-secondary dropdown-toggle btn-cadastre-se" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        CADASTRAR
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <!--BTN-PESSOAL-->
+                        <a onclick="" data-toggle="modal">
+                            <button class="dropdown-item btn-fisi" type="button" id="showModal" ng-click="cadUsuario = {};clearForm();form.$setUntouched();" data-toggle="modal">PESSOAL</button>
+                        </a>
+                        <!--BTN-EMPRESARIAL-->
+                        <a href="http://www.goeyja.com.br/#/empresa">
+                            <button class="dropdown-item btn-juri" type="button">EMPRESARIAL</button>
+                        </a>
+                        <!--BTN-RESTAURANTE-->
+                        <a href="http://www.goeyja.com.br/#/formRestaurante">
+                            <button class="dropdown-item btn-rest" type="button">RESTAURANTE</button>
+                        </a>
+                    </div>
+
+                </div>
+                <a class="btn btn-acesse-secondary" style="display: inline-block" href="https://www.goeyja.com.br/#login" >ACESSE SUA CONTA</a>   
+            </div>    
+         </div>
+      </div>
+    </nav>
+    
+<!--/**************
+    * MENU-MOBILE * 
+    ***************-->
+    <nav class=" menu-mobile navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class=".col-6 .col-sm-4 logo-goey-mobile">                    
+            <a href="https://www.goeyja.com.br/#/step">
+                <img src="images/home/logo-goey.png">
+            </a>  
+        </div>
+        <button class="btn-mobile navbar-right  collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+         <h1><i class="fa fa-bars"></i></h1>
+        </button>
+
+        <div class="navbar-collapse collapse tab-mobile" id="navbarCollapse" style="margin-top: 14vh;">
+          <div class="navbar-nav  modal-mobile " style=" margin-top: 40px;">
+
+           <div class="menu-mobile-btn" >
+              <a class="btn"  onclick="ancora('goey')"> O QUE É GOEY</a>
+            </div>
+
+            <div class="menu-mobile-btn">
+              <a class="btn"  onclick="ancora('van')">VANTAGENS</a>
+            </div> 
+
+            <div class="menu-mobile-btn">
+                <a class="btn"  href="https://www.goeyja.com.br/#restaurante">
+                    <span >RESTAURANTE</span>
+                </a>
+            </div>
+
+            <div class="menu-mobile-btn">
+              <a class="btn"  data-toggle="modal" data-target="#contato">CONTATO</a>
+            </div>
+
+            <div class="menu-mobile-btn">
+                <a class="btn" href="https://www.goeyja.com.br/#login" >ACESSE SUA CONTA</a>  
+            </div>
+
+            <div class="menu-mobile-btn" style="margin-top:15px">
+                <div class="dropdown" style="display: inline-block ">
+                        <button class="btn  btn-cadastre-secondary dropdown-toggle btn-cadastre-se" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                CADASTRAR
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <!--BTN-PESSOAL-->
+                            <a onclick="$('#cadUsuario').modal('show');">
+                                <button class="dropdown-item btn-fisi" type="button" id="showModal" ng-click="cadUsuario = {};clearForm();form.$setUntouched();">PESSOAL</button>
+                            </a>
+                            <!--BTN-EMPRESARIAL-->
+                            <a href="http://www.goeyja.com.br/#/empresa">
+                                <button class="dropdown-item btn-juri" type="button">EMPRESARIAL</button>
+                            </a> 
+                            <!--BTN-RESTAURANTE-->
+                            <a href="http://www.goeyja.com.br/#/formRestaurante">
+                                <button class="dropdown-item  btn-rest" type="button">RESTAURANTE</button>
+                            </a> 
+                        </div>
+                    </div>
+                </div>
+          </div>
+        </div>
+    </nav>
+
+    <!-- MODAL CONTATO -->  
+    <div class="modal fade" id="contato" tabindex="-1" role="dialog" aria-labelledby="contato" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="py-2" href="https://www.goeyja.com.br/#home">               
+                    <img src="images/home/logo-goey.png">
+                </a>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <!--FORMULARIO DE CONTATO-->
+                <form name="form" class="form" novalidate>
+                <div class="form-group">
+                    <input class='form-control ' placeholder="Nome:" required ng-model="demail.nome" type='text' name="nome" onkeypress="return SomenteLetra(event);" ng-class="{'is-invalid': form.nome.$invalid && form.nome.$touched,'is-valid': form.nome.$valid}" >
+                    <p ng-show="form.nome.$invalid && form.nome.$touched" style="color:red;font-size:10px !important;">Nome obrigatório</p>
+                </div>
+                
+                <div class="form-group">
+                        <input class='form-control ' placeholder="Email:" required ng-model="demail.email" type='email' name="email" ui-br-email-mask 
+                        onkeypress="return SomenteLetra(event);" ng-class="{'is-invalid': form.email.$invalid && form.email.$touched,'is-valid': form.email.$valid}">
+                        <p ng-show="form.email.$invalid && form.email.$touched" style="color:red;font-size:10px !important;">E-mail obrigatório</p>
+                    </div>
+
+                <div class="form-group">
+                    <input class='form-control number' placeholder="Telefone:" required ng-model="demail.telefone" type='text' name="telefone" ui-br-phone-number
+                    ng-class="{'is-invalid': form.telefone.$invalid && form.telefone.$touched,'is-valid': form.telefone.$valid}">
+                    <p ng-show="form.telefone.$invalid && form.telefone.$touched" style="color:red;font-size:10px !important;"> Telefone obrigatório</p>
+                </div>
+
+                <div class="form-group">
+                    <textarea class="form-control" placeholder="Mensagem:" ng-model="demail.desc" rows="8"
+                    ng-class="{'is-invalid': form.desc.$invalid && form.desc.$touched,'is-valid': form.desc.$valid}">
+                    <p ng-show="form.desc.$invalid && form.desc.$touched" style="color:red;font-size:10px !important;">Mensagem obrigatório</p>
+                    </textarea>
+                </div>
+                
+                <!--Telefone-->
+                <div class="telefone">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-lg-5">
+                                <span href="#">Telefone: (19) 98187-0077</span>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-3"></div>
+                            <div class="col-12 col-sm-6 col-lg-4"></div>    
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-lg-5">
+                                <span href="#">Contato: 0800 941 3950</span>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-3"></div>
+                            <div class="col-12 col-sm-6 col-lg-4"></div>    
+                        </div>
+                    </div> 
+                </div>
+
+                <div class="modal-footer" style="background:#f48022 ">
+                    <button type="submit" class="btn btn-primary" ng-click="enviarEmail();" ng-disabled="form.$invalid" ng-show="!cadTrue">Enviar Mensagem</button>
+                </div>
+            </form>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- TITULO TEXTO -->
+    <div class="row" style="padding: 0px !important">                
+        <div class="col-md-3 col-sm-4"></div>    
+        <div class="col-md-6 p-lg-5 mx-auto my-5 titulo-texto">
+            <p class="lead font-weight-normal animated pulse" >
+            Não se preocupe com <span> trânsito, filas e <br> atrasos </span> para realizar suas entregas.
+            </p>
+      </div>  
+         <div class="col-md-3"></div>          
+    </div>
+
+    <div class="container-fluid" id="fotos">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 col-md-offset-4  text-center">
+         
+         <!--  <div class="col-md-2 col-sm-3 col-xs-3" style="" id="bikeEletrica">
+            <img class="" src="images/65px/bike_65.png" >
+            <h5 style="color:#FFF;font-size:10px ;"><input type="radio" class="form-radio-input" id="tipoVeiculo2" name="tipoVeiculo" value="0"  ng-model="cadastrar.tipoVeiculo" style="padding-right:6px ;height: 10px;" ng-disabled="true"/>BIKE <span class="hidden-xs hidden-sm">ELÉTRICA</span></h5>
+          </div> -->
+
+ 
+          <!--*****************************
+          <div class="col-md-2 col-sm-3 col-xs-3" style="" id="moto">
+            <img class="" src="images/65px/moto_65.png" >
+            <h5 style="color:#FFF;font-size:10px ;"><input type="radio" class="form-radio-input" id="tipoVeiculo2" name="tipoVeiculo" value="2"  ng-model="cadastrar.tipoVeiculo" ng-checked="true" style="padding-right:6px ;height: 10px ;"/>MOTOS</h5>
+          </div>
+          -->
+
+        <!--  <div class="col-md-2 col-sm-3 col-xs-3" style="" id="tuktuk">
+            <img class="" src="images/65px/tuktuk_65.png" >
+            <h5 style="color:#FFF;font-size:10px ;"><input type="radio" class="form-radio-input" id="tipoVeiculo4" name="tipoVeiculo" value="4"  ng-model="cadastrar.tipoVeiculo" style="padding-right:6px ;height: 10px ;"/>TUK TUK</h5>
+          </div>-->
+          
+
+          <!-- ***************************
+          <div class="col-md-2 col-sm-3 col-xs-3" style="" id="pickup">
+            <img class="" src="images/65px/pickup_65.png" >
+            <h5 style="color:#FFF;font-size:10px ;"><input type="radio" class="form-radio-input" id="tipoVeiculo1" name="tipoVeiculo" value="1"  ng-model="cadastrar.tipoVeiculo" style="padding-right:6px ;height: 10px ;"/>UTILITÁRIOS LEVES</h5>
+          </div> 
+           -->
+
+      </div>
+      </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12 col-md-offset-4">
+                <div class="col-md-2  col-xs-6 col-sm-5 moto" style="  padding-top: 35px !important;padding-left: 60px;" >
+                    <img class="" src="images/courier.png" style="height: 35px !important;margin-left: 13px !important;">
+                    <h5 style="color:#FFF;font-size:10px !important; display: block !important;" >
+                        <input type="radio" class="form-radio-input" id="tipoVeiculo2"
+                         name="tipoVeiculo" value="2"  ng-model="cadastrar.tipoVeiculo" ng-checked="true" style="padding-right:6px ;height: 10px ; display:inline-block"/>
+                        <p style="display:inline-block;margin-left: 0px;color: #FFF;font-weight: bold;font-size: 14px;margin-top: -5px;">MOTO</p>
+                    </h5>
+                </div>
+
+                <div class="col-md-2 col-xs-6 col-sm-5 pull-left carro" >
+                    <img class="" src="images/goey_tipotransporte_pickup.png" style="margin-top: 5px;width: 55px;padding-top:39px !important;margin-left: 7px !important;">
+                    <h5 style="color:#FFF;font-size:10px; display: block">
+                        <input type="radio" class="form-radio-input" id="tipoVeiculo1" name="tipoVeiculo" value="1"  ng-model="cadastrar.tipoVeiculo" 
+                        style="padding-right:6px ;height: 10px ; display:inline-block"/>
+                           <p style="display:inline-block;margin-left: 0px;color: #FFF;font-weight: bold;font-size: 14px;">PICKUP</p>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">  
+        <div class="row" style="margin-top:2%;">
+
+            <div class="col-md-12 col-md-offset-4">
+                <div class="col-md-4 col-sm-12 .col-4 "> 
+
+<!-- **********   Endereço de origem  *********** -->                   
+                    <div class="row">
+                        <div class="form-group  col-xs-10  col-sm-10 col-md-10 endereco" >
+                        <input type="text" class="form-control autocomplete"  id="origem" name="origem" placeholder="Endereço para retirar" 
+                            ng-model="simular.origem"  ng-keyup="fetchUsers(simular.origem)" autofocus autocomplete="off" />                
+                        </div>
+                        <div class="form-group  col-xs-2  col-sm-2 col-md-2 numero">
+                            <input type="text" class="form-control" id="numero" name="numero" placeholder="Nº" ng-model="simular.numero" />
+                        </div>
+                        <input type="hidden" id="total" name="total" ng-model="total">
+                    </div>                                           
+                   
+<!-- **********   Entregar 1 *********** -->
+                    <div class="row" >
+                        <div class="form-group col-xs-10   col-sm-10 col-md-10 endereco" >
+                            <input type="text" class="form-control autocomplete" id="destino1" placeholder="Endereço para entregar"  name="destino1"  ng-model="simular.destino1" ng-keyup="fetchUsers(simular.destino1)" autofocus autocomplete="off"/>
+                        </div>
+                         <div class="form-group col-xs-2  col-sm-2 col-md-2 numero">
+                            <input type="text" class="form-control" id="numero1" name="numero1" placeholder="Nº" ng-model="simular.numero1" />
+                        </div>
+                    </div>
+
+<!-- **********   Entregar 2 *********** -->
+                    <div class="row" style="display:none;margin-top: 0%" id="grupo2">
+                         <div class="form-group  col-xs-10   col-sm-10 col-md-10 endereco">
+                            <input type="text" class="form-control autocomplete" id="destino2" placeholder="Endereço para entregar 2"  name="destino2" ng-model="simular.destino2" ng-keyup="fetchUsers(simular.destino2)" autofocus autocomplete="off" />                        
+                        </div>
+                        <div class="form-group  col-xs-2   col-sm-2 col-md-2 numero">
+                            <input type="text" class="form-control" id="numero2" name="numero2" placeholder="Nº" ng-model="simular.numero2" />
+                        </div>
+                    </div>
+
+<!-- **********   Entregar 3 *********** -->
+                    <div class="row" style="display:none;margin-top: 0%" id="grupo3">
+                         <div class="form-group  col-xs-10   col-sm-10 col-md-10 endereco">
+                            <input type="text" class="form-control autocomplete" id="destino3" placeholder="Endereço para entregar 3"  name="destino3"  ng-model="simular.destino3" ng-keyup="fetchUsers(simular.destino3)"  autofocus autocomplete="off"/>          
+                        </div>
+                        <div class="form-group  col-xs-2   col-sm-2 col-md-2 numero">
+                            <input type="text" class="form-control" id="numero3" name="numero3" placeholder="Nº" ng-model="simular.numero3" />
+                        </div>
+                    </div>
+
+<!-- **********   Entregar 4 *********** -->
+                    <div class="row" style="display:none;margin-top: 0%" id="grupo4">
+                        <div class="form-group  col-xs-10   col-sm-10 col-md-10 endereco">
+                            <input type="text"  class="form-control autocomplete" id="destino4" placeholder="Endereço para entregar 4"  name="destino4" ng-model="simular.destino4" ng-keyup="fetchUsers(simular.destino4)" autofocus autocomplete="off" />                        
+                        </div>
+                        <div class="form-group  col-xs-2   col-sm-2 col-md-2 numero">
+                            <input type="text" class="form-control" id="numero4" name="numero4" placeholder="Nº" ng-model="simular.numero4" />
+                        </div>
+                   </div>
+
+<!-- **********   Entregar 5 *********** -->
+                    <div class="row" style="display:none;margin-top: 0%" id="grupo5">
+                         <div class="form-group  col-xs-10   col-sm-10 col-md-10 endereco">
+                            <input type="text" class="form-control autocomplete" id="destino5" placeholder="Endereço para entregar 5"  name="destino5" ng-model="simular.destino5" ng-keyup="fetchUsers(simular.destino5)" autofocus autocomplete="off" />                        
+                        </div>
+                        <div class="form-group  col-xs-2   col-sm-2 col-md-2 numero">
+                            <input type="text" class="form-control" id="numero5" name="numero5" placeholder="Nº" ng-model="simular.numero5" />
+                        </div>
+                    </div>
+
+                    <h4>
+                        <a href="#" style="color:#fff; padding-right: 10px;" ng-click="addDestino()">
+                        <i class="fa fa-plus-circle"></i> Destinos</a>
+                        <a href="#" style="color:#fff; display: none;" id="removerdestino" ng-click="removerDestino()">
+                        <i class="fa fa-minus-circle"></i> Remover</a>
+                    </h4>
+                        <img src="images/loader.png" id="aguarde" class='fa fa-refresh glyphicon-refresh-animate' style="display:none">
+                    <input type="button" class="btn btn-simular btn-block" id="btnDistancia" ng-click="matrixGoogle()" value="SIMULE SUA ENTREGA"/>                    
+                </div>
+        </div> 
+        </div> 
+    </div>        
+     <!-- Div Contratar-->        
+        <div class="row" style="margin-top:2%;">
+          <div class="col-md-12 ">  
+                    <div class=" col-md-3"></div>
+
+                    <div class=" col-md-6"> 
+                        <div class="jumbotron text-center contratar">
+
+                        <h3 ng-show="totalKm">O valor da corrida pode mudar em relação a cotação,devido a tempo, trânsito etc.</h3>
+
+                        <div ng-show="totalKm" >
+                            <div class="col-md-4" style="color: #fff">
+                                <span id="totalKm">
+                                {{totalKm}}
+                                </span>
+                                
+                                <p>(Distância)</p>
+                            </div>
+
+                            <div class="col-md-4" style="color: #fff">
+                                <span id="totalDuracao">{{totalDuracao}}</span>
+                                <input type="hidden" name="cmpDuracao" id="cmpDuracao" ng-model="cmpDuracao">
+                                <p>(Duração)</p>
+                            </div>
+
+                            <div class="col-md-4" style="color: #fff"> 
+                                <span>
+                                <input type="text" name="" style="border:0px; background: transparent; width:150px; text-align: center" readonly ng-model="totalValores" ui-money-mask="2">
+                                </span>
+                                <p>(Valor da Entrega)</p>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+                            <div class="col-xs-12 col-md-3"></div>
+                            <div class="col-xs-12 col-sm-12 col-md-6">
+                                <a class="btn btn-querocontratar-secondaryy" ng-show="totalKm" href="#login">QUERO CONTRATAR</a> 
+                            </div>
+                            <div class="col-xs-12 col-md-3"></div>   
+                        </div>
+                    </div>
+                <div class="col-md-3"></div>         
+            </div>
+
+             <!-- BANDEIRAS DOS APP -->   
+            <div class="col-md-12 col-sm-12  celbandeiras" >
+                <div class="container" >
+                    <div class="row">
+                        <div class="col-xs-12  col-sm-12  col-md-4"></div>
+                        <div class="col-xs-6 col-sm-6 col-md-2 google  animated pulse"> 
+                            <a href=" https://play.google.com/store/apps/details?id=br.com.goeyja">
+                                <img  src="images/home/play.png"  >
+                            </a>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-2 iphone animated pulse">
+                            <a href="https://itunes.apple.com/br/app/goey/id1454803433?mt=8">
+                                <img  src="images/home/iphone.png" >
+                            </a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4"></div>
+                        <div class="col-md-12 gratis"  >
+                            <p>Baixe Gratuitamente</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!--PAGINA2-->
+<section class="banner-branco" id="goey">
+     <div class="container" >
+      <div class="row">
+        <div class="col-md-6 col-sm-6 logo-pc logo-mobile">
+             <div class="col-md-12">
+                <div class="col-md-8 levar bloco1 levar-mobile ">
+                    <div class="pg1" >
+                        O que eu<br>
+                        posso levar?
+                    </div>
+                    <div class="pg2">
+                        Ideal para documentos ou pacotes até 52cm<br>
+                        de largura, 50cm de profundidade,e 62cm de<br>
+                        altura com peso máximo de 20kg.
+                    </div>
+                </div>
+
+                <div class="logocompra col-md-8 bloco1">
+                    <div class="fig-caixa" ></div>
+                    <div class="fig-doc"></div>
+                    <div class="fig-sacola"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6 logo-moto entenda">
+            <div class="pg1">
+                  Entenda um pouco mais<br> 
+                  sobre a Goey e o que fazemos.
+            </div>
+            <div class="pg2">
+                <span>Goey</span> é uma plataforma de entrega rápida<br> 
+                que conecta você e seu produto com o <br> 
+                cliente através do computador ou celular.
+             </div>
+        </div>
+
+        </div>
+      </div>
+</section>  
+
+
+<section class="banner-laranja"> 
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-12 col-xs-12 levar" style="text-align: center;">
+                    <div class="pg4">
+                        Está pensando em entrega rápida,<br>
+                        deixa que o <span>Goey</span> resolve pra você.
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-12" style="text-align: center;">
+                    <div class="col-md-12 tranquilidade"  >
+                        <div class="pg5">
+                        <span>Tranquilidade</span> & <span>Segurança</span><br> 
+                        com acompanhamento das <br> 
+                        entregas em tempo real.     
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+
+
+
+<!--PAGINA3-->
+<section>
+    <div class="pag3 " >
+        <div class="container">
+            <div class="row">  
+                <div class="col-md-2"></div>
+                <div class="col-md-5 entregas">
+                    <p>Não se preocupe,<br>para suas entregas<br>use<span> Goey</span>.</p>
+                </div>
+                <div class="col-md-5"></div>  
+            </div>
+        </div>
+    </div>
+
+    <div class="container"  id="van">
+        <div class="row" style="margin-top:2%;">
+            <div class=" col-md-2"></div>
+                <div class="col-md-8" > 
+                    <div class="col-md-6 Propria">
+                      <div  class="col-md-4" >
+                        <div class="frota"></div>              
+                      </div>  
+                     <div>
+                        <h1>Frota Própria</h1>
+                        <p>Profissionais capacitados com<br>
+                        CLT, veículos novos e seguros.</p>         
+                      </div>  
+                    </div>
+                
+                    <div class="col-md-6 Rastreabilidade">
+                     <div class="col-md-4">
+                           <div class="rastre"></div>
+                     </div> 
+                     <div>
+                        <h1>Rastreabilidade</h1>
+                        <p>Veículos monitorados e<br>
+                            entregas rastreadas em tempo<br>
+                            real. Acompanhamento por<br>website.</p>         
+                      </div>    
+                    </div>
+
+                    <div class="col-md-6 pagamentos" >
+                     <div class="col-md-4" >
+                           <div class="pagamento"></div>
+                     </div> 
+                     <div>
+                        <h1>Pagamentos</h1>
+                        <p>Pague à prazo através de <br>
+                        <span>Boleto Bancário ou Cartão de <br> 
+                        Crédito</span> no fechamento do período.</p>         
+                      </div>    
+                    </div>
+
+                    <div class="col-md-6 Online">
+                     <div class="col-md-4 ">
+                           <div class="cadastro"></div>
+                     </div> 
+                     <div>
+                        <h1>Cadastro Online</h1>
+                        <p>Cadastre sua empresa online<br>
+                            em poucos cliques e comece<br>
+                            a utilizar.
+                        </p>         
+                      </div>    
+                    </div>
+
+                     <div class="col-md-6 entrega">
+                     <div class="col-md-4" style="margin-top: 20px;">
+                           <div class="solicitacao"></div>
+                     </div> 
+                     <div>
+                        <h1>Solicitações de Entregas</h1>
+                        <p>Temos alguém sempre por<br>
+                         perto. Você saberá por quem e <br>
+                        quanto será atendido durante<br>
+                        todo o processo de entrega.</p>         
+                      </div>    
+                    </div>
+      
+                     <div class="col-md-6 agenda" >
+                     <div class="col-md-4">
+                           <div class="agendamento"></div>
+                     </div> 
+                     <div>
+                        <h1>Agendamentos de Entregas</h1>
+                        <p>Se preferir agende suas <br> 
+                            entregas pelo website e ganhe <br> 
+                            mais tempo no seu dia-a-dia.</p>         
+                      </div>    
+                    </div>
+                </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+           <div class="col-md-8 footer" style="margin-bottom: 10px;">TERMOS & REGULAMENTOS,<span> <a href="regulamento.pdf" target="_blank" style="text-decoration: none !important;font-weight: 800 !important;color:#000"> AQUI </a></span>
+             <span> <a href="goey_politicaprivacidade.pdf" target="_blank" style="text-decoration: none !important;font-weight: 800 !important;color:#000">| POLÍTICA & PRIVACIDADE </a> |  GOEY É UM PRODUTO DA <span> DDTOTAL </span> </div>
+            <div class="col-md-2"></div>
+        </div>   
+     </div>  
+    
+<!-- MODAL OU CADASTRO PESSOA -->
+     <div class="modal" tabindex="-1" role="dialog" id="cadUsuario">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <h5 class="modal-title text-center" style="font-size: 18px"><span class="pull-center"><img src="images/home/logo-goey.png" style="height: 25px !important;"></span></h5>
+          <!--   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button> -->
+          </div>
+          <div class="modal-body">
+            <p>
+              <div class="container-fluid">
+                <div class="row">
+                  <form name="form">
+                    <div class="col-md-12">
+                      <div class="col-md-7 col-sm-12 col-xs-12">
+                          <div class="form-group">
+                            <label for="nome" class="uLabel">Nome</label>
+                              <input type="text" id="nome" ng-model="cadUsuario.nome" name="nome" class="form-control"  
+                              ng-class="{'is-invalid': form.nome.$invalid && form.nome.$touched,'is-valid': form.nome.$valid}" required>
+                              <p ng-show="form.nome.$invalid && !form.nome.$pristine" class="help-block">Digite um nome válido.</p>
+                          </div>
+                      </div>
+                      <div class="col-md-5 col-sm-12 col-xs-12">
+                          <div class="form-group">
+                              <label for="cpf" class="uLabel">CPF</label>
+                              <input type="text" id="cpf" ng-model="cadUsuario.cpf" name="cpf" class="form-control" ui-br-cpf-mask 
+                              ng-class="{'is-invalid': form.cpf.$invalid && form.cpf.$touched,'is-valid': form.cpf.$valid}" required>
+                              <p ng-show="form.cpf.$invalid && !form.cpf.$pristine" class="help-block">Digite um cpf válido.</p>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="col-md-7 col-sm-12 col-xs-12">
+                          <div class="form-group">
+                            <label for="email" class="uLabel">E-mail</label>
+                              <input type="text" id="email" ng-model="cadUsuario.email" name="email" class="form-control"  
+                              ng-class="{'is-invalid': form.email.$invalid && form.email.$touched,'is-valid': form.email.$valid}" required>
+                              <p ng-show="form.email.$invalid && !form.email.$pristine" class="help-block">Digite um e-mail válido.</p>
+                          </div>
+                      </div>
+                      <div class="col-md-5 col-sm-12 col-xs-12">
+                          <div class="form-group">
+                              <label for="senha" class="uLabel">Senha</label>
+                              <input type="password" id="senha" ng-model="cadUsuario.senha" name="senha" class="form-control"  
+                              ng-class="{'is-invalid': form.senha.$invalid && form.senha.$touched,'is-valid': form.senha.$valid}" required>
+                              <p ng-show="form.senha.$invalid && !form.senha.$pristine" class="help-block">Senha é obrigatório.</p>
+                          </div>
+                      </div>
+                    </div>
+                  </form>
+                  
+                </div>
+              </div>
+            </p>
+          </div>
+          <div class="modal-footer">
+              <div class="col-md-12">
+                <div class="col-md-5 offset-md-3 recapmobile">
+                <div class="g-recaptcha" data-sitekey="6LeaQHQUAAAAAC7KVG-vv0zbA4ZG8I5rf597HX31"></div>
+                </div>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <button type="button" class="btn btn-primary" ng-click="cadastrarUsuario();">Cadastrar</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+<!--VALIDAÇÃO SOMENTE NUMERO SOMENTE LETRAS-->
+<script language='JavaScript'>
+    
+    $('#form').trigger("reset");
+        
+        function ancora(id_ancora){
+        var top = $("#"+id_ancora).offset().top-50
+        $('html, body').stop().animate({
+            'scrollTop': top
+        }, 1000, 'swing', function () {		
+            window.location.hash = target;
+        }); 
+    } 
+
+   function SomenteNumero(e){
+      var tecla=(window.event)?event.keyCode:e.which;   
+      if((tecla>47 && tecla<58)) return true;
+      else{
+         if (tecla==8 || tecla==0) return true;
+         else  return false;
+      }
+   }
+
+   function SomenteLetra(e){
+      var tecla=(window.event)?event.keyCode:e.which;   
+      if((tecla>47 && tecla<58)) return false;
+      else{
+         if (tecla==8 || tecla==0) return true;
+         else  return true;
+      }   
+   }
+
+</script>
+
+<!--CSS -->
+<style>
+.gratis p{
+    text-align: center ; 
+    color: #fff !important;
+    margin-top: 10px;
+    font-weight: 500 !important;
+    margin-left: 30px;
+}
+.parallax {
+  background-attachment: fixed;
+  background-position: center ;
+  background-repeat: no-repeat;
+}
+
+/*  Campo Autocomplete */
+.btn-querocontratar-secondaryy{
+    background: #f37b22;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #fff;
+    margin-left: 10px;
+    width: 100%;
+    text-align: center;
+    border-radius: 2px;
+}
+.celbandeiras{
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+.google{
+    text-align: right;
+    margin-left: 13px;
+}
+.google img{
+    min-width: 85%;
+}
+.iphone{
+    text-align: left;
+}
+.iphone img{
+    min-width: 85%;
+}
+.endereco{
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.numero{
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.searchResult{
+  list-style: none;
+  padding: 0px;
+  width: 100%;
+  position: absolute;
+  margin: 0;
+  z-index:999;
+}
+
+.searchResult li{
+  background: lavender;
+  padding: 4px;
+  margin-bottom: 1px;
+}
+
+.searchResult li:hover{
+  cursor: pointer;
+}
+/* Fim Autocomplete */
+
+  .modal-body{
+    font-family: Roboto;
+  }
+.btn-fraquia-secondary{
+    background:#4266ae; 
+}
+    .dropdown-item{
+        width: 100%;
+        background: transparent;
+        color: #fff;
+    }
+
+    .btn-cadastre-se{
+        color: #fff;
+        font-weight: 800;
+    }
+
+    .btn-fisi{
+        padding-top: 3px;
+        padding-right: 35px;
+        padding-bottom: 9px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        border: transparent;
+        border-bottom: 1px solid #fff;
+        border-radius: 2px; 
+        font-weight: 600;
+    }
+    .btn-juri{
+        padding-top: 3px;
+        padding-bottom: 9px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        border: transparent;
+        border-bottom: 1px solid #fff;
+        border-radius: 2px; 
+        font-weight: 600;
+    }
+
+    .btn-rest{
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-left: 11px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        border: transparent;
+        border-radius: 2px; 
+        font-weight: 600;
+    }
+
+    .moto{
+         margin-left: 20px;
+    }
+
+    .carro{
+        margin-right: 10px;
+    }
+
+.is-invalid{
+    border-color:red !important;
+}
+.is-valid{
+    border-color:green !important;
+}
+.help-block{
+    color:red !important;   
+}
+/*<!-- PAGINA CEP-->*/
+.navbar{
+    display: none;
+}
+.bloco1{
+  margin-left: 10vh;
+  padding-top: 5px;
+}
+.telefone span{
+ color: #000;
+ font-weight: 800;
+}
+
+.container-home{
+    background-image: url(images/home/banner-pg1-black.jpg);
+    min-height: 100vh;
+    position: relative;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat; 
+}
+.logo-goey{
+    margin-top:20px;
+}
+
+.logo-goey img{
+    max-width:300px;
+    display: inline;
+    width: 60%;
+    float: left;
+}
+
+.btn-primary{
+    background:#4266ae; 
+    color:#fff;
+}
+
+.btn-primary:hover{
+    background:#4266ae; 
+}
+
+
+.btn-simular{
+    background:#f37b22;
+    color: #fff;
+}
+.menu{
+    display: block;
+    margin-top: 18px;
+}
+
+.menu a{
+    color: #fff;
+    font-weight: 700;
+}
+
+.menu span{
+    color: #f37b22;
+    font-weight: bold;
+    margin-left: 5px; 
+}
+
+.menu-btn{
+    display: inline;
+    width: 40%;
+    float: right;
+}
+
+.btn-cadastre-secondary{
+    background: #f37b22;
+    margin-right: 4px;
+}
+
+.btn-acesse-secondary {
+    background: #cccc ;
+}
+.menu-link,.menu-btn{
+    display: inline-block;
+}
+.menu-link{
+     margin-top: 8px;
+ }
+.menu-link a{
+    padding-right:3px !important;
+    padding-left: 3px !important;
+    border-right: 2px solid #fff;
+}
+.menu-btn a{
+    margin-right: 5px ;
+}
+
+.titulo-texto{
+    margin-top: 10vh;
+    text-align: center;
+}
+.titulo-texto p{
+    color: #fff;
+     font-size: 5vh;
+      line-height: 0.8;
+ }
+.titulo-texto p span{
+    font-weight: bold;
+ }
+
+ .form-group{
+    margin-bottom: 10px;
+ }
+
+.jumbotron{
+    margin-top: 15px;
+    background: transparent;
+   /*border: 2px solid #f37b22; */
+    margin-bottom: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.btn-querocontratar-secondary{
+    background: #f37b22;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #fff;
+    width: 35%;
+    /*
+    float: right;
+    */
+    text-align: center;
+    border-radius: 0px;
+}
+
+h3, .h3{
+    margin-top: 5px;
+    font-size: 12px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+.contratar span{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.contratar p{
+    color: #fff;
+    font-size: 12px;
+}
+
+
+
+/*<!--PAGINA2 -->*/
+.logo-pc{
+  background-image: url(images/home/mobile-note.png);
+   max-width: 100%;
+    height: 520px;
+    position: relative;
+    background-size: 60%;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.logo-moto{
+  background-image: url(images/home/motinha.png);
+  max-width: 100%;
+    height: 520px;
+    position: relative;
+    background-size: 65%;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+.banner-laranja{
+  background-image: url(images/home/banner-laranja.jpg);
+    max-width: 100%;
+    margin-top: auto;
+    height: 130px;
+    position: relative;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.logocompra{
+  text-align: center;
+  margin-top: 3vh;
+  z-index: 2;
+}
+
+
+.banner-branco{
+   background-image: #fff;
+   max-width: 100%;
+    margin-top: 5vh;
+    height: auto;
+    position: relative;
+    background-size: 100%;
+    background-position: center top;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.pag2{
+    background-image: url(images/home/banner-seguranca.png);
+    max-width: 100%;
+    margin-top: 5vh;
+    height: auto;
+    position: relative;
+    background-size: 100%;
+    background-position: center top;
+    background-repeat: no-repeat; 
+}
+
+.fig-caixa{
+    background-image: url(images/home/fig-caixa.png);
+    min-height: 80px;
+    width: 80px;
+    position: relative;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat; 
+    display: inline-block;
+
+}
+.fig-sacola{
+    background-image: url(images/home/fig-sacola.png);
+    min-height: 80px;
+    width: 80px;
+    position: relative;
+    margin-left: 5px;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat; 
+    display: inline-block;
+}
+
+.fig-doc{
+    background-image: url(images/home/fig-doc.png);
+    min-height: 80px;
+    width: 80px;
+    position: relative;
+    margin-left: 5px;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat; 
+    display: inline-block;
+
+}
+
+/*Entenda*/
+.entenda .pg1{
+    margin-top: 15vh;
+    line-height: 1em;
+    font-size: 25px;
+    font-weight: 300;
+    color: #f37b22;
+}
+.entenda .pg2{
+    margin-top: 2vh;
+    line-height: 0.9em;
+    font-size: 25px;
+    font-weight: 300;
+    color: #000;
+}
+.entenda .pg2 span{
+    font-weight: 800;
+}
+
+/*levar*/
+.levar .pg1{
+      margin-top: 44vh;
+    font-size: 25px;
+    color: #4266ae;
+    text-align: center;
+    font-weight: 800;
+     line-height: 0.9em;
+}
+
+.levar .pg2{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 14px;
+    color: #000;
+    text-align: center;
+    line-height: 1em;
+}
+
+.levar .pg3{
+    display: block;
+    margin-top: 5vh;
+}
+.levar .pg4{
+    margin-top: 5vh;
+    color: #fff;
+    font-size: 25px;
+    line-height: 0.9em;
+    font-weight: 300;
+}
+
+.levar .pg4 span{
+    font-weight: 800;
+}
+
+/*tranquilidade*/
+.tranquilidade .pg5{
+    margin-top: 3vh;
+    margin-bottom: 10vh;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 0.9em;
+}
+
+.tranquilidade .pg5 span{
+    color: #fff;
+    font-weight: 800;
+}
+
+/*<!--PAGINA 3-->*/
+.pag3{
+    background-image: url(images/home/banner-nao-se-preocupe.jpg);
+    min-height: 45vh;
+    position: relative;
+    background-size: cover;
+    background-position: center ;
+    background-repeat: no-repeat; 
+}
+.frota{
+    background-image: url(images/home/frota.png);
+    min-height: 80px;
+    width: 80px;
+    position: relative;
+    background-size: 90%;
+    background-position: center top;
+    background-repeat: no-repeat;   
+}
+.rastre{
+    background-image: url(images/home/rastre.png);
+    min-height: 80px;
+    width: 80px;
+    position: relative;
+    background-size: 60%;
+    background-position: center top;
+    background-repeat: no-repeat;  
+}
+.cadastro{
+    background-image: url(images/home/cadastro.png);
+    min-height: 80px;
+    width: 80px;
+    position: relative;
+    background-size: 70%;
+    background-position: center top;
+    background-repeat: no-repeat; 
+  
+}
+.pagamento{
+    background-image: url(images/home/pagamento.png);
+    min-height: 80px;
+    width: 80px;
+    position: relative;
+    background-size: 70%;
+    background-position: center top;
+    background-repeat: no-repeat; 
+}
+
+.agendamento{
+    background-image: url(images/home/agendamento.png);
+    min-height: 80px;
+    width: 80px;
+    position: relative;
+    background-size: 70%;
+    background-position: center top;
+    background-repeat: no-repeat;   
+}
+
+.solicitacao{
+    background-image: url(images/home/solicitacao.png);
+    min-height: 80px;
+    width: 80px;
+    position: relative;
+    background-size: 70%;
+    background-position: center top;
+    background-repeat: no-repeat; 
+}
+
+.pagamentos,.Propria,.Rastreabilidade,
+.Online,.entrega,.agenda{
+    margin-top: 5vh;
+}
+.pagamentos span{
+    color: #000;
+    font-weight: 800;
+}
+
+h1{
+    font-size: 20px;
+    font-weight: 600;
+    color: #4266ae;
+    margin: 0;
+}
+
+p{
+    margin: 0;
+    line-height: 1em;
+    color: #000;
+}
+
+.entregas{
+    margin-top: 21vh;
+}
+.entregas p{
+    color: #fff;
+    font-weight: 300;
+    font-size: 6vh;
+    line-height: 0.8;
+    letter-spacing: -1.1px !important;
+}
+.entregas span{
+    font-size: 6vh;
+    font-weight: 700;
+    color: #f37a24;
+}
+
+.frotas img{
+    font-size: 10px;
+}
+
+.footer{
+    color: #000;
+    font-size: 10px;
+    margin-top: 5vh;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.footer span{
+    font-weight: 800;
+}
+
+.scroll-next{
+  transform: rotate(45deg);
+  margin: 14px 0 0 16.5px;
+}
+
+.form p{
+  padding-top: 10px;
+}
+
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 147px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    text-align: left;
+    background-color: #fb8c00;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+
+/* mobile */
+@media screen and ( max-width: 1200px){
+
+  .menu-btn {
+    display: inline;
+    width: 40%;
+    float: right;
+}
+
+  .bloco1{
+  margin-left: 0vh;
+}
+
+  .logo-pc{
+  display: none;
+}
+
+.logo-mobile{
+  display: block;
+  background-image: url(images/home/pc-mobile.png);
+  background-size: 50%;
+  height: 510px;
+}
+
+.logo-moto{
+  height: 50vh;
+}
+
+
+ .logo-goey{
+    display: none ;
+ }
+
+.menu-mobile{
+    background: transparent;
+    border: 1px solid transparent;
+    text-align: center;
+}
+
+.menu-mobile ul{
+    text-decoration: none !important;
+}
+
+.btn-mobile{
+    float: right;
+    background: transparent;
+    border: 1px solid transparent;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 16px;
+  
+}
+.btn-mobile h1{
+    font-size: 30px;
+}
+.btn-mobile h1 i{
+    color: #f37b22;
+
+}
+.modal-mobile{
+    padding-top: 0px;
+}
+.logo-goey-mobile{
+     max-width:40px;
+    display: inline;
+    width: 60%;
+    float: left;
+    margin-top: 25px;
+    margin-left: 10px;
+}
+
+.entenda .pg1 {
+    margin-top: 10vh;
+    line-height: 1em;
+    margin-bottom: 5vh;
+    font-size: 20px;
+    padding-left: 5px;
+    font-weight: 800;
+    color: #f37b22;
+}
+
+.entenda .pg2 {
+    margin-top: 2vh;
+    line-height: 0.9em;
+    font-size: 20px;
+    font-weight: 300;
+    color: #000;
+}
+
+.pag2{
+    background-image: url(images/home/banner-seguranca.png);
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    background-size: 170%;
+    background-position: center top;
+    background-repeat: no-repeat; 
+}
+
+.levar .pg1 {
+    margin-top: 5vh;
+    padding-top: 35vh;
+    font-size: 25px;
+    color: #4266ae;
+    font-weight: 800;
+    line-height: 0.9em;
+}
+
+
+.levar .pg4{
+    margin-top: 1vh;
+    color: #fff;
+    font-size: 19px;
+    line-height: 0.9em;
+    font-weight: 300;
+}
+
+.tranquilidade .pg5 span {
+    color: #fff;
+    font-weight: 800;
+}
+
+.tranquilidade .pg5 {
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 0.9em;
+}
+
+.entregas p {
+    color: #fff;
+    font-weight: 300;
+    font-size: 5vh;
+    line-height: 0.8;
+    letter-spacing: -1.1px !important;
+}
+.entregas span {
+    font-size: 5vh;
+    font-weight: 700;
+    color: #f37a24;
+}
+
+.frota,.rastre,.cadastro,
+.pagamento,.solicitacao,.agendamento{
+    margin: 0 auto;
+}
+
+.Propria,.Rastreabilidade,.pagamentos,
+.Online,.entrega,.agenda{
+
+    text-align: center;
+}
+
+.solicitacao {
+    min-height: 42px;
+}
+
+.cadastro{
+    min-height: 60px;
+}
+
+.menu-mobile-btn a{
+    color: #fff; 
+    font-weight:700;
+    cursor: pointer;
+}
+.menu-mobile-btn a:hover{
+    color: #f37b22;
+}
+
+.menu-mobile-btn:hover{
+    border-radius: 5px;
+    color: #fb8c00 ;
+}
+.footer {
+    color: #000;
+    text-align: center;
+    font-size: 9px;
+    margin-top: 10vh;
+    letter-spacing: 1px;
+}
+
+  .container-home {
+    min-height: 100vh;
+}
+
+}
+
+@media screen and ( max-width: 1024px){
+.titulo-texto p{
+    font-size: 30px !important;
+}
+
+.btn-querocontratar-secondary {
+    width: 40%;
+    }
+
+  .container-home {
+    min-height: 100vh;
+}
+.google {
+    text-align: center;
+    margin-top: 5vh;
+    margin-left: 0px !important;
+}
+.iphone{
+    margin-top: 5vh;
+    text-align: center;
+}
+
+}
+
+@media screen and ( max-width: 736px){
+  
+.btn-querocontratar-secondaryy{
+    width: 100%;
+    margin-left: 0px !important;
+}
+.moto{
+    text-align: center;
+        margin-left: 0px !important ;
+}
+
+.carro{
+    text-align: center;
+    margin-right: 0px !important;
+}
+
+.site-header  {
+   display: none;
+}
+.navbar{
+     display: block;
+}
+.logo-moto {
+display: none
+}
+
+
+.levar .pg1 {
+    margin-top: 44vh;
+    
+}
+
+.banner-laranja {
+    margin-top: 64px;
+}
+}
+
+
+@media screen and (max-width: 692px){
+    .moto {
+    margin-left: 0px !important;
+}
+
+.carro {
+    margin-right: 0px !important;
+}
+
+
+.google img{
+    min-width: 60% !important;
+}
+
+.iphone img{
+    min-width: 60% !important;
+}
+
+}
+
+@media screen and ( max-width: 667px){
+    .site-header  {
+   display: none;
+}
+.navbar{
+     display: block;
+}
+.logo-moto {
+display: none
+}
+
+
+.levar .pg1 {
+    margin-top: 57vh;
+    
+}
+
+.moto{
+    text-align: center;
+        margin-left: 0px !important ;
+}
+
+.carro{
+    text-align: center;
+    margin-right: 0px !important;
+}
+
+}
+
+@media screen and ( max-width: 640px){
+    .site-header  {
+   display: none;
+}
+.navbar{
+     display: block;
+}
+.logo-moto {
+display: none
+}
+
+
+
+.levar .pg1 {
+    margin-top: 57vh;
+    
+}
+.moto{
+    text-align: center;
+        margin-left: 0px !important ;
+}
+
+.carro{
+    text-align: center;
+    margin-right: 0px !important;
+}
+
+}
+
+@media screen and (max-width: 500px){
+.gratis p{
+    text-align: center !important ; 
+    color: #fff !important;
+    margin-top: 13vh !important;
+    margin-left: 0px !important;
+}
+.recapmobile{
+    padding-left: 0px !important;
+    padding-right: 0px;
+}
+
+  
+.levar .pg1 {
+    margin-top: 5vh !important;
+    
+}
+
+.levar .pg4{
+    margin-top: 1vh;
+    color: #fff;
+    font-size: 19px;
+    line-height: 0.9em;
+    font-weight: 300;
+}
+
+ .entenda .pg1 {
+    margin-top: 5vh !important;
+}
+
+.logo-moto {
+display: block;
+}
+
+.logocompra{
+  text-align: center;
+  margin-top: 5vh !important;
+  z-index: 2;
+}
+
+.btn-cadastre-secondary:hover{
+    color: #f37b22;
+    background: transparent;
+}
+
+.btn-cadastre-secondary{
+    margin-left: 5px;
+}
+.dropdown {
+    position: relative;
+    background: transparent !important;
+    border-radius: 5px;
+    width: 41%;
+}
+
+.levar .pg2 {
+    margin-top: 10px !important;
+}
+
+.navbar-nav .open .dropdown-menu {
+    position: static;
+    float: none;
+    width: auto;
+    border-radius: 5px;
+    margin-top: 3px;
+    background-color: transparent;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.moto {
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+}
+.carro{
+        margin-right: 0px !important;
+}
+ 
+.menu{
+    display: none;
+ }
+
+  .navbar{
+     display: block;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 146px;
+    padding: 2px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    text-align: left;
+    border: 1px solid #cccccc;
+    background: #fb8c00 !important;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+.btn-fisi {
+    padding-top: 4px;
+    padding-left: 15px;
+    padding-bottom: 8px;
+    width: 100%;
+}
+
+.btn-juri{
+    width: 100%;
+    padding-left: 15px;
+}
+
+.btn-rest{
+    padding-left: 19px;
+}
+
+}
+
+
+@media screen and ( max-width: 414px){
+
+
+
+
+.titulo-texto p{
+    font-size: 20px !important;
+}
+
+.btn-querocontratar-secondary {
+    width: 40%;
+    }
+
+h3, .h3 {
+    font-size: 8px;
+}
+
+  .container-home {
+    min-height: 100vh;
+}
+
+}
+
+@media screen and ( max-width: 360px){
+
+    .btn-querocontratar-secondary {
+    width: 50%;
+    }
+
+    .entenda .pg2 {
+    margin-top: 0vh !important;
+    line-height: 0.9em;
+    font-size: 17px !important;
+    font-weight: 300;
+    color: #000;
+}
+    .entenda .pg1 {
+    margin-top: 5vh;
+
+}
+
+h3, .h3 {
+    font-size: 9px;
+
+}
+  .container-home {
+    min-height: 100vh;
+}
+
+}
+
+@media screen and ( max-width: 375px){
+
+    .entenda .pg1 {
+    margin-top: 5vh !important;
+
+}
+    .entenda .pg2 {
+    margin-top: 0vh;
+    line-height: 0.9em;
+    font-size: 20px;
+    font-weight: 300;
+    color: #000;
+}
+
+h3, .h3 {
+    font-size: 10px;
+}
+
+  .container-home {
+    min-height: 100vh;
+}
+
+}
+
+
+@media screen and ( max-width: 320px){
+    .btn-querocontratar-secondary {
+    width: 50%;
+ }
+    .entenda .pg2 {
+    margin-top: 2vh;
+    line-height: 0.9em;
+    font-size: 17px;
+    font-weight: 300;
+    color: #000;
+}
+  .entenda .pg1 {
+    margin-top: 10vh;
+}
+
+
+
+.levar .pg1 {
+    margin-top: 5vh;
+    font-size: 25px;
+    color: #4266ae;
+    font-weight: 800;
+    line-height: 0.9em;
+}
+
+.btn-fisi {
+    width: 100% !important;
+}
+
+
+.btn-juri{
+    width: 100% !important;
+}
+
+h3, .h3 {
+    margin-top: 5px;
+    font-size: 8px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+  .container-home {
+    min-height: 100vh;
+}
+  .dropdown-menu{
+        min-width: 128px !important;  
+}
+
+}
+
+@media only screen and (max-width: 720px){
+
+        #bikeEletrica{
+          margin-left: 0px !important;
+
+        }
+
+        #moto{
+          /*margin-left: 0px !important;*/
+          margin-left: 20px !important;
+          /*margin-left: -10px !important;*/
+        }
+        #tuktuk{
+          margin-left: 0px !important;
+          /*margin-left: -10px !important;*/
+        }
+        #pickup{
+          margin-left: 10px !important;
+          margin-right: 10px !important;
+          width: 107px;
+        }
+
+        #bikeEletrica h5{
+          font-size: 10px !important;
+        }
+        #moto h5{
+          font-size: 10px !important;
+        }
+        #tuktuk h5{
+          font-size: 10px !important;
+        }
+        #pickup h5{
+          font-size: 10px !important;
+        }
+        #bikeEletrica h5 input{
+          height:8px !important;
+        }
+        #moto h5 input{
+          height:8px !important;
+        }
+        #tuktuk h5 input{
+          height:8px !important;
+        }
+        #pickup h5 input{
+          height:8px !important;
+        }
+
+        #bikeEletrica img{
+          height:40px !important;
+        }
+
+        #moto img{
+          height:40px !important;
+        }
+        #tuktuk img{
+          height:40px !important;
+        }
+        #pickup img{
+          height:40px !important;
+        }
+
+
+
+        .col-md-2.col-xs-5.col-sm-5.moto{
+              padding-top: 35px !important;
+              padding-left: 80px !important;
+        }
+
+        .col-md-2.col-xs-5.col-sm-5.pull-left.carro{
+              margin-left: 55px !important;
+        }
+
+}
+
+
+#bikeEletrica{
+  margin-left: -40px;
+}
+#moto{
+  margin-left: -25px;
+}
+#tuktuk{
+  margin-left: -100px;
+}
+#pickup{
+  margin-left: -100px;
+}
+span#totalKM{
+  font-size: 17px !important
+}
+span#totalDuracao{
+  font-size: 17px !important
+}
+span#totalDistancia{
+  font-size: 17px !important
+}
+.col-md-2.col-xs-5.col-sm-5.moto{
+  padding-top: 35px !important;
+    padding-left:70px !important;
+}
+.uLabel{
+  font-family: Roboto;font-weight: 350;
+}
+
+@media only screen and (max-width: 360px){
+
+
+
+}
+
+
+</style>

@@ -1,0 +1,136 @@
+﻿<!--
+Author: Ranjithprabhu K
+Page Description: Skills page
+Date: 13 Jan 2016
+-->
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        
+        <ol class="breadcrumb">
+            <li><a><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active">Agendar Entragas</li>
+        </ol>
+    </section>
+    <!-- Development content -->
+  
+    <section class="content">
+     <div class="row">
+        
+            <div class="col-lg-12 col-xs-12" >
+              <div class="form-group">
+                    <label for="origem">Endereço de Origem:</label>
+                    <input type="text" class="form-control" id="origem" name="origem" gm-places-autocomplete ng-model="cadastrar.origem" />
+               </div>
+               <div class="form-group">
+                    <label for="destino">Endereço de Destino:</label>                    
+                    <input type="text" class="form-control" id="destino" name="destino" gm-places-autocomplete ng-model="cadastrar.destino" />
+                </div>                
+                
+            </div>
+            
+            <div class="col-lg-3 col-xs-12" >                           
+                <button type="button" class="btn btn-info btn-block" ng-click="consultarValores()">Buscar</button>
+            </div>
+        </div>
+        
+        
+    </section>
+<!--- distancia e preço -->
+
+    <section class="content-header">
+      <div class="row">
+        <div class="col-lg-3 col-xs-12" >              
+            <div class="form-group">
+                <label for="distancia">Distância</label>
+                <input type="text" class="form-control" id="distancia" name="distancia" readonly="" ng-model="cadastrar.distancia">               
+            </div>
+        </div>
+            
+        <div class="col-lg-3 col-xs-12" >              
+            <div class="form-group">              
+                <label for="valor">Valor</label>
+                <input type="text" class="form-control" id="valor" name="valor" readonly="" ng-model="cadastrar.valor" >
+            </div>                       
+        </div>
+        
+        <div class="col-lg-3 col-xs-12" >              
+            <div class="form-check">
+            <p><label for="tipo">Informe o tipo de objeto</label></p>        
+                <span><input type="radio" class="form-check-input"  id="tipo" name="objeto" value="documento" ng-model="cadastrar.tipo"/> Documento </span>
+                <span style="margin-left: 10%;"><input type="radio" class="form-check-input"  id="tipo" name="objeto" value="outros" ng-model="cadastrar.tipo"/> Outros </span>          
+            </div>                       
+        </div>
+                
+      </div>
+    </section>
+    
+    <!-- Design content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12 col-xs-12">
+                <div class="form-group">
+                    <label for="descricao">Descrição:</label>
+                    <input type="text" class="form-control" id="descricao" name="descricao" ng-model="cadastrar.descricao">
+                </div>
+            </div>     
+        </div>
+        <div class="row">
+        
+            <div class="col-lg-3 col-xs-12">
+                <div class="form-group">
+                    <label for="descricao">Peso:</label>
+                    <input type="text" class="form-control" id="peso" ng-model="cadastrar.peso">
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-xs-12">
+                <div class="form-group">
+                    <label for="altura">Altura:</label>
+                    <input type="text" class="form-control" id="altura" ng-model="cadastrar.altura">
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-xs-12">
+                <div class="form-group">
+                    <label for="largura">Largura:</label>
+                    <input type="text" class="form-control" id="altura" ng-model="cadastrar.largura">
+                </div>
+            </div>  
+                
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-12 col-xs-12">
+                <div class="form-group">
+                    <label for="descricao">Observação:</label>
+                    <textarea class="form-control" rows="5" id="observacao" name="observacao" ng-model="cadastrar.observacao"></textarea>
+                </div>
+            </div>     
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-3 col-xs-12">
+                <div class="form-group">
+
+                    <label for="dataAgenda">Agendar Para:</label>
+                    <input type="text" class="form-control"  id="dataAgenda" name="dataAgendamento" ng-model="cadastrar.dataAgenda" ui-date-mask="DD-MM-YYYY">
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-12">               
+                    <div class="form-group">
+                    <label for="btnAgendar">&nbsp</label>
+                    <input type="button" class="btn btn-info btn-block" id="btnAgendar" name="dataAgendamento" value="Agendar" ng-click="agendarEntrega()"/>
+                    </div>
+                
+            </div>     
+        </div>        
+        
+        
+        
+    </section>
+
+
+
+
+

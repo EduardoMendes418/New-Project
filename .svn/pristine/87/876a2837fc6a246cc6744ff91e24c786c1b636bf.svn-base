@@ -1,0 +1,27 @@
+﻿
+
+dashboard.controller("restauranteCtrl", ['$rootScope', '$scope', '$state', '$location', 'dashboardService', 'Flash','$http',
+function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http) {
+    var vm = this;
+    var usuario = JSON.parse(localStorage.getItem('user'));
+    $scope.tipoUsuario = usuario.tipoUsuario;
+    $scope.codUsuario = usuario.codUsuario;
+    $scope.auth = '3f018bfb43591ccb2ef46f10de832160';
+
+
+
+    console.log(ws);
+    var dados = {
+            "codigo":usuario.codUsuario,
+            "auth":"3f018bfb43591ccb2ef46f10de832160"
+        };
+    $http.post(ws+'/goey/rest/public/restauranteFavorito',dados).then(function(response){
+            $scope.restaurantes = response.data;
+           
+    });
+
+
+}]);
+
+
+

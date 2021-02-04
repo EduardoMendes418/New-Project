@@ -1,0 +1,17 @@
+var cadastro = angular.module('cadastro', ['ui.router', 'ngResource', 'ngAnimate']);
+
+
+cadastro.config(["$stateProvider", function ($stateProvider) {
+
+     //skills page state
+     $stateProvider.state('cadastro', {
+        url: '/cadastro',
+        templateUrl: 'app/modules/cadastro/usuario.html',
+        controller: 'usuarioCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Cadastro'
+        }
+    });
+
+}]);

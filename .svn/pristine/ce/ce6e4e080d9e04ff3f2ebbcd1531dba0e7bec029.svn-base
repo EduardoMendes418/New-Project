@@ -1,0 +1,1061 @@
+
+<!--Pagina Desktop-->
+<section id="desktop">
+  <main class="page-content">
+    <div class="container-fluid col-xs-12 col-sm-12 col-md-12 stepdesktop">
+      <div class="row">
+       <!--************************ BANNER *********************************-->
+       <div class="col-xs-12 col-sm-12 col-md-6 logo"  >
+        <div class="container-fluid">
+          <img src="images/locacao/logo.png" width="130px" style="padding-top: 0px;">
+          <div class=" bannerazul">
+           <div class="container whats" >
+            <h1 class="mt-5">Trabalhe primeiro e pague depois.</h1>
+            <h2 class="mt-6">Alugue sua bike ou moto.</h2>
+            <p class="lead">Sem complicações, rápido e seguro. Faça as contas e veja como é muito mais vantajoso alugar uma moto do que ter uma. Você não precisa se preocupar com seguro, IPVA, licenciamento. Seu dinheiro não fica parado em moto e pode ser canalizado para o crescimento de seu negócio. <span>Você inserido de volta ao mercado com mais flexibilidade.</span></p>
+            <p class="app">WhatsApp<img src="images/locacao/whats.png" ></p>
+            <p class="tel">(19) 98332-0031</p>
+            <p class="valores">*Valores sujeito a alterações.</p>
+          </div> 
+        </div>
+      </div> 
+    </div>
+
+    <!--************************ MOTO *********************************-->
+    <div class="col-xs-12  col-sm-12 col-md-3 moto" >
+      <img src="images/locacao/bike.png" width="90%" style="padding-top: 0px;">
+        <div class="pricing-header mx-auto text-left" style="padding: 5px">
+          <div class="row">
+            <div class="diariaa">
+              <p>A partir de</p>
+            </div>
+            <div class="diaria"> 
+              <h1 class="display-4" >R$ 15,99</h1><p style="color: #000 !important">VALOR<br>DA DIÁRIA</p>
+            </div>
+            <p class="bikeeletrica"><label style="color:#4266AE">Bike Elétrica</label> <br> Leve, prática e confortável. Um transporte 100% eco-friendly. <label style="color:#4266AE"> Locação mínima de 30 dias.</label></p>
+            <hr>
+            <div class="instruçao">
+              <p style="font-weight: 600"><img src="images/locacao/ve.png" width="25px"> Sem necessidade de Cartão de Crédito</p>
+              <p style="font-weight: 600"><img src="images/locacao/ve.png" width="25px"> Pagamento por Boleto Bancário</p>
+              <p><img src="images/locacao/ve.png" width="25px"> Manutenção Incluida</p>
+              <p><img src="images/locacao/ve.png" width="25px"> Conforto & Segurança</p>
+              <p><img src="images/locacao/ve.png" width="25px"> Não precisa de CNH</p>
+              <p><img src="images/locacao/ve.png" width="25px"> Autonomia de 40Km</p>
+              <p><img src="images/locacao/ve.png" width="25px"> Não usa combustível</p>
+              <p><img src="images/locacao/ve.png" width="25px"> Recarga Rápida</p>
+              <p><img src="images/locacao/ve.png" width="25px"> Bag Térmica para Restaurantes</p>
+              
+
+            </div>
+            <br>
+            <a class="price"  data-toggle="bottom" onclick="stepbanner(2);" >
+              <button>Alugar Bike</button>
+            </a>
+            <hr>
+              <!--  <p>Nossos serviços de locação são exclusivamente desenvolvidos para você que deseja voltar ao mercado de trabalho com um custo mais acessível. <label>Termos de Uso.</label></p>
+               <hr>-->
+            </div>
+          </div>
+         </div>
+
+             <!--************************ BIKE *********************************-->
+             <div class="col-xs-12  col-sm-12 col-md-3 bike  " >
+               <img src="images/locacao/moto.png" width="90%" style="padding-top: 0px;">
+               <div class="pricing-header mx-auto text-left" style="padding: 5px">
+                 <div class="row">
+                   <div class="diariaa">
+                    <p>A partir de</p>
+                  </div>
+                  <div class="diaria"> 
+                    <h1 class="display-4">R$ 34,99 </h1><p style="color: #000">VALOR<br>DA DIÁRIA</p>
+                  </div>
+
+                  <p class="bikeeletrica"><label style="color: #4266AE">Honda CG Cargo</label> <br> Design, segurança e tecnologia. Pronta para encarar o dia a dia.<label style="color:#4266AE"> Locação mínima de 30 dias.</label></p>
+                  <hr>
+                  <div class="instruçao">
+                   <!-- <p><img src="images/locacao/ve.png" width="25px"> Sem limite de Kilometragem</p>-->
+                   <p style="font-weight: 600"><img src="images/locacao/ve.png" width="25px"> Sem necessidade de Cartão de Crédito</p>
+                   <p style="font-weight: 600"><img src="images/locacao/ve.png" width="25px"> Pagamento por Boleto Bancário</p>
+                   <p><img src="images/locacao/ve.png" width="25px"> Manutenção Incluida</p>
+                   <p><img src="images/locacao/ve.png" width="25px"> Documentação Incluida</p>
+                   <p><img src="images/locacao/ve.png" width="25px"> Baú Fixo de 61X52cm</p>
+                   <p><img src="images/locacao/ve.png" width="25px"> Equipada para Trabalhar</p>
+                   <p><img src="images/locacao/ve.png" width="25px"> Veículos Novos</p>
+                   <p><img src="images/locacao/ve.png" width="25px"> Rastreamento</p>
+                   <p><img src="images/locacao/ve.png" width="25px"> Bag Térmica para Restaurantes</p>
+                  
+
+                 </div>
+                 <br>
+                 <a  class="price"  data-toggle="bottom" onclick="stepbanner(3);" >
+                  <button>Alugar Moto</button>
+                </a>
+
+                <hr>
+                <!--<p>Nossos serviços de locação são exclusivamente desenvolvidos para você que deseja voltar ao mercado de trabalho com um custo mais acessível. <label>Termos de Uso.</label></p>
+                 <hr>-->
+               </div>
+             </div>
+           </div>
+
+           <!--************************ CAMPO moto*********************************-->
+           <div class="col-xs-12 col-sm-12 col-md-3 buscafarmaciaa " >
+            <div  style="display: block;  color: #666">
+             <label class="alugue" >Alugue agora mesmo!</label>
+             <a onclick="stepbanner(5);">
+               <i class="fa fa-times"></i>
+             </a>
+           </div>
+
+           <div  class="col-xs-12 col-md-12" style=" padding:0px;">
+            <form class=" form-group needs-validation form1 form-group form-cadastro" name="formlocacao-moto" novalidate="" id="formlocacao-moto">
+               <div class="row">
+
+                  <!--Nome-->
+                  <div class="form-group col-xs-12 col-md-12"  ng-class="{'is-invalid' : formlocacao.nomeCompleto.$invalid && !formlocacao.nomeCompleto.$pristine }">
+                   <label>Nome Completo:</label>
+                   <input type="text" capitalize class="form-control" name="nome" id="nome" ng-model="nome" 
+                   ng-class="{'is-invalid': formlocacao.nome.$invalid && formlocacao.nome.$touched,'is-valid': formlocacao.nome.$valid}" onkeypress='return SomenteLetra(event)' required >
+                   <p ng-show="formlocacao.nome.$invalid && !formlocacao.nome.$pristine" class="help-block" >Nome é obrigatório.</p>
+                 </div>
+
+                 <!--cpf-->
+                 <div class="form-group col-xs-12 col-md-6" ng-class="{'is-invalid' : formlocacao.cpf.$invalid && !formlocacao.cpf.$pristine }" >
+                  <label>CPF:*</label>
+                  <input type="text"  ng-model="cpf" name="cpf" class="form-control" ui-br-cpf-mask 
+                  ng-class="{'is-invalid': formlocacao.cpf.$invalid && formlocacao.cpf.$touched,'is-valid': formlocacao.cpf.$valid}" onkeypress='return SomenteNumero(event)' required>
+                  <p ng-show="formlocacao.cpf.$invalid && !formlocacao.cpf.$pristine" class="help-block">Digite um CPF válido.</p>
+                </div>
+
+                   <!--Rg-->
+                <div class=" form-group col-xs-12 col-md-6" ng-class="{'is-invalid' : formlocacao.rg.$invalid && !formlocacao.rg.$pristine }">
+                  <label>RG:*</label>
+                  <input type="text"  ng-model="rg" name="rg" class="form-control" ui-br-rg-mask 
+                  ng-class="{'is-invalid': formlocacao.rg.$invalid && formlocacao.rg.$touched,'is-valid': formlocacao.rg.$valid}" onkeypress='return SomenteNumero(event)' required>
+                  <p ng-show="formlocacao.rg.$invalid && !formlocacao.rg.$pristine" class="help-block">Digite um rg válido.</p>
+                </div>
+
+                <!--sexo -->
+                <div class="form-group col-xs-6 col-md-6">
+                  <label >Sexo:</label>
+                  <select class="form-control" name="sexo" ng-model="sexo">
+                    <option value="0">Selecione</option>    
+                    <option value="1">Masculino</option>          
+                    <option value="2">Feminino</option>           
+                  </select>
+                </div>
+
+                <!-- nascimento-->
+                <div class="form-group col-xs-6 col-md-6">
+                  <label >Nascimento:</label>
+                  <input type="text" id="cmpDate" name="datanascimento" class="form-control"  ng-model="datanascimento"
+                  placeholder=""  min="2013-01-01" max="2023-12-31" ui-date-mask="DD/MM/YYYY" parse="false"/>
+                </div>
+
+                <!-- Estado  civil-->
+                <div class="form-group col-xs-6 col-md-6">
+                  <label >Estado Civil:</label>
+                  <select class="form-control" name="estadocivil" id="estadocivil" ng-model="estadocivil">
+                    <option value="0" >Selecione</option>
+                    <option value="1" >Solteiro(a)</option>
+                    <option value="2" >Casado(a)</option>
+                    <option value="3" >Desquitado(a)</option>
+                    <option value="4" >Viuvo(a)</option>
+                    <option value="5" >Separado(a) Judicial</option>
+                    <option value="6" >Companheiro(a)</option>
+                    <option value="7" >Divorciado(a)</option>
+                    <option value="8" >Outros</option>
+                  </select>
+                </div>
+
+                <!--filhos -->
+                <div class="form-group col-xs-6 col-md-6">
+                  <label >Possui Filhos:</label>
+                  <select class="form-control" name="filhos" id="filhos" ng-model="filhos">
+                    <option value="0" >Selecione</option>
+                    <option value="1" >Sim</option>
+                    <option value="2" >Não</option>
+                  </select>
+                </div>
+
+                <!--celular -->
+                <div class="form-group col-xs-12 col-md-12">
+                  <label >Celular *</label>
+                  <input type="text" capitalize class="form-control" name="telefone" id="telefone" ng-model="telefone" ui-br-phone-number ng-minlength="15" ng-class="{'is-invalid': formlocacao.telefone.$invalid && formlocacao.telefone.$touched,'is-valid': formlocacao.telefone.$valid}" >
+                </div> 
+
+                <!--email -->
+                <div class="form-group col-xs-12 col-md-12">
+                  <label >E-mail *</label>
+                  <input type="text" capitalize class="form-control" name="email"  ng-model="email" >
+                </div>
+
+                <!--cep -->
+                <div class="form-group col-xs-12 col-md-6">
+                  <label >Cep:</label>
+                 <!-- <input type="text" capitalize class="form-control" name="cep" id="cep" ng-model="cep" ui-br-cep-mask ng-class="{'is-invalid': formlocacao.cep.$invalid && formlocacao.cep.$touched,'is-valid': formlocacao.cep.$valid}" required ng-change="getAddressByCep();">-->
+                   <input type="text" class="form-control inputBuscar" id="cep" name="cep" autofocus ng-model="buscar.cep" ui-br-cep-mask ng-change="buscaCep(buscar.cep)"/>
+                </div>
+
+                  <!--uf -->
+                <div class="form-group col-xs-12  col-md-6" ng-class="{ 'is-invalid' : formlocacao.uf.$invalid && !formlocacao.uf.$pristine }">
+                 <label for="uf">UF *</label>
+                 <select class="form-control" name="uf" id="uf" ng-model="uf" ng-class="{'is-invalid': formlocacao.uf.$invalid && formlocacao.uf.$touched,'is-valid': formlocacao.uf.$valid}" required>
+                  <option value="">SELECIONE</option>
+                  <!--  <option value="AC">Acre</option>
+                   <option value="AL">Alagoas</option>
+                   <option value="AP">Amapá</option>
+                   <option value="AM">Amazonas</option>
+                   <option value="BA">Bahia</option>
+                   <option value="CE">Ceará</option>
+                   <option value="DF">Distrito Federal</option>
+                   <option value="ES">Espírito Santo</option>
+                   <option value="GO">Goiás</option>
+                   <option value="MA">Maranhão</option>
+                   <option value="MT">Mato Grosso</option>
+                   <option value="MS">Mato Grosso do Sul</option>
+                   <option value="MG">Minas Gerais</option>
+                   <option value="PA">Pará</option>
+                   <option value="PB">Paraíba</option>
+                   <option value="PR">Paraná</option>
+                   <option value="PE">Pernambuco</option>
+                   <option value="PI">Piauí</option>
+                   <option value="RJ">Rio de Janeiro</option>
+                   <option value="RN">Rio Grande do Norte</option>
+                   <option value="RS">Rio Grande do Sul</option>
+                   <option value="RO">Rondônia</option>
+                   <option value="RR">Roraima</option>
+                   <option value="SC">Santa Catarina</option>-->
+                   <option value="SP" selected>São Paulo</option>
+                   <!--<option value="SE">Sergipe</option>
+                   <option value="TO">Tocantins</option>-->
+                 </select>
+                 <p ng-show="formlocacao.uf.$invalid && !formlocacao.uf.$pristine" class="help-block">UF é obrigatório.</p>
+               </div>
+
+               <!--cidade-->
+               <div class="form-group col-xs-12 col-md-12" ng-class="{ 'is-invalid' : formlocacao.cidade.$invalid && !formlocacao.cidade.$pristine }">
+                <label for="cidade">Cidade *</label>
+                <select  class="form-control" id="cidade" name="cidade" ng-model="cidade" >
+                        <option ng-repeat="c in comboCidades" ng-value="c.cidade">{{c.cidade}}</option>
+                    </select>   
+              </div>
+
+              <!-- bairro -->
+              <div class="form-group col-xs-12 col-md-12" ng-class="{ 'is-invalid' : formlocacao.bairro.$invalid && !formlocacao.bairro.$pristine }">
+                <label for="bairro">Bairro *</label>
+                <input type="text" capitalize class="form-control" name="bairro" id="bairro" ng-model="bairro" ng-class="{'is-invalid': formlocacao.bairro.$invalid && formlocacao.bairro.$touched,'is-valid': formlocacao.bairro.$valid}" required onkeypress='return SomenteLetra(event)'>
+                <p ng-show="formlocacao.bairro.$invalid && !formlocacao.bairro.$pristine" class="help-block" >Bairro é obrigatório.</p>
+              </div>
+
+              <!--Logradouro-->
+              <div class="form-group col-xs-6 col-md-12">
+               <label >Logradouro:</label>
+               <input type="text" capitalize class="form-control" name="logradouro" id="logradouro" ng-model="logradouro" ng-class="{'is-invalid': formlocacao.logradouro.$invalid && formlocacao.logradouro.$touched,'is-valid': formlocacao.logradouro.$valid}" required onkeypress='return SomenteLetra(event)'>
+             </div>
+
+              <!--complemento-->
+             <div class="form-group col-xs-6 col-md-6">
+               <label >Complemento:</label>
+               <input type="text" capitalize class="form-control" id="complemento" name="complemento" ng-model="complemento" ng-class="{'is-valid': formlocacao.complemento.$valid && formlocacao.complemento.$touched}">
+             </div>
+
+               <!--numero-->
+             <div class="form-group col-xs-12  col-md-6" >
+              <label for="numero">Número *</label>
+              <input type="tel" class="form-control" name="numero" id="numero" ng-model="numero" ng-class="{'is-invalid': formUsuario.numero.$invalid && formUsuario.numero.$touched,'is-valid': formUsuario.numero.$valid}" required onkeypress='return SomenteNumero(event)'>
+            </div>
+
+          <div class="form-group col-xs-6 col-md-12">
+            <label >Numero de CNH:</label>
+            <input type="text" class="form-control" name="ncnh" id="ncnh" placeholder="" value="" required="" ng-model="ncnh">
+          </div>
+
+          <div class="form-group col-xs-6 col-md-6">
+            <label >Validade:</label>
+            <input type="text" class="form-control" name="validade"  id="validade" placeholder="" value="" required="" ng-model="validade">
+          </div>
+
+          <div class="form-group col-xs-6 col-md-6">
+            <label >1º Habilitação:</label>
+            <input type="text" class="form-control" name="habilitacao" id="habilitacao" placeholder="" value="" required="" ng-model="habilitacao">
+          </div>
+
+          <div class="form-group col-xs-6 col-md-6">
+            <label for="cnh">Fotos CNH:</label>
+            <input type="file" class="form-control-file" id="cnh" name="cnh" >
+          </div>
+
+          <div class="form-group col-xs-12 col-md-12 aplicativo">
+            <div class="col-xs-12">
+              <label >Trabalha por aplicativo:</label>
+            </div>
+
+            <div class="form-group col-xs-6 col-md-6">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input check1" type="checkbox" id="ifood" name = "aplicativo[]"  value="1"  ng-model="ifood" >
+                <label class="form-check-label" for="ifood">ifood</label>
+              </div>
+            </div>
+
+            <div class="form-group col-xs-6 col-md-6">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input check1" type="checkbox" id="rappi" name = "aplicativo[]" value="2"  ng-model="rappi">
+                <label class="form-check-label" for="rappi">Rappi</label>
+              </div>
+            </div>
+
+            <div class="form-group col-xs-6 col-md-6">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input check1" type="checkbox" id="uber" name = "aplicativo[]" value="3"  ng-model="uber">
+                <label class="form-check-label" for="uber">Uber Eats</label>
+              </div>
+            </div>
+
+            <div class="form-group col-xs-6 col-md-6">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input check1" type="checkbox" id="loggi" name = "aplicativo[]" value="4"  ng-model="loggi">
+                <label class="form-check-label" for="loggi">Loggi</label>
+              </div>
+            </div>
+          </div>   
+
+          <div class="form-group col-xs-12 cadastro btn2" style="padding-left: 15px;">
+            <button type="button"  class="btn-cadastro" ng-click="enviarCadastro(2);"  ng-show="!cadTrue">Enviar Cadastro</button>
+            <span class="msn-txt"></span>
+          </div>
+            </div>
+           <!-- <div class="row">  
+                <div class="form-group col-md-5 col-sm-12 col-xs-12" style="    position: relative;top: 10px;">
+                    <div class="g-recaptcha" data-sitekey="6LeIricTAAAAACqJbFWyJ4Y9GTH0CEHlnzSFIHSx"></div>
+                </div>
+            </div>-->
+
+          </form>
+        </div>
+      </div>
+
+
+          <!--************************ CAMPO Bike Elétrica *********************************-->
+          <div class="col-xs-12 col-sm-12 col-md-3  buscarestaurantee" >
+           <div  style="display: block; color: #666">
+            <label class="alugue" >Alugue agora mesmo!</label>
+            <a onclick="stepbanner(5);">
+             <i class="fa fa-times"></i>
+           </a>
+         </div>
+
+         <div  class="col-xs-12 col-md-12" style=" padding:0px;">
+                <form class="form-group needs-validation form2  form-group form-cadastro " name="formlocacao-bike" novalidate>
+                  <div class="row">
+                    <!--Nome-->
+                    <div class="form-group col-xs-12 col-md-12"  ng-class="{'is-invalid' : formlocacao.nomeCompleto.$invalid && !formlocacao.nomeCompleto.$pristine }">
+                     <label>Nome Completo:</label>
+                     <input type="text" capitalize class="form-control" name="nome" id="nome" ng-model="nome" 
+                     onkeypress='return SomenteLetra(event)' required >
+                     <!--p ng-show="formlocacao.nome.$invalid && !formlocacao.nome.$pristine" class="help-block" >Nome é obrigatório.</p-->
+                   </div>
+
+                   <!--cpf-->
+                   <div class="form-group col-xs-12 col-md-6" ng-class="{'is-invalid' : formlocacao.cpf.$invalid && !formlocacao.cpf.$pristine }" >
+                    <label>CPF:*</label>
+                    <input type="text"  ng-model="cpf" name="cpf" class="form-control" ui-br-cpf-mask 
+                    ng-class="{'is-invalid': formlocacao.cpf.$invalid && formlocacao.cpf.$touched,'is-valid': formlocacao.cpf.$valid}" onkeypress='return SomenteNumero(event)' required>
+                    <p ng-show="formlocacao.cpf.$invalid && !formlocacao.cpf.$pristine" class="help-block">Digite um CPF válido.</p>
+                  </div>
+
+                     <!--Rg-->
+                  <div class=" form-group col-xs-12 col-md-6" ng-class="{'is-invalid' : formlocacao.rg.$invalid && !formlocacao.rg.$pristine }">
+                    <label>RG:*</label>
+                    <input type="text"  ng-model="rg" name="rg" class="form-control" ui-br-rg-mask 
+                    ng-class="{'is-invalid': formlocacao.rg.$invalid && formlocacao.rg.$touched,'is-valid': formlocacao.rg.$valid}" onkeypress='return SomenteNumero(event)' required>
+                    <p ng-show="formlocacao.rg.$invalid && !formlocacao.rg.$pristine" class="help-block">Digite um rg válido.</p>
+                  </div>
+
+                  <!--sexo -->
+                  <div class="form-group col-xs-6 col-md-6">
+                    <label >Sexo:</label>
+                    <select class="form-control" name="sexo" ng-model="sexo">
+                      <option value="0">Selecione</option>    
+                      <option value="1">Masculino</option>          
+                      <option value="2">Feminino</option>           
+                    </select>
+                  </div>
+
+                  <!-- nascimento-->
+                  <div class="form-group col-xs-6 col-md-6">
+                    <label >Nascimento:</label>
+                    <input type="text" id="cmpDate" name="datanascimento" class="form-control"  ng-model="datanascimento"
+                    placeholder=""  min="2013-01-01" max="2023-12-31" ui-date-mask="DD/MM/YYYY" parse="false"/>
+                  </div>
+
+                  <!-- Estado  civil-->
+                  <div class="form-group col-xs-6 col-md-6">
+                    <label >Estado Civil:</label>
+                    <select class="form-control" name="estadocivil" id="estadocivil" ng-model="estadocivil">
+                      <option value="0" >Selecione</option>
+                      <option value="1" >Solteiro(a)</option>
+                      <option value="2" >Casado(a)</option>
+                      <option value="3" >Desquitado(a)</option>
+                      <option value="4" >Viuvo(a)</option>
+                      <option value="5" >Separado(a) Judicial</option>
+                      <option value="6" >Companheiro(a)</option>
+                      <option value="7" >Divorciado(a)</option>
+                      <option value="8" >Outros</option>
+                    </select>
+                  </div>
+
+                  <!--filhos -->
+                  <div class="form-group col-xs-6 col-md-6">
+                    <label >Possui Filhos:</label>
+                    <select class="form-control" name="filhos" id="filhos" ng-model="filhos">
+                      <option value="0" >Selecione</option>
+                      <option value="1" >Sim</option>
+                      <option value="2" >Não</option>
+                    </select>
+                  </div>
+
+                  <!--celular -->
+                  <div class="form-group col-xs-12 col-md-12">
+                    <label >Celular *</label>
+                    <input type="text" capitalize class="form-control" name="telefone" id="telefone" ng-model="telefone" ui-br-phone-number ng-minlength="15" ng-class="{'is-invalid': formlocacao.telefone.$invalid && formlocacao.telefone.$touched,'is-valid': formlocacao.telefone.$valid}" >
+                  </div> 
+
+                   <!--email -->
+                    <div class="form-group col-xs-12 col-md-12">
+                      <label >E-mail *</label>
+                      <input type="text" capitalize class="form-control" name="email" id="email" ng-model="email">
+                    </div>
+                  <!--cep -->
+                  <div class="form-group col-xs-12 col-md-6">
+                    <label >Cep:</label>
+                   <!-- <input type="text" capitalize class="form-control" name="cep" id="cep" ng-model="cep" ui-br-cep-mask ng-class="{'is-invalid': formlocacao.cep.$invalid && formlocacao.cep.$touched,'is-valid': formlocacao.cep.$valid}" required ng-change="getAddressByCep();">
+      -->
+                     <input type="text" class="form-control inputBuscar" id="cep" name="cep" autofocus ng-model="buscar.cep" ui-br-cep-mask ng-change="buscaCep(buscar.cep)"/>
+                  </div>
+
+                    <!--uf -->
+                  <div class="form-group col-xs-12  col-md-6" ng-class="{ 'is-invalid' : formlocacao.uf.$invalid && !formlocacao.uf.$pristine }">
+                   <label for="uf">UF *</label>
+                  <select class="form-control" name="uf" id="uf" ng-model="uf" ng-class="{'is-invalid': formlocacao.uf.$invalid && formlocacao.uf.$touched,'is-valid': formlocacao.uf.$valid}" required>
+                     <option value="">SELECIONE</option>
+              <!--  <option value="AC">Acre</option>
+               <option value="AL">Alagoas</option>
+               <option value="AP">Amapá</option>
+               <option value="AM">Amazonas</option>
+               <option value="BA">Bahia</option>
+               <option value="CE">Ceará</option>
+               <option value="DF">Distrito Federal</option>
+               <option value="ES">Espírito Santo</option>
+               <option value="GO">Goiás</option>
+               <option value="MA">Maranhão</option>
+               <option value="MT">Mato Grosso</option>
+               <option value="MS">Mato Grosso do Sul</option>
+               <option value="MG">Minas Gerais</option>
+               <option value="PA">Pará</option>
+               <option value="PB">Paraíba</option>
+               <option value="PR">Paraná</option>
+               <option value="PE">Pernambuco</option>
+               <option value="PI">Piauí</option>
+               <option value="RJ">Rio de Janeiro</option>
+               <option value="RN">Rio Grande do Norte</option>
+               <option value="RS">Rio Grande do Sul</option>
+               <option value="RO">Rondônia</option>
+               <option value="RR">Roraima</option>
+               <option value="SC">Santa Catarina</option>-->
+               <option value="SP" selected>São Paulo</option>
+               <!--<option value="SE">Sergipe</option>
+               <option value="TO">Tocantins</option>-->
+                   </select>
+                   <p ng-show="formlocacao.uf.$invalid && !formlocacao.uf.$pristine" class="help-block">UF é obrigatório.</p>
+                 </div>
+
+                 <!--cidade-->
+                 <div class="form-group col-xs-12 col-md-12" ng-class="{ 'is-invalid' : formlocacao.cidade.$invalid && !formlocacao.cidade.$pristine }">
+                  <label for="cidade">Cidade *</label>
+                    <select  class="form-control" id="cidade" name="cidade" ng-model="cidade" >
+                      <option ng-repeat="c in comboCidades" ng-value="c.cidade">{{c.cidade}}</option>
+                  </select>   
+                </div>  
+                  <!--
+                  <input type="text" capitalize class="form-control" name="cidade" id="cidade" ng-model="cidade" ng-class="{'is-invalid': formlocacao.cidade.$invalid && formlocacao.cidade.$touched,'is-valid': formlocacao.cidade.$valid}" required onkeypress='return SomenteLetra(event)'>
+                  <p ng-show="formlocacao.cidade.$invalid && !formlocacao.cidade.$pristine" class="help-block" >Cidade é obrigatório.</p>
+                -->
+
+                <!-- bairro -->
+                <div class="form-group col-xs-12 col-md-12" ng-class="{ 'is-invalid' : formlocacao.bairro.$invalid && !formlocacao.bairro.$pristine }">
+                  <label for="bairro">Bairro *</label>
+                  <input type="text" capitalize class="form-control" name="bairro" id="bairro" ng-model="bairro" ng-class="{'is-invalid': formlocacao.bairro.$invalid && formlocacao.bairro.$touched,'is-valid': formlocacao.bairro.$valid}" required onkeypress='return SomenteLetra(event)'>
+                  <p ng-show="formlocacao.bairro.$invalid && !formlocacao.bairro.$pristine" class="help-block" >Bairro é obrigatório.</p>
+                </div>
+
+                <!--Logradouro-->
+                <div class="form-group col-xs-6 col-md-12">
+                 <label >Logradouro:</label>
+                 <input type="text" capitalize class="form-control" name="logradouro" id="logradouro" ng-model="logradouro" ng-class="{'is-invalid': formlocacao.logradouro.$invalid && formlocacao.logradouro.$touched,'is-valid': formlocacao.logradouro.$valid}" required onkeypress='return SomenteLetra(event)'>
+               </div>
+
+                <!--complemento-->
+               <div class="form-group col-xs-6 col-md-6">
+                 <label >Complemento:</label>
+                 <input type="text" capitalize class="form-control" id="complemento" name="complemento" ng-model="complemento" ng-class="{'is-valid': formlocacao.complemento.$valid && formlocacao.complemento.$touched}">
+               </div>
+
+               <div class="form-group col-xs-12  col-md-6" >
+                <label for="numero">Número *</label>
+                <input type="tel" class="form-control" name="numero" id="numero" ng-model="numero" ng-class="{'is-invalid': formUsuario.numero.$invalid && formUsuario.numero.$touched,'is-valid': formUsuario.numero.$valid}" required onkeypress='return SomenteNumero(event)'>
+              </div>
+
+              <div class="form-group col-xs-12 col-md-12 aplicativo">
+                <div class="col-xs-12">
+                  <label >Trabalha por aplicativo:</label>
+                </div>
+                <div class="col-xs-6 col-md-6">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input check1" type="checkbox" id="ifood" name = "aplicativo[]" value="1"  ng-model="ifood1" >
+                    <label class="form-check-label" for="ifood">ifood</label>
+                  </div>
+                </div>
+
+                <div class="form-group col-xs-6 col-md-6">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input check1" type="checkbox" id="rappi" name = "aplicativo[]" value="2"  ng-model="rappi1">
+                    <label class="form-check-label" for="rappi">Rappi</label>
+                  </div>
+                </div>
+
+                <div class="form-group col-xs-6 col-md-6">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input check1" type="checkbox" id="uber" name = "aplicativo[]" value="3"  ng-model="uber1">
+                    <label class="form-check-label" for="uber">Uber Eats</label>
+                  </div>
+                </div>
+
+                <div class="form-group col-xs-6 col-md-6">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input check1" type="checkbox" id="loggi" name = "aplicativo[]" value="4"  ng-model="loggi1">
+                    <label class="form-check-label" for="loggi">Loggi</label>
+                  </div>
+                </div>
+              </div>  
+              <div class="form-group col-xs-12  cadastro " style="padding-left: 15px; ">
+               <button type="submit" class="btn-cadastro" ng-click="enviarCadastro(4);"  ng-show="!cadTrue">Enviar Cadastro</button>
+               <span class="msn-txt"></span>
+             </div>
+           </div>
+         </form>
+          <!--  <div class="row">  
+                <div class="form-group col-md-5 col-sm-12 col-xs-12" style="position: relative;top: 10px;">
+                    <div class="g-recaptcha" data-sitekey="6LeIricTAAAAACqJbFWyJ4Y9GTH0CEHlnzSFIHSx"></div>
+                </div>
+            </div>-->
+            </div>
+           
+           <!-- <script src='https://www.google.com/recaptcha/api.js'></script>-->
+           <!--<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>-->
+        </div>
+
+      </div> 
+    </div>
+  </main>
+</section>
+
+
+<script>
+  /* funcao banner desktop  abre e fecha  */
+  function stepbanner(id){
+    if(id == 1 ){
+
+      $('.bike').hide(); 
+      $('.moto').hide();
+      $('.buscaentrega').html();
+      $('.buscaentrega').fadeIn();
+
+    }else if(id == 2 ){
+
+      $('.bike').hide();
+      $('.buscarestaurantee').html();
+      $('.buscarestaurantee').fadeIn();
+
+    }else if(id == 3){
+
+      $('.moto').hide(); 
+      $('.buscafarmaciaa').html( );
+      $('.buscafarmaciaa').fadeIn();
+
+    }else if (id == 5){
+
+      $('.moto').fadeIn(); 
+      $('.logo').fadeIn();
+      $('.bike').fadeIn();
+      $('.buscafarmaciaa').hide();
+      $('.buscarestaurantee').hide();
+
+    }
+
+        //funcao  mobile quando clicar no banner  automaticamente  ele vai subir ao topo
+        $(document).ready(function() {
+          $('.price').click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrolltop: 0},  0);
+            event.stopPropagation();
+          });
+        });
+      }
+
+      function SomenteNumero(e) {
+        var tecla = (window.event) ? event.keyCode : e.which;
+        if ((tecla > 47 && tecla < 58)) return true;
+        else {
+          if (tecla == 8 || tecla == 0) return true;
+          else return false;
+        }
+      }
+      function SomenteLetra(e) {
+        var tecla = (window.event) ? event.keyCode : e.which;
+        if ((tecla > 47 && tecla < 58)) return false;
+        else {
+          if (tecla == 8 || tecla == 0) return true;
+          else return true;
+        }
+      }
+
+      $(function(){
+        $("[data-toggle='bottom']").click(function(){
+          $("html, body").animate({ scrollTop: $(document).height() }, );
+        });
+      });
+
+
+    </script>
+
+    <style type="text/css">
+
+   /* .alertify-notifier .ajs-message{
+      background: red !important;
+      border: 1px solid red !important;
+    }*/
+
+    .alertify.success{
+       background: red !important;
+      border: 1px solid red !important;
+    }
+
+    .alertify.error{
+       background: green !important;
+      border: 1px solid green !important;
+    }
+
+    label {
+      display: inline-block;
+      max-width: 100%;
+      margin-bottom: 0px !important;
+      font-weight: bold;
+    }
+
+    p {
+      margin: 0 0 0;
+    }
+    .diariaa p{
+      margin-bottom: -4px !important;  
+      padding: 0px;
+      color: #ccc;
+      font-size: 12px !important;
+    }
+
+    .valores{
+      font-weight: 300;
+      font-size: 15px;
+    }
+
+    .moto  {
+      padding-top: 25px;
+      
+    }
+    .bike  {
+      padding-top: 25px;
+    }
+
+    .container-fluid{
+      padding:0px;
+      margin:0px;
+    }
+
+    .btnenviar button{
+      margin-top: 3vh; 
+      margin-bottom: 20vh ; 
+    }
+
+    .aplicativo label{
+      margin-top: 5px;
+    }
+    .cadastro button{
+      background: #4266AE;
+    }
+    .form1 label{
+      font-size: 15px !important
+    }
+    .form2 label{
+      font-size: 15px !important
+    }
+    .form-control {
+      display: block;
+      width: 100%;
+      height: 25px;
+      padding: 0px 12px !important;
+    }
+
+    .buscarestaurantee{
+      padding-top: 10px;
+      padding-left: 25px;
+      padding-right: 25px;
+      height: 100vh;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      white-space:nowrap;
+    }
+
+    .buscafarmaciaa{
+      padding-top: 10px;
+      padding-left: 25px;
+      padding-right: 25px;
+      height: 100vh;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      white-space:nowrap;
+    }
+    .buscarestaurantee label{
+      font-size: 25px;
+    }
+    .buscafarmaciaa label{
+      font-size: 25px;
+    }
+    .buscafarmaciaa {
+      background: #ccc;
+      display: none;
+      min-height: max-content !important;
+    }
+    .buscafarmaciaa{
+      background-color: #4266AE;
+      display: none;
+    }
+
+    .diaria h1{
+      display: -webkit-inline-box !important;
+    }
+    .diaria p{
+      padding-left: 15px;
+      display: inline-block !important;
+      line-height: 1em;
+      color: #ccc;
+      font-size: 10px !important;
+      margin: 0px;
+    } 
+
+    #desktop{
+      display: block;
+    } 
+
+    #mobile{
+      display: none;
+    } 
+
+    .mt-5, .my-5 {
+      margin-top: 22rem!important;
+      margin-bottom: 0px !important;
+      color: #fff;
+      font-size: 27px !important;
+      line-height: 1em;
+      font-weight: 600;
+      font-family: sans-serif !important;
+    }
+
+    .mt-6{
+      margin-top: 0px !important;
+      color: #fff;
+      font-size: 25px !important;
+      font-weight: 400;
+      font-family: sans-serif !important;
+    }
+
+    .container{
+      width: 450px;
+    }
+    .flex{
+      color: #FF7F00;
+      font-size: 31px;
+      line-height: 1em;
+      letter-spacing: -1px;
+      font-weight: 600;
+    }
+    .lead{
+      line-height: 1.3em;
+      font-size: 13px !important;
+      font-family: sans-serif !important;
+    }
+
+    button {
+      color: #fff;
+      border-radius: 20px;
+      background: #FF7F00;
+      border: 0px;
+      padding: 10px;
+    }
+
+    hr {
+      margin-top: 5px !important;
+      margin-bottom: 5px !important;
+      border: 0;
+      border-top: 1px solid #eeeeee;
+    }
+
+    .buscarestaurantee {
+      background-color: #ccc;
+      display: none;
+      min-height: auto !important;
+    }
+
+    .buscarestaurantee a i{
+     color: #666 !important;
+     margin-left: 10px;
+     font-size: 20px ;
+   }
+
+   .buscafarmaciaa{
+    background: #ccc;
+    display: none;
+    min-height: auto !important;
+  }
+
+  .buscafarmaciaa a i{
+    color: #666 !important;
+    margin-left: 10px;
+    font-size: 20px ;
+  }
+
+  .form-group {
+    margin-bottom: 5px !important;
+  }
+
+  form{
+    font-family: sans-serif !important;
+    font-size: 12px;
+  }
+
+  .display-4{
+    color: white;
+    margin: 0px;
+    color:#FF7F00; 
+    font-weight: 800; 
+    font-family: Roboto;
+  }
+
+  .instruçao p{
+    margin: 5px;
+  }
+  .lead{
+   color: white;
+ }
+ .moto{
+  height: 100vh;
+  text-align: left;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-family: Roboto;
+}
+
+.bike{
+  height: 100vh;
+  text-align: left;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-family: Roboto;
+}
+
+.bannerazul{
+  background-image: url(../images/locacao/teste.png);
+  min-height: 95vh;
+  position: relative;
+  background-size: cover;
+  background-position: center top;
+  margin-right: 80px;
+  background-repeat: no-repeat; 
+  z-index: 0 !important;
+}
+
+.logo{
+ margin-top: 0px !important;
+ text-align: left !important;
+}
+
+    /*.logo img{
+      padding-top: 20px !important;
+      margin-left: 0px; 
+      }*/
+
+      .logo img {
+        padding-top: 25px !important;
+        position: relative;
+        top: 35px;
+        margin-left: 60px;
+
+      } 
+
+      .app{
+       padding: 0px !important; 
+       margin: 0px !important;
+       font-size: 25px !important;
+     }
+
+     .whats{
+      color: #fff;
+      font-size: 30px;
+      font-weight: 600;
+      padding: 0px !important;
+    }
+
+    .whats img{
+      padding-top: 0px !important;
+      position: relative !important;;
+      top: 0px !important;
+      width:30px !important;
+      margin-left: 5px !important;
+      margin-bottom: 0px !important; 
+    }
+
+    .whats span{
+      font-weight: 600;
+    }
+
+    .tel{
+      font-size: 24px;
+      font-weight: 300 !important;
+    }
+
+    .page-content2{
+      display: none;
+    }
+
+    .page-content{
+      display: block;
+    }
+
+    @media all and (max-width: 500px) {
+      .buscarestaurantee a i{
+        margin-left: 30px !important;
+      }
+      .buscafarmaciaa a i{
+       margin-left: 30px !important;
+     }
+
+     .btnenviar button{
+      margin-top: 4vh !important;
+      margin-bottom: 5vh !important; 
+    }
+
+    .buscarestaurantee {
+
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    .btn2{
+      margin-top: 3vh;
+    }
+    .buscafarmaciaa {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    .buscarestaurantee {
+      background-color: #ccc;
+      display: none;
+      min-height: auto !important;
+    }
+
+    .alugue{
+      padding-top: 5vh;
+    }
+    .mt-5, .my-5 {
+       margin-top: 22rem!important;
+    }
+
+    .whats{
+      padding: 15px !important;
+    }
+
+    .bannerazul{
+     background-size:  cover;
+     margin-right: 0px;
+     background-position: unset !important;
+   }
+
+   .logo img {
+    top: 35px;
+    margin-left: 20px !important;
+  }
+
+  .container {
+    width: 374px ;
+  }
+  .moto{
+    min-height: 136vh !important;
+    padding-top: 10px;
+    padding-left: 40px;
+    padding-right: 40px;   
+  }
+
+  .bike{
+    min-height: 136vh !important;
+    padding-top: 10px;
+    padding-left: 40px;
+    padding-right: 40px;    
+  }
+
+  .price .purchase {
+    background: #00b0cd;
+    background-size: 15px;
+    color: #fff;
+    font-family: Roboto;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: '';
+    margin: '';
+  } 
+
+   .mt-5, .my-5 {
+        font-size: 27px !important;
+      }
+      .mt-6{
+        font-size: 25px !important;
+      }
+
+  @media all and (max-width: 320px) {
+      .bike {
+        margin-top: 10vh !important;
+      }
+      .container {
+        width: 328px !important;
+      }
+      .mt-5, .my-5 {
+        font-size: 23px !important;
+      }
+      .mt-6{
+        font-size: 18px !important;
+      }
+
+  }
+
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+

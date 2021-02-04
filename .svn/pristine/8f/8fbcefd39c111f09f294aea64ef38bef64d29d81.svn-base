@@ -1,0 +1,65 @@
+<!-- Content Header (Page header) -->
+<section class="content-header titulo">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12  locacao">
+				<h1>
+					Minhas Locações Ativas
+					<hr>
+				</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-10" ng-if="listaContratosAtivos.length > 0">
+
+				<div class="col-md-6 bloco1" ng-repeat="l in listaContratosAtivos">
+					<div class="col-md-12 borda-cinza">
+						<div class=" col-md-6">
+							<img src="../images/home/{{l.tipoVeiculo}}-{{l.idModelo}}.png" >
+							<div class="col-md-12 nomeproduto" >
+								<label>{{l.modeloVeiculo}}</label>
+								<p>{{l.veiculo}}</p>
+							</div>
+						</div>
+						<div class=" col-md-6" >
+							<div class="col-md-6 number" >
+								<label>#{{l.id}}</label>
+							</div>
+							<div class="col-md-6 status">
+								<label id="AP">{{l.status}}</label>
+							</div>
+							<div class="col-md-12 dias" >
+								<label>{{l.dataInicio}} - {{l.dataFim}}</label>
+								{{l.diasRestantes}} - dia(s) restante(s)
+							</div>
+							<div class="col-md-12 contrato" >
+								<label>VALOR CONTRATO {{l.total - l.valorDesconto | currency}}</label>
+							</div>
+							
+							
+						</div>
+					</div>
+				</div>
+
+				
+			</div>
+		</div>
+	</div>
+</section>
+<style type="text/css">
+	  .content-header{
+  min-height: 100vh !important;
+  width: auto !important;
+}
+@media screen and (max-width: 600px) {
+  .titulo h1{
+  font-weight: bold;
+  font-size: 30px !important;
+}
+   .content-header{
+  min-height: 100vh !important;
+  width: auto !important;
+}
+}
+</style>
+

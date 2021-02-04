@@ -1,0 +1,18 @@
+﻿
+var login = angular.module('franquia', ['ui.router', 'ngResource', 'ngAnimate']);
+
+login.config(["$stateProvider", function ($stateProvider) {
+
+    //login page state
+    $stateProvider.state('franquia', {
+      //  url: '/franquia',
+        templateUrl: 'app/modules/franquia/index.html',
+        controller: 'franquiaCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'franquia'
+        }
+    });
+
+}]);
+

@@ -1,0 +1,113 @@
+
+locacao.controller("locacaoCtrl", ['$rootScope', '$scope', '$state', '$location',  'Flash','$http',
+function ($rootScope, $scope, $state, $location, dashboardService, Flash,$http) {
+$scope.carregando = false;
+
+
+  var url = 'https://www.iptufacil.com.br';
+ //var url = 'http://192.168.0.69:8040';
+ //var url = 'http://192.168.1.215:8025';
+ //  $scope.$watch('form.cep.length', function(count, oldCount){
+ //    if(count == 8){
+ //     $scope.getAddressByCep();
+ //   }
+ // })
+
+
+//******************** EnviarCadastro *********************//
+$scope.enviarCadastro = function(tipoVeiculo){
+	$(".btn-cadastro").hide();
+	$(".msn-txt").html('Enviando dados, aguarde...');
+
+/*Recaptcha*/
+if(grecaptcha.getResponse() == ""){
+	alert('Robôs não podem enviar esse formulários!');
+	return false;
+}
+
+if($scope.formlocacao.$invalid){
+	angular.forEach($scope.formlocacao.$error, function(field){
+		angular.forEach(field, function(errorField){
+			errorField.$setTouched();
+		})
+	});
+
+	alert('danger', 'Por favor, preencha os campos em vermelho!', 'large-text');
+	return false;
+}
+
+//Formulario Carregando 
+$scope.carregando = true;
+	// var nome = $scope.form.nome;
+	// var cpf = $scope.form.cpf;
+	// var rg = $scope.form.rg;
+	// var datanascimento = $scope.form.datanascimento;
+	// var sexo = $scope.form.sexo;
+	// var estadocivil = $scope.form.estadocivil;
+	// var filhos = $scope.form.filhos;
+	// var logradouro = $scope.form.logradouro;
+	// var cep = $scope.form.cep;
+	// var complemento = $scope.form.complemento;
+	// var cnh = $scope.form.cnh;
+	// var validade = $scope.form.validade;
+	// var habilitacao = $scope.form.habilitacao;
+	
+	var app = new Array();
+	
+	//array para checkbox..
+	$(".check1:checked").each(function(){
+            app.push($(this).val());
+    });
+
+        if(app.length < 1){
+            app = '';
+        }
+
+	var deli = app.toString();
+
+	var formulario = '';
+
+	if(tipoVeiculo == 2){
+
+		formulario = new FormData($("form[name='formlocacao-moto']")[0]);
+
+	}else{
+
+		formulario = new FormData($("form[name='formlocacao-bike']")[0]);
+	}
+
+formulario.append('auth','3f018bfb43591ccb2ef46f10de832160');
+formulario.append('app',deli);
+formulario.append('tipoVeiculo',tipoVeiculo);
+
+$.ajax({
+                type: 'POST',
+                url: url+'/ws/goey/rest/public/CadastrarMotocicletas',
+                data: formulario ,
+                processData: false,
+                contentType: false,
+                dataType: 'json'
+
+        }).success(function (response) {
+            
+        	if(response.retorno == 1){
+
+        		$(".btn-cadastro").show();
+				$(".msn-txt").html('');
+				$('.form-cadastro').trigger('reset');
+				alert(response.mensagem);
+
+        	}else{
+
+        		$(".btn-cadastro").show();
+				$(".msn-txt").html('');				
+				alert(response.mensagem);
+
+        	}
+            
+
+         });              
+
+        
+ }
+}]);

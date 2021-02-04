@@ -1,0 +1,129 @@
+﻿<!-- Author: Ranjithprabhu K
+     Date: 24 Dec 2015
+	 Author URL: http://ranjithprabhu.in
+	 Version: 1.0.0
+--->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Goey - Delivery para todos</title>
+  <meta name="description" content="GoeyJá entregas"/>
+  <meta name="keywords" content="GoeyJá entregas"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  
+    <link href="plugins/angular-material/angular-material.min.css" rel="stylesheet" />
+    <!--CSS-->
+    <meta  content="no-cache">
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/nga.all.min.css" rel="stylesheet" />
+    <link href="css/themes.css" rel="stylesheet" />
+    <link href="css/dashboard.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="plugins/bootstrap-slider/slider.css" rel="stylesheet" />
+    <link href="css/flexslider.css" rel="stylesheet" />
+    <link href="plugins/owl-carousel/owl.theme.css" rel="stylesheet" />
+    <link href="plugins/owl-carousel/owl.transitions.css" rel="stylesheet" />
+    <link href="plugins/owl-carousel/owl.carousel.css" rel="stylesheet" />
+</head>
+<body ng-app="app" class="hold-transition sidebar-mini {{theme}} {{layout}}">
+    <!--Scripts-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCt2xiZqA58OcYwli_YwMFoSYcLoiLlHAY&libraries=placeses,visualization,drawing,geometry,places"></script>
+   <!--key=AIzaSyB3flVv3WgMhWkFMJuC5MXAuThelw3gypk-->
+   
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/datepicker-br.js"></script>
+    <script src="plugins/bootstrap-slider/bootstrap-slider.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/funcoes.js"></script>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+
+    <script src="js/angular.min.js"></script>    
+    <script src="js/angular-animate.min.js"></script>
+    <script src="js/angular-ui-router-min.js"></script>
+    <script src="js/angular-resource.js"></script>
+    <script src="plugins/knob/jquery.knob.js"></script>
+    <script src="plugins/Chart.min.js"></script>
+    <script src="plugins/owl-carousel/owl.carousel.min.js"></script>
+    <script src="js/angular-locale_pt-br.js"></script>
+    <!-- Angular Material Library -->
+    <script src="js/angular-material.min.js"></script>
+    <script src="js/angular-aria.min.js"></script>
+    <script src="js/angular-messages.min.js"></script>
+
+    <script src="js/angular-flash.js"></script>
+    <script src="js/ng-map.min.js"></script>
+    <script src="js/angular-sanitize.js"></script>
+    <script src="js/angular-input-masks-standalone.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.13.0.min.js"></script>
+    
+    
+   <script type="text/javascript" src="js/ngAutocomplete.js"></script>
+
+    <!--Common-->
+
+    <script src="app/common/config.js?v=3"></script>
+
+    <!--main app-->
+    <script src="app/app.js?v=3"></script>
+    <script src="app/common/appCtrl.js?v=3"></script>
+    <script src="app/services/apiService.js?v=3"></script>
+    <script src="app/factory/distancia.js?v=3"></script>
+
+    <!--Login Module-->
+    <script src="app/modules/login/loginMgmt.js?v=3"></script>
+    <script src="app/modules/login/loginService.js?v=3"></script>
+    <script src="app/modules/login/loginCtrl.js?v=3"></script>
+
+    <!-- Home Module -->
+    <script src="app/modules/home/homeConfig.js?v=3"></script>
+    <script src="app/modules/home/homeCtrl.js?v=3"></script>
+
+          
+    <!--CadastroUsuario-->
+    <script src="app/modules/cadastro/usuarioConfig.js?v=15"></script>
+    <script src="app/modules/cadastro/usuarioCtrl.js?v=15"></script>
+
+
+    <!--Dashboard Module-->
+    <script src="app/modules/dashboard/dashboardApplication.js?v=3"></script>
+    <script src="app/modules/dashboard/dashboardService.js?v=3"></script>
+   
+        <!-- Controllers -->
+        <script src="app/modules/dashboard/controllers/websites.js?v=3"></script>
+        <script src="app/modules/dashboard/controllers/about.js?v=3"></script>
+        <script src="app/modules/dashboard/controllers/achievements.js?v=3"></script>
+        <script src="app/modules/dashboard/controllers/contact.js?v=3"></script>
+        <script src="app/modules/dashboard/controllers/entrega.js?v=3"></script>
+        <script src="app/modules/dashboard/controllers/bonificacao.js?v=3"></script>
+        <script src="app/modules/dashboard/controllers/gallery.js?v=3"></script>
+        <script src="app/modules/dashboard/controllers/home.js?v=3"></script>
+        <script src="app/modules/dashboard/controllers/portfolio.js?v=3"></script>
+        <script src="app/modules/dashboard/controllers/recent.js?v=3"></script>
+        <script src="app/modules/dashboard/controllers/skills.js?v=3"></script>
+        <script src="app/modules/dashboard/controllers/historico.js?v=3"></script>
+
+    <div flash-message="5000"></div>
+    <ui-view></ui-view>
+    
+</body>
+
+
+</html>
+<script>
+$(document).ready(function(){
+     $( ".datepicker" ).datepicker();
+});
+   
+</script>
+
+<style>
+
+* label{
+    font-weight: normal !important;
+}
+
+</style>

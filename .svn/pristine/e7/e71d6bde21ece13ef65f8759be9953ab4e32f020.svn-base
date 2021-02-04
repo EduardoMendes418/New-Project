@@ -1,0 +1,368 @@
+﻿
+<style type="text/css">
+
+#labelImg {
+  background-color: #3498db;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  margin: 10px;
+  padding: 6px 20px
+}
+
+</style>
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+
+        <h1>
+            Meus Dados
+
+        </h1>
+
+        <ol class="breadcrumb">
+            <li><a><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active">Meus Dados</li>
+        </ol>
+
+    </section>
+
+    <!-- Main content -->
+    <section class="well content">
+
+<form  enctype="multipart/form-data" id="formCadastro" name="formCadastro">
+
+        <div class="row">       
+
+            <div class="col-lg-4 col-xs-12">
+
+                 <div class="form-group">
+                 <label for="razaoSocial">Razão Social</label>
+                    <input type="text" class="form-control" id="razaoSocial" name="razaoSocial" readonly ng-model="editar.razaoSocial" />
+                    
+                 </div> 
+
+            </div>
+        
+            <div class="col-lg-4 col-xs-12">
+
+                 <div class="form-group">
+                 <label for="nomeFantasia">Nome Fantasia</label>
+                    <input type="text" class="form-control" id="nomeFantasia" name="nomeFantasia" readonly  ng-model="editar.nomeFantasia" />
+                 </div>
+
+            </div>
+        
+            <div class="col-lg-4 col-xs-12">
+
+                 <div class="form-group">
+                 <label for="cnpj">CNPJ</label>
+                    <input type="text" class="form-control" id="cnpj" name="cnpj" readonly  ng-model="editar.cnpj" ui-br-cnpj-mask/>
+                 </div>
+
+            </div>        
+                  
+        </div>
+    
+        <div class="row">
+
+            <div class="col-lg-4 col-xs-12">
+
+                 <div class="form-group">
+                 <label for="nomeContato">Nome Contato</label>
+                    <input type="text" class="form-control" id="nomeContato" name="nomeContato"   ng-model="editar.nomeContato" />
+                 </div> 
+
+            </div>
+            
+            <div class="col-lg-4 col-xs-12">
+
+                 <div class="form-group">
+                 <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email" name="email" readonly  ng-model="editar.email" />
+                    <input type="hidden" class="form-control" id="tipoUsuario" name="tipoUsuario" ng-model="editar.tipoUsuario" />
+                    <input type="hidden" class="form-control" id="codUsuario" name="codUsuario" ng-model="editar.codUsuario" />
+                 </div>
+
+            </div>
+            
+            <div class="col-lg-4 col-xs-12">
+
+                 <div class="form-group">
+                 <label for="telefone">Telefone</label>
+                    <input type="text" class="form-control" id="telefone" name="telefone"  ui-br-phone-number ng-model="editar.telefone" />
+                 </div> 
+
+            </div>
+
+        </div>
+    
+        <div class="row">
+
+            <div class="col-lg-4 col-xs-12">
+
+                 <div class="form-group">
+                 <label for="cep">CEP</label>
+                <input type="text" class="form-control" id="cep" name="cep"  ng-model="editar.cep" ng-change="consultaCep(editar.cep)" ui-br-cep-mask/>
+                 </div> 
+
+            </div>
+            
+            <div class="col-lg-4 col-xs-12">
+
+                 <div class="form-group">
+                 <label for="logradouro">Logradouro</label>
+                    <input type="text" class="form-control" id="logradouro" name="logradouro"  ng-model="editar.logradouro" />
+                 </div> 
+
+            </div>
+            
+            <div class="col-lg-3 col-xs-12">
+            
+                 <div class="form-group">
+                 <label for="complemento">Complemento</label>
+                    <input type="text" class="form-control" id="complemento" name="complemento"  ng-model="editar.complemento" />                    
+                 </div> 
+                       
+            </div>
+
+             <div class="col-lg-1 col-xs-12">
+            
+                 <div class="form-group">
+                 <label for="numero">Nº</label>
+                    <input type="text" class="form-control" id="numero" name="numero"  ng-model="editar.numero" />                    
+                 </div> 
+                       
+            </div>           
+                  
+        </div>
+    
+        <div class="row">
+        
+            <div class="col-lg-4 col-xs-12">
+
+                 <div class="form-group">
+                 <label for="bairro">Bairro</label>
+                    <input type="text" class="form-control" id="bairro" name="bairro"  ng-model="editar.bairro" />
+                 </div> 
+
+            </div>
+            
+            <div class="col-lg-4 col-xs-12">
+
+                 <div class="form-group">
+                 <label for="cidade">Cidade</label>
+                    <input type="text" class="form-control" id="cidade" name="cidade"  ng-model="editar.cidade" />
+                 </div>
+
+            </div>
+            
+            <div class="col-lg-4 col-xs-12">
+
+                 <div class="form-group">
+                 <label for="uf">UF</label>
+                    <input type="text" class="form-control" id="uf" name="uf"  ng-model="editar.uf" />
+                 </div>
+
+            </div>        
+                 
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-3 col-xs-12">
+
+                <div class="input-group">
+
+                  <label id="labelImg" for="imgUpload"><i class="fa fa-image"></i> Adicionar Logo</label>
+                  <input type="file" style="display: none" class="form-control"  name="img" id="imgUpload" onchange="showImage()" ng-model="editar.imgUpload">
+                  <input  type="text " name="editImg" id="editImg" ng-model="editar.logo" style="display: none">
+
+                </div>
+
+                <div id="divImg">
+
+                    <table style="border:none">                                       
+                        <tr>
+                            <td>
+                            <img id="showImg" src="https://www.goeyja.com.br/storage/imagens/{{editar.logo}}" style="max-width: 200px;">
+                            </td>
+                        </tr>
+                         <tr>
+                            <td style="text-align: right;">
+                            <i id="trash" style="cursor:pointer" ng-if="editar.logo != 'noimage.jpg'" class="fa fa-trash" onclick="removerImage()" title="Excluir essa imagem"></i>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+            </div> 
+
+        </div>
+
+        <div class="row" style="margin-top: 5%">
+
+            <div class="col-lg-3 col-xs-12">      
+                     
+                <button class="btn btn-info btn-block" id="btnAtualizarDados">Atualizar</button>
+                <img src="images/loader.png"  class="fa fa-refresh glyphicon-refresh-animate" style="display:none" id="img-loader">
+
+            </div>
+
+        </div>
+
+    </form>
+
+    </section><!-- /.content -->
+
+    <section class="well content">
+
+        <div class="row">
+
+            <div class="col-sm-4 col-xl-12">
+
+            <a href="#" data-toggle="modal" data-target="#modal-senha">Alterar Senha</a>
+
+            </div>
+
+            <!-- The Modal -->
+            <div class="modal" id="modal-senha">
+              <div class="modal-dialog">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title">Alterar Senha</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    <h4></h4>
+
+                     <form class="form-inline">                         
+                             
+                          <input type="password" class="form-control" id="novaSenha" placeholder="Nova Senha" name="novaSenha"  ng-model="novaSenha">
+                          
+                          <button type="button" class="btn btn-primary" ng-click="alterarSenha()" id="btn-alterar-senha">Altera Senha</button>
+                          <img src="images/loader.png" id="img-loader-2" class="fa fa-refresh glyphicon-refresh-animate"  style="display:none">
+
+                    </form>
+
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Fechar</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+    </section>
+
+    <script type="text/javascript">
+    
+function showImage() {
+    
+    var oFReader = new FileReader();
+    oFReader.readAsDataURL(document.getElementById("imgUpload").files[0]);
+
+    oFReader.onload = function (oFREvent) {
+
+        document.getElementById("showImg").src = oFREvent.target.result;
+        document.getElementById("trash").style.display = "block";
+    };
+
+};
+
+ function removerImage(){
+    
+    document.getElementById("imgUpload").value = "";
+    document.getElementById("showImg").removeAttribute("src");
+    document.getElementById("trash").style.display = "none";
+
+ }
+
+ $(document).ready(function(){
+
+    $("#btnAtualizarDados").click(function(){
+
+        if($("#cep").val() == ""){
+
+             alert("O campo cep é Obrigatório!");
+             return false;
+        }
+
+        if($("#logradouro").val() == ""){
+
+             alert("O campo logradouro é Obrigatório!");
+             return false;
+        }
+
+        if($("#numero").val() == ""){
+
+             alert("O campo número é Obrigatório!");
+             return false;
+        }
+
+        if($("#bairro").val() == ""){
+
+             alert("O campo bairro é Obrigatório!");
+             return false;
+        }
+
+        if($("#cidade").val() == ""){
+
+             alert("O campo cidade é Obrigatório!");
+             return false;
+        }
+
+        if($("#uf").val() == ""){
+
+             alert("O campo uf é Obrigatório!");
+             return false;
+        }
+
+        $("#btnAtualizarDados").hide(); 
+        $("#img-loader").show();
+
+       var formdata = new FormData($("form[name='formCadastro']")[0]);
+     var link = "http://192.168.0.69:8025/ws/goey/rest/public/alterarEmpresa"; 
+      // var link = "https://www.iptufacil.com.br/ws/goey/rest/public/alterarEmpresa";
+
+       formdata.append("auth", "3f018bfb43591ccb2ef46f10de832160");
+        $.ajax({
+                type: 'POST',
+                url: link,
+                data: formdata ,
+                processData: false,
+                contentType: false,
+                dataType: 'json'
+
+        }).success(function (response) {
+            
+            if(response.retorno == 1){
+                 localStorage.setItem('userEdit',JSON.stringify(response));
+                $("#btnAtualizarDados").show(); 
+                $("#img-loader").hide();
+
+                alert(response.mensagem);              
+
+            }else{
+
+                alert(response.mensagem);
+                $("#btnAtualizarDados").show(); 
+                $("#img-loader").hide();
+
+            }
+
+            });
+
+    })
+
+ })
+
+</script>

@@ -1,0 +1,109 @@
+<!--
+Author: Ranjithprabhu K
+Page Description: Dashboard page
+Date: 05 Jan 2016
+-->
+
+<!-- Content Header (Page header) -->
+<div class="container-fluid" style="">
+    <div class="well" style="">
+        <section class="content-header">
+            <h1>
+                Histórico de Entregas
+
+            </h1>
+            <ol class="breadcrumb">
+                <li><a><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                <li class="active">Histórico de Entregas</li>
+            </ol>
+        </section>
+        <!-- Main content -->
+        <section class="content">
+
+            <div class="row">
+       <!--  <div class="col-md-3">
+            <div class="form-group">
+                <label class="text-center"><small>SELECIONE O PERIODO PARA BUSCA</small></label>
+                <select name="periodo" id="periodoBusca" class="form-control" ng-model="periodo">
+                    <option value="" selected>SELECIONE</option>
+                    <option value="1">Mês Anterior</option>
+                    <option value="2">Dia 1 até data Atual</option>
+                </select>
+            </div>
+        </div> -->
+        <div class="col-md-12">
+            <div class="col-md-4">
+                <label>Periodo de Entregas De:</label>
+                <input type="text" class="form-control datepicker" id="dataIni" ng-model="dataIni" autocomplete="off">
+            </div>
+            <div class="col-md-4">
+                <label>Periodo de Entregas Final:</label>
+                <input type="text" class="form-control datepicker" id="dataFinal" ng-model="dataFim" autocomplete="off">
+            </div>
+            
+</md-content>
+        </div>
+    </div><br/>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-2">
+                <button ng-click="carregarHistorico(periodo);mensagemRetorno = false;" class="btn btn-primary" ng-show="!carregando">Consultar</button>
+                <img src="../images/loader.png" class='fa fa-refresh glyphicon-refresh-animate' ng-show="carregando">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="well" ng-show="mensagemRetorno">
+    <p class="text-center"> Nenhum resultado encontrado! </p>
+</div>
+<div class="well" ng-show="historico">
+    <div class="box-body">
+        <div class="table-responsive">
+            <table class="table no-margin">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Local Retirada</th>
+                        <th>Local Entrega</th>
+                        <th>Tempo Gasto</th>
+                        <th>KM Rodado</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="cF in historico" class="animate-repeat">
+                        <td>{{cF.codEntrega}}</td>
+                        <td>{{cF.origem}}</td>
+                        <td>
+                            <span ng-show="cF.destino1">Destino 1: </span> {{cF.destino1}}<br ng-show="cF.destino1">
+                            <span ng-show="cF.destino2">Destino 2: </span> {{cF.destino2}}<br ng-show="cF.destino2">
+                            <span ng-show="cF.destino3">Destino 3: </span> {{cF.destino3}}<br ng-show="cF.destino3">
+                            <span ng-show="cF.destino4">Destino 4: </span> {{cF.destino4}}<br ng-show="cF.destino4">
+                            <span ng-show="cF.destino5">Destino 5: </span> {{cF.destino5}}
+                        </td>
+                        <td>{{cF.tempoTotal}}</td>
+                        <td>{{cF.distancia}}</td>
+                        <td><span class="label label-success">{{cF.descricaoStatus}}</span></td>
+                    </tr>
+                    <tr>
+                        <td>Total: {{i}}</td>
+                        <td colspan='3'>{{totalTime}}</td>
+                        <td>{{kmTotal}} KM</td>
+                        <!-- <td>{{valorTotal | currency:'R$ '}}</td> -->
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div><!-- /.table-responsive -->
+    </div><!-- /.box-body -->
+</div><!-- /.box -->
+</div>
+
+</div>
+</section><!-- /.content -->
+<!--  <div class="col-md-4">
+                <md-content layout-padding layout-margin>
+                  <md-datepicker ng-model="ctrl.myDate"
+                  md-placeholder="Data Final"></md-datepicker>
+                  </md-content>
+              </div> -->

@@ -1,0 +1,97 @@
+login.controller("investimentoCtrl", ['$rootScope', '$scope', '$state', '$location', 'loginService', 'Flash','apiService','$http',
+	function ($rootScope, $scope, $state, $location, loginService, Flash, apiService,$http) {
+		var vm = this;
+		$scope.proposta = {};
+
+  //var url = 'https://www.iptufacil.com.br';
+  var url = 'http://192.168.1.215:8025';
+  $scope.auth = "3f018bfb43591ccb2ef46f10de832160";
+
+  $scope.proposta.nome;
+  $scope.proposta.email;
+  $scope.proposta.documento;
+  $scope.proposta.telefone;
+  $scope.proposta.tipoVeiculo;
+  $scope.proposta.modeloVeiculo;
+  $scope.proposta.uf;
+  $scope.proposta.cidade;
+  $scope.proposta.bairro;
+  $scope.proposta.logradouro;
+  $scope.proposta.cep;
+  $scope.proposta.complemento;
+  $scope.proposta.numero;
+  $scope.proposta.valor;
+  $scope.proposta.qtd;
+  $scope.proposta.maisVeiculos;
+
+// CADASTRO PROPOSTA INVESTIDOR
+$scope.cadastroProposta = function(){
+
+	$scope.proposta.auth = $scope.auth;
+
+	$("#txt-cadastroProposta").html("Aguarde ...");
+	$("#btn-cadastro-proposta").hide();
+	$(".form-control").removeClass( "input-error" );
+
+	$http({
+		method: 'POST',
+		url: url + "/ws/goey/rest/public/cadastroPropostaInvestidorSite",
+		data: $.param($scope.proposta),
+		headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+	}).success(function (response){     
+
+		$("#txt-cadastroProposta").html("");
+		$("#btn-cadastro-proposta").show();
+
+
+		if(response.retorno == 1){
+
+
+		}else{
+
+
+		}        
+
+	})
+
+}
+
+// Modo Default formulario
+$scope.carroAluguel = function(){
+	$("#bloco1").show();
+	$("#bloco2").hide();
+}
+
+$scope.motoAluguel = function(){
+
+	$("#bloco2").show();
+	$("#bloco1").hide();
+
+}
+
+$scope.simulatorGoey = function(qtd,valor){
+$scope.dados = {};
+$scope.dados.auth = $scope.auth;
+$scope.dados.qtd = qtd;
+$scope.dados.valor = valor;
+
+  $http({
+      method: 'POST',
+      url: url + "/ws/goey/rest/public/txSimulator",
+      data: $.param($scope.proposta),
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+  }).success(function (response){      
+
+    console.log(response.goey);      
+
+     })
+
+}
+
+	//$(".data-locacao").datepicker({minDate:0}); // Calendário
+
+}]);
+
+

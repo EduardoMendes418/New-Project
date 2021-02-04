@@ -1,0 +1,17 @@
+
+var farmacia = angular.module('farmacia', ['ui.router', 'ngResource', 'ngAnimate']);
+
+farmacia.config(["$stateProvider", function ($stateProvider) {
+
+    //farmacia page state
+    $stateProvider.state('farmacia', {
+        url: '/farmacia',
+        templateUrl: 'app/modules/farmacia/farmacia.html',
+        controller: 'farmaciaCtrl',
+        controllerAs: 'vm',
+        data: {
+            pageTitle: 'Farmacia'
+        }
+    });
+
+}]);

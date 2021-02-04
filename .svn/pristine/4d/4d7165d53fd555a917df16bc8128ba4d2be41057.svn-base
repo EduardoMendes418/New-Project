@@ -1,0 +1,824 @@
+﻿
+<style type="text/css">
+
+.form-radio-inline label {
+    margin-left: 5px;
+}
+
+.form-radio-input{
+    margin-left: 5px !important
+
+}
+.disabled {
+    pointer-events:none; 
+    opacity:0.6;         
+}
+</style>
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="finalizacao content-header">
+        <h2>Agora é rapidinho, falta pouco <br> para finalizarmos seu pedido.</h2>
+        <br>
+        <h4>Forma de Pagamento</h4> 
+    </div>
+</div>
+<!-- Development content -->
+<div class="row">
+    <div class="col-xs-12 col-md-8">
+        <ul class="nav  nav-tabs nav-justified" >
+            <li role="presentation"  class="active ">
+                <a id="aPasso1" data-toggle="tab" data-target="#passo1"><span class="badge"></span>&nbsp;
+                    Direto na Entrega 
+                    <div class="col-xs-12 col-sm-12 col-md-12" style="padding: 20px 0px 0px 0px;">
+                            <div class="col-xs-2 col-sm-2 col-md-2 bandeiras" >
+                                <div class="form-group">
+                                    <img src="images/bandeiras/visa.png" style="width: 35px;" class="visa">
+                                </div>
+                            </div> 
+                            <div class="col-xs-2 col-sm-2 col-md-2 bandeiras">
+                                <div class="form-group">
+                                    <img src="images/bandeiras/maste.png" style="width: 35px;" class="maste"> 
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-2 col-md-2 bandeiras">
+                                <div class="form-group">
+                                    <img src="images/bandeiras/elo.png" style="width: 35px;" class="elo">
+                                </div>
+                            </div>
+                            <div class="col-xs-2 col-sm-2 col-md-2 bandeiras">
+                                <div class="form-group">
+                                    <img src="images/bandeiras/express.png" style="width: 35px;" class="express">
+                                </div>  
+                            </div>  
+                            <div class="col-xs-2 col-sm-2 col-md-2 bandeiras">
+                                <div class="form-group">
+                                    <img src="images/bandeiras/hiper.png" style="width: 35px;" class="laranja"> 
+                                </div>        
+                            </div>     
+                            <!--
+                            <div class="col-md-2 bandeiras">
+                                <img src="images/laranja-bandeira.png" style="width: 35px;" class="hiper"> 
+                            </div> 
+                            --> 
+                    </div>
+                
+                </a>
+            </li>
+        </ul>
+
+       
+       <div class="tab-content" id="nav-tabContent">
+            <div class="container-fluid tab-pane fade in active tab-pane-slide  barragem" id="passo1">
+            <div class="tab-content">
+            <div class="row">
+                <br>
+            '<div class="col-lg-12 col-xs-12">
+                    <div class=" col-md-3"></div>   
+                    <div class="col-xs-12 col-md-6">
+                        <div class="form-group"  style="text-align: left"> 
+                              <div class="row" ng-show="horarioOutroApp.show">
+                    
+                                    <div class="col-sm-4 col-md-4 col-xs-12"></div>
+                                    <div class="col-sm-8 col-md-12 col-xs-12 col-xs-offset-1 col-md-offset-1" >
+                                        <div class="row">
+                                            <div class=" col-md-2 col-xs-2 app "  >
+                                                <input type="checkbox" value="8" ng-model="checkOutroApp" class="pull-left" >
+                                            </div>
+                                            <div class="col-md-10 col-xs-10 horario" >
+                                                <span style="font-weight: normal;display: inline-block;">Pagamento Outro App</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-md-offset-1">
+                                            <small style="font-size: 90%; padding-left: 10px !important;">Horário disponível {{horarioOutroApp.dataIni}} - {{horarioOutroApp.dataFinal}}</small>                                          
+                                        </div>
+                                    </div>
+                                                  
+                                <div class="col-sm-4 col-md-4 col-xs-12"></div>
+                            </div>
+
+
+                            <div class="col-xs-12 col-sm-12  col-md-12 cartao" >
+                                <input type="radio" value="3" name="diretoEntrega" id="diretoEntrega" ng-model="pagamentoDiretoTipo" ng-click="checkPagamento = 3;"> 
+                                Pagamento em Dinheiro 
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 cartao"  >
+                                <input type="radio" value="5" name="diretoEntrega" id="diretoEntrega" ng-model="pagamentoDiretoTipo" ng-click="checkPagamento = 2;"> 
+                                Pagamento com Cartão de Crédito
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 cartao" >
+                                <input type="radio" value="7" name="diretoEntrega" id="diretoEntrega" ng-model="pagamentoDiretoTipo" ng-click="checkPagamento = 2;"> 
+                                Pagamento com Cartão de Débito 
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 cartao" ng-show="checkOutroApp">
+                                <input type="radio" value="8" name="diretoEntrega" id="diretoEntrega" ng-model="pagamentoDiretoTipo" ng-click="checkPagamento = 2;" title="Pagamento já efetivado por outra plataforma">
+                                Outro App
+                            </div>
+                               
+                        </div>
+                    </div>   
+                    <div class="col-md-3"></div>    
+                </div>
+            </div>'
+
+                <!--bloco nome e telefone-->
+            <div class="row" style="margin-top: 2% !important">
+                <div class="col-sm-4 col-xs-12 "></div>
+                 <div class="col-lg-4 col-xs-12">
+
+                     <div class="form-group">
+                     <label for="nomeCliente">Nome Cliente *</label>
+                        <input type="text" class="form-control" id="nomeCliente" name="nomeCliente"  ng-model="nomeCliente"  required/>
+                     </div> 
+
+                </div>
+                <div class="col-sm-4 col-xs-12 "></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 col-xs-12 "></div>
+                <div class="col-lg-4 col-xs-12">
+
+                     <div class="form-group">
+                     <label for="telefone">Telefone Cliente *</label>
+                        <input type="text" class="form-control" id="telefone" name="telefone"  ng-model="telefone" ui-br-phone-number  required />
+                     </div> 
+
+                </div>
+                <div class="col-sm-4 col-xs-12 "></div>
+            </div>
+       
+            <div class="row">
+                <div class="col-sm-4 col-xs-12"></div>
+
+             <div ng-if="checkPagamento == 3">
+
+                <div class="row">                
+                  
+                    <div class="col-md-12 col-sm-4 col-xs-12" style="margin-top:30px !important;">
+                        <!-- <div class="col-md-12"> -->
+                          <div class="col-sm-4 col-xs-12 col-md-3"></div>
+                       
+                       <!-- <div class="form-group">                                 -->
+                               
+                        <div class="col-xs-12  col-md-6">
+                            <div style="margin-top:50px !important;">
+                                <div class="form-group deseja">
+                                    Deseja Troco?
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <div class="col-xs-6 col-md-6" style="text-align: center" >
+                                        <input type="radio" value="1"  name="precisaTroco" id="precisaTroco"  ng-click="inputTroco = true;" style="margin-right:5px !important;">Sim
+                                    </div>
+
+                                    <div class="col-xs-6 col-md-6" style="text-align: center">
+                                        <input type="radio" value="2" name="precisaTroco" id="precisaTroco" ng-click="inputTroco = false; valorTroco = 0;" style="margin-right:5px !important;" checked="">Não
+                                    </div>
+                                </div>
+
+                                <div class="form-group row" ng-show="inputTroco">
+                                    <div class="col-xs-12 col-md-12">
+                                        <div class="form-group selecionou">
+                                            Você selecionou pagamento em dinheiro, para receber seu troco, por favor digite o valor do pagamento abaixo.
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-md-12">
+                                        <div class="form-group" style="text-align: center; padding-top: 15px;">
+                                            <input type="text" id="valorTroco" ng-model="valorTroco" title="Digite apenas número" ui-money-mask="2" size="5">
+                                        </div>
+                                    </div>
+            
+                                </div>
+                                
+                                <!-- cpf  dinheiro sim ou nao cpf    -->
+                                <div class="form-group row" >
+                                    <div class="col-xs-12 col-md-12"  >
+                                        <div class="col-xs-12 col-md-12" style="color: #000; font-weight: 800;padding: 0px; text-align: center" ng-show="true">
+                                            <div class="form-group" >
+                                                <p>CPF/CNPJ na nota fiscal   
+                                                    <i class="fa fa-plus-circle"  ng-click="inputcpf = true;"  style="margin-left: 10px; font-size: 15px;"></i>
+                                                    <i class="fa fa-minus-circle" ng-show="inputcpf"  ng-click="inputcpf = false;" style="margin-left: 10px; font-size: 15px;"></i>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 col-md-8 col-md-offset-2 " style="padding-left: 27px;" ng-show="inputcpf" ng-show="true" >
+                                            <div class="form-group ">
+                                                <input type="text" class="form-control "  ng-model="cpfCnpj" ui-br-cpfcnpj-mask  placeholder="CPF/CNPJ" style="font-size: 12px !important">
+                                            </div> 
+                                        </div>
+
+                                         <div class="col-xs-12 col-md-12">
+                                            <div class="form-group" >    
+                                                <div class="col-md-12 col-md-offset-2">
+                                                  <input type="button" class="btn btn-info col-xs-12 col-md-8"  ng-click="finalizaPagamentoDinheiro(cpfCnpj);" value="Solicitar">       
+                                                </div>
+                                            </div>
+                                         </div>   
+                                         
+                                    </div>
+                                               
+                                </div>
+                              
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-md-3 col-md-12"></div>
+
+                        <!-- </div> -->
+
+                    </div>
+
+                    
+
+                </div>
+
+            </div>
+             <div class="row">
+                    <div class="col-xs-12 col-md-12">
+                    <div class="col-xs-12 col-md-3"></div>
+                    <div class="col-xs-12 col-md-6" ng-if="checkPagamento == 2" style="margin-top:30px !important; text-align: center">
+                        <div class="form-group">
+
+                        <!-- cpf  dinheiro sim ou nao cpf   -->
+                            <div class="col-xs-12 col-md-12" style="color: #000; font-weight: 800;padding: 0px; text-align: center"  ng-show="true">
+                                <div class="form-group"  ng-show="true">
+                                    <p>CPF/CNPJ na nota fiscal 
+                                        <i class="fa fa-plus-circle"  ng-click="inputcpf = true;"  style="margin-left: 10px; font-size: 15px;"></i>
+                                        <i class="fa fa-minus-circle" ng-show="inputcpf"  ng-click="inputcpf = false;" style="margin-left: 10px; font-size: 15px;"></i>
+                                    </p>
+                                </div>
+                                <div class="col-xs-12 col-md-2"></div>
+                                <div class="col-xs-12 col-md-8 classbarracpf" ng-show="inputcpf"  >
+                                    <div class="form-group ">
+                                        <input type="text" class="form-control "  ng-model="cpfCnpj" ui-br-cpfcnpj-mask  placeholder="CPF/CNPJ" style="font-size: 12px !important">
+                                    </div> 
+                                </div>
+                                <div class="col-xs-12 col-md-2"></div>
+                            </div>
+                            <input type="button" value="Solicitar" style="width: 231px !important;" class="btn btn-info " ng-click="finalizaPagamentoDinheiro(cpfCnpj);">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-3"></div>
+                </div>
+            </div>
+        </div> 
+          
+
+
+    </div>
+</div>
+</div>
+</div>
+     <!-- **************** 
+        CARRINHO DESKTOP
+        **************-->
+    <div class="carrinho-desktop col-md-4"  style="padding-right: 15px !important;">
+        <div class="col-xs-12 col-sm-12 col-md-12  panel panel-default">
+                <div class="panel-heading">
+                    <img  src="images/lista-produtos/carrinho.png" alt="25px" height="25px" class="img-responsive">
+                    <p> Seu Pedido </p>
+                </div>
+
+                <div class="panel-body">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bebook" id="bebook"  > 
+                        <div class="row" ng-repeat="y in listarItens  track by $index" class="{{'tr'+ y.cod}}" 
+                            style="border-bottom: 1px solid #f4f4f4 !important; padding-bottom: 5px; padding-top: 5px; padding-left: 0%;
+                            padding-right: 4%; "  data-spy="scroll" data-target="#navbar-example3" data-offset="0" >
+                            
+                            <div class="col-md-12">
+                                <div class="row">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="padding-left: 0px;">
+                                    <input class="inputValor1" type="text"  readonly ng-model="qtd" ng-value="{{y.qtd}}" placeholder="{{y.qtd}}" style="text-align:center;margin-top: 5px; width:15px;border: none;position: relative;
+                                        bottom: 2px;"/>
+                                    <span>X</span>
+                                </div>
+                                
+                                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                                    <div class="row">
+                                        <span title="{{y.produto}}" class="form-group" style="font-size:95%; color: #000; font-weight: 800;" >{{y.produto }}</span>
+                                    </br>
+                                    </div> 
+
+                                    <div class="row">
+                                        <span ng-if="y.complemento != ''" class="form-group" ng-repeat="comp in y.complemento" style="font-size:80%; color: #717171;  font-weight: roboto;">{{comp.nome}},</span>
+                                    </br>
+                                        <span ng-if="y.obs != ''" style="color:#000; font-weight: 800" >Obs: <label  style="color: #4266AE">{{y.obs}}</label></span>
+                                    </div>
+
+                                <!--<div style="color: red">
+                                        <span  aria-hidden="true" title="Excluir" style="margin-left: 0px" ng-click="minus(y.id)"> Remover</span>
+                                    </div>-->
+                                </div>
+
+                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="form-group" 
+                                style=" color: #4266AE;font-weight: 800;margin-top: 5px; text-align: right;padding-right: 0px;">
+                                    <div class="row">
+                                        <span>{{y.valorTotalComplemento | currency:"R$ "}}</span>
+                                    </div>
+                                    
+                                </div>
+                                </div>
+                            </div>
+
+                            </div>   
+                    </div> 
+
+                    <div class="row"  style="background: #fff; ">
+                        <div>
+                            <div class="col-sm-6 col-md-9 textCart fontSize  sub"  style="color: #000;font-weight: 800; margin-top: 3vh;" >Subtotal:</div>        
+                            <div class="col-sm-6 col-md-3 text-right" id="subtotal" style="margin-top: 3vh;">
+                                <span style="font-size:100%; color: #4266AE; font-weight: 800;  ">{{sub_total | currency:"R$ "}}</span>
+                            </div>
+                                    
+                            <div class="col-sm-6 col-md-9 ">Taxa de entrega:</div>                         
+                            <div class="col-sm-6 col-md-3 text-right" >
+                                <span style="font-size:100%">{{frete | currency:"R$ "}}</span>
+                            </div>
+                                
+                            <div class="col-sm-6 col-md-9" style="color: #000;font-weight: 800;" >Total:</div>
+                            <div class="col-sm-6 col-md-3 text-right font" id="taxaEntrega"  ng-show="somaTotal">
+                                <span style="font-size:100%; color: #FF6C00">{{somaTotal | currency:"R$ "}}</span>
+                            </div>
+                        </div>       
+                    </div>
+                    
+                    <div class="row">
+                        <div class=" col-md-12 entrega" style="margin-top: 2vh">
+                            <span>Endereço de Entrega:</span>
+
+                            <div>
+                                <span style="color:#000">{{endereco_entrega}}</span>
+                            </div>
+
+                            <div>
+                                <span style="color:#000" ng-show="complemento">{{complemento}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+
+
+
+    
+
+    <!-- R. Inês de Castro, 515 - Taquaral, Campinas - SP, 13075-370 -->
+    <!-- FORM CARTAO 
+    <div id="passo3" class="container-fluid tab-pane fade " role="tabpanel" ng-form="form">
+        <div class="row " >
+            <div class="col-md-12" style="margin-top:40px !important;">
+                <div class="col-md-12">
+                    <h4 class="text-center">Efetuar Pagamento</h4>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-12 text-center wow fadeIn bandeiras-desktop col-md-offset-3" style="visibility: visible; animation-name: fadeIn;">
+                            <div class="row">
+                                <div class="col-md-1 col-sm-2 col-xs-2 bandeira visa">
+                                    <div class="form-group">
+                                         <img src="images/visa.png" style="width: 60px;" class="visa"> 
+                                    </div>
+                                </div>
+                                <div class="col-md-1 col-sm-2 col-xs-2 bandeira maste">
+                                    <div class="form-group">
+                                         <img src="images/maste.png" style="width: 55px;" class="maste">  
+                                    </div>
+                                </div>
+                                         <div class="col-md-2 col-sm-3 col-xs-2 bandeira maestro">
+                                            <img src="images/maestro.png" > 
+                                        </div> 
+                                        <div class="col-md-1 col-sm-2 col-xs-2 bandeira elo">
+                                            <div class="form-group">
+                                                 <img src="images/elo.png" style="width: 60px;padding-top: 15px;" class="elo"> 
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 col-sm-2 col-xs-2 bandeira express">
+                                            <div class="form-group">
+                                                 <img src="images/express.png" style="width: 50px;" class="express"> 
+                                            </div>  
+                                        </div>  
+                                        <div class="col-md-1 col-sm-2 col-xs-2 bandeira laranja">
+                                            <div class="form-group">
+                                                 <img src="images/hiper.png" style="width: 60px;padding-top: 15px;" class="laranja">  
+                                            </div>        
+                                        </div>        
+                                        <div class="col-md-1 col-sm-2 col-xs-2 bandeira hiper">
+                                             <img src="images/laranja-bandeira.png" style="width: 50px;" class="hiper">  
+                                        </div> 
+                                    </div>         
+                                </div>
+                            </div>
+                            <br/>
+
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 col-xs-12 col-md-offset-3">
+                                    <div class="form-group">
+                                        <span style="font-family:'Roboto' !important;font-weight:500 !important;">
+                                            Valor Produto - {{total | currency}}<br/>
+                                            Entrega - {{frete | currency}}<br/>
+                                            Total - {{valorProdutoFrete  | currency}}<br/><br/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 col-xs-12 col-md-offset-3">
+                                    <div class="form-group">
+                                        <label>Número do Cartão</label>
+                                        <input type="text" id="numeroCartao" placeholder="Digite Apenas Número" class="form-control bordaInput" maxlength="16" ng-maxlength="16" ng-minlength="16" required onkeypress='return SomenteNumero(event)'
+                                        ng-model="cartaoCredito.numCartao" name="numCartao" ng-class="{'is-invalid': form.numCartao.$invalid && form.numCartao.$touched,'is-valid': form.numCartao.$valid}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-3">
+                                    <label class="text-center">Validade</label><br/> 
+                                    <div class="row">
+
+                                            <div class="col-md-6 col-sm-6 col-xs-6 ">
+                                                <div class="form-group">
+                                                    <input type="text" name="mes" class="form-control" placeholder="Mês" maxlength="2" ng-model="cartaoCredito.mes"
+                                                    required onkeypress='return SomenteNumero(event)' 
+                                                    ng-class="{'is-invalid': form.mes.$invalid && form.mes.$touched,'is-valid': form.mes.$valid}"
+                                                    ng-change="(cartaoCredito.mes > 12) ? (form.mes.$invalid = true) : '';(cartaoCredito.mes > 12) ? (form.$invalid = true) : ''">
+                                                    <p ng-show="form.mes.$invalid && form.mes.$touched" class="" style="color:red;font-size:10px !important;">Digite um valor entre 1-12</p>
+                                                </div>
+                                            </div> 
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" id="inlineFormInputGroupUsername3" placeholder="Ano" maxlength="2" ng-model="cartaoCredito.ano"
+                                                    required onkeypress='return SomenteNumero(event)' name="ano" ng-class="{'is-invalid': form.ano.$invalid && form.ano.$touched,'is-valid': form.ano.$valid}" ng-change="(cartaoCredito.ano < 18) ? form.ano.$invalid = true : '';(cartaoCredito.ano < 18) ?  (form.$invalid = true) : ''">
+                                                    <p ng-show="form.ano.$invalid && form.ano.$touched" class="" style="color:red;font-size:10px !important;">Ano deverá ser maior ou igual ao atual</p>
+                                                </div>
+                                            </div>
+                                    </div> 
+                                </div> 
+                                <div class="col-md-3 col-md-offset-1">
+                                    <label class="text-center">Código de Segurança</label><br/> 
+                                    <div class="row">
+                                          <div class="col-md-8 col-xs-6">
+                                    <div class="form-group">
+
+                                        <input type="text" class="form-control" placeholder="CCV" maxlength="5" ng-model="cartaoCredito.seguranca" required onkeypress='return SomenteNumero(event)' name="seguranca" ng-class="{'is-invalid': form.seguranca.$invalid && form.seguranca.$touched,'is-valid': form.seguranca.$valid}">
+                                    </div>
+                                </div>
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="row">
+
+
+                              
+                            </div>
+                            <div class="row">
+
+                            </div>
+                            <div class="row" style="margin-top: 5%;">
+                                <div class="col-lg-3 col-xs-12 col-md-offset-4 text-center">               
+                                    <div class="form-group">
+
+                                        <input type="button" class="btn btn-info btn-block marginL50" id="btnAgendar" ng-model="btnPagar"  value="Pagar" ng-click="finalizaPagamentoCartao();btnPagar = true;" ng-disabled="form.$invalid;btnPagar"/>
+                                        <img src="../images/loader.png" id="aguarde2" class='fa fa-refresh glyphicon-refresh-animate marginL50' style="display:none;">
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="col-md-3 col-md-offset-3">
+
+                           
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+<script>
+function SomenteNumero(e) {
+    var tecla = (window.event) ? event.keyCode : e.which;
+    if ((tecla > 47 && tecla < 58)) return true;
+    else {
+        if (tecla == 8 || tecla == 0) return true;
+        else return false;
+    }
+}
+
+function SomenteLetra(e) {
+    var tecla = (window.event) ? event.keyCode : e.which;
+    if ((tecla > 47 && tecla < 58)) return false;
+    else {
+        if (tecla == 8 || tecla == 0) return true;
+        else return true;
+    }
+}
+
+function datepicker(e){
+    if(e == 2){
+        $('#dataAgenda').css('display','');
+    }else{
+        $('#dataAgenda').css('display','none');
+    }
+}
+
+$(function () {
+
+    $(".datepicker").datepicker();
+    var today = new Date();
+    var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+
+var yyyy = today.getFullYear();
+if(dd<10){
+dd='0'+dd;
+} 
+if(mm<10){
+mm='0'+mm;
+} 
+
+var today = dd+'/'+mm+'/'+yyyy;
+$(".datepicker").on('change', function () {
+var date = $(this).val();
+if (date < today) {
+alert('Por favor selecione uma data válida!');
+$(this).val('');
+}
+});
+});
+
+
+
+
+</script>
+
+ 
+
+
+<style>
+.app{
+    max-width: 35px;    
+    margin-left: 8px;
+}
+
+.horario span{
+    font-size: 16px; 
+    color: #717171;  
+    padding-left: 0px !important;
+}
+
+.horario{
+    padding-left: 0px !important;
+}
+
+.nav-tabs.nav-justified > .active > a, .nav-tabs.nav-justified > .active > a:hover, .nav-tabs.nav-justified > .active > a:focus {
+    border: 3px;
+    background: #f37a24;
+    color: #fff;
+    height: 53px;
+    padding-top: 15px;
+}
+
+
+.content-wrapper, .right-side {
+    min-height: 100%;
+    background-color: #fff;
+    z-index: 800;
+}
+
+.classbarracpf{
+    padding-left: 7px;
+    padding-right: 7px;
+}
+.row {
+    margin-left: -10px;
+    margin-right: -11px;
+}
+
+.panel-default > .panel-heading {
+    color: #fff;
+    font-weight: roboto;
+    background: #f37a24;
+    border-color: #f37a24;
+    display: block;
+
+}
+
+.panel-heading img{
+    display: inline-block
+}
+
+.panel-heading p{
+    padding-left: 10px;
+    display: inline-block;
+    font-weight: roboto;
+}
+.panel{
+    padding: 0px;
+}
+
+.teste label{
+    font-size: 16px;
+    color: #717171;
+}
+
+.btn-info {
+    background-color: #F37B22 !important;
+    border-color: #F37B22  !important;
+}
+
+.btn-info{
+    background: #F37B22 !important;
+}
+
+.valor{
+    margin-top: 20px;
+    font-size: 16px;
+    color: #717171;
+}
+
+.selecionou{
+    font-size: 17px;
+    text-align: center;
+    color: #717171;
+}
+.deseja{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #717171;
+}
+
+
+.cartao input{
+    margin-top: 10px;
+    margin-right: 5px;
+}
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: -6px 5px 35px 10px;
+}
+
+.bandeiras{
+    padding-left: 5px;
+}
+
+.content-header {
+    position: relative;
+    padding: 15px 13px 0 10px;
+}
+
+.direto{
+    color: #FF6C00;
+    text-align: left !important;
+    font-size: 16px !important;
+}
+
+.pagamento{
+    color: #FF6C00;
+    text-align: left !important;
+    font-size: 16px !important;
+}
+
+.finalizacao  h4{
+    color: #000;
+    font-weight: 800;
+    font-size: 21px;
+
+}
+
+.finalizacao h2{
+    color: #000;
+    font-weight: 800;
+    font-size:26px;
+   
+}
+
+.form-radio-inline label {
+    margin-left: 5px;
+}
+
+.form-radio-input{
+    margin-left: 5px !important
+
+}
+.disabled {
+    pointer-events:none; 
+    opacity:0.6;         
+}
+
+.marginL50{
+    margin-left:50px !important;
+}
+
+
+.cartao{
+ font-size: 16px;
+ color: #717171;
+ border: 1px solid #f4f4f4;
+ padding-left: 50px !important;
+ 
+}
+.cartao input{
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+
+
+.bandeiras{
+    text-align: right !important;
+    padding-top: 10px;
+}
+
+.marginL50{
+    margin-left:50px !important;
+}
+@media only screen and (max-width: 600px) {
+    .app{
+    max-width: 35px;    
+    margin-left: -7px;
+}
+
+.horario span{
+    font-size: 14px; 
+    color: #717171;  
+    padding-left: 0px !important;
+}
+    .cartao {
+    font-size: 14px;
+    color: #717171;
+    border: 1px solid #f4f4f4;
+    padding-left: 30px !important;
+}
+
+
+    .finalizacao h2{
+    color: #000;
+    font-weight: 800;
+    font-size:24px !important;
+   
+}
+
+    .marginL50 {
+        margin-left: 0px !important;
+    }
+    .bandeiras-desktop img {
+        height:70px;   
+        width: 40px;
+    }
+
+    .visa img{
+        width: 100% !important;
+        height: 100% !important;
+        padding-top: 22px !important;
+    }
+    .maste img{
+        width: 100% !important;
+        height: 100% !important;
+        padding-top: 20px !important;
+    }
+    .elo img{
+        width: 100% !important;
+        padding-top: 22px !important;
+        height: 100% !important;
+    }
+
+    .express img{
+        width: 100% !important;
+        height: 100% !important;
+        padding-top: 15px !important;
+    }
+
+    .laranja img{
+        width: 100% !important;
+        padding-top: 25px !important;
+        height: 100% !important;
+    }
+
+    .hiper img{
+        width: 100% !important;
+        height: 100% !important;
+        padding-top: 20px !important;
+    }
+
+}
+.visa img {
+    width: 60px;
+    padding-top: 15px; 
+}
+.pg2 .elo img {
+    width: 60px;
+    padding-top: 15px; }
+    .pg2 .hiper img {
+        width: 60px;
+        padding-top: 15px; }
+/*.bandeiras-desktop .row{
+    margin-left:15px !important;
+    }*/
+</style>

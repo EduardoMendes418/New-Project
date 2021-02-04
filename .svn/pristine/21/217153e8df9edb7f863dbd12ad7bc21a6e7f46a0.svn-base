@@ -1,0 +1,35 @@
+
+
+
+var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'flash','ui.utils.masks',
+    //main modules
+    'login', 'dashboard','home','step','googleAutocomplete','ngMap','empresa','formRestaurante','compras','listaEstabelecimentos','listaProdutos'
+    ,'restaurante','franquia' , 'angular.google.distance','step','cadastro']);
+
+
+app.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function ($stateProvider, $locationProvider, $urlRouterProvider, $modalInstance) {
+
+    //IdleScreenList
+    $stateProvider
+       .state('app', {
+           url: '/app',
+           templateUrl: 'app/common/app.html',
+           controller: 'appCtrl',
+           controllerAs: 'vm',
+           data: {
+               pageTitle: 'step'
+           }
+       });
+     window.onbeforeunload = function () {
+    window.scrollTo(0,0);
+};
+    $urlRouterProvider.otherwise('step');
+    
+    //$urlRouterProvider.otherwise('app/dashboard');
+    //$urlRouterProvider.otherwise('/app/dashboard');
+}]);
+
+// set global configuration of application and it can be accessed by injecting appSettings in any modules
+app.constant('appSettings', appConfig);
+
+

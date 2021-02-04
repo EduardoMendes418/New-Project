@@ -1,0 +1,186 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Goey - Delivery para todos</title>
+    <meta name="description" content="GoeyJá Delivery Para Todos"/>
+    <meta name="keywords" content="GoeyJá Delivery Para Todos"/>
+    <meta content="no-cache">
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta name="google-site-verification" content="9ubuPpXWIJ6e3cgl37rpneZxnPpXMVbWlcQ4IO7KEmc" />
+    <!-- <base href="/"> -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!--favicon-->
+    <link rel="icon" type="image/png" sizes="33x33" href="/images/home/loader.png">
+    
+    <link href="plugins/angular-material/angular-material.min.css" rel="stylesheet" />
+    <!--CSS-->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/site.css?v=43" rel="stylesheet" />
+    <link href="css/style.css?v=43" rel="stylesheet" />
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/nga.all.min.css" rel="stylesheet"/>
+    <link href="css/themes.css" rel="stylesheet"/>
+    <link href="css/dashboard.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="plugins/bootstrap-slider/slider.css" rel="stylesheet"/>
+    <link href="css/flexslider.css" rel="stylesheet" />
+    <link href="plugins/owl-carousel/owl.theme.css" rel="stylesheet" />
+    <link href="plugins/owl-carousel/owl.transitions.css" rel="stylesheet" />
+    <link href="plugins/owl-carousel/owl.carousel.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" media="screen" href="css/timedropper.min.css">
+    <link rel="stylesheet" media="screen" href="css/alertify.min.css">
+    <link rel="stylesheet" media="screen" href="css/themes/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    
+</head>
+<body ng-app="app" class="hold-transition sidebar-mini {{theme}} {{layout}}" >
+    <!--Scripts-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATbqV_9a99v9BIpHyd-yr-xsx-8ndIO7A&region=br&libraries=places"></script>
+    <script src='https://www.google.com/recaptcha/api.js?render=explicit&hl=pt-br'></script>
+
+   <!--key=AIzaSyB3flVv3WgMhWkFMJuC5MXAuThelw3gypk-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="plugins/bootstrap-slider/bootstrap-slider.js"></script>
+    <script src="js/jquery-ui.js"></script>   
+
+    <script src="js/angular.min.js"></script>    
+    <script src="js/angular-animate.min.js"></script>
+    <script src="js/angular-ui-router-min.js"></script>
+    <script src="js/angular-resource.js"></script>
+    <script src="plugins/knob/jquery.knob.js"></script>
+    <script src="plugins/Chart.min.js"></script>     
+    <script src="plugins/owl-carousel/owl.carousel.min.js"></script>
+
+    <script src="app/modules/empresa/empresaConfig.js?v=43"></script>
+    <script src="app/modules/empresa/empresaCtrl.js?v=43"></script>  
+
+    <script src="app/modules/home/homeConfig.js?v=43"></script>
+    <script src="app/modules/home/homeCtrl.js?v=43"></script>       
+
+    <!-- Angular Material Library -->
+    <script src="js/angular-material.min.js"></script>
+    <script src="js/angular-aria.min.js"></script>
+    <script src="js/angular-messages.min.js"></script>
+
+    <script src="js/angular-flash.js"></script>
+    <script src="js/angular-sanitize.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.13.0.min.js"></script>
+    <script src="js/datepicker-br.js"></script>
+    <script src="js/moment.js"></script> 
+    <script src="js/bootstrap-datetimepicker.js"></script>   
+    <script src="js/angular-google-distance.js"></script>
+
+    <script src="js/timedropper.min.js"></script>
+
+    <script type="text/javascript" src="js/angular-input-masks-standalone.js"></script>
+    <script type="text/javascript" src="js/angular-locale_pt-br.js"></script>
+   
+   <script type="text/javascript" src="js/ngAutocomplete.js"></script>
+   <script type="text/javascript" src="js/ng-map.min.js"></script>
+
+    <!--Common-->
+    <script src="app/common/config.js?v=43"></script>    
+
+    <!--main app-->
+    <script src="app/app.js?v=43"></script>
+    <script src="app/common/appCtrl.js?v=43"></script>
+    <script src="app/services/apiService.js?v=43"></script>
+    <script src="app/factory/distancia.js?v=43"></script>
+
+    <!--Login Module-->
+    <script src="app/modules/login/loginMgmt.js?v=43"></script>
+    <script src="app/modules/login/loginService.js?v=43"></script>
+    <script src="app/modules/login/loginCtrl.js?v=43"></script>
+
+    <!--Dashboard Module-->
+    <script src="app/modules/dashboard/dashboardApplication.js?v=43"></script>
+    <script src="app/modules/dashboard/dashboardService.js?v=43"></script>
+   
+    <!-- Controllers -->
+    <script src="app/modules/dashboard/controllers/relatorios.js?v=43"></script>
+    <script src="app/modules/dashboard/controllers/maps.js?v=43"></script>    
+    <script src="app/modules/dashboard/controllers/minhas-entregas.js?v=43"></script>
+    <script src="app/modules/dashboard/controllers/minhas-entregas2.js?v=43"></script>
+    <script src="app/modules/dashboard/controllers/boletos.js?v=43"></script>      
+    <script src="app/modules/dashboard/controllers/home.js?v=43"></script>
+    <script src="app/modules/dashboard/controllers/historico.js?v=43"></script>
+    <script src="app/modules/dashboard/controllers/meus-dados.js?v=43"></script>
+    <script src="app/modules/dashboard/controllers/meus-dados2.js?v=43"></script>          
+    <script src="app/modules/dashboard/controllers/agendar.js?v=43"></script>
+    <script src="app/modules/dashboard/controllers/agendar-estabelecimento.js?v=43"></script>
+    <script src="app/modules/dashboard/controllers/cadastro-produtos.js?v=43"></script>
+    <script src="app/modules/dashboard/controllers/atualizar-produtos.js?v=43"></script>
+    <script src="app/modules/dashboard/controllers/lista-produtos.js?v=43"></script>
+    <script src="app/modules/dashboard/controllers/bordero.js?v=43"></script>
+    <script src="app/modules/dashboard/controllers/pagamento.js?v=43"></script>
+    <script src="app/modules/dashboard/controllers/cardapio.js?v=43"></script>
+    <script src="app/modules/dashboard/controllers/cadastro-categorias.js?v=43"></script>
+
+    <div flash-message="5000"></div>
+
+     <!--Restaurante Module-->
+     <script src="app/modules/restaurante/restauranteMgmt.js?v=43"></script>
+     <script src="app/modules/restaurante/restauranteCtrl.js?v=43"></script>
+
+      <!--Cadastro-->
+      <script src="app/modules/cadastro/usuarioConfig.js?v=43"></script>
+      <script src="app/modules/cadastro/usuarioCtrl.js?v=43"></script>
+     
+     <!--form-Restaurante Module-->
+     <script src="app/modules/formRestaurante/formRestauranteConfig.js?v=43"></script>
+     <script src="app/modules/formRestaurante/formRestauranteCtrl.js?v=43"></script>
+
+    <!--Compras Estabelecimentos-->
+     <script src="app/modules/compras/comprasConfig.js?v=43"></script>
+     <script src="app/modules/compras/comprasCtrl.js?v=43"></script>
+
+     <!--Lista de Estabelecimentos-->
+     <script src="app/modules/compras/listaLojaConfig.js?v=43"></script>
+     <script src="app/modules/compras/listalojaCtrl.js?v=43"></script>
+
+    <!--Lista de Produtos-->
+     <script src="app/modules/compras/listaConfig.js?v=43"></script>
+     <script src="app/modules/compras/listaCtrl.js?v=43"></script>
+
+    <!--step-->
+     <script src="app/modules/step/stepConfig.js?v=43"></script>
+     <script src="app/modules/step/stepCtrl.js?v=43"></script>
+     
+      <!--franquia Module-->
+      <script src="app/modules/franquia/franquiaMgmt.js?v=43"></script>
+      <script src="app/modules/franquia/franquiaService.js?v=43"></script>
+      <script src="app/modules/franquia/franquiaCtrl.js?v=43"></script>
+      <script src="js/alertify.min.js"></script>
+      <script src="js/funcoes.js"></script>
+      <script src="js/angular-filter.js"></script>
+
+      <!--Google Ads-->
+       <script async src="https://www.googletagmanager.com/gtag/js?id=AW-956525515"></script> 
+       <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-956525515');</script>
+    
+    <ui-view></ui-view>
+    
+</body>
+
+
+</html>
+<!-- Global site tag (gtag.js) - Google Analytics 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-130855053-1"></script>
+-->
+
+<!--Global site tag (gtag.js) - Google Analytics  novo-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139039007-2"></script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139039007-2');
+  
+</script>

@@ -1,0 +1,103 @@
+﻿
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Bordero
+        </h1>
+        <ol class="breadcrumb">
+            <li><a><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active">Borderô</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="well content">
+
+        <div class="row">
+            <form class="form-inline">
+                <div class="well" >
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <div class="col-lg-3 col-xs-12">        
+                                <form class="form-inline" role="form">
+                                    <div class="form-group">
+                                        <label for="dataInicio">Dia de:</label>
+                                        <input type="text" class="form-control" id="dataInicio" name="dataInicio" ng-model="filtro.de" ui-number-mask="0" autocomplete="off">
+                                    </div>
+                            </div>
+
+                            <div class="col-lg-3 col-xs-12">
+                                <div class="form-group">
+                                    <label for="dataFim">Dia até:</label>                 
+                                    <input type="text" class="form-control" id="dataFim" name="dataFim" ng-model="filtro.ate" autocomplete="off" ui-number-mask="0"/>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-xs-12">
+                                <div class="form-group">
+                                    <label for="dataFim">Mês/Ano:</label>                 
+                                    <!--input type="text" class="form-control datepicker" id="dataFim" name="dataFim" ng-model="filtro.mesAno" autocomplete="off" /-->
+                                        <select class="form-control"  ng-model="filtro.mesAno">
+                                            <option ng-repeat="x in listaData">{{x.mesAno}}</option>
+                                        </select>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3col-xs-12">
+                                <br class="visible-xs">   
+                                <button  type="button" class="btn btn-info" ng-click="consultarBordero()" >Pesquisar</button>
+                            </div>
+
+                        </div>
+                    </div>  
+                </div>
+            </form>
+        </div> 
+                    <div class="row text-center"><h4 id="msn"></h4></div>
+                    <div class="well" ng-show="lista">
+                        <div class="box-body">
+                            <div class="table-responsive">
+                                <table id="example" class="table no-margin" style="width:100%;margin-top:1% ">
+                                    <thead>
+                                        <tr>                                            
+                                            <th>Data Compra</th>
+                                            <th>Valor Venda</th>
+                                            <th>Troco</th>
+                                            <th>Total</th>
+                                            <th>Taxa Adm</th>
+                                            <th>Valor a Receber</th>                                      
+                                            <th>Detalhe</th>
+                                        </tr>
+                                    </thead>
+                            
+                                <tbody>
+                               
+                                    <tr ng-repeat="l in lista">                                        
+                                        <td>{{l.dataVenda}}</td>
+                                        <td>{{l.valorVenda}}</td>
+                                        <td>{{l.troco}}</td>
+                                        <td>{{l.total}}</td>
+                                        <td>{{l.txAdm}}</td>
+                                        <td>{{l.valorRepasse}}</td>                                       
+                                        <td><a href="#" data-toggle="modal" data-target="#modalDetalhe" ng-click="detalhar(l.id,l.dataAgendamento)">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                        </a></td>
+                                    </tr>
+                                
+                                </tbody>
+                            </table>
+                     </div>
+                    </div>
+                    </div>
+
+  
+</section><!-- /.content -->
+
+<section class="content">
+
+
+    
+</section>
+
+

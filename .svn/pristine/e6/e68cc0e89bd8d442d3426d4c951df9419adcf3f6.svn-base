@@ -1,0 +1,6 @@
+﻿login.controller("loginCtrl", ['$rootScope', '$scope', '$state', '$location', 'loginService', 'Flash','apiService','$http',
+function ($rootScope, $scope, $state, $location, loginService, Flash, apiService,$http) {
+   window.location ="https://goeyja.com.br/#/locacao";
+
+}]);
+

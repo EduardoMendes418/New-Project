@@ -1,0 +1,16 @@
+.content-header-historico {
+	height: 100vh;
+}
+#veiculos input{
+	width: 250px !important;
+}
+
+@media only screen and (max-width: 600px) {
+	#veiculos input{
+		width: 100% !important;
+		}	
+		.content-header-historico {
+			height: auto !important;
+		}
+
+	}
